@@ -5,10 +5,12 @@ import net.i2p.crypto.eddsa.KeyPairGenerator;
 import net.i2p.crypto.eddsa.spec.EdDSANamedCurveTable;
 import net.i2p.crypto.eddsa.spec.EdDSAParameterSpec;
 import net.i2p.crypto.eddsa.spec.EdDSAPrivateKeySpec;
+import net.i2p.crypto.eddsa.spec.EdDSAPublicKeySpec;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
+import java.security.spec.InvalidKeySpecException;
 
 /**
  * This class provides cryptographic utilities for signing content,
@@ -33,6 +35,34 @@ public class CryptoUtils {
             signature.update(hashTwice(content));
             return Utils.bytesToHex(signature.sign());
         } catch (InvalidKeyException | SignatureException | NoSuchAlgorithmException | UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static boolean verifySignature(String message, String publicKeyHex, String signatureHex) {
+        try {
+            // Convert hex strings to byte arrays
+            byte[] publicKeyBytes = Utils.hexToBytes(publicKeyHex);
+            byte[] signatureBytes = Utils.hexToBytes(signatureHex);
+
+            // Create EdDSA public key
+            EdDSAParameterSpec spec = EdDSANamedCurveTable.getByName("Ed25519");
+            EdDSAPublicKeySpec pubKeySpec = new EdDSAPublicKeySpec(publicKeyBytes, spec);
+            EdDSAPublicKey publicKey = new EdDSAPublicKey(pubKeySpec);
+
+            // Initialize the signature verifier
+            EdDSAEngine edDSAEngine = new EdDSAEngine();
+            edDSAEngine.initVerify(publicKey);
+
+            // Update the engine with the message bytes
+            edDSAEngine.update(hashTwice(message));
+
+            // Verify the signature
+            return edDSAEngine.verify(signatureBytes);
+        } catch (InvalidKeyException | NoSuchAlgorithmException | SignatureException e) {
+            e.printStackTrace();
+            return false;
+        } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
     }

@@ -1,3 +1,5 @@
+.github/workflows/ci.yml
+.github/workflows/codeql.yml
 .github/workflows/maven.yml
 .gitignore
 .openapi-generator-ignore
@@ -287,6 +289,8 @@ src/main/java/com/cobo/waas2/auth/OAuth.java
 src/main/java/com/cobo/waas2/auth/OAuthFlow.java
 src/main/java/com/cobo/waas2/auth/OAuthOkHttpClient.java
 src/main/java/com/cobo/waas2/auth/RetryingOAuth.java
+src/main/java/com/cobo/waas2/demo/DemoApplication.java
+src/main/java/com/cobo/waas2/demo/DemoController.java
 src/main/java/com/cobo/waas2/model/AbstractOpenApiSchema.java
 src/main/java/com/cobo/waas2/model/Activity.java
 src/main/java/com/cobo/waas2/model/ActivityAction.java

@@ -71,6 +71,20 @@ Add this dependency to your project's build file:
   }
 ```
 
+### Callback/Webhook Server Demo
+A server demo for callback and webhook was implemented at `src/main/java/com/cobo/waas2/demo`.
+Run this demo with command:
+
+```shell
+mvn spring-boot:run
+```
+
+or
+
+```shell
+./gradlew bootRun
+```
+
 ### Others
 
 At first generate the JAR by executing:
