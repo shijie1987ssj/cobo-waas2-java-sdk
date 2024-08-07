@@ -2,7 +2,7 @@
 
 # CustodialTransferSource
 
-The information about the transaction source.
+The information about the transaction source types `Asset` and `Web3`.
 
 ## Properties
 

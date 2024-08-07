@@ -1,7 +1,7 @@
 # cobo-waas2-java-sdk
 
 Cobo Wallet as a Service 2.0
-- API version: 1.0.0
+- API version: 1.1.0
   - Generator version: 7.6.0
 
 The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo’s WaaS API offering. It enables you to access Cobo’s full suite of crypto wallet technologies with powerful and flexible access controls. By encapsulating complex security protocols and streamlining blockchain interactions, this API allows you to concentrate on your core business activities without worrying about the safety of your assets. The WaaS 2.0 API presents the following key features:
@@ -10,7 +10,7 @@ The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo’s Wa
 - Support for 80+ chains and 3000+ tokens
 - A comprehensive selection of webhook events
 - Flexible usage models for MPC wallets, including [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/introduction) and [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/ucw/introduction)
-- Programmatic control of smart contract wallets such as Safe\\{Wallet\\} with fine-grained access controls
+- Programmatic control of smart contract wallets such as Safe{Wallet} with fine-grained access controls
 - Seamlessly transfer funds across multiple exchanges, including Binance, OKX, Bybit, Deribit, and more
 
 For more information about the WaaS 2.0 API, see [Introduction to WaaS 2.0](https://www.cobo.com/developers/v2/guides/overview/introduction).
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.0.2</version>
+  <version>1.1.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo:cobo-waas2:1.0.2"
+     implementation "com.cobo:cobo-waas2:1.1.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.0.2.jar`
+* `target/cobo-waas2-1.1.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -154,6 +154,8 @@ Class | Method | HTTP request | Description
 *DevelopersWebhooksApi* | [**listWebhookEvents**](docs/DevelopersWebhooksApi.md#listWebhookEvents) | **GET** /webhooks/endpoints/{endpoint_id}/events | List all webhook events
 *DevelopersWebhooksApi* | [**retryWebhookEventById**](docs/DevelopersWebhooksApi.md#retryWebhookEventById) | **POST** /webhooks/endpoints/{endpoint_id}/events/{event_id}/retry | Retry event
 *DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
+*OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get Access Token
+*OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Access Token
 *TransactionsApi* | [**cancelTransactionById**](docs/TransactionsApi.md#cancelTransactionById) | **POST** /transactions/{transaction_id}/cancel | Cancel transaction
 *TransactionsApi* | [**createContractCallTransaction**](docs/TransactionsApi.md#createContractCallTransaction) | **POST** /transactions/contract_call | Call smart contract
 *TransactionsApi* | [**createMessageSignTransaction**](docs/TransactionsApi.md#createMessageSignTransaction) | **POST** /transactions/message_sign | Sign message
@@ -290,13 +292,14 @@ Class | Method | HTTP request | Description
  - [ExchangeTransferDestination](docs/ExchangeTransferDestination.md)
  - [ExchangeTransferSource](docs/ExchangeTransferSource.md)
  - [ExchangeWalletInfo](docs/ExchangeWalletInfo.md)
- - [ExchangeWalletInfoAllOfSubAccounts](docs/ExchangeWalletInfoAllOfSubAccounts.md)
  - [ExtendedTokenInfo](docs/ExtendedTokenInfo.md)
  - [FeeAmount](docs/FeeAmount.md)
  - [FeeGasLimit](docs/FeeGasLimit.md)
  - [FeeRate](docs/FeeRate.md)
  - [FeeType](docs/FeeType.md)
  - [FixedFeeRate](docs/FixedFeeRate.md)
+ - [GetToken200Response](docs/GetToken200Response.md)
+ - [GetToken4XXResponse](docs/GetToken4XXResponse.md)
  - [KeyShareHolder](docs/KeyShareHolder.md)
  - [KeyShareHolderGroup](docs/KeyShareHolderGroup.md)
  - [KeyShareHolderGroupStatus](docs/KeyShareHolderGroupStatus.md)
@@ -341,6 +344,7 @@ Class | Method | HTTP request | Description
  - [PoolDetails](docs/PoolDetails.md)
  - [PoolDetailsAllOfValidatorsInfo](docs/PoolDetailsAllOfValidatorsInfo.md)
  - [PoolSummary](docs/PoolSummary.md)
+ - [RefreshTokenRequest](docs/RefreshTokenRequest.md)
  - [ReplaceType](docs/ReplaceType.md)
  - [RetryWebhookEventById201Response](docs/RetryWebhookEventById201Response.md)
  - [RootPubkey](docs/RootPubkey.md)
@@ -356,6 +360,7 @@ Class | Method | HTTP request | Description
  - [StakingSource](docs/StakingSource.md)
  - [Stakings](docs/Stakings.md)
  - [StakingsValidatorInfo](docs/StakingsValidatorInfo.md)
+ - [SubWalletAssetBalance](docs/SubWalletAssetBalance.md)
  - [TSSGroups](docs/TSSGroups.md)
  - [TSSRequest](docs/TSSRequest.md)
  - [TSSRequestStatus](docs/TSSRequestStatus.md)
@@ -375,7 +380,6 @@ Class | Method | HTTP request | Description
  - [TransactionDestination](docs/TransactionDestination.md)
  - [TransactionDestinationType](docs/TransactionDestinationType.md)
  - [TransactionDetail](docs/TransactionDetail.md)
- - [TransactionDetailAllOfTimeline](docs/TransactionDetailAllOfTimeline.md)
  - [TransactionDetails](docs/TransactionDetails.md)
  - [TransactionEvmContractDestination](docs/TransactionEvmContractDestination.md)
  - [TransactionEvmEip1559Fee](docs/TransactionEvmEip1559Fee.md)

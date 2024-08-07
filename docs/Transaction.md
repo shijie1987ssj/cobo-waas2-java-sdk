@@ -34,8 +34,8 @@ The information about a transaction.
 |**category** | **List&lt;String&gt;** | A custom transaction category for you to identify your transfers more easily. |  [optional] |
 |**description** | **String** | The description for your transaction. |  [optional] |
 |**isLoop** | **Boolean** | Whether the transaction is a Loop transfer. For more information about Loop, see [Loop&#39;s website](https://loop.top/).  - &#x60;true&#x60;: The transaction is a Loop transfer. - &#x60;false&#x60;: The transaction is not a Loop transfer.  |  [optional] |
-|**createdTime** | **Long** | The time when the transaction was created, in Unix timestamp format, measured in milliseconds. |  |
-|**updatedTime** | **Long** | The time when the transaction was updated, in Unix timestamp format, measured in milliseconds. |  |
+|**createdTimestamp** | **Long** | The time when the transaction was created, in Unix timestamp format, measured in milliseconds. |  [optional] |
+|**updatedTimestamp** | **Long** | The time when the transaction was updated, in Unix timestamp format, measured in milliseconds. |  [optional] |
 
 
 

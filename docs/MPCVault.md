@@ -13,7 +13,7 @@ The data for vault information.
 |**name** | **String** | The vault name. |  [optional] |
 |**type** | **MPCVaultType** |  |  [optional] |
 |**rootPubkeys** | [**List&lt;RootPubkey&gt;**](RootPubkey.md) |  |  [optional] |
-|**createTimestamp** | **Long** | The vault&#39;s creation time in Unix timestamp format, measured in milliseconds. |  [optional] |
+|**createdTimestamp** | **Long** | The vault&#39;s creation time in Unix timestamp format, measured in milliseconds. |  [optional] |
 
 
 

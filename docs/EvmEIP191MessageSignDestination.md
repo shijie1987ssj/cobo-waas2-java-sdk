@@ -2,6 +2,7 @@
 
 # EvmEIP191MessageSignDestination
 
+The information about the destination `EVM_EIP_191_Signature`.
 
 ## Properties
 

@@ -12,10 +12,10 @@ The data for key share holder group information.
 |**type** | **KeyShareHolderGroupType** |  |  [optional] |
 |**tssKeyShareGroups** | [**List&lt;TSSGroups&gt;**](TSSGroups.md) |  |  [optional] |
 |**keyShareHolders** | [**List&lt;KeyShareHolder&gt;**](KeyShareHolder.md) |  |  [optional] |
-|**nodeCount** | **Integer** | The number of key share holders in this key share holder group. |  [optional] |
+|**participants** | **Integer** | The number of key share holders in this key share holder group. |  [optional] |
 |**threshold** | **Integer** | The number of key share holders required to approve each operation in this key share holder group. |  [optional] |
 |**status** | **KeyShareHolderGroupStatus** |  |  [optional] |
-|**createTimestamp** | **Long** | The key share holder group&#39;s creation time in Unix timestamp format, measured in milliseconds. |  [optional] |
+|**createdTimestamp** | **Long** | The key share holder group&#39;s creation time in Unix timestamp format, measured in milliseconds. |  [optional] |
 
 
 

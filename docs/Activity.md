@@ -21,8 +21,8 @@ The staking activity.
 |**timeline** | [**List&lt;ActivityTimeline&gt;**](ActivityTimeline.md) | The timeline of the activity. |  [optional] |
 |**fee** | [**TransactionRequestFee**](TransactionRequestFee.md) |  |  [optional] |
 |**status** | **ActivityStatus** |  |  |
-|**createdTime** | **Long** | The time when the activity was created. |  [optional] |
-|**updatedTime** | **Long** | The time when the activity was last updated. |  [optional] |
+|**createdTimestamp** | **Long** | The time when the activity was created. |  [optional] |
+|**updatedTimestamp** | **Long** | The time when the activity was last updated. |  [optional] |
 
 
 

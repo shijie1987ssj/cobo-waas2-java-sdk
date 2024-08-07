@@ -2,7 +2,7 @@
 
 # AssetBalance
 
-The data for token balance information.
+The data for asset balance information.
 
 ## Properties
 

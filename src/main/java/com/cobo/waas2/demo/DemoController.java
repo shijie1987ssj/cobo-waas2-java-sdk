@@ -14,6 +14,8 @@ import java.io.IOException;
 public class DemoController {
     //"DEV": "a04ea1d5fa8da71f1dcfccf972b9c4eba0a2d8aba1f6da26f49977b08a0d2718",
     //"PROD": "8d4a482641adb2a34b726f05827dba9a9653e5857469b8749052bf4458a86729",
+
+    // Replace with the corresponding environment's public key
     public static final String pubKey = "a04ea1d5fa8da71f1dcfccf972b9c4eba0a2d8aba1f6da26f49977b08a0d2718";
     private static final Logger logger = LoggerFactory.getLogger(DemoController.class);
 

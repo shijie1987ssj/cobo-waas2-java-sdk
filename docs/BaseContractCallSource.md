@@ -2,7 +2,7 @@
 
 # BaseContractCallSource
 
-The information about the transaction source.
+The information about the transaction source type `Org-Controlled` and `User-Controlled`.
 
 ## Properties
 

@@ -16,8 +16,7 @@
 |**vaultId** | **String** | The ID of the owning vault. |  |
 |**apikey** | **String** | The API key of your exchange account. |  |
 |**exchangeId** | **ExchangeId** |  |  |
-|**parentWalletId** | **UUID** | The wallet ID of the Main Account associated with the Sub Account. This property is returned only if you are creating or querying an Exchange Wallet (Sub Account). |  [optional] |
-|**subAccounts** | [**List&lt;ExchangeWalletInfoAllOfSubAccounts&gt;**](ExchangeWalletInfoAllOfSubAccounts.md) |  |  [optional] |
+|**mainWalletId** | **UUID** | The wallet ID of the Main Account associated with the Sub Account. This property is returned only if you are creating or querying an Exchange Wallet (Sub Account). |  [optional] |
 
 
 

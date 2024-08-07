@@ -168,7 +168,7 @@ public class Example {
 
 Create project
 
-This operation creates a project.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
+This operation creates a project.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
 
 ### Example
 ```java
@@ -509,7 +509,7 @@ public class Example {
 
 Get project information
 
-This operation retrieves detailed information about a project. &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
+This operation retrieves detailed information about a project. &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
 
 ### Example
 ```java
@@ -712,7 +712,7 @@ public class Example {
 
 List all Cobo key share holders
 
-This operation retrieves a list of all Cobo key share holders and their information.   &lt;Note&gt;When using this operation, &#x60;type&#x60; will only return &#x60;Cobo&#x60; and will never return &#x60;Mobile&#x60; or &#x60;API&#x60;.&lt;/Note&gt; 
+This operation retrieves a list of all Cobo key share holders and their information.   &lt;Info&gt;When using this operation, &#x60;type&#x60; will only return &#x60;Cobo&#x60; and will never return &#x60;Mobile&#x60; or &#x60;API&#x60;.&lt;/Info&gt; 
 
 ### Example
 ```java
@@ -850,7 +850,7 @@ public class Example {
 
 List all projects
 
-This operation retrieves a list of all projects.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
+This operation retrieves a list of all projects.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
 
 ### Example
 ```java
@@ -1142,7 +1142,7 @@ public class Example {
 
 Update project name
 
-This operation updates a project&#39;s name.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
+This operation updates a project&#39;s name.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
 
 ### Example
 ```java

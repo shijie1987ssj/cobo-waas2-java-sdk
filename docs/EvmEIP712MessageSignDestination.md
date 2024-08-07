@@ -2,6 +2,7 @@
 
 # EvmEIP712MessageSignDestination
 
+The information about the destination `EVM_EIP_712_Signature`.
 
 ## Properties
 

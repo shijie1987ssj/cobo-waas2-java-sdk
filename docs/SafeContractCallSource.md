@@ -2,6 +2,7 @@
 
 # SafeContractCallSource
 
+The information about the transaction source type `Safe{Wallet}`.
 
 ## Properties
 
