@@ -28,7 +28,7 @@ import com.google.gson.stream.JsonWriter;
 public enum SmartContractWalletType {
   UNKNOWN(null),
   
-  SAFEWALLET("SafeWallet");
+  SAFE_WALLET_("Safe{Wallet}");
 
   private String value;
 

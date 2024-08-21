@@ -5,6 +5,8 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**checkAddressValidity**](WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity |
+| [**checkAddressesValidity**](WalletsApi.md#checkAddressesValidity) | **GET** /wallets/check_addresses_validity | Check addresses validity |
+| [**checkLoopTransfers**](WalletsApi.md#checkLoopTransfers) | **GET** /wallets/check_loop_transfers | Check Loop transfers |
 | [**createAddress**](WalletsApi.md#createAddress) | **POST** /wallets/{wallet_id}/addresses | Create addresses in wallet |
 | [**createWallet**](WalletsApi.md#createWallet) | **POST** /wallets | Create wallet |
 | [**deleteWalletById**](WalletsApi.md#deleteWalletById) | **POST** /wallets/{wallet_id}/delete | Delete wallet |
@@ -47,11 +49,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     String chainId = "ETH";
     String address = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
@@ -96,6 +98,146 @@ public class Example {
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
+<a id="checkAddressesValidity"></a>
+# **checkAddressesValidity**
+> List&lt;CheckAddressesValidity200ResponseInner&gt; checkAddressesValidity(chainId, addresses)
+
+Check addresses validity
+
+This operation verifies if given addresses are valid for a specific chain. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.api.WalletsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    WalletsApi apiInstance = new WalletsApi();
+    String chainId = "ETH";
+    String addresses = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045,0x4838B106FCe9647Bdf1E7877BF73cE8B0BAD5f97";
+    try {
+      List<CheckAddressesValidity200ResponseInner> result = apiInstance.checkAddressesValidity(chainId, addresses);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WalletsApi#checkAddressesValidity");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **chainId** | **String**| The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains). | |
+| **addresses** | **String**| A list of wallet addresses, separated by comma. You can specify a maximum of 100 addresses. | |
+
+### Return type
+
+[**List&lt;CheckAddressesValidity200ResponseInner&gt;**](CheckAddressesValidity200ResponseInner.md)
+
+### Authorization
+
+[CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The request was successful. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="checkLoopTransfers"></a>
+# **checkLoopTransfers**
+> List&lt;CheckLoopTransfers200ResponseInner&gt; checkLoopTransfers(tokenId, sourceWalletId, destinationAddresses)
+
+Check Loop transfers
+
+This operation verifies if the transactions from a given source wallet to a list of destination addresses can be executed as Loop transfers.   For more information about Loop, see [Loop&#39;s website](https://loop.top/). 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.api.WalletsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    WalletsApi apiInstance = new WalletsApi();
+    String tokenId = "ETH_USDT";
+    UUID sourceWalletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
+    String destinationAddresses = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045,0x4838B106FCe9647Bdf1E7877BF73cE8B0BAD5f97";
+    try {
+      List<CheckLoopTransfers200ResponseInner> result = apiInstance.checkLoopTransfers(tokenId, sourceWalletId, destinationAddresses);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WalletsApi#checkLoopTransfers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tokenId** | **String**| The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens). | |
+| **sourceWalletId** | **UUID**| The source wallet ID. | |
+| **destinationAddresses** | **String**| A list of destination wallet addresses, separated by comma. | |
+
+### Return type
+
+[**List&lt;CheckLoopTransfers200ResponseInner&gt;**](CheckLoopTransfers200ResponseInner.md)
+
+### Authorization
+
+[CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The request was successful. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
 <a id="createAddress"></a>
 # **createAddress**
 > List&lt;AddressInfo&gt; createAddress(walletId, createAddressRequest)
@@ -116,11 +258,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     CreateAddressRequest createAddressRequest = new CreateAddressRequest();
@@ -171,7 +313,7 @@ public class Example {
 
 Create wallet
 
-This operation creates a wallet with the provided information. 
+This operation creates a wallet with the provided information.  &lt;Note&gt;This operation is not applicable to Smart Contract Wallets.&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -185,11 +327,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     CreateWalletParams createWalletParams = new CreateWalletParams();
     try {
@@ -252,11 +394,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     try {
@@ -319,11 +461,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     String address = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
@@ -388,11 +530,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     String chainId = "ETH";
     try {
@@ -455,11 +597,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     String tokenId = "ETH_USDT";
@@ -530,11 +672,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     String tokenId = "ETH_USDT";
     try {
@@ -597,11 +739,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     try {
@@ -664,11 +806,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     String chainIds = "BTC,ETH";
@@ -741,11 +883,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     WalletType walletType = WalletType.fromValue("Custodial");
     WalletSubtype walletSubtype = WalletSubtype.fromValue("Asset");
@@ -816,11 +958,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     WalletType walletType = WalletType.fromValue("Custodial");
     WalletSubtype walletSubtype = WalletSubtype.fromValue("Asset");
@@ -879,7 +1021,7 @@ public class Example {
 
 List supported chains
 
-This operation retrieves all chains supported by a specific wallet type or subtype.   It provides details such as the chain ID, chain symbol, and other relevant information. If you do not specify a wallet type, this operation returns a combination of chains supported by each wallet type. You can filter the result by chain IDs. The chain metadata is publicly available without any permission restrictions. 
+This operation retrieves all chains supported by a specific wallet type or subtype.   It provides details such as the chain ID, chain symbol, and other relevant information. If you do not specify a wallet type, this operation returns a combination of chains supported by each wallet type. You can filter the result by chain IDs. The chain metadata is publicly available without any permission restrictions.  Cobo Portal currently supports over 80 blockchains and more than 3,000 tokens. In addition to this operation, you can also view the full list of supported chains [here](https://www.cobo.com/chains). We regularly update the list with new additions. If you want to request support for a specific chain or token, please [contact us](https://www.cobo.com/contact). 
 
 ### Example
 ```java
@@ -893,11 +1035,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     WalletType walletType = WalletType.fromValue("Custodial");
     WalletSubtype walletSubtype = WalletSubtype.fromValue("Asset");
@@ -956,7 +1098,7 @@ public class Example {
 
 List supported tokens
 
-This operation retrieves all tokens supported by a specific wallet type or subtype.   It provides details such as token ID, token symbol, and other relevant information. If you do not specify a wallet type, this operation returns a combination of tokens supported by each wallet type. You can filter the result by token IDs or chain IDs. The token metadata is publicly available without any permission restrictions. 
+This operation retrieves all tokens supported by a specific wallet type or subtype.   It provides details such as token ID, token symbol, and other relevant information. If you do not specify a wallet type, this operation returns a combination of tokens supported by each wallet type. You can filter the result by token IDs or chain IDs. The token metadata is publicly available without any permission restrictions.  Cobo Portal currently supports over 80 blockchains and more than 3,000 tokens. In addition to this operation, you can also view the full list of supported tokens [here](https://www.cobo.com/tokens). We regularly update the list with new additions. If you want to request support for a specific chain or token, please [contact us](https://www.cobo.com/contact). 
 
 ### Example
 ```java
@@ -970,11 +1112,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     WalletType walletType = WalletType.fromValue("Custodial");
     WalletSubtype walletSubtype = WalletSubtype.fromValue("Asset");
@@ -1035,7 +1177,7 @@ public class Example {
 
 List token balances by address
 
-The operation retrieves a list of token balances for a specified address within an MPC Wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+The operation retrieves a list of token balances for a specified address within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets and Smart Contract Wallets only.&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -1049,11 +1191,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     String address = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
@@ -1112,7 +1254,7 @@ public class Example {
 
 List token balances by wallet
 
-The operation retrieves a list of token balances within a specified wallet.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
+The operation retrieves a list of token balances within a specified wallet.  &lt;Note&gt;This operation is not applicable to Exchange Wallets.&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -1126,11 +1268,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     String tokenIds = "ETH_USDT,ETH_USDC";
@@ -1201,11 +1343,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     String tokenId = "ETH_USDT";
@@ -1278,11 +1420,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     WalletType walletType = WalletType.fromValue("Custodial");
     WalletSubtype walletSubtype = WalletSubtype.fromValue("Asset");
@@ -1312,7 +1454,7 @@ public class Example {
 | **walletType** | [**WalletType**](.md)| The wallet type.  - &#x60;Custodial&#x60;: [Custodial Wallets](https://manuals.cobo.com/en/portal/custodial-wallets/introduction)  - &#x60;MPC&#x60;: [MPC Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/introduction)  - &#x60;SmartContract&#x60;: [Smart Contract Wallets](https://manuals.cobo.com/en/portal/smart-contract-wallets/introduction)  - &#x60;Exchange&#x60;: [Exchange Wallets](https://manuals.cobo.com/en/portal/exchange-wallets/introduction)  | [optional] [enum: Custodial, MPC, SmartContract, Exchange] |
 | **walletSubtype** | [**WalletSubtype**](.md)| The wallet subtype.  - &#x60;Asset&#x60;: Custodial Wallets (Asset Wallets)  - &#x60;Web3&#x60;: Custodial Wallets (Web3 Wallets)  - &#x60;Main&#x60;: Exchange Wallets (Main Account)  - &#x60;Sub&#x60;: Exchange Wallets (Sub Account)  - &#x60;Org-Controlled&#x60;: MPC Wallets (Organization-Controlled Wallets)  - &#x60;User-Controlled&#x60;: MPC Wallets (User-Controlled Wallets)  - &#x60;Safe{Wallet}&#x60;: Smart Contract Wallets (Safe{Wallet})  | [optional] [enum: Asset, Web3, Org-Controlled, User-Controlled, Safe{Wallet}, Main, Sub] |
 | **projectId** | **UUID**| The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects).  | [optional] |
-| **vaultId** | **UUID**| (This parameter is applicable to MPC Wallets only) The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallets/list-all-vaults). | [optional] |
+| **vaultId** | **UUID**| The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallets/list-all-vaults). | [optional] |
 | **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
 | **before** | **String**| An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify &#x60;before&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;, the request will retrieve a list of data objects that end before the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;. You can set this parameter to the value of &#x60;pagination.before&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  - If you set &#x60;before&#x60; to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
 | **after** | **String**| An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify &#x60;after&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;, the request will retrieve a list of data objects that start after the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;. You can set this parameter to the value of &#x60;pagination.after&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
@@ -1357,11 +1499,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     LockUtxosRequest lockUtxosRequest = new LockUtxosRequest();
@@ -1426,11 +1568,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     LockUtxosRequest lockUtxosRequest = new LockUtxosRequest();
@@ -1495,11 +1637,11 @@ import com.cobo.waas2.api.WalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsApi apiInstance = new WalletsApi();
     UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     UpdateWalletParams updateWalletParams = new UpdateWalletParams();

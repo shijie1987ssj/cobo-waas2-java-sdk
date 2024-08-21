@@ -77,6 +77,10 @@ public class TransactionMPCWalletSource {
   @SerializedName(SERIALIZED_NAME_EXCLUDED_UTXOS)
   private List<TransactionUtxo> excludedUtxos = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_SIGNER_KEY_SHARE_HOLDER_GROUP_ID = "signer_key_share_holder_group_id";
+  @SerializedName(SERIALIZED_NAME_SIGNER_KEY_SHARE_HOLDER_GROUP_ID)
+  private String signerKeyShareHolderGroupId;
+
   public TransactionMPCWalletSource() {
   }
 
@@ -190,6 +194,25 @@ public class TransactionMPCWalletSource {
     this.excludedUtxos = excludedUtxos;
   }
 
+
+  public TransactionMPCWalletSource signerKeyShareHolderGroupId(String signerKeyShareHolderGroupId) {
+    this.signerKeyShareHolderGroupId = signerKeyShareHolderGroupId;
+    return this;
+  }
+
+   /**
+   * The ID of the key share holder group that is selected to sign the transaction.
+   * @return signerKeyShareHolderGroupId
+  **/
+  @javax.annotation.Nullable
+  public String getSignerKeyShareHolderGroupId() {
+    return signerKeyShareHolderGroupId;
+  }
+
+  public void setSignerKeyShareHolderGroupId(String signerKeyShareHolderGroupId) {
+    this.signerKeyShareHolderGroupId = signerKeyShareHolderGroupId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -249,13 +272,14 @@ public class TransactionMPCWalletSource {
         Objects.equals(this.walletId, transactionMPCWalletSource.walletId) &&
         Objects.equals(this.address, transactionMPCWalletSource.address) &&
         Objects.equals(this.includedUtxos, transactionMPCWalletSource.includedUtxos) &&
-        Objects.equals(this.excludedUtxos, transactionMPCWalletSource.excludedUtxos)&&
+        Objects.equals(this.excludedUtxos, transactionMPCWalletSource.excludedUtxos) &&
+        Objects.equals(this.signerKeyShareHolderGroupId, transactionMPCWalletSource.signerKeyShareHolderGroupId)&&
         Objects.equals(this.additionalProperties, transactionMPCWalletSource.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sourceType, walletId, address, includedUtxos, excludedUtxos, additionalProperties);
+    return Objects.hash(sourceType, walletId, address, includedUtxos, excludedUtxos, signerKeyShareHolderGroupId, additionalProperties);
   }
 
   @Override
@@ -267,6 +291,7 @@ public class TransactionMPCWalletSource {
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    includedUtxos: ").append(toIndentedString(includedUtxos)).append("\n");
     sb.append("    excludedUtxos: ").append(toIndentedString(excludedUtxos)).append("\n");
+    sb.append("    signerKeyShareHolderGroupId: ").append(toIndentedString(signerKeyShareHolderGroupId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -295,6 +320,7 @@ public class TransactionMPCWalletSource {
     openapiFields.add("address");
     openapiFields.add("included_utxos");
     openapiFields.add("excluded_utxos");
+    openapiFields.add("signer_key_share_holder_group_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -357,6 +383,9 @@ public class TransactionMPCWalletSource {
             TransactionUtxo.validateJsonElement(jsonArrayexcludedUtxos.get(i));
           };
         }
+      }
+      if ((jsonObj.get("signer_key_share_holder_group_id") != null && !jsonObj.get("signer_key_share_holder_group_id").isJsonNull()) && !jsonObj.get("signer_key_share_holder_group_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `signer_key_share_holder_group_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("signer_key_share_holder_group_id").toString()));
       }
   }
 

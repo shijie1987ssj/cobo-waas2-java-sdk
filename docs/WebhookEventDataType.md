@@ -8,7 +8,7 @@ The data type of the event.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**dataType** | [**DataTypeEnum**](#DataTypeEnum) | The data type of the event. When &#x60;data_type&#x60; is &#x60;Transaction&#x60;, it means the event uses the &#x60;transaction&#x60; schema as its data type. |  |
+|**dataType** | [**DataTypeEnum**](#DataTypeEnum) |  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. |  |
 
 
 
@@ -17,6 +17,7 @@ The data type of the event.
 | Name | Value |
 |---- | -----|
 | TRANSACTION | &quot;Transaction&quot; |
+| TSSREQUEST | &quot;TSSRequest&quot; |
 
 
 

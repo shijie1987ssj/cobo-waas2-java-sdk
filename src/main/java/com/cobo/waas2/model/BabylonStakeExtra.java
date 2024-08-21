@@ -65,6 +65,10 @@ public class BabylonStakeExtra {
   @SerializedName(SERIALIZED_NAME_STAKE_BLOCK_TIME)
   private Long stakeBlockTime;
 
+  public static final String SERIALIZED_NAME_ONLY_SIGN = "only_sign";
+  @SerializedName(SERIALIZED_NAME_ONLY_SIGN)
+  private Boolean onlySign;
+
   public BabylonStakeExtra() {
   }
 
@@ -124,6 +128,25 @@ public class BabylonStakeExtra {
     this.stakeBlockTime = stakeBlockTime;
   }
 
+
+  public BabylonStakeExtra onlySign(Boolean onlySign) {
+    this.onlySign = onlySign;
+    return this;
+  }
+
+   /**
+   * Whether to only sign transactions. Default is &#x60;false&#x60;, if set to &#x60;true&#x60;,  the transaction will not be submitted to the blockchain automatically. You can call &#x60;Broadcast transactions&#x60; to submit the transaction to the blockchain,  Or you can find the signed raw_tx by &#x60;Get transaction information&#x60; and broadcast it yourself. 
+   * @return onlySign
+  **/
+  @javax.annotation.Nullable
+  public Boolean getOnlySign() {
+    return onlySign;
+  }
+
+  public void setOnlySign(Boolean onlySign) {
+    this.onlySign = onlySign;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -181,13 +204,14 @@ public class BabylonStakeExtra {
     BabylonStakeExtra babylonStakeExtra = (BabylonStakeExtra) o;
     return Objects.equals(this.poolType, babylonStakeExtra.poolType) &&
         Objects.equals(this.finalityProviderPublicKey, babylonStakeExtra.finalityProviderPublicKey) &&
-        Objects.equals(this.stakeBlockTime, babylonStakeExtra.stakeBlockTime)&&
+        Objects.equals(this.stakeBlockTime, babylonStakeExtra.stakeBlockTime) &&
+        Objects.equals(this.onlySign, babylonStakeExtra.onlySign)&&
         Objects.equals(this.additionalProperties, babylonStakeExtra.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(poolType, finalityProviderPublicKey, stakeBlockTime, additionalProperties);
+    return Objects.hash(poolType, finalityProviderPublicKey, stakeBlockTime, onlySign, additionalProperties);
   }
 
   @Override
@@ -197,6 +221,7 @@ public class BabylonStakeExtra {
     sb.append("    poolType: ").append(toIndentedString(poolType)).append("\n");
     sb.append("    finalityProviderPublicKey: ").append(toIndentedString(finalityProviderPublicKey)).append("\n");
     sb.append("    stakeBlockTime: ").append(toIndentedString(stakeBlockTime)).append("\n");
+    sb.append("    onlySign: ").append(toIndentedString(onlySign)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -223,6 +248,7 @@ public class BabylonStakeExtra {
     openapiFields.add("pool_type");
     openapiFields.add("finality_provider_public_key");
     openapiFields.add("stake_block_time");
+    openapiFields.add("only_sign");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

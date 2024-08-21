@@ -76,7 +76,7 @@ public class CreateSafeWalletParams {
 
   public static final String SERIALIZED_NAME_SMART_CONTRACT_WALLET_TYPE = "smart_contract_wallet_type";
   @SerializedName(SERIALIZED_NAME_SMART_CONTRACT_WALLET_TYPE)
-  private SmartContractWalletType smartContractWalletType = SmartContractWalletType.SAFEWALLET;
+  private SmartContractWalletType smartContractWalletType = SmartContractWalletType.SAFE_WALLET_;
 
   public static final String SERIALIZED_NAME_SAFE_ADDRESS = "safe_address";
   @SerializedName(SERIALIZED_NAME_SAFE_ADDRESS)

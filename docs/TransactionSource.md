@@ -12,9 +12,10 @@
 |**address** | **String** | The wallet address. |  |
 |**includedUtxos** | [**List&lt;TransactionUtxo&gt;**](TransactionUtxo.md) |  |  [optional] |
 |**excludedUtxos** | [**List&lt;TransactionUtxo&gt;**](TransactionUtxo.md) |  |  [optional] |
+|**signerKeyShareHolderGroupId** | **String** | The ID of the key share holder group that is selected to sign the transaction. |  [optional] |
 |**delegate** | [**CoboSafeDelegate**](CoboSafeDelegate.md) |  |  |
 |**exchangeId** | **ExchangeId** |  |  |
-|**subWalletId** | **String** | The exchange trading account or a sub-wallet ID. |  [optional] |
+|**tradingAccountType** | **String** | The exchange trading account or a sub-wallet ID. |  [optional] |
 |**walletType** | **WalletType** |  |  |
 |**walletSubtype** | **WalletSubtype** |  |  |
 |**addresses** | **List&lt;String&gt;** | A list of addresses. |  |

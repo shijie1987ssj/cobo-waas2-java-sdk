@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the transaction source types &#x60;Main&#x60; and &#x60;Sub&#x60;.   An Exchange Wallet (Sub Account) as the transaction source can only transfer tokens to another Exchange Wallet. 
+ * The information about the transaction source types &#x60;Main&#x60; and &#x60;Sub&#x60;.   Assets in an Exchange Wallet (Sub Account) can only be transferred to another Exchange Wallet. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -62,9 +62,9 @@ public class ExchangeTransferSource {
   @SerializedName(SERIALIZED_NAME_WALLET_ID)
   private UUID walletId;
 
-  public static final String SERIALIZED_NAME_SUB_WALLET_ID = "sub_wallet_id";
-  @SerializedName(SERIALIZED_NAME_SUB_WALLET_ID)
-  private String subWalletId;
+  public static final String SERIALIZED_NAME_TRADING_ACCOUNT_TYPE = "trading_account_type";
+  @SerializedName(SERIALIZED_NAME_TRADING_ACCOUNT_TYPE)
+  private String tradingAccountType;
 
   public ExchangeTransferSource() {
   }
@@ -107,22 +107,22 @@ public class ExchangeTransferSource {
   }
 
 
-  public ExchangeTransferSource subWalletId(String subWalletId) {
-    this.subWalletId = subWalletId;
+  public ExchangeTransferSource tradingAccountType(String tradingAccountType) {
+    this.tradingAccountType = tradingAccountType;
     return this;
   }
 
    /**
-   * The exchange trading account or the sub-wallet ID.
-   * @return subWalletId
+   * The trading account type.
+   * @return tradingAccountType
   **/
   @javax.annotation.Nonnull
-  public String getSubWalletId() {
-    return subWalletId;
+  public String getTradingAccountType() {
+    return tradingAccountType;
   }
 
-  public void setSubWalletId(String subWalletId) {
-    this.subWalletId = subWalletId;
+  public void setTradingAccountType(String tradingAccountType) {
+    this.tradingAccountType = tradingAccountType;
   }
 
   /**
@@ -182,13 +182,13 @@ public class ExchangeTransferSource {
     ExchangeTransferSource exchangeTransferSource = (ExchangeTransferSource) o;
     return Objects.equals(this.sourceType, exchangeTransferSource.sourceType) &&
         Objects.equals(this.walletId, exchangeTransferSource.walletId) &&
-        Objects.equals(this.subWalletId, exchangeTransferSource.subWalletId)&&
+        Objects.equals(this.tradingAccountType, exchangeTransferSource.tradingAccountType)&&
         Objects.equals(this.additionalProperties, exchangeTransferSource.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sourceType, walletId, subWalletId, additionalProperties);
+    return Objects.hash(sourceType, walletId, tradingAccountType, additionalProperties);
   }
 
   @Override
@@ -197,7 +197,7 @@ public class ExchangeTransferSource {
     sb.append("class ExchangeTransferSource {\n");
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
-    sb.append("    subWalletId: ").append(toIndentedString(subWalletId)).append("\n");
+    sb.append("    tradingAccountType: ").append(toIndentedString(tradingAccountType)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -223,13 +223,13 @@ public class ExchangeTransferSource {
     openapiFields = new HashSet<String>();
     openapiFields.add("source_type");
     openapiFields.add("wallet_id");
-    openapiFields.add("sub_wallet_id");
+    openapiFields.add("trading_account_type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("source_type");
     openapiRequiredFields.add("wallet_id");
-    openapiRequiredFields.add("sub_wallet_id");
+    openapiRequiredFields.add("trading_account_type");
   }
 
  /**
@@ -257,8 +257,8 @@ public class ExchangeTransferSource {
       if (!jsonObj.get("wallet_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_id").toString()));
       }
-      if (!jsonObj.get("sub_wallet_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sub_wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sub_wallet_id").toString()));
+      if (!jsonObj.get("trading_account_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trading_account_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trading_account_type").toString()));
       }
   }
 

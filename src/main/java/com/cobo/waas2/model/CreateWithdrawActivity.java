@@ -53,6 +53,10 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class CreateWithdrawActivity {
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public static final String SERIALIZED_NAME_STAKING_ID = "staking_id";
   @SerializedName(SERIALIZED_NAME_STAKING_ID)
   private String stakingId;
@@ -71,6 +75,25 @@ public class CreateWithdrawActivity {
 
   public CreateWithdrawActivity() {
   }
+
+  public CreateWithdrawActivity requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID that is used to track a request. The request ID is provided by you and must be unique within your organization.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
 
   public CreateWithdrawActivity stakingId(String stakingId) {
     this.stakingId = stakingId;
@@ -202,7 +225,8 @@ public class CreateWithdrawActivity {
       return false;
     }
     CreateWithdrawActivity createWithdrawActivity = (CreateWithdrawActivity) o;
-    return Objects.equals(this.stakingId, createWithdrawActivity.stakingId) &&
+    return Objects.equals(this.requestId, createWithdrawActivity.requestId) &&
+        Objects.equals(this.stakingId, createWithdrawActivity.stakingId) &&
         Objects.equals(this.amount, createWithdrawActivity.amount) &&
         Objects.equals(this.address, createWithdrawActivity.address) &&
         Objects.equals(this.fee, createWithdrawActivity.fee)&&
@@ -211,13 +235,14 @@ public class CreateWithdrawActivity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(stakingId, amount, address, fee, additionalProperties);
+    return Objects.hash(requestId, stakingId, amount, address, fee, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateWithdrawActivity {\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    stakingId: ").append(toIndentedString(stakingId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
@@ -245,6 +270,7 @@ public class CreateWithdrawActivity {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("request_id");
     openapiFields.add("staking_id");
     openapiFields.add("amount");
     openapiFields.add("address");
@@ -276,6 +302,9 @@ public class CreateWithdrawActivity {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
+      }
       if (!jsonObj.get("staking_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `staking_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("staking_id").toString()));
       }

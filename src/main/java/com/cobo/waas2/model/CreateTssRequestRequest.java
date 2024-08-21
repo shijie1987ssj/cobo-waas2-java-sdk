@@ -66,6 +66,10 @@ public class CreateTssRequestRequest {
   @SerializedName(SERIALIZED_NAME_SOURCE_KEY_SHARE_HOLDER_GROUP)
   private SourceGroup sourceKeyShareHolderGroup;
 
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
   public CreateTssRequestRequest() {
   }
 
@@ -125,6 +129,25 @@ public class CreateTssRequestRequest {
     this.sourceKeyShareHolderGroup = sourceKeyShareHolderGroup;
   }
 
+
+  public CreateTssRequestRequest description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * The description of the TSS request.
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -182,13 +205,14 @@ public class CreateTssRequestRequest {
     CreateTssRequestRequest createTssRequestRequest = (CreateTssRequestRequest) o;
     return Objects.equals(this.type, createTssRequestRequest.type) &&
         Objects.equals(this.targetKeyShareHolderGroupId, createTssRequestRequest.targetKeyShareHolderGroupId) &&
-        Objects.equals(this.sourceKeyShareHolderGroup, createTssRequestRequest.sourceKeyShareHolderGroup)&&
+        Objects.equals(this.sourceKeyShareHolderGroup, createTssRequestRequest.sourceKeyShareHolderGroup) &&
+        Objects.equals(this.description, createTssRequestRequest.description)&&
         Objects.equals(this.additionalProperties, createTssRequestRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, targetKeyShareHolderGroupId, sourceKeyShareHolderGroup, additionalProperties);
+    return Objects.hash(type, targetKeyShareHolderGroupId, sourceKeyShareHolderGroup, description, additionalProperties);
   }
 
   @Override
@@ -198,6 +222,7 @@ public class CreateTssRequestRequest {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    targetKeyShareHolderGroupId: ").append(toIndentedString(targetKeyShareHolderGroupId)).append("\n");
     sb.append("    sourceKeyShareHolderGroup: ").append(toIndentedString(sourceKeyShareHolderGroup)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -224,6 +249,7 @@ public class CreateTssRequestRequest {
     openapiFields.add("type");
     openapiFields.add("target_key_share_holder_group_id");
     openapiFields.add("source_key_share_holder_group");
+    openapiFields.add("description");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -259,6 +285,9 @@ public class CreateTssRequestRequest {
       // validate the optional field `source_key_share_holder_group`
       if (jsonObj.get("source_key_share_holder_group") != null && !jsonObj.get("source_key_share_holder_group").isJsonNull()) {
         SourceGroup.validateJsonElement(jsonObj.get("source_key_share_holder_group"));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
   }
 

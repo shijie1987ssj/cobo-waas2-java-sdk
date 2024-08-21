@@ -11,7 +11,7 @@ Information about the transaction source types `Main` and `Sub`.
 |**sourceType** | **TransactionSourceType** |  |  |
 |**exchangeId** | **ExchangeId** |  |  |
 |**walletId** | **UUID** | The wallet ID. |  |
-|**subWalletId** | **String** | The exchange trading account or a sub-wallet ID. |  [optional] |
+|**tradingAccountType** | **String** | The exchange trading account or a sub-wallet ID. |  [optional] |
 
 
 

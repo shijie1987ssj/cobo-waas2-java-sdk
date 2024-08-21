@@ -2,7 +2,7 @@
 
 # ExchangeTransferSource
 
-The information about the transaction source types `Main` and `Sub`.   An Exchange Wallet (Sub Account) as the transaction source can only transfer tokens to another Exchange Wallet. 
+The information about the transaction source types `Main` and `Sub`.   Assets in an Exchange Wallet (Sub Account) can only be transferred to another Exchange Wallet. 
 
 ## Properties
 
@@ -10,7 +10,7 @@ The information about the transaction source types `Main` and `Sub`.   An Exchan
 |------------ | ------------- | ------------- | -------------|
 |**sourceType** | **WalletSubtype** |  |  |
 |**walletId** | **UUID** | The wallet ID. |  |
-|**subWalletId** | **String** | The exchange trading account or the sub-wallet ID. |  |
+|**tradingAccountType** | **String** | The trading account type. |  |
 
 
 

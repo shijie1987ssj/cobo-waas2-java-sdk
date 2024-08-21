@@ -46,16 +46,16 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The data for sub wallet asset balance information.
+ * The information about the asset balance of a trading account.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
 public class SubWalletAssetBalance {
-  public static final String SERIALIZED_NAME_SUB_WALLET_ID = "sub_wallet_id";
-  @SerializedName(SERIALIZED_NAME_SUB_WALLET_ID)
-  private String subWalletId;
+  public static final String SERIALIZED_NAME_TRADING_ACCOUNT_TYPE = "trading_account_type";
+  @SerializedName(SERIALIZED_NAME_TRADING_ACCOUNT_TYPE)
+  private String tradingAccountType;
 
   public static final String SERIALIZED_NAME_ASSET_ID = "asset_id";
   @SerializedName(SERIALIZED_NAME_ASSET_ID)
@@ -68,22 +68,22 @@ public class SubWalletAssetBalance {
   public SubWalletAssetBalance() {
   }
 
-  public SubWalletAssetBalance subWalletId(String subWalletId) {
-    this.subWalletId = subWalletId;
+  public SubWalletAssetBalance tradingAccountType(String tradingAccountType) {
+    this.tradingAccountType = tradingAccountType;
     return this;
   }
 
    /**
-   * The exchange trading account or a sub-wallet ID.
-   * @return subWalletId
+   * The trading account type.
+   * @return tradingAccountType
   **/
   @javax.annotation.Nullable
-  public String getSubWalletId() {
-    return subWalletId;
+  public String getTradingAccountType() {
+    return tradingAccountType;
   }
 
-  public void setSubWalletId(String subWalletId) {
-    this.subWalletId = subWalletId;
+  public void setTradingAccountType(String tradingAccountType) {
+    this.tradingAccountType = tradingAccountType;
   }
 
 
@@ -93,7 +93,7 @@ public class SubWalletAssetBalance {
   }
 
    /**
-   * (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
+   * The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
    * @return assetId
   **/
   @javax.annotation.Nonnull
@@ -179,7 +179,7 @@ public class SubWalletAssetBalance {
       return false;
     }
     SubWalletAssetBalance subWalletAssetBalance = (SubWalletAssetBalance) o;
-    return Objects.equals(this.subWalletId, subWalletAssetBalance.subWalletId) &&
+    return Objects.equals(this.tradingAccountType, subWalletAssetBalance.tradingAccountType) &&
         Objects.equals(this.assetId, subWalletAssetBalance.assetId) &&
         Objects.equals(this.balance, subWalletAssetBalance.balance)&&
         Objects.equals(this.additionalProperties, subWalletAssetBalance.additionalProperties);
@@ -187,14 +187,14 @@ public class SubWalletAssetBalance {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subWalletId, assetId, balance, additionalProperties);
+    return Objects.hash(tradingAccountType, assetId, balance, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SubWalletAssetBalance {\n");
-    sb.append("    subWalletId: ").append(toIndentedString(subWalletId)).append("\n");
+    sb.append("    tradingAccountType: ").append(toIndentedString(tradingAccountType)).append("\n");
     sb.append("    assetId: ").append(toIndentedString(assetId)).append("\n");
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -220,7 +220,7 @@ public class SubWalletAssetBalance {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("sub_wallet_id");
+    openapiFields.add("trading_account_type");
     openapiFields.add("asset_id");
     openapiFields.add("balance");
 
@@ -250,8 +250,8 @@ public class SubWalletAssetBalance {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("sub_wallet_id") != null && !jsonObj.get("sub_wallet_id").isJsonNull()) && !jsonObj.get("sub_wallet_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sub_wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sub_wallet_id").toString()));
+      if ((jsonObj.get("trading_account_type") != null && !jsonObj.get("trading_account_type").isJsonNull()) && !jsonObj.get("trading_account_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trading_account_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trading_account_type").toString()));
       }
       if (!jsonObj.get("asset_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `asset_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("asset_id").toString()));

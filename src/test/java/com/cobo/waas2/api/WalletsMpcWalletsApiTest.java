@@ -89,7 +89,7 @@ public class WalletsMpcWalletsApiTest {
     /**
      * Create project
      *
-     * This operation creates a project.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation creates a project.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -162,7 +162,7 @@ public class WalletsMpcWalletsApiTest {
     /**
      * Get project information
      *
-     * This operation retrieves detailed information about a project. &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation retrieves detailed information about a project. &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -236,7 +236,7 @@ public class WalletsMpcWalletsApiTest {
     /**
      * List all projects
      *
-     * This operation retrieves a list of all projects.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation retrieves a list of all projects.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -304,7 +304,7 @@ public class WalletsMpcWalletsApiTest {
     /**
      * Update project name
      *
-     * This operation updates a project&#39;s name.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation updates a project&#39;s name.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */

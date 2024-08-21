@@ -15,5 +15,7 @@
 
 * `GATE` (value: `"gate"`)
 
+* `BITGET` (value: `"bitget"`)
+
 
 

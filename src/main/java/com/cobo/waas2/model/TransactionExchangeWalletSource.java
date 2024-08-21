@@ -67,9 +67,9 @@ public class TransactionExchangeWalletSource {
   @SerializedName(SERIALIZED_NAME_WALLET_ID)
   private UUID walletId;
 
-  public static final String SERIALIZED_NAME_SUB_WALLET_ID = "sub_wallet_id";
-  @SerializedName(SERIALIZED_NAME_SUB_WALLET_ID)
-  private String subWalletId;
+  public static final String SERIALIZED_NAME_TRADING_ACCOUNT_TYPE = "trading_account_type";
+  @SerializedName(SERIALIZED_NAME_TRADING_ACCOUNT_TYPE)
+  private String tradingAccountType;
 
   public TransactionExchangeWalletSource() {
   }
@@ -131,22 +131,22 @@ public class TransactionExchangeWalletSource {
   }
 
 
-  public TransactionExchangeWalletSource subWalletId(String subWalletId) {
-    this.subWalletId = subWalletId;
+  public TransactionExchangeWalletSource tradingAccountType(String tradingAccountType) {
+    this.tradingAccountType = tradingAccountType;
     return this;
   }
 
    /**
    * The exchange trading account or a sub-wallet ID.
-   * @return subWalletId
+   * @return tradingAccountType
   **/
   @javax.annotation.Nullable
-  public String getSubWalletId() {
-    return subWalletId;
+  public String getTradingAccountType() {
+    return tradingAccountType;
   }
 
-  public void setSubWalletId(String subWalletId) {
-    this.subWalletId = subWalletId;
+  public void setTradingAccountType(String tradingAccountType) {
+    this.tradingAccountType = tradingAccountType;
   }
 
   /**
@@ -207,13 +207,13 @@ public class TransactionExchangeWalletSource {
     return Objects.equals(this.sourceType, transactionExchangeWalletSource.sourceType) &&
         Objects.equals(this.exchangeId, transactionExchangeWalletSource.exchangeId) &&
         Objects.equals(this.walletId, transactionExchangeWalletSource.walletId) &&
-        Objects.equals(this.subWalletId, transactionExchangeWalletSource.subWalletId)&&
+        Objects.equals(this.tradingAccountType, transactionExchangeWalletSource.tradingAccountType)&&
         Objects.equals(this.additionalProperties, transactionExchangeWalletSource.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sourceType, exchangeId, walletId, subWalletId, additionalProperties);
+    return Objects.hash(sourceType, exchangeId, walletId, tradingAccountType, additionalProperties);
   }
 
   @Override
@@ -223,7 +223,7 @@ public class TransactionExchangeWalletSource {
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    exchangeId: ").append(toIndentedString(exchangeId)).append("\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
-    sb.append("    subWalletId: ").append(toIndentedString(subWalletId)).append("\n");
+    sb.append("    tradingAccountType: ").append(toIndentedString(tradingAccountType)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -250,7 +250,7 @@ public class TransactionExchangeWalletSource {
     openapiFields.add("source_type");
     openapiFields.add("exchange_id");
     openapiFields.add("wallet_id");
-    openapiFields.add("sub_wallet_id");
+    openapiFields.add("trading_account_type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -286,8 +286,8 @@ public class TransactionExchangeWalletSource {
       if (!jsonObj.get("wallet_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_id").toString()));
       }
-      if ((jsonObj.get("sub_wallet_id") != null && !jsonObj.get("sub_wallet_id").isJsonNull()) && !jsonObj.get("sub_wallet_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sub_wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sub_wallet_id").toString()));
+      if ((jsonObj.get("trading_account_type") != null && !jsonObj.get("trading_account_type").isJsonNull()) && !jsonObj.get("trading_account_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trading_account_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trading_account_type").toString()));
       }
   }
 

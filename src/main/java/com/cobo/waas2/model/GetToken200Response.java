@@ -81,7 +81,7 @@ public class GetToken200Response {
   }
 
    /**
-   * The access token, used by Cobo Portal Apps to access specific resources of other organizations.
+   * The access token.
    * @return accessToken
   **/
   @javax.annotation.Nullable
@@ -100,7 +100,7 @@ public class GetToken200Response {
   }
 
    /**
-   * The type of the tokens.
+   * The type of the tokens, which is Bearer.
    * @return tokenType
   **/
   @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class GetToken200Response {
   }
 
    /**
-   * The scope of the access token. This property value is empty by design.
+   * The scope of the access token to limit the app&#39;s access to the organization&#39;s resources.  **Note**: Currently this property value is empty. The scope of the access token is based on the permissions granted when the app user installs the app. 
    * @return scope
   **/
   @javax.annotation.Nullable
@@ -157,7 +157,7 @@ public class GetToken200Response {
   }
 
    /**
-   * The refresh token, used by Cobo Portal Apps to obtain new access tokens when the access token expires.
+   * The refresh token, used to obtain a new access token when the current access token expires.
    * @return refreshToken
   **/
   @javax.annotation.Nullable

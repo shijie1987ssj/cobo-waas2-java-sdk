@@ -13,7 +13,7 @@
 |**includedUtxos** | [**List&lt;TransactionUtxo&gt;**](TransactionUtxo.md) |  |  [optional] |
 |**excludedUtxos** | [**List&lt;TransactionUtxo&gt;**](TransactionUtxo.md) |  |  [optional] |
 |**delegate** | [**CoboSafeDelegate**](CoboSafeDelegate.md) |  |  |
-|**subWalletId** | **String** | The exchange trading account or the sub-wallet ID. |  |
+|**tradingAccountType** | **String** | The trading account type. |  |
 
 
 

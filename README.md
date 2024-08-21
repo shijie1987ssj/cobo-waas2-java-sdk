@@ -1,7 +1,7 @@
 # cobo-waas2-java-sdk
 
 Cobo Wallet as a Service 2.0
-- API version: 1.1.0
+- API version: 1.2.0
   - Generator version: 7.6.0
 
 The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo’s WaaS API offering. It enables you to access Cobo’s full suite of crypto wallet technologies with powerful and flexible access controls. By encapsulating complex security protocols and streamlining blockchain interactions, this API allows you to concentrate on your core business activities without worrying about the safety of your assets. The WaaS 2.0 API presents the following key features:
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo:cobo-waas2:1.1.0"
+     implementation "com.cobo:cobo-waas2:1.2.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.1.0.jar`
+* `target/cobo-waas2-1.2.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -114,9 +114,9 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     // for dev environment
-    //defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    //defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
+    // defaultClient.setEnv(Env.DEV);
+    // for production environment
+    // defaultClient.setEnv(Env.PROD);
     defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
     WalletsApi apiInstance = new WalletsApi();
     WalletType walletType = WalletType.fromValue("Custodial");
@@ -154,8 +154,8 @@ Class | Method | HTTP request | Description
 *DevelopersWebhooksApi* | [**listWebhookEvents**](docs/DevelopersWebhooksApi.md#listWebhookEvents) | **GET** /webhooks/endpoints/{endpoint_id}/events | List all webhook events
 *DevelopersWebhooksApi* | [**retryWebhookEventById**](docs/DevelopersWebhooksApi.md#retryWebhookEventById) | **POST** /webhooks/endpoints/{endpoint_id}/events/{event_id}/retry | Retry event
 *DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
-*OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get Access Token
-*OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Access Token
+*OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get access token
+*OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh access token
 *TransactionsApi* | [**cancelTransactionById**](docs/TransactionsApi.md#cancelTransactionById) | **POST** /transactions/{transaction_id}/cancel | Cancel transaction
 *TransactionsApi* | [**createContractCallTransaction**](docs/TransactionsApi.md#createContractCallTransaction) | **POST** /transactions/contract_call | Call smart contract
 *TransactionsApi* | [**createMessageSignTransaction**](docs/TransactionsApi.md#createMessageSignTransaction) | **POST** /transactions/message_sign | Sign message
@@ -167,6 +167,8 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**resendTransactionById**](docs/TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction
 *TransactionsApi* | [**speedupTransactionById**](docs/TransactionsApi.md#speedupTransactionById) | **POST** /transactions/{transaction_id}/speedup | Speed up transaction
 *WalletsApi* | [**checkAddressValidity**](docs/WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity
+*WalletsApi* | [**checkAddressesValidity**](docs/WalletsApi.md#checkAddressesValidity) | **GET** /wallets/check_addresses_validity | Check addresses validity
+*WalletsApi* | [**checkLoopTransfers**](docs/WalletsApi.md#checkLoopTransfers) | **GET** /wallets/check_loop_transfers | Check Loop transfers
 *WalletsApi* | [**createAddress**](docs/WalletsApi.md#createAddress) | **POST** /wallets/{wallet_id}/addresses | Create addresses in wallet
 *WalletsApi* | [**createWallet**](docs/WalletsApi.md#createWallet) | **POST** /wallets | Create wallet
 *WalletsApi* | [**deleteWalletById**](docs/WalletsApi.md#deleteWalletById) | **POST** /wallets/{wallet_id}/delete | Delete wallet
@@ -187,6 +189,10 @@ Class | Method | HTTP request | Description
 *WalletsApi* | [**lockUtxos**](docs/WalletsApi.md#lockUtxos) | **POST** /wallets/{wallet_id}/utxos/lock | Lock UTXOs
 *WalletsApi* | [**unlockUtxos**](docs/WalletsApi.md#unlockUtxos) | **POST** /wallets/{wallet_id}/utxos/unlock | Unlock UTXOs
 *WalletsApi* | [**updateWalletById**](docs/WalletsApi.md#updateWalletById) | **PUT** /wallets/{wallet_id} | Update wallet
+*WalletsExchangeWalletApi* | [**listAssetBalancesForExchangeWallet**](docs/WalletsExchangeWalletApi.md#listAssetBalancesForExchangeWallet) | **GET** /wallets/{wallet_id}/exchanges/assets | List asset balances
+*WalletsExchangeWalletApi* | [**listExchanges**](docs/WalletsExchangeWalletApi.md#listExchanges) | **GET** /wallets/exchanges/settings | List supported exchanges
+*WalletsExchangeWalletApi* | [**listSupportedAssetsForExchange**](docs/WalletsExchangeWalletApi.md#listSupportedAssetsForExchange) | **GET** /wallets/exchanges/{exchange_id}/assets | List supported assets
+*WalletsExchangeWalletApi* | [**listSupportedChainsForExchange**](docs/WalletsExchangeWalletApi.md#listSupportedChainsForExchange) | **GET** /wallets/exchanges/{exchange_id}/assets/{asset_id}/chains | List supported chains
 *WalletsMpcWalletsApi* | [**cancelTssRequestById**](docs/WalletsMpcWalletsApi.md#cancelTssRequestById) | **POST** /wallets/mpc/vaults/{vault_id}/tss_requests/{tss_request_id}/cancel | Cancel TSS request
 *WalletsMpcWalletsApi* | [**createKeyShareHolderGroup**](docs/WalletsMpcWalletsApi.md#createKeyShareHolderGroup) | **POST** /wallets/mpc/vaults/{vault_id}/key_share_holder_groups | Create key share holder group
 *WalletsMpcWalletsApi* | [**createMpcProject**](docs/WalletsMpcWalletsApi.md#createMpcProject) | **POST** /wallets/mpc/projects | Create project
@@ -231,6 +237,8 @@ Class | Method | HTTP request | Description
  - [BaseStakeExtra](docs/BaseStakeExtra.md)
  - [ChainInfo](docs/ChainInfo.md)
  - [CheckAddressValidity200Response](docs/CheckAddressValidity200Response.md)
+ - [CheckAddressesValidity200ResponseInner](docs/CheckAddressesValidity200ResponseInner.md)
+ - [CheckLoopTransfers200ResponseInner](docs/CheckLoopTransfers200ResponseInner.md)
  - [CoboSafeDelegate](docs/CoboSafeDelegate.md)
  - [CoboSafeDelegateType](docs/CoboSafeDelegateType.md)
  - [ContractCallDestination](docs/ContractCallDestination.md)
@@ -307,9 +315,12 @@ Class | Method | HTTP request | Description
  - [KeyShareHolderStatus](docs/KeyShareHolderStatus.md)
  - [KeyShareHolderType](docs/KeyShareHolderType.md)
  - [ListAddresses200Response](docs/ListAddresses200Response.md)
+ - [ListAssetBalancesForExchangeWallet200Response](docs/ListAssetBalancesForExchangeWallet200Response.md)
+ - [ListExchanges200ResponseInner](docs/ListExchanges200ResponseInner.md)
  - [ListKeyShareHolderGroups200Response](docs/ListKeyShareHolderGroups200Response.md)
  - [ListMpcProjects200Response](docs/ListMpcProjects200Response.md)
  - [ListMpcVaults200Response](docs/ListMpcVaults200Response.md)
+ - [ListSupportedAssetsForExchange200Response](docs/ListSupportedAssetsForExchange200Response.md)
  - [ListSupportedChains200Response](docs/ListSupportedChains200Response.md)
  - [ListSupportedTokens200Response](docs/ListSupportedTokens200Response.md)
  - [ListTokenBalancesForAddress200Response](docs/ListTokenBalancesForAddress200Response.md)
@@ -344,6 +355,7 @@ Class | Method | HTTP request | Description
  - [PoolDetails](docs/PoolDetails.md)
  - [PoolDetailsAllOfValidatorsInfo](docs/PoolDetailsAllOfValidatorsInfo.md)
  - [PoolSummary](docs/PoolSummary.md)
+ - [RefreshToken200Response](docs/RefreshToken200Response.md)
  - [RefreshTokenRequest](docs/RefreshTokenRequest.md)
  - [ReplaceType](docs/ReplaceType.md)
  - [RetryWebhookEventById201Response](docs/RetryWebhookEventById201Response.md)
@@ -365,6 +377,7 @@ Class | Method | HTTP request | Description
  - [TSSRequest](docs/TSSRequest.md)
  - [TSSRequestStatus](docs/TSSRequestStatus.md)
  - [TSSRequestType](docs/TSSRequestType.md)
+ - [TSSRequestWebhookEventData](docs/TSSRequestWebhookEventData.md)
  - [TokenBalance](docs/TokenBalance.md)
  - [TokenBalanceBalance](docs/TokenBalanceBalance.md)
  - [TokenInfo](docs/TokenInfo.md)

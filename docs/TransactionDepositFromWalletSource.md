@@ -12,7 +12,7 @@ Information about the transaction source type `DepositFromWallet`.
 |**walletId** | **UUID** | The wallet ID. |  |
 |**walletType** | **WalletType** |  |  |
 |**walletSubtype** | **WalletSubtype** |  |  |
-|**subWalletId** | **String** | The exchange trading account or a sub-wallet ID. |  [optional] |
+|**tradingAccountType** | **String** | The exchange trading account or a sub-wallet ID. |  [optional] |
 
 
 

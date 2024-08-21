@@ -91,11 +91,27 @@ public class CreatedWalletInfoTest {
     }
 
     /**
+     * Test the property 'projectName'
+     */
+    @Test
+    public void projectNameTest() {
+        // TODO: test projectName
+    }
+
+    /**
      * Test the property 'vaultId'
      */
     @Test
     public void vaultIdTest() {
         // TODO: test vaultId
+    }
+
+    /**
+     * Test the property 'vaultName'
+     */
+    @Test
+    public void vaultNameTest() {
+        // TODO: test vaultName
     }
 
     /**

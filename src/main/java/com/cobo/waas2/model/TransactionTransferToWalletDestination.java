@@ -63,9 +63,9 @@ public class TransactionTransferToWalletDestination {
   @SerializedName(SERIALIZED_NAME_WALLET_ID)
   private UUID walletId;
 
-  public static final String SERIALIZED_NAME_SUB_WALLET_ID = "sub_wallet_id";
-  @SerializedName(SERIALIZED_NAME_SUB_WALLET_ID)
-  private String subWalletId;
+  public static final String SERIALIZED_NAME_TRADING_ACCOUNT_TYPE = "trading_account_type";
+  @SerializedName(SERIALIZED_NAME_TRADING_ACCOUNT_TYPE)
+  private String tradingAccountType;
 
   public static final String SERIALIZED_NAME_EXCHANGE_ID = "exchange_id";
   @SerializedName(SERIALIZED_NAME_EXCHANGE_ID)
@@ -116,22 +116,22 @@ public class TransactionTransferToWalletDestination {
   }
 
 
-  public TransactionTransferToWalletDestination subWalletId(String subWalletId) {
-    this.subWalletId = subWalletId;
+  public TransactionTransferToWalletDestination tradingAccountType(String tradingAccountType) {
+    this.tradingAccountType = tradingAccountType;
     return this;
   }
 
    /**
-   * The exchange trading account or the sub-wallet ID.
-   * @return subWalletId
+   * The trading account type.
+   * @return tradingAccountType
   **/
   @javax.annotation.Nullable
-  public String getSubWalletId() {
-    return subWalletId;
+  public String getTradingAccountType() {
+    return tradingAccountType;
   }
 
-  public void setSubWalletId(String subWalletId) {
-    this.subWalletId = subWalletId;
+  public void setTradingAccountType(String tradingAccountType) {
+    this.tradingAccountType = tradingAccountType;
   }
 
 
@@ -160,7 +160,7 @@ public class TransactionTransferToWalletDestination {
   }
 
    /**
-   * The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;. 
+   * The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;. 
    * @return amount
   **/
   @javax.annotation.Nonnull
@@ -229,7 +229,7 @@ public class TransactionTransferToWalletDestination {
     TransactionTransferToWalletDestination transactionTransferToWalletDestination = (TransactionTransferToWalletDestination) o;
     return Objects.equals(this.destinationType, transactionTransferToWalletDestination.destinationType) &&
         Objects.equals(this.walletId, transactionTransferToWalletDestination.walletId) &&
-        Objects.equals(this.subWalletId, transactionTransferToWalletDestination.subWalletId) &&
+        Objects.equals(this.tradingAccountType, transactionTransferToWalletDestination.tradingAccountType) &&
         Objects.equals(this.exchangeId, transactionTransferToWalletDestination.exchangeId) &&
         Objects.equals(this.amount, transactionTransferToWalletDestination.amount)&&
         Objects.equals(this.additionalProperties, transactionTransferToWalletDestination.additionalProperties);
@@ -237,7 +237,7 @@ public class TransactionTransferToWalletDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationType, walletId, subWalletId, exchangeId, amount, additionalProperties);
+    return Objects.hash(destinationType, walletId, tradingAccountType, exchangeId, amount, additionalProperties);
   }
 
   @Override
@@ -246,7 +246,7 @@ public class TransactionTransferToWalletDestination {
     sb.append("class TransactionTransferToWalletDestination {\n");
     sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
-    sb.append("    subWalletId: ").append(toIndentedString(subWalletId)).append("\n");
+    sb.append("    tradingAccountType: ").append(toIndentedString(tradingAccountType)).append("\n");
     sb.append("    exchangeId: ").append(toIndentedString(exchangeId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -274,7 +274,7 @@ public class TransactionTransferToWalletDestination {
     openapiFields = new HashSet<String>();
     openapiFields.add("destination_type");
     openapiFields.add("wallet_id");
-    openapiFields.add("sub_wallet_id");
+    openapiFields.add("trading_account_type");
     openapiFields.add("exchange_id");
     openapiFields.add("amount");
 
@@ -310,8 +310,8 @@ public class TransactionTransferToWalletDestination {
       if (!jsonObj.get("wallet_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_id").toString()));
       }
-      if ((jsonObj.get("sub_wallet_id") != null && !jsonObj.get("sub_wallet_id").isJsonNull()) && !jsonObj.get("sub_wallet_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sub_wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sub_wallet_id").toString()));
+      if ((jsonObj.get("trading_account_type") != null && !jsonObj.get("trading_account_type").isJsonNull()) && !jsonObj.get("trading_account_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `trading_account_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("trading_account_type").toString()));
       }
       // validate the optional field `exchange_id`
       if (jsonObj.get("exchange_id") != null && !jsonObj.get("exchange_id").isJsonNull()) {

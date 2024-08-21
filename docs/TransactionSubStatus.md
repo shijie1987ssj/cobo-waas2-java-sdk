@@ -33,6 +33,8 @@
 
 * `PENDINGWAITSIGNER` (value: `"PendingWaitSigner"`)
 
+* `PENDINGAPPROVALSTART` (value: `"PendingApprovalStart"`)
+
 * `FAILEDBYSIGNER` (value: `"FailedBySigner"`)
 
 * `FAILEDBROADCASTING` (value: `"FailedBroadcasting"`)

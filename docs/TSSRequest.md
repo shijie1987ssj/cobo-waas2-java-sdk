@@ -2,7 +2,7 @@
 
 # TSSRequest
 
-The data for the TSS request information.
+The information about the TSS request.
 
 ## Properties
 
@@ -13,6 +13,8 @@ The data for the TSS request information.
 |**targetKeyShareHolderGroupId** | **String** | The target key share holder group ID. |  [optional] |
 |**type** | **TSSRequestType** |  |  [optional] |
 |**status** | **TSSRequestStatus** |  |  [optional] |
+|**description** | **String** | The description of the TSS request. |  [optional] |
+|**createdTimestamp** | **Long** | The TSS request&#39;s creation time in Unix timestamp format, measured in milliseconds. |  [optional] |
 
 
 

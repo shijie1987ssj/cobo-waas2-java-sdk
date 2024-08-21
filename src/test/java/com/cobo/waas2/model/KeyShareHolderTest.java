@@ -85,4 +85,12 @@ public class KeyShareHolderTest {
         // TODO: test status
     }
 
+    /**
+     * Test the property 'accountId'
+     */
+    @Test
+    public void accountIdTest() {
+        // TODO: test accountId
+    }
+
 }

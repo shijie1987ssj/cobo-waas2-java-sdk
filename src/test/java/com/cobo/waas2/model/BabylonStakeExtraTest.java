@@ -60,4 +60,12 @@ public class BabylonStakeExtraTest {
         // TODO: test stakeBlockTime
     }
 
+    /**
+     * Test the property 'onlySign'
+     */
+    @Test
+    public void onlySignTest() {
+        // TODO: test onlySign
+    }
+
 }

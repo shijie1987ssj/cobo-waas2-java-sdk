@@ -11,6 +11,10 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.SourceGroup;
+import com.cobo.waas2.model.TSSRequestStatus;
+import com.cobo.waas2.model.TSSRequestType;
+import com.cobo.waas2.model.TSSRequestWebhookEventData;
 import com.cobo.waas2.model.TransactionBlockInfo;
 import com.cobo.waas2.model.TransactionDestination;
 import com.cobo.waas2.model.TransactionFee;
@@ -19,9 +23,7 @@ import com.cobo.waas2.model.TransactionRawTxInfo;
 import com.cobo.waas2.model.TransactionReplacement;
 import com.cobo.waas2.model.TransactionResult;
 import com.cobo.waas2.model.TransactionSource;
-import com.cobo.waas2.model.TransactionStatus;
 import com.cobo.waas2.model.TransactionSubStatus;
-import com.cobo.waas2.model.TransactionType;
 import com.cobo.waas2.model.TransactionWebhookEventData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -280,6 +282,30 @@ public class WebhookEventDataTest {
     @Test
     public void updatedTimestampTest() {
         // TODO: test updatedTimestamp
+    }
+
+    /**
+     * Test the property 'tssRequestId'
+     */
+    @Test
+    public void tssRequestIdTest() {
+        // TODO: test tssRequestId
+    }
+
+    /**
+     * Test the property 'sourceKeyShareHolderGroup'
+     */
+    @Test
+    public void sourceKeyShareHolderGroupTest() {
+        // TODO: test sourceKeyShareHolderGroup
+    }
+
+    /**
+     * Test the property 'targetKeyShareHolderGroupId'
+     */
+    @Test
+    public void targetKeyShareHolderGroupIdTest() {
+        // TODO: test targetKeyShareHolderGroupId
     }
 
 }

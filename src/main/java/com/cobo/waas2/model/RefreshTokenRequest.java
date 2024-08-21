@@ -92,7 +92,7 @@ public class RefreshTokenRequest {
   }
 
    /**
-   * The type of the permission granting. To refresh an access token, you need to set the value as &#x60;refresh_token&#x60;.
+   * The OAuth grant type. Set the value as &#x60;refresh_token&#x60;.
    * @return grantType
   **/
   @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class RefreshTokenRequest {
   }
 
    /**
-   * The refresh token of the expired or expiring access token.
+   * The refresh token of the current access token.
    * @return refreshToken
   **/
   @javax.annotation.Nullable

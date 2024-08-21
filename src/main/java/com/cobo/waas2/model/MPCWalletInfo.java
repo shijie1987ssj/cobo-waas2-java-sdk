@@ -79,9 +79,17 @@ public class MPCWalletInfo {
   @SerializedName(SERIALIZED_NAME_PROJECT_ID)
   private String projectId;
 
+  public static final String SERIALIZED_NAME_PROJECT_NAME = "project_name";
+  @SerializedName(SERIALIZED_NAME_PROJECT_NAME)
+  private String projectName;
+
   public static final String SERIALIZED_NAME_VAULT_ID = "vault_id";
   @SerializedName(SERIALIZED_NAME_VAULT_ID)
   private String vaultId;
+
+  public static final String SERIALIZED_NAME_VAULT_NAME = "vault_name";
+  @SerializedName(SERIALIZED_NAME_VAULT_NAME)
+  private String vaultName;
 
   public MPCWalletInfo() {
   }
@@ -200,6 +208,25 @@ public class MPCWalletInfo {
   }
 
 
+  public MPCWalletInfo projectName(String projectName) {
+    this.projectName = projectName;
+    return this;
+  }
+
+   /**
+   * The project name.
+   * @return projectName
+  **/
+  @javax.annotation.Nullable
+  public String getProjectName() {
+    return projectName;
+  }
+
+  public void setProjectName(String projectName) {
+    this.projectName = projectName;
+  }
+
+
   public MPCWalletInfo vaultId(String vaultId) {
     this.vaultId = vaultId;
     return this;
@@ -216,6 +243,25 @@ public class MPCWalletInfo {
 
   public void setVaultId(String vaultId) {
     this.vaultId = vaultId;
+  }
+
+
+  public MPCWalletInfo vaultName(String vaultName) {
+    this.vaultName = vaultName;
+    return this;
+  }
+
+   /**
+   * The vault name.
+   * @return vaultName
+  **/
+  @javax.annotation.Nullable
+  public String getVaultName() {
+    return vaultName;
+  }
+
+  public void setVaultName(String vaultName) {
+    this.vaultName = vaultName;
   }
 
   /**
@@ -279,13 +325,15 @@ public class MPCWalletInfo {
         Objects.equals(this.name, mpCWalletInfo.name) &&
         Objects.equals(this.orgId, mpCWalletInfo.orgId) &&
         Objects.equals(this.projectId, mpCWalletInfo.projectId) &&
-        Objects.equals(this.vaultId, mpCWalletInfo.vaultId)&&
+        Objects.equals(this.projectName, mpCWalletInfo.projectName) &&
+        Objects.equals(this.vaultId, mpCWalletInfo.vaultId) &&
+        Objects.equals(this.vaultName, mpCWalletInfo.vaultName)&&
         Objects.equals(this.additionalProperties, mpCWalletInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(walletId, walletType, walletSubtype, name, orgId, projectId, vaultId, additionalProperties);
+    return Objects.hash(walletId, walletType, walletSubtype, name, orgId, projectId, projectName, vaultId, vaultName, additionalProperties);
   }
 
   @Override
@@ -298,7 +346,9 @@ public class MPCWalletInfo {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
     sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+    sb.append("    projectName: ").append(toIndentedString(projectName)).append("\n");
     sb.append("    vaultId: ").append(toIndentedString(vaultId)).append("\n");
+    sb.append("    vaultName: ").append(toIndentedString(vaultName)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -328,7 +378,9 @@ public class MPCWalletInfo {
     openapiFields.add("name");
     openapiFields.add("org_id");
     openapiFields.add("project_id");
+    openapiFields.add("project_name");
     openapiFields.add("vault_id");
+    openapiFields.add("vault_name");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -376,8 +428,14 @@ public class MPCWalletInfo {
       if ((jsonObj.get("project_id") != null && !jsonObj.get("project_id").isJsonNull()) && !jsonObj.get("project_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `project_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("project_id").toString()));
       }
+      if ((jsonObj.get("project_name") != null && !jsonObj.get("project_name").isJsonNull()) && !jsonObj.get("project_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `project_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("project_name").toString()));
+      }
       if (!jsonObj.get("vault_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `vault_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vault_id").toString()));
+      }
+      if ((jsonObj.get("vault_name") != null && !jsonObj.get("vault_name").isJsonNull()) && !jsonObj.get("vault_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `vault_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("vault_name").toString()));
       }
   }
 

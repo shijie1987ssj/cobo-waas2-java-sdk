@@ -77,7 +77,7 @@ public class AssetInfo {
   }
 
    /**
-   * (This concept applies to Exchange Wallets only) The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
+   * The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account.
    * @return assetId
   **/
   @javax.annotation.Nonnull

@@ -80,4 +80,12 @@ public class TransactionMPCWalletSourceTest {
         // TODO: test excludedUtxos
     }
 
+    /**
+     * Test the property 'signerKeyShareHolderGroupId'
+     */
+    @Test
+    public void signerKeyShareHolderGroupIdTest() {
+        // TODO: test signerKeyShareHolderGroupId
+    }
+
 }

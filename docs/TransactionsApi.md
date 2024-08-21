@@ -22,7 +22,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 Cancel transaction
 
-This operation cancels a specified transaction. A transaction can be cancelled if its status is either of the following: - &#x60;Submitted&#x60; - &#x60;PendingScreening&#x60; - &#x60;PendingAuthorization&#x60; - &#x60;PendingSignature&#x60;   A transaction request for tracking is returned upon successful operation. &lt;Note&gt;This operation only applies to transactions from MPC Wallets.&lt;/Note&gt; 
+This operation cancels a specified transaction. A transaction can be cancelled if its status is either of the following: - &#x60;Submitted&#x60; - &#x60;PendingScreening&#x60; - &#x60;PendingAuthorization&#x60; - &#x60;PendingSignature&#x60;   A transaction request for tracking is returned upon successful operation. &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets.&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -36,11 +36,11 @@ import com.cobo.waas2.api.TransactionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     TransactionsApi apiInstance = new TransactionsApi();
     UUID transactionId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     try {
@@ -89,7 +89,7 @@ public class Example {
 
 Call smart contract
 
-This operation creates a transaction to interact with a smart contract on the blockchain.  You need to provide details such as the source address, destination address, and the calldata. You can specify the fee-related properties to limit the transaction fee. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;Currently, this operation only applies to blockchains that have a similar architecture to Ethereum.&lt;/Note&gt; 
+This operation creates a transaction to interact with a smart contract on the blockchain.  You need to provide details such as the source address, destination address, and the calldata. You can specify the fee-related properties to limit the transaction fee. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;Currently, this operation only applies to the transactions from MPC Wallets or Smart Contract Wallets on the blockchains that have a similar architecture to Ethereum.&lt;/Note&gt;  &lt;Info&gt;If you initiate a transaction from a Smart Contract Wallet, a relevant transaction will be triggered from the Delegate to the Cobo Safe&#39;s address of the Smart Contract Wallet, with a transfer amount of &lt;code&gt;0&lt;/code&gt;.&lt;/Info&gt; 
 
 ### Example
 ```java
@@ -103,11 +103,11 @@ import com.cobo.waas2.api.TransactionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     TransactionsApi apiInstance = new TransactionsApi();
     ContractCallParams contractCallParams = new ContractCallParams();
     try {
@@ -156,7 +156,7 @@ public class Example {
 
 Sign message
 
-This operation creates a transaction to sign the provided message using cryptographic techniques.  In some scenarios, you want to sign a message for identity authentication or transaction approval. You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  You can get the signature result by calling [Get transaction information](/v2/api-references/transactions/get-transaction-information).   &lt;Note&gt;Currently, only MPC Wallets support this type of transaction to sign a message.&lt;/Note&gt; 
+This operation creates a transaction to sign the provided message using cryptographic techniques.  In some scenarios, you want to sign a message for identity authentication or transaction approval. You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  You can get the signature result by calling [Get transaction information](/v2/api-references/transactions/get-transaction-information).   &lt;Note&gt;This operation only applies to transactions from MPC Wallets.&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -170,11 +170,11 @@ import com.cobo.waas2.api.TransactionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     TransactionsApi apiInstance = new TransactionsApi();
     MessageSignParams messageSignParams = new MessageSignParams();
     try {
@@ -223,7 +223,7 @@ public class Example {
 
 Transfer token
 
-The operation transfers your assets from a wallet created on Cobo Protal to another address.  You need to specify details such as the sender address and recipient address, token ID, and the amount to transfer. You can specify the fee-related properties to limit the transaction fee. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;Only MPC Wallets as the transaction source can transfer tokens to multiple addresses by using the &lt;code&gt;utxo_outputs&lt;/code&gt; property.&lt;/Note&gt; 
+The operation transfers your assets from a wallet created on Cobo Protal to another address.  You need to specify details such as the sender address and recipient address, token ID, and the amount to transfer. You can specify the fee-related properties to limit the transaction fee. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. You should use the &lt;code&gt;utxo_outputs&lt;/code&gt; property to specify the destination addresses.&lt;/Note&gt;  &lt;Info&gt;If you initiate a transaction from a Smart Contract Wallet, a relevant transaction will be triggered from the Delegate to the Cobo Safe&#39;s address of the Smart Contract Wallet, with a transfer amount of &lt;code&gt;0&lt;/code&gt;.&lt;/Info&gt; 
 
 ### Example
 ```java
@@ -237,11 +237,11 @@ import com.cobo.waas2.api.TransactionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     TransactionsApi apiInstance = new TransactionsApi();
     TransferParams transferParams = new TransferParams();
     try {
@@ -290,7 +290,7 @@ public class Example {
 
 Drop transaction
 
-This operation drops a specified transaction.   Dropping a transaction will trigger an Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It has a higher transaction fee to incentivize miners to prioritize its confirmation over the original one. A transaction can be dropped if its status is &#x60;Broadcasting&#x60;.  &lt;ul&gt; &lt;li&gt;For EVM chains, this RBF transaction has a transfer amount of &#x60;0&#x60; and the sending address is the same as the receiving address.&lt;/li&gt; &lt;li&gt;For UTXO chains, this RBF transaction has a transfer amount of &#x60;0&#x60; and the destination address is the same as the change address in the original transaction.&lt;/li&gt; &lt;/ul&gt; A transaction request for tracking is returned upon successful operation. &lt;Note&gt;This operation only applies to transactions from MPC Wallets, excluding transactions in the tokens VET, TRON, TVET, SOL, and TON.&lt;/Note&gt; 
+This operation drops a specified transaction.   Dropping a transaction will trigger an Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It has a higher transaction fee to incentivize miners to prioritize its confirmation over the original one. A transaction can be dropped if its status is &#x60;Broadcasting&#x60;.  &lt;ul&gt; &lt;li&gt;For EVM chains, this RBF transaction has a transfer amount of &#x60;0&#x60; and the sending address is the same as the receiving address.&lt;/li&gt; &lt;li&gt;For UTXO chains, this RBF transaction has a transfer amount of &#x60;0&#x60; and the destination address is the same as the change address in the original transaction.&lt;/li&gt; &lt;/ul&gt;  A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  &lt;Info&gt;If you drop a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.&lt;/Info&gt; 
 
 ### Example
 ```java
@@ -304,11 +304,11 @@ import com.cobo.waas2.api.TransactionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     TransactionsApi apiInstance = new TransactionsApi();
     UUID transactionId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     TransactionRbf transactionRbf = new TransactionRbf();
@@ -373,11 +373,11 @@ import com.cobo.waas2.api.TransactionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     TransactionsApi apiInstance = new TransactionsApi();
     EstimateFeeParams estimateFeeParams = new EstimateFeeParams();
     try {
@@ -440,11 +440,11 @@ import com.cobo.waas2.api.TransactionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     TransactionsApi apiInstance = new TransactionsApi();
     UUID transactionId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     try {
@@ -507,11 +507,11 @@ import com.cobo.waas2.api.TransactionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     TransactionsApi apiInstance = new TransactionsApi();
     String requestId = "web_send_by_user_327_1610444045047";
     String coboIds = "20231213122855000000000000000000,20231213122955000000000000000000";
@@ -553,12 +553,12 @@ public class Example {
 | **transactionIds** | **UUID**| A list of transaction IDs, separated by comma. | [optional] |
 | **transactionHashes** | **String**| A list of transaction hashes, separated by comma. | [optional] |
 | **types** | **String**| A list of transaction types, separated by comma. Possible values include:    - &#x60;Deposit&#x60;: A deposit transaction.   - &#x60;Withdrawal&#x60;: A withdrawal transaction.   - &#x60;ContractCall&#x60;: A transaction that interacts with a smart contract.   - &#x60;MessageSign&#x60;: A transaction that signs a message.    - &#x60;ExternalSafeTx&#x60;: A transaction to a Smart Contract Wallet (Safe{Wallet}) that requires one or multiple signatures to be executed.  | [optional] |
-| **statuses** | **String**| A list of transaction statuses, separated by comma. Possible values include:    - &#x60;Submitted&#x60;: The transaction is submitted.   - &#x60;PendingScreening&#x60;: The transaction is pending screening by Risk Control.    - &#x60;PendingAuthorization&#x60;: The transaction is pending approvals.   - &#x60;PendingSignature&#x60;: The transaction is pending signature.    - &#x60;Broadcasting&#x60;: The transaction is being broadcast.   - &#x60;Confirming&#x60;: The transaction is waiting for the required number of confirmations.   - &#x60;Completed&#x60;: The transaction is completed.   - &#x60;Failed&#x60;: The transaction failed.   - &#x60;Rejected&#x60;: The transaction is rejected.   - &#x60;Pending&#x60;: The transaction is pending.  | [optional] |
+| **statuses** | **String**| A list of transaction statuses, separated by comma. Possible values include:    - &#x60;Submitted&#x60;: The transaction is submitted.   - &#x60;PendingScreening&#x60;: The transaction is pending screening by Risk Control.    - &#x60;PendingAuthorization&#x60;: The transaction is pending approvals.   - &#x60;PendingSignature&#x60;: The transaction is pending signature.    - &#x60;Broadcasting&#x60;: The transaction is being broadcast.   - &#x60;Confirming&#x60;: The transaction is waiting for the required number of confirmations.   - &#x60;Completed&#x60;: The transaction is completed.   - &#x60;Failed&#x60;: The transaction failed.   - &#x60;Rejected&#x60;: The transaction is rejected.   - &#x60;Pending&#x60;: The transaction is waiting to be included in the next block of the blockchain.  | [optional] |
 | **walletIds** | **String**| A list of wallet IDs, separated by comma. | [optional] |
 | **chainIds** | **String**| A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains). | [optional] |
 | **tokenIds** | **String**| A list of token IDs, separated by comma. The token ID is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens). | [optional] |
 | **assetIds** | **String**| (This concept applies to Exchange Wallets only) A list of asset IDs, separated by comma. An asset ID is the unique identifier of the asset held within your linked exchange account. | [optional] |
-| **vaultId** | **UUID**| (This parameter is applicable to MPC Wallets only) The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallets/list-all-vaults). | [optional] |
+| **vaultId** | **UUID**| The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallets/list-all-vaults). | [optional] |
 | **projectId** | **UUID**| The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects).  | [optional] |
 | **minCreatedTimestamp** | **Long**| The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or after the specified time. | [optional] |
 | **maxCreatedTimestamp** | **Long**| The time when the transaction was created, in Unix timestamp format, measured in milliseconds. You can use this parameter to filter transactions created on or before the specified time. | [optional] |
@@ -592,7 +592,7 @@ public class Example {
 
 Resend transaction
 
-This operation resends a specified transaction. Resending a transaction initiates a new attempt to process the transaction that failed previously. A transaction can be resent if its status is &#x60;failed&#x60;.  A transaction request for tracking is returned upon successful operation. &lt;Note&gt;This operation only applies to transactions in the SOL token from MPC Wallets.&lt;/Note&gt; 
+This operation resends a specified transaction. Resending a transaction initiates a new attempt to process the transaction that failed previously. A transaction can be resent if its status is &#x60;failed&#x60;.  A transaction request for tracking is returned upon successful operation. &lt;Note&gt;This operation only applies to transactions from MPC Wallets in the SOL token.&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -606,11 +606,11 @@ import com.cobo.waas2.api.TransactionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     TransactionsApi apiInstance = new TransactionsApi();
     UUID transactionId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     TransactionResend transactionResend = new TransactionResend();
@@ -661,7 +661,7 @@ public class Example {
 
 Speed up transaction
 
-This operation accelerates a specified transaction.   Speeding up a transaction will trigger an Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It shares the same inputs but has a higher transaction fee to incentivize miners to prioritize its confirmation over the previous one. A transaction can be accelerated if its status is &#x60;Broadcasting&#x60;.  A transaction request for tracking is returned upon successful operation. &lt;Note&gt;This operation only applies to transactions from MPC Wallets, excluding transactions in the tokens VET, TRON, TVET, SOL, and TON.&lt;/Note&gt; 
+This operation accelerates a specified transaction.   Speeding up a transaction will trigger an Replace-By-Fee (RBF) transaction which is a new version of the original transaction. It shares the same inputs but has a higher transaction fee to incentivize miners to prioritize its confirmation over the previous one. A transaction can be accelerated if its status is &#x60;Broadcasting&#x60;.  A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;This operation only applies to transactions from MPC Wallets and Smart Contract Wallets. It does not apply to transactions on the following chains: VET, TRON, TVET, SOL, and TON.&lt;/Note&gt;  &lt;Info&gt;If you speed up a transaction from a Smart Contract Wallet, two RBF transactions will be triggered, one for the transaction from the Smart Contract Wallet, and the other for the transaction from the Delegate.&lt;/Info&gt; 
 
 ### Example
 ```java
@@ -675,11 +675,11 @@ import com.cobo.waas2.api.TransactionsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     TransactionsApi apiInstance = new TransactionsApi();
     UUID transactionId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     TransactionRbf transactionRbf = new TransactionRbf();

@@ -22,19 +22,27 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The event type.   - &#x60;wallets.transaction.created&#x60;: This event occurs when a transaction is created.   - &#x60;wallets.transaction.updated&#x60;: This event occurs when a transaction is created or when there is an update of the transaction status.   - &#x60;wallets.transaction.failed&#x60;: This event occurs when a transaction fails.   - &#x60;wallets.transaction.succeeded&#x60;: This event occurs when a transaction has been successfully completed.
+ * The event type. To learn the trigger condition of each event type, refer to [Webhook event types and event data](/v2/guides/webhooks-callbacks/webhook-event-type).
  */
 @JsonAdapter(WebhookEventType.Adapter.class)
 public enum WebhookEventType {
   UNKNOWN(null),
   
-  CREATED("wallets.transaction.created"),
+  TRANSACTION_CREATED("wallets.transaction.created"),
   
-  UPDATED("wallets.transaction.updated"),
+  TRANSACTION_UPDATED("wallets.transaction.updated"),
   
-  FAILED("wallets.transaction.failed"),
+  TRANSACTION_FAILED("wallets.transaction.failed"),
   
-  SUCCEEDED("wallets.transaction.succeeded");
+  TRANSACTION_SUCCEEDED("wallets.transaction.succeeded"),
+  
+  MPC_TSS_REQUEST_CREATED("wallets.mpc.tss_request.created"),
+  
+  MPC_TSS_REQUEST_UPDATED("wallets.mpc.tss_request.updated"),
+  
+  MPC_TSS_REQUEST_FAILED("wallets.mpc.tss_request.failed"),
+  
+  MPC_TSS_REQUEST_SUCCEEDED("wallets.mpc.tss_request.succeeded");
 
   private String value;
 

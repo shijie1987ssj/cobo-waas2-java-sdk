@@ -67,11 +67,13 @@ import com.cobo.waas2.JSON;
 )
 public class TransactionWebhookEventData {
   /**
-   * The data type of the event. When &#x60;data_type&#x60; is &#x60;Transaction&#x60;, it means the event uses the &#x60;transaction&#x60; schema as its data type.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data.
    */
   @JsonAdapter(DataTypeEnum.Adapter.class)
   public enum DataTypeEnum {
-    TRANSACTION("Transaction");
+    TRANSACTION("Transaction"),
+    
+    TSSREQUEST("TSSRequest");
 
     private String value;
 
@@ -241,7 +243,7 @@ public class TransactionWebhookEventData {
   }
 
    /**
-   * The data type of the event. When &#x60;data_type&#x60; is &#x60;Transaction&#x60;, it means the event uses the &#x60;transaction&#x60; schema as its data type.
+   *  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data.
    * @return dataType
   **/
   @javax.annotation.Nonnull

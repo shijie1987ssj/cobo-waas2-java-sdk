@@ -2,7 +2,7 @@
 
 # ExchangeTransferDestination
 
-The information about the transaction destination type `ExchangeWallet`.   An Exchange Wallet (Sub Account) as the transaction destination can only receives token transfers from another Exchange Wallet. 
+The information about the transaction destination type `ExchangeWallet`.   An Exchange Wallet (Sub Account) can only receive asset transfers from another Exchange Wallet. 
 
 ## Properties
 
@@ -10,8 +10,8 @@ The information about the transaction destination type `ExchangeWallet`.   An Ex
 |------------ | ------------- | ------------- | -------------|
 |**destinationType** | **TransferDestinationType** |  |  |
 |**walletId** | **UUID** | The wallet ID. |  |
-|**subWalletId** | **String** | The exchange trading account or the sub-wallet ID. |  |
-|**amount** | **String** | The quantity of the token in the transaction. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;.  |  |
+|**tradingAccountType** | **String** | The trading account type. |  |
+|**amount** | **String** | The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;.  |  |
 
 
 

@@ -35,11 +35,11 @@ import com.cobo.waas2.api.DevelopersWebhooksApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     DevelopersWebhooksApi apiInstance = new DevelopersWebhooksApi();
     CreateWebhookEndpointRequest createWebhookEndpointRequest = new CreateWebhookEndpointRequest();
     try {
@@ -102,11 +102,11 @@ import com.cobo.waas2.api.DevelopersWebhooksApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     DevelopersWebhooksApi apiInstance = new DevelopersWebhooksApi();
     UUID endpointId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     try {
@@ -169,11 +169,11 @@ import com.cobo.waas2.api.DevelopersWebhooksApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     DevelopersWebhooksApi apiInstance = new DevelopersWebhooksApi();
     UUID eventId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     UUID endpointId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
@@ -238,11 +238,11 @@ import com.cobo.waas2.api.DevelopersWebhooksApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     DevelopersWebhooksApi apiInstance = new DevelopersWebhooksApi();
     WebhookEndpointStatus status = WebhookEndpointStatus.fromValue("STATUS_ACTIVE");
     WebhookEventType eventType = WebhookEventType.fromValue("wallets.transaction.created");
@@ -268,7 +268,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **status** | [**WebhookEndpointStatus**](.md)|  | [optional] [enum: STATUS_ACTIVE, STATUS_INACTIVE, STATUS_PENDING_ACTIVE, STATUS_PENDING_INACTIVE, STATUS_PENDING_UPDATE, STATUS_REJECT_ACTIVE] |
-| **eventType** | [**WebhookEventType**](.md)|  | [optional] [enum: wallets.transaction.created, wallets.transaction.updated, wallets.transaction.failed, wallets.transaction.succeeded] |
+| **eventType** | [**WebhookEventType**](.md)|  | [optional] [enum: wallets.transaction.created, wallets.transaction.updated, wallets.transaction.failed, wallets.transaction.succeeded, wallets.mpc.tss_request.created, wallets.mpc.tss_request.updated, wallets.mpc.tss_request.failed, wallets.mpc.tss_request.succeeded] |
 | **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
 | **before** | **String**| An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify &#x60;before&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;, the request will retrieve a list of data objects that end before the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;. You can set this parameter to the value of &#x60;pagination.before&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  - If you set &#x60;before&#x60; to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
 | **after** | **String**| An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify &#x60;after&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;, the request will retrieve a list of data objects that start after the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;. You can set this parameter to the value of &#x60;pagination.after&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
@@ -313,11 +313,11 @@ import com.cobo.waas2.api.DevelopersWebhooksApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     DevelopersWebhooksApi apiInstance = new DevelopersWebhooksApi();
     try {
       List<ListWebhookEventDefinitions200ResponseInner> result = apiInstance.listWebhookEventDefinitions();
@@ -376,11 +376,11 @@ import com.cobo.waas2.api.DevelopersWebhooksApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     DevelopersWebhooksApi apiInstance = new DevelopersWebhooksApi();
     UUID eventId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     UUID endpointId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
@@ -451,11 +451,11 @@ import com.cobo.waas2.api.DevelopersWebhooksApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     DevelopersWebhooksApi apiInstance = new DevelopersWebhooksApi();
     UUID endpointId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     WebhookEventStatus status = WebhookEventStatus.fromValue("Success");
@@ -483,7 +483,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **endpointId** | **UUID**| The webhook endpoint ID. You can retrieve a list of webhook endpoint IDs by calling [List webhook endpoints](/v2/api-references/developers--webhooks/list-webhook-endpoints). | |
 | **status** | [**WebhookEventStatus**](.md)|  | [optional] [enum: Success, Retrying, Failed] |
-| **type** | [**WebhookEventType**](.md)|  | [optional] [enum: wallets.transaction.created, wallets.transaction.updated, wallets.transaction.failed, wallets.transaction.succeeded] |
+| **type** | [**WebhookEventType**](.md)|  | [optional] [enum: wallets.transaction.created, wallets.transaction.updated, wallets.transaction.failed, wallets.transaction.succeeded, wallets.mpc.tss_request.created, wallets.mpc.tss_request.updated, wallets.mpc.tss_request.failed, wallets.mpc.tss_request.succeeded] |
 | **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
 | **before** | **String**| An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify &#x60;before&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;, the request will retrieve a list of data objects that end before the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;. You can set this parameter to the value of &#x60;pagination.before&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  - If you set &#x60;before&#x60; to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
 | **after** | **String**| An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify &#x60;after&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;, the request will retrieve a list of data objects that start after the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;. You can set this parameter to the value of &#x60;pagination.after&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
@@ -528,11 +528,11 @@ import com.cobo.waas2.api.DevelopersWebhooksApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     DevelopersWebhooksApi apiInstance = new DevelopersWebhooksApi();
     UUID eventId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     UUID endpointId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
@@ -597,11 +597,11 @@ import com.cobo.waas2.api.DevelopersWebhooksApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     DevelopersWebhooksApi apiInstance = new DevelopersWebhooksApi();
     UUID endpointId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     UpdateWebhookEndpointByIdRequest updateWebhookEndpointByIdRequest = new UpdateWebhookEndpointByIdRequest();

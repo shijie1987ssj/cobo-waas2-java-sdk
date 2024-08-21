@@ -377,7 +377,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Create project
-     * This operation creates a project.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation creates a project.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      * @param createMpcProjectRequest The request body to create a project. (optional)
      * @return MPCProject
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -396,7 +396,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Create project
-     * This operation creates a project.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation creates a project.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      * @param createMpcProjectRequest The request body to create a project. (optional)
      * @return ApiResponse&lt;MPCProject&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -416,7 +416,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Create project (asynchronously)
-     * This operation creates a project.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation creates a project.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      * @param createMpcProjectRequest The request body to create a project. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -987,7 +987,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Get project information
-     * This operation retrieves detailed information about a project. &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation retrieves detailed information about a project. &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      * @param projectId The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects). (required)
      * @return MPCProject
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1006,7 +1006,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Get project information
-     * This operation retrieves detailed information about a project. &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation retrieves detailed information about a project. &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      * @param projectId The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects). (required)
      * @return ApiResponse&lt;MPCProject&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1026,7 +1026,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Get project information (asynchronously)
-     * This operation retrieves detailed information about a project. &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation retrieves detailed information about a project. &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      * @param projectId The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects). (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1617,7 +1617,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * List all projects
-     * This operation retrieves a list of all projects.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation retrieves a list of all projects.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify &#x60;before&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;, the request will retrieve a list of data objects that end before the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;. You can set this parameter to the value of &#x60;pagination.before&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  - If you set &#x60;before&#x60; to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify &#x60;after&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;, the request will retrieve a list of data objects that start after the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;. You can set this parameter to the value of &#x60;pagination.after&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
@@ -1638,7 +1638,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * List all projects
-     * This operation retrieves a list of all projects.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation retrieves a list of all projects.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify &#x60;before&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;, the request will retrieve a list of data objects that end before the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;. You can set this parameter to the value of &#x60;pagination.before&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  - If you set &#x60;before&#x60; to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify &#x60;after&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;, the request will retrieve a list of data objects that start after the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;. You can set this parameter to the value of &#x60;pagination.after&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
@@ -1660,7 +1660,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * List all projects (asynchronously)
-     * This operation retrieves a list of all projects.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation retrieves a list of all projects.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify &#x60;before&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;, the request will retrieve a list of data objects that end before the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;. You can set this parameter to the value of &#x60;pagination.before&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  - If you set &#x60;before&#x60; to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify &#x60;after&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;, the request will retrieve a list of data objects that start after the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;. You can set this parameter to the value of &#x60;pagination.after&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
@@ -2184,7 +2184,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Update project name
-     * This operation updates a project&#39;s name.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation updates a project&#39;s name.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      * @param projectId The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects). (required)
      * @param updateMpcProjectByIdRequest The request body to update a project&#39;s name. (optional)
      * @return MPCProject
@@ -2204,7 +2204,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Update project name
-     * This operation updates a project&#39;s name.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation updates a project&#39;s name.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      * @param projectId The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects). (required)
      * @param updateMpcProjectByIdRequest The request body to update a project&#39;s name. (optional)
      * @return ApiResponse&lt;MPCProject&gt;
@@ -2225,7 +2225,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Update project name (asynchronously)
-     * This operation updates a project&#39;s name.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+     * This operation updates a project&#39;s name.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
      * @param projectId The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects). (required)
      * @param updateMpcProjectByIdRequest The request body to update a project&#39;s name. (optional)
      * @param _callback The callback to be executed when the API call finishes

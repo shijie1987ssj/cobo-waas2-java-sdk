@@ -78,6 +78,10 @@ public class KeyShareHolder {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private KeyShareHolderStatus status;
 
+  public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
+  private String accountId;
+
   public KeyShareHolder() {
   }
 
@@ -194,6 +198,25 @@ public class KeyShareHolder {
     this.status = status;
   }
 
+
+  public KeyShareHolder accountId(String accountId) {
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * The key share holder&#39;s Cobo Portal account ID.
+   * @return accountId
+  **/
+  @javax.annotation.Nullable
+  public String getAccountId() {
+    return accountId;
+  }
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -254,13 +277,14 @@ public class KeyShareHolder {
         Objects.equals(this.tssNodeId, keyShareHolder.tssNodeId) &&
         Objects.equals(this.online, keyShareHolder.online) &&
         Objects.equals(this.signer, keyShareHolder.signer) &&
-        Objects.equals(this.status, keyShareHolder.status)&&
+        Objects.equals(this.status, keyShareHolder.status) &&
+        Objects.equals(this.accountId, keyShareHolder.accountId)&&
         Objects.equals(this.additionalProperties, keyShareHolder.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, tssNodeId, online, signer, status, additionalProperties);
+    return Objects.hash(name, type, tssNodeId, online, signer, status, accountId, additionalProperties);
   }
 
   @Override
@@ -273,6 +297,7 @@ public class KeyShareHolder {
     sb.append("    online: ").append(toIndentedString(online)).append("\n");
     sb.append("    signer: ").append(toIndentedString(signer)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -302,6 +327,7 @@ public class KeyShareHolder {
     openapiFields.add("online");
     openapiFields.add("signer");
     openapiFields.add("status");
+    openapiFields.add("account_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -333,6 +359,9 @@ public class KeyShareHolder {
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
         KeyShareHolderStatus.validateJsonElement(jsonObj.get("status"));
+      }
+      if ((jsonObj.get("account_id") != null && !jsonObj.get("account_id").isJsonNull()) && !jsonObj.get("account_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
       }
   }
 

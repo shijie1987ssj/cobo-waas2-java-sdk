@@ -55,6 +55,10 @@ import com.cobo.waas2.JSON;
     comments = "Generator version: 7.6.0"
 )
 public class CreateStakeActivity {
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
   private StakingSource source;
@@ -77,6 +81,25 @@ public class CreateStakeActivity {
 
   public CreateStakeActivity() {
   }
+
+  public CreateStakeActivity requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID that is used to track a request. The request ID is provided by you and must be unique within your organization.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
 
   public CreateStakeActivity source(StakingSource source) {
     this.source = source;
@@ -227,7 +250,8 @@ public class CreateStakeActivity {
       return false;
     }
     CreateStakeActivity createStakeActivity = (CreateStakeActivity) o;
-    return Objects.equals(this.source, createStakeActivity.source) &&
+    return Objects.equals(this.requestId, createStakeActivity.requestId) &&
+        Objects.equals(this.source, createStakeActivity.source) &&
         Objects.equals(this.poolId, createStakeActivity.poolId) &&
         Objects.equals(this.amount, createStakeActivity.amount) &&
         Objects.equals(this.fee, createStakeActivity.fee) &&
@@ -237,13 +261,14 @@ public class CreateStakeActivity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(source, poolId, amount, fee, extra, additionalProperties);
+    return Objects.hash(requestId, source, poolId, amount, fee, extra, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateStakeActivity {\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    poolId: ").append(toIndentedString(poolId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
@@ -272,6 +297,7 @@ public class CreateStakeActivity {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("request_id");
     openapiFields.add("source");
     openapiFields.add("pool_id");
     openapiFields.add("amount");
@@ -306,6 +332,9 @@ public class CreateStakeActivity {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
+      }
       // validate the optional field `source`
       if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) {
         StakingSource.validateJsonElement(jsonObj.get("source"));

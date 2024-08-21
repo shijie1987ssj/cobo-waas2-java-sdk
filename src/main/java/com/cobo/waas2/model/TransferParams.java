@@ -132,7 +132,7 @@ public class TransferParams {
   }
 
    /**
-   * The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
+   * The token ID of the transferred token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens). For transfers from Exchange Wallets, this property value represents the asset ID.
    * @return tokenId
   **/
   @javax.annotation.Nonnull

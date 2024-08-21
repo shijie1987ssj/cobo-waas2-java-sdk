@@ -44,11 +44,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     UUID vaultId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     String tssRequestId = "20240711114129000132315000003970";
@@ -113,11 +113,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     UUID vaultId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     CreateKeyShareHolderGroupRequest createKeyShareHolderGroupRequest = new CreateKeyShareHolderGroupRequest();
@@ -168,7 +168,7 @@ public class Example {
 
 Create project
 
-This operation creates a project.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+This operation creates a project.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -182,11 +182,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     CreateMpcProjectRequest createMpcProjectRequest = new CreateMpcProjectRequest();
     try {
@@ -249,11 +249,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     CreateMpcVaultRequest createMpcVaultRequest = new CreateMpcVaultRequest();
     try {
@@ -316,11 +316,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     UUID vaultId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     CreateTssRequestRequest createTssRequestRequest = new CreateTssRequestRequest();
@@ -385,11 +385,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     UUID vaultId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     String keyShareHolderGroupId = "e8257ac8-76b8-4d1e-a1f9-eec4cb931dce";
@@ -454,11 +454,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     UUID vaultId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     String keyShareHolderGroupId = "e8257ac8-76b8-4d1e-a1f9-eec4cb931dce";
@@ -509,7 +509,7 @@ public class Example {
 
 Get project information
 
-This operation retrieves detailed information about a project. &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+This operation retrieves detailed information about a project. &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -523,11 +523,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     UUID projectId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     try {
@@ -590,11 +590,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     UUID vaultId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     try {
@@ -657,11 +657,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     UUID vaultId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     String tssRequestId = "20240711114129000132315000003970";
@@ -726,11 +726,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     try {
       List<KeyShareHolder> result = apiInstance.listCoboKeyHolders();
@@ -789,11 +789,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     UUID vaultId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     KeyShareHolderGroupType keyShareHolderGroupType = KeyShareHolderGroupType.fromValue("MainGroup");
@@ -850,7 +850,7 @@ public class Example {
 
 List all projects
 
-This operation retrieves a list of all projects.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+This operation retrieves a list of all projects.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -864,11 +864,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     Integer limit = 10;
     String before = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1";
@@ -935,11 +935,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     MPCVaultType vaultType = MPCVaultType.fromValue("Org-Controlled");
     UUID projectId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
@@ -1010,11 +1010,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     UUID vaultId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     String keyShareHolderGroupId = "a3a45e99-5a12-444f-867a-ffe0ebb1bb30";
@@ -1085,11 +1085,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     UUID vaultId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     String keyShareHolderGroupId = "e8257ac8-76b8-4d1e-a1f9-eec4cb931dce";
@@ -1142,7 +1142,7 @@ public class Example {
 
 Update project name
 
-This operation updates a project&#39;s name.  &lt;Info&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Info&gt; 
+This operation updates a project&#39;s name.  &lt;Note&gt;This operation applies to MPC Wallets (User-Controlled Wallets) only.&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -1156,11 +1156,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     UUID projectId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     UpdateMpcProjectByIdRequest updateMpcProjectByIdRequest = new UpdateMpcProjectByIdRequest();
@@ -1225,11 +1225,11 @@ import com.cobo.waas2.api.WalletsMpcWalletsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // for dev environment
-    // defaultClient.setEnv(Env.DEV);
-    // set custom base url
-    // defaultClient.setBasePath("https://api[.xxx].cobo.com/v2");
-    defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
     WalletsMpcWalletsApi apiInstance = new WalletsMpcWalletsApi();
     UUID vaultId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
     UpdateMpcVaultByIdRequest updateMpcVaultByIdRequest = new UpdateMpcVaultByIdRequest();

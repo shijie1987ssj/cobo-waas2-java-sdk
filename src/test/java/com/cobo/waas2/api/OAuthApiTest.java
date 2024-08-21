@@ -17,6 +17,7 @@ import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.GetToken200Response;
 import com.cobo.waas2.model.GetToken4XXResponse;
+import com.cobo.waas2.model.RefreshToken200Response;
 import com.cobo.waas2.model.RefreshTokenRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -40,9 +41,9 @@ public class OAuthApiTest {
     private final OAuthApi api = new OAuthApi();
 
     /**
-     * Get Access Token
+     * Get access token
      *
-     * &lt;Note&gt;This operation is only applicable to Cobo Portal App developers. To call this operation, you need to use the OAuth authentication method that requires an App Key.&lt;/Note&gt; This operation allows Cobo Portal Apps to get an access token and a refresh token with a specified App ID, Org ID, and grant type.   Access tokens allow the app to signal to the WaaS service that it has received permission from the organization admin to access specific resources. Once the app has been granted permission by an organization admin, it can use this operation to obtain both an access token and a refresh token.  For security purposes, access tokens expire after a certain period. Once they expire, the app need to [Refresh token](/v2/api-references/oauth/refresh-access-token) to get a new access token and a new fresh token. 
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal App developers. To call this operation, you need to use the OAuth authentication method that requires an app key.&lt;/Note&gt; This operation allows Cobo Portal Apps to get an access token and a refresh token with a specified App ID, Organization ID, and grant type.   Access tokens allow the app to signal to the WaaS service that it has received permission to access specific resources of the app user&#39;s [organization](https://manuals.cobo.com/en/portal/organization/introduction). Once the app has been granted permission by the organization&#39;s admin, it can use this operation to obtain both an access token and a refresh token.  For security purposes, access tokens expire after a certain period. Once they expire, the app needs to call [Refresh token](/v2/api-references/oauth/refresh-access-token) to get a new access token and a new refresh token. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -56,16 +57,16 @@ public class OAuthApiTest {
     }
 
     /**
-     * Refresh Access Token
+     * Refresh access token
      *
-     * &lt;Note&gt;This operation is only applicable to Cobo Portal Apps developers. To call this operation, you need to use the OAuth authentication method that requires an App Key.&lt;/Note&gt; This operation allows Cobo Portal Apps to obtain a new access token with a specified App ID, grant type and a refresh token. For security purposes, access tokens expire after a certain period. Once they expire, the app need to use this operation to get a new access token and a new fresh token. 
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Apps developers. To call this operation, you need to use the OAuth authentication method that requires an app key.&lt;/Note&gt; This operation allows Cobo Portal Apps to obtain a new access token with a specified App ID, grant type and a refresh token.   For security purposes, access tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new access token and a new refresh token. 
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void refreshTokenTest() throws ApiException {
         RefreshTokenRequest refreshTokenRequest = null;
-        GetToken200Response response = api.refreshToken(refreshTokenRequest);
+        RefreshToken200Response response = api.refreshToken(refreshTokenRequest);
         // TODO: test validations
     }
 

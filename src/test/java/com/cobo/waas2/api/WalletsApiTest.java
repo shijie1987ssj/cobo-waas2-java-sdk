@@ -17,6 +17,8 @@ import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.AddressInfo;
 import com.cobo.waas2.model.ChainInfo;
 import com.cobo.waas2.model.CheckAddressValidity200Response;
+import com.cobo.waas2.model.CheckAddressesValidity200ResponseInner;
+import com.cobo.waas2.model.CheckLoopTransfers200ResponseInner;
 import com.cobo.waas2.model.CreateAddressRequest;
 import com.cobo.waas2.model.CreateWalletParams;
 import com.cobo.waas2.model.CreatedWalletInfo;
@@ -74,6 +76,37 @@ public class WalletsApiTest {
     }
 
     /**
+     * Check addresses validity
+     *
+     * This operation verifies if given addresses are valid for a specific chain. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void checkAddressesValidityTest() throws ApiException {
+        String chainId = null;
+        String addresses = null;
+        List<CheckAddressesValidity200ResponseInner> response = api.checkAddressesValidity(chainId, addresses);
+        // TODO: test validations
+    }
+
+    /**
+     * Check Loop transfers
+     *
+     * This operation verifies if the transactions from a given source wallet to a list of destination addresses can be executed as Loop transfers.   For more information about Loop, see [Loop&#39;s website](https://loop.top/). 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void checkLoopTransfersTest() throws ApiException {
+        String tokenId = null;
+        UUID sourceWalletId = null;
+        String destinationAddresses = null;
+        List<CheckLoopTransfers200ResponseInner> response = api.checkLoopTransfers(tokenId, sourceWalletId, destinationAddresses);
+        // TODO: test validations
+    }
+
+    /**
      * Create addresses in wallet
      *
      * This operation generates one or more addresses within a specified wallet.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
@@ -91,7 +124,7 @@ public class WalletsApiTest {
     /**
      * Create wallet
      *
-     * This operation creates a wallet with the provided information. 
+     * This operation creates a wallet with the provided information.  &lt;Note&gt;This operation is not applicable to Smart Contract Wallets.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -250,7 +283,7 @@ public class WalletsApiTest {
     /**
      * List supported chains
      *
-     * This operation retrieves all chains supported by a specific wallet type or subtype.   It provides details such as the chain ID, chain symbol, and other relevant information. If you do not specify a wallet type, this operation returns a combination of chains supported by each wallet type. You can filter the result by chain IDs. The chain metadata is publicly available without any permission restrictions. 
+     * This operation retrieves all chains supported by a specific wallet type or subtype.   It provides details such as the chain ID, chain symbol, and other relevant information. If you do not specify a wallet type, this operation returns a combination of chains supported by each wallet type. You can filter the result by chain IDs. The chain metadata is publicly available without any permission restrictions.  Cobo Portal currently supports over 80 blockchains and more than 3,000 tokens. In addition to this operation, you can also view the full list of supported chains [here](https://www.cobo.com/chains). We regularly update the list with new additions. If you want to request support for a specific chain or token, please [contact us](https://www.cobo.com/contact). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -269,7 +302,7 @@ public class WalletsApiTest {
     /**
      * List supported tokens
      *
-     * This operation retrieves all tokens supported by a specific wallet type or subtype.   It provides details such as token ID, token symbol, and other relevant information. If you do not specify a wallet type, this operation returns a combination of tokens supported by each wallet type. You can filter the result by token IDs or chain IDs. The token metadata is publicly available without any permission restrictions. 
+     * This operation retrieves all tokens supported by a specific wallet type or subtype.   It provides details such as token ID, token symbol, and other relevant information. If you do not specify a wallet type, this operation returns a combination of tokens supported by each wallet type. You can filter the result by token IDs or chain IDs. The token metadata is publicly available without any permission restrictions.  Cobo Portal currently supports over 80 blockchains and more than 3,000 tokens. In addition to this operation, you can also view the full list of supported tokens [here](https://www.cobo.com/tokens). We regularly update the list with new additions. If you want to request support for a specific chain or token, please [contact us](https://www.cobo.com/contact). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -289,7 +322,7 @@ public class WalletsApiTest {
     /**
      * List token balances by address
      *
-     * The operation retrieves a list of token balances for a specified address within an MPC Wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * The operation retrieves a list of token balances for a specified address within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets and Smart Contract Wallets only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -308,7 +341,7 @@ public class WalletsApiTest {
     /**
      * List token balances by wallet
      *
-     * The operation retrieves a list of token balances within a specified wallet.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
+     * The operation retrieves a list of token balances within a specified wallet.  &lt;Note&gt;This operation is not applicable to Exchange Wallets.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */

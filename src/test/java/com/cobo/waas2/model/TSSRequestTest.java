@@ -78,4 +78,20 @@ public class TSSRequestTest {
         // TODO: test status
     }
 
+    /**
+     * Test the property 'description'
+     */
+    @Test
+    public void descriptionTest() {
+        // TODO: test description
+    }
+
+    /**
+     * Test the property 'createdTimestamp'
+     */
+    @Test
+    public void createdTimestampTest() {
+        // TODO: test createdTimestamp
+    }
+
 }

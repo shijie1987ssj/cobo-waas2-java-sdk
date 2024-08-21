@@ -54,11 +54,11 @@ public class ExchangeTransferSourceTest {
     }
 
     /**
-     * Test the property 'subWalletId'
+     * Test the property 'tradingAccountType'
      */
     @Test
-    public void subWalletIdTest() {
-        // TODO: test subWalletId
+    public void tradingAccountTypeTest() {
+        // TODO: test tradingAccountType
     }
 
 }

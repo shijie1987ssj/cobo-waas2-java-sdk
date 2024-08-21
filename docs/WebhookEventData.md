@@ -7,13 +7,13 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**dataType** | [**DataTypeEnum**](#DataTypeEnum) | The data type of the event. When &#x60;data_type&#x60; is &#x60;Transaction&#x60;, it means the event uses the &#x60;transaction&#x60; schema as its data type. |  |
+|**dataType** | [**DataTypeEnum**](#DataTypeEnum) |  The data type of the event. - &#x60;Transaction&#x60;: The transaction event data. - &#x60;TSSRequest&#x60;: The TSS request event data. |  |
 |**transactionId** | **UUID** | The transaction ID. |  |
 |**coboId** | **String** | The Cobo ID, which can be used to track a transaction. |  [optional] |
 |**requestId** | **String** | The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. |  [optional] |
 |**walletId** | **String** | For deposit transactions, this property represents the wallet ID of the transaction destination. For transactions of other types, this property represents the wallet ID of the transaction source. |  |
-|**type** | **TransactionType** |  |  [optional] |
-|**status** | **TransactionStatus** |  |  |
+|**type** | **TSSRequestType** |  |  [optional] |
+|**status** | **TSSRequestStatus** |  |  |
 |**subStatus** | **TransactionSubStatus** |  |  [optional] |
 |**failedReason** | **String** | (This property is applicable to approval failures and signature failures only) The reason why the transaction failed. |  [optional] |
 |**chainId** | **String** | The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains). |  [optional] |
@@ -32,10 +32,13 @@
 |**rawTxInfo** | [**TransactionRawTxInfo**](TransactionRawTxInfo.md) |  |  [optional] |
 |**replacement** | [**TransactionReplacement**](TransactionReplacement.md) |  |  [optional] |
 |**category** | **List&lt;String&gt;** | A custom transaction category for you to identify your transfers more easily. |  [optional] |
-|**description** | **String** | The description for your transaction. |  [optional] |
+|**description** | **String** | The description of the TSS request. |  [optional] |
 |**isLoop** | **Boolean** | Whether the transaction is a Loop transfer. For more information about Loop, see [Loop&#39;s website](https://loop.top/).  - &#x60;true&#x60;: The transaction is a Loop transfer. - &#x60;false&#x60;: The transaction is not a Loop transfer.  |  [optional] |
-|**createdTimestamp** | **Long** | The time when the transaction was created, in Unix timestamp format, measured in milliseconds. |  [optional] |
+|**createdTimestamp** | **Long** | The TSS request&#39;s creation time in Unix timestamp format, measured in milliseconds. |  [optional] |
 |**updatedTimestamp** | **Long** | The time when the transaction was updated, in Unix timestamp format, measured in milliseconds. |  [optional] |
+|**tssRequestId** | **String** | The TSS request ID. |  [optional] |
+|**sourceKeyShareHolderGroup** | [**SourceGroup**](SourceGroup.md) |  |  [optional] |
+|**targetKeyShareHolderGroupId** | **String** | The target key share holder group ID. |  [optional] |
 
 
 
@@ -44,6 +47,7 @@
 | Name | Value |
 |---- | -----|
 | TRANSACTION | &quot;Transaction&quot; |
+| TSSREQUEST | &quot;TSSRequest&quot; |
 
 
 

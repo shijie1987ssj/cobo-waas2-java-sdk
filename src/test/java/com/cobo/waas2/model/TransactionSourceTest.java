@@ -92,6 +92,14 @@ public class TransactionSourceTest {
     }
 
     /**
+     * Test the property 'signerKeyShareHolderGroupId'
+     */
+    @Test
+    public void signerKeyShareHolderGroupIdTest() {
+        // TODO: test signerKeyShareHolderGroupId
+    }
+
+    /**
      * Test the property 'delegate'
      */
     @Test
@@ -108,11 +116,11 @@ public class TransactionSourceTest {
     }
 
     /**
-     * Test the property 'subWalletId'
+     * Test the property 'tradingAccountType'
      */
     @Test
-    public void subWalletIdTest() {
-        // TODO: test subWalletId
+    public void tradingAccountTypeTest() {
+        // TODO: test tradingAccountType
     }
 
     /**

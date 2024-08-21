@@ -12,6 +12,10 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.SourceGroup;
+import com.cobo.waas2.model.TSSRequestStatus;
+import com.cobo.waas2.model.TSSRequestType;
+import com.cobo.waas2.model.TSSRequestWebhookEventData;
 import com.cobo.waas2.model.TransactionBlockInfo;
 import com.cobo.waas2.model.TransactionDestination;
 import com.cobo.waas2.model.TransactionFee;
@@ -20,9 +24,7 @@ import com.cobo.waas2.model.TransactionRawTxInfo;
 import com.cobo.waas2.model.TransactionReplacement;
 import com.cobo.waas2.model.TransactionResult;
 import com.cobo.waas2.model.TransactionSource;
-import com.cobo.waas2.model.TransactionStatus;
 import com.cobo.waas2.model.TransactionSubStatus;
-import com.cobo.waas2.model.TransactionType;
 import com.cobo.waas2.model.TransactionWebhookEventData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -86,6 +88,7 @@ public class WebhookEventData extends AbstractOpenApiSchema {
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<TransactionWebhookEventData> adapterTransactionWebhookEventData = gson.getDelegateAdapter(this, TypeToken.get(TransactionWebhookEventData.class));
+            final TypeAdapter<TSSRequestWebhookEventData> adapterTSSRequestWebhookEventData = gson.getDelegateAdapter(this, TypeToken.get(TSSRequestWebhookEventData.class));
 
             return (TypeAdapter<T>) new TypeAdapter<WebhookEventData>() {
                 @Override
@@ -101,7 +104,13 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TransactionWebhookEventData");
+                    // check if the actual instance is of the type `TSSRequestWebhookEventData`
+                    if (value.getActualInstance() instanceof TSSRequestWebhookEventData) {
+                        JsonElement element = adapterTSSRequestWebhookEventData.toJsonTree((TSSRequestWebhookEventData)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TSSRequestWebhookEventData, TransactionWebhookEventData");
                 }
 
                 @Override
@@ -118,8 +127,16 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                     } else  {
                         // look up the discriminator value in the field `data_type`
                         switch (jsonObject.get("data_type").getAsString()) {
+                            case "TSSRequest":
+                                deserialized = adapterTSSRequestWebhookEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
                             case "Transaction":
                                 deserialized = adapterTransactionWebhookEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "TSSRequestWebhookEventData":
+                                deserialized = adapterTSSRequestWebhookEventData.fromJsonTree(jsonObject);
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
                             case "TransactionWebhookEventData":
@@ -127,7 +144,7 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for WebhookEventData. Possible values: Transaction TransactionWebhookEventData", jsonObject.get("data_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for WebhookEventData. Possible values: TSSRequest Transaction TSSRequestWebhookEventData TransactionWebhookEventData", jsonObject.get("data_type").getAsString()));
                         }
                     }
 
@@ -146,6 +163,18 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for TransactionWebhookEventData failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'TransactionWebhookEventData'", e);
+                    }
+                    // deserialize TSSRequestWebhookEventData
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        TSSRequestWebhookEventData.validateJsonElement(jsonElement);
+                        actualAdapter = adapterTSSRequestWebhookEventData;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'TSSRequestWebhookEventData'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for TSSRequestWebhookEventData failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'TSSRequestWebhookEventData'", e);
                     }
 
                     if (match == 1) {
@@ -167,6 +196,11 @@ public class WebhookEventData extends AbstractOpenApiSchema {
         super("oneOf", Boolean.FALSE);
     }
 
+    public WebhookEventData(TSSRequestWebhookEventData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public WebhookEventData(TransactionWebhookEventData o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
@@ -174,6 +208,7 @@ public class WebhookEventData extends AbstractOpenApiSchema {
 
     static {
         schemas.put("TransactionWebhookEventData", TransactionWebhookEventData.class);
+        schemas.put("TSSRequestWebhookEventData", TSSRequestWebhookEventData.class);
     }
 
     @Override
@@ -184,7 +219,7 @@ public class WebhookEventData extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * TransactionWebhookEventData
+     * TSSRequestWebhookEventData, TransactionWebhookEventData
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -195,14 +230,19 @@ public class WebhookEventData extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be TransactionWebhookEventData");
+        if (instance instanceof TSSRequestWebhookEventData) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be TSSRequestWebhookEventData, TransactionWebhookEventData");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * TransactionWebhookEventData
+     * TSSRequestWebhookEventData, TransactionWebhookEventData
      *
-     * @return The actual instance (TransactionWebhookEventData)
+     * @return The actual instance (TSSRequestWebhookEventData, TransactionWebhookEventData)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -219,6 +259,16 @@ public class WebhookEventData extends AbstractOpenApiSchema {
      */
     public TransactionWebhookEventData getTransactionWebhookEventData() throws ClassCastException {
         return (TransactionWebhookEventData)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `TSSRequestWebhookEventData`. If the actual instance is not `TSSRequestWebhookEventData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TSSRequestWebhookEventData`
+     * @throws ClassCastException if the instance is not `TSSRequestWebhookEventData`
+     */
+    public TSSRequestWebhookEventData getTSSRequestWebhookEventData() throws ClassCastException {
+        return (TSSRequestWebhookEventData)super.getActualInstance();
     }
 
     /**
@@ -239,8 +289,16 @@ public class WebhookEventData extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for TransactionWebhookEventData failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with TSSRequestWebhookEventData
+        try {
+            TSSRequestWebhookEventData.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for TSSRequestWebhookEventData failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for WebhookEventData with oneOf schemas: TransactionWebhookEventData. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for WebhookEventData with oneOf schemas: TSSRequestWebhookEventData, TransactionWebhookEventData. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

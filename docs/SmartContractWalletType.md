@@ -5,7 +5,7 @@
 ## Enum
 
 
-* `SAFEWALLET` (value: `"SafeWallet"`)
+* `SAFE_WALLET_` (value: `"Safe{Wallet}"`)
 
 
 

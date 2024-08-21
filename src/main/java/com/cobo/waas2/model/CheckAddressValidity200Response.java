@@ -65,7 +65,7 @@ public class CheckAddressValidity200Response {
   }
 
    /**
-   * Whether the address is valid. - &#x60;true&#x60;: The address is valid. - &#x60;false&#x60;: the address is invalid. 
+   * Whether the address is valid. - &#x60;true&#x60;: The address is valid. - &#x60;false&#x60;: The address is invalid. 
    * @return validity
   **/
   @javax.annotation.Nonnull

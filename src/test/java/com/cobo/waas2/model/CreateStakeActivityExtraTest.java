@@ -65,6 +65,14 @@ public class CreateStakeActivityExtraTest {
     }
 
     /**
+     * Test the property 'onlySign'
+     */
+    @Test
+    public void onlySignTest() {
+        // TODO: test onlySign
+    }
+
+    /**
      * Test the property 'operator'
      */
     @Test

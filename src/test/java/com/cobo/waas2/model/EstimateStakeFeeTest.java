@@ -48,6 +48,14 @@ public class EstimateStakeFeeTest {
     }
 
     /**
+     * Test the property 'requestId'
+     */
+    @Test
+    public void requestIdTest() {
+        // TODO: test requestId
+    }
+
+    /**
      * Test the property 'source'
      */
     @Test

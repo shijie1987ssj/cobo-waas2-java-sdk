@@ -58,6 +58,10 @@ public class EstimateUnstakeFee {
   @SerializedName(SERIALIZED_NAME_ACTIVITY_TYPE)
   private ActivityType activityType;
 
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
+
   public static final String SERIALIZED_NAME_STAKING_ID = "staking_id";
   @SerializedName(SERIALIZED_NAME_STAKING_ID)
   private String stakingId;
@@ -89,6 +93,25 @@ public class EstimateUnstakeFee {
 
   public void setActivityType(ActivityType activityType) {
     this.activityType = activityType;
+  }
+
+
+  public EstimateUnstakeFee requestId(String requestId) {
+    this.requestId = requestId;
+    return this;
+  }
+
+   /**
+   * The request ID that is used to track a request. The request ID is provided by you and must be unique within your organization.
+   * @return requestId
+  **/
+  @javax.annotation.Nullable
+  public String getRequestId() {
+    return requestId;
+  }
+
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
   }
 
 
@@ -204,6 +227,7 @@ public class EstimateUnstakeFee {
     }
     EstimateUnstakeFee estimateUnstakeFee = (EstimateUnstakeFee) o;
     return Objects.equals(this.activityType, estimateUnstakeFee.activityType) &&
+        Objects.equals(this.requestId, estimateUnstakeFee.requestId) &&
         Objects.equals(this.stakingId, estimateUnstakeFee.stakingId) &&
         Objects.equals(this.amount, estimateUnstakeFee.amount) &&
         Objects.equals(this.fee, estimateUnstakeFee.fee)&&
@@ -212,7 +236,7 @@ public class EstimateUnstakeFee {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activityType, stakingId, amount, fee, additionalProperties);
+    return Objects.hash(activityType, requestId, stakingId, amount, fee, additionalProperties);
   }
 
   @Override
@@ -220,6 +244,7 @@ public class EstimateUnstakeFee {
     StringBuilder sb = new StringBuilder();
     sb.append("class EstimateUnstakeFee {\n");
     sb.append("    activityType: ").append(toIndentedString(activityType)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    stakingId: ").append(toIndentedString(stakingId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
@@ -247,6 +272,7 @@ public class EstimateUnstakeFee {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("activity_type");
+    openapiFields.add("request_id");
     openapiFields.add("staking_id");
     openapiFields.add("amount");
     openapiFields.add("fee");
@@ -279,6 +305,9 @@ public class EstimateUnstakeFee {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `activity_type`
       ActivityType.validateJsonElement(jsonObj.get("activity_type"));
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
+      }
       if (!jsonObj.get("staking_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `staking_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("staking_id").toString()));
       }

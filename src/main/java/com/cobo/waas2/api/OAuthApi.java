@@ -28,6 +28,7 @@ import java.io.IOException;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.GetToken200Response;
 import com.cobo.waas2.model.GetToken4XXResponse;
+import com.cobo.waas2.model.RefreshToken200Response;
 import com.cobo.waas2.model.RefreshTokenRequest;
 
 import java.lang.reflect.Type;
@@ -58,8 +59,8 @@ public class OAuthApi {
     /**
      * Build call for getToken
      * @param clientId The App ID, a unique identifier to distinguish Cobo Portal Apps. You can get the App ID by retrieving the Manifest file after receiving the notification of app launch approval. (required)
-     * @param orgId Org ID, a unique identifier to distinguish different organizations. You can get the Org ID by retrieving the Manifest file after receiving the notification of app launch approval. (required)
-     * @param grantType The type of the permission granting. To get an access token, you need to set the value as &#x60;org_implicit&#x60;. (required)
+     * @param orgId Organization ID, a unique identifier to distinguish different organizations. You can get the Organization ID by retrieving the Manifest file after receiving the notification of app launch approval. (required)
+     * @param grantType The OAuth grant type. Set the value as &#x60;org_implicit&#x60;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -136,11 +137,11 @@ public class OAuthApi {
     }
 
     /**
-     * Get Access Token
-     * &lt;Note&gt;This operation is only applicable to Cobo Portal App developers. To call this operation, you need to use the OAuth authentication method that requires an App Key.&lt;/Note&gt; This operation allows Cobo Portal Apps to get an access token and a refresh token with a specified App ID, Org ID, and grant type.   Access tokens allow the app to signal to the WaaS service that it has received permission from the organization admin to access specific resources. Once the app has been granted permission by an organization admin, it can use this operation to obtain both an access token and a refresh token.  For security purposes, access tokens expire after a certain period. Once they expire, the app need to [Refresh token](/v2/api-references/oauth/refresh-access-token) to get a new access token and a new fresh token. 
+     * Get access token
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal App developers. To call this operation, you need to use the OAuth authentication method that requires an app key.&lt;/Note&gt; This operation allows Cobo Portal Apps to get an access token and a refresh token with a specified App ID, Organization ID, and grant type.   Access tokens allow the app to signal to the WaaS service that it has received permission to access specific resources of the app user&#39;s [organization](https://manuals.cobo.com/en/portal/organization/introduction). Once the app has been granted permission by the organization&#39;s admin, it can use this operation to obtain both an access token and a refresh token.  For security purposes, access tokens expire after a certain period. Once they expire, the app needs to call [Refresh token](/v2/api-references/oauth/refresh-access-token) to get a new access token and a new refresh token. 
      * @param clientId The App ID, a unique identifier to distinguish Cobo Portal Apps. You can get the App ID by retrieving the Manifest file after receiving the notification of app launch approval. (required)
-     * @param orgId Org ID, a unique identifier to distinguish different organizations. You can get the Org ID by retrieving the Manifest file after receiving the notification of app launch approval. (required)
-     * @param grantType The type of the permission granting. To get an access token, you need to set the value as &#x60;org_implicit&#x60;. (required)
+     * @param orgId Organization ID, a unique identifier to distinguish different organizations. You can get the Organization ID by retrieving the Manifest file after receiving the notification of app launch approval. (required)
+     * @param grantType The OAuth grant type. Set the value as &#x60;org_implicit&#x60;. (required)
      * @return GetToken200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -157,11 +158,11 @@ public class OAuthApi {
     }
 
     /**
-     * Get Access Token
-     * &lt;Note&gt;This operation is only applicable to Cobo Portal App developers. To call this operation, you need to use the OAuth authentication method that requires an App Key.&lt;/Note&gt; This operation allows Cobo Portal Apps to get an access token and a refresh token with a specified App ID, Org ID, and grant type.   Access tokens allow the app to signal to the WaaS service that it has received permission from the organization admin to access specific resources. Once the app has been granted permission by an organization admin, it can use this operation to obtain both an access token and a refresh token.  For security purposes, access tokens expire after a certain period. Once they expire, the app need to [Refresh token](/v2/api-references/oauth/refresh-access-token) to get a new access token and a new fresh token. 
+     * Get access token
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal App developers. To call this operation, you need to use the OAuth authentication method that requires an app key.&lt;/Note&gt; This operation allows Cobo Portal Apps to get an access token and a refresh token with a specified App ID, Organization ID, and grant type.   Access tokens allow the app to signal to the WaaS service that it has received permission to access specific resources of the app user&#39;s [organization](https://manuals.cobo.com/en/portal/organization/introduction). Once the app has been granted permission by the organization&#39;s admin, it can use this operation to obtain both an access token and a refresh token.  For security purposes, access tokens expire after a certain period. Once they expire, the app needs to call [Refresh token](/v2/api-references/oauth/refresh-access-token) to get a new access token and a new refresh token. 
      * @param clientId The App ID, a unique identifier to distinguish Cobo Portal Apps. You can get the App ID by retrieving the Manifest file after receiving the notification of app launch approval. (required)
-     * @param orgId Org ID, a unique identifier to distinguish different organizations. You can get the Org ID by retrieving the Manifest file after receiving the notification of app launch approval. (required)
-     * @param grantType The type of the permission granting. To get an access token, you need to set the value as &#x60;org_implicit&#x60;. (required)
+     * @param orgId Organization ID, a unique identifier to distinguish different organizations. You can get the Organization ID by retrieving the Manifest file after receiving the notification of app launch approval. (required)
+     * @param grantType The OAuth grant type. Set the value as &#x60;org_implicit&#x60;. (required)
      * @return ApiResponse&lt;GetToken200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -179,11 +180,11 @@ public class OAuthApi {
     }
 
     /**
-     * Get Access Token (asynchronously)
-     * &lt;Note&gt;This operation is only applicable to Cobo Portal App developers. To call this operation, you need to use the OAuth authentication method that requires an App Key.&lt;/Note&gt; This operation allows Cobo Portal Apps to get an access token and a refresh token with a specified App ID, Org ID, and grant type.   Access tokens allow the app to signal to the WaaS service that it has received permission from the organization admin to access specific resources. Once the app has been granted permission by an organization admin, it can use this operation to obtain both an access token and a refresh token.  For security purposes, access tokens expire after a certain period. Once they expire, the app need to [Refresh token](/v2/api-references/oauth/refresh-access-token) to get a new access token and a new fresh token. 
+     * Get access token (asynchronously)
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal App developers. To call this operation, you need to use the OAuth authentication method that requires an app key.&lt;/Note&gt; This operation allows Cobo Portal Apps to get an access token and a refresh token with a specified App ID, Organization ID, and grant type.   Access tokens allow the app to signal to the WaaS service that it has received permission to access specific resources of the app user&#39;s [organization](https://manuals.cobo.com/en/portal/organization/introduction). Once the app has been granted permission by the organization&#39;s admin, it can use this operation to obtain both an access token and a refresh token.  For security purposes, access tokens expire after a certain period. Once they expire, the app needs to call [Refresh token](/v2/api-references/oauth/refresh-access-token) to get a new access token and a new refresh token. 
      * @param clientId The App ID, a unique identifier to distinguish Cobo Portal Apps. You can get the App ID by retrieving the Manifest file after receiving the notification of app launch approval. (required)
-     * @param orgId Org ID, a unique identifier to distinguish different organizations. You can get the Org ID by retrieving the Manifest file after receiving the notification of app launch approval. (required)
-     * @param grantType The type of the permission granting. To get an access token, you need to set the value as &#x60;org_implicit&#x60;. (required)
+     * @param orgId Organization ID, a unique identifier to distinguish different organizations. You can get the Organization ID by retrieving the Manifest file after receiving the notification of app launch approval. (required)
+     * @param grantType The OAuth grant type. Set the value as &#x60;org_implicit&#x60;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -260,10 +261,10 @@ public class OAuthApi {
     }
 
     /**
-     * Refresh Access Token
-     * &lt;Note&gt;This operation is only applicable to Cobo Portal Apps developers. To call this operation, you need to use the OAuth authentication method that requires an App Key.&lt;/Note&gt; This operation allows Cobo Portal Apps to obtain a new access token with a specified App ID, grant type and a refresh token. For security purposes, access tokens expire after a certain period. Once they expire, the app need to use this operation to get a new access token and a new fresh token. 
+     * Refresh access token
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Apps developers. To call this operation, you need to use the OAuth authentication method that requires an app key.&lt;/Note&gt; This operation allows Cobo Portal Apps to obtain a new access token with a specified App ID, grant type and a refresh token.   For security purposes, access tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new access token and a new refresh token. 
      * @param refreshTokenRequest The request body for refreshing an access token. (required)
-     * @return GetToken200Response
+     * @return RefreshToken200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -273,16 +274,16 @@ public class OAuthApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public GetToken200Response refreshToken(RefreshTokenRequest refreshTokenRequest) throws ApiException {
-        ApiResponse<GetToken200Response> localVarResp = refreshTokenWithHttpInfo(refreshTokenRequest);
+    public RefreshToken200Response refreshToken(RefreshTokenRequest refreshTokenRequest) throws ApiException {
+        ApiResponse<RefreshToken200Response> localVarResp = refreshTokenWithHttpInfo(refreshTokenRequest);
         return localVarResp.getData();
     }
 
     /**
-     * Refresh Access Token
-     * &lt;Note&gt;This operation is only applicable to Cobo Portal Apps developers. To call this operation, you need to use the OAuth authentication method that requires an App Key.&lt;/Note&gt; This operation allows Cobo Portal Apps to obtain a new access token with a specified App ID, grant type and a refresh token. For security purposes, access tokens expire after a certain period. Once they expire, the app need to use this operation to get a new access token and a new fresh token. 
+     * Refresh access token
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Apps developers. To call this operation, you need to use the OAuth authentication method that requires an app key.&lt;/Note&gt; This operation allows Cobo Portal Apps to obtain a new access token with a specified App ID, grant type and a refresh token.   For security purposes, access tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new access token and a new refresh token. 
      * @param refreshTokenRequest The request body for refreshing an access token. (required)
-     * @return ApiResponse&lt;GetToken200Response&gt;
+     * @return ApiResponse&lt;RefreshToken200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -292,15 +293,15 @@ public class OAuthApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetToken200Response> refreshTokenWithHttpInfo(RefreshTokenRequest refreshTokenRequest) throws ApiException {
+    public ApiResponse<RefreshToken200Response> refreshTokenWithHttpInfo(RefreshTokenRequest refreshTokenRequest) throws ApiException {
         okhttp3.Call localVarCall = refreshTokenValidateBeforeCall(refreshTokenRequest, null);
-        Type localVarReturnType = new TypeToken<GetToken200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<RefreshToken200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Refresh Access Token (asynchronously)
-     * &lt;Note&gt;This operation is only applicable to Cobo Portal Apps developers. To call this operation, you need to use the OAuth authentication method that requires an App Key.&lt;/Note&gt; This operation allows Cobo Portal Apps to obtain a new access token with a specified App ID, grant type and a refresh token. For security purposes, access tokens expire after a certain period. Once they expire, the app need to use this operation to get a new access token and a new fresh token. 
+     * Refresh access token (asynchronously)
+     * &lt;Note&gt;This operation is only applicable to Cobo Portal Apps developers. To call this operation, you need to use the OAuth authentication method that requires an app key.&lt;/Note&gt; This operation allows Cobo Portal Apps to obtain a new access token with a specified App ID, grant type and a refresh token.   For security purposes, access tokens expire after a certain period. Once they expire, the app needs to call this operation to get a new access token and a new refresh token. 
      * @param refreshTokenRequest The request body for refreshing an access token. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -313,10 +314,10 @@ public class OAuthApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call refreshTokenAsync(RefreshTokenRequest refreshTokenRequest, final ApiCallback<GetToken200Response> _callback) throws ApiException {
+    public okhttp3.Call refreshTokenAsync(RefreshTokenRequest refreshTokenRequest, final ApiCallback<RefreshToken200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = refreshTokenValidateBeforeCall(refreshTokenRequest, _callback);
-        Type localVarReturnType = new TypeToken<GetToken200Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<RefreshToken200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

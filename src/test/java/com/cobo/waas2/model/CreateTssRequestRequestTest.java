@@ -61,4 +61,12 @@ public class CreateTssRequestRequestTest {
         // TODO: test sourceKeyShareHolderGroup
     }
 
+    /**
+     * Test the property 'description'
+     */
+    @Test
+    public void descriptionTest() {
+        // TODO: test description
+    }
+
 }

@@ -48,7 +48,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The data for the TSS request information.
+ * The information about the TSS request.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -74,6 +74,14 @@ public class TSSRequest {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private TSSRequestStatus status;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
+
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Long createdTimestamp;
 
   public TSSRequest() {
   }
@@ -172,6 +180,44 @@ public class TSSRequest {
     this.status = status;
   }
 
+
+  public TSSRequest description(String description) {
+    this.description = description;
+    return this;
+  }
+
+   /**
+   * The description of the TSS request.
+   * @return description
+  **/
+  @javax.annotation.Nullable
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+  public TSSRequest createdTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+    return this;
+  }
+
+   /**
+   * The TSS request&#39;s creation time in Unix timestamp format, measured in milliseconds.
+   * @return createdTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Long getCreatedTimestamp() {
+    return createdTimestamp;
+  }
+
+  public void setCreatedTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -231,13 +277,15 @@ public class TSSRequest {
         Objects.equals(this.sourceKeyShareHolderGroup, tsSRequest.sourceKeyShareHolderGroup) &&
         Objects.equals(this.targetKeyShareHolderGroupId, tsSRequest.targetKeyShareHolderGroupId) &&
         Objects.equals(this.type, tsSRequest.type) &&
-        Objects.equals(this.status, tsSRequest.status)&&
+        Objects.equals(this.status, tsSRequest.status) &&
+        Objects.equals(this.description, tsSRequest.description) &&
+        Objects.equals(this.createdTimestamp, tsSRequest.createdTimestamp)&&
         Objects.equals(this.additionalProperties, tsSRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tssRequestId, sourceKeyShareHolderGroup, targetKeyShareHolderGroupId, type, status, additionalProperties);
+    return Objects.hash(tssRequestId, sourceKeyShareHolderGroup, targetKeyShareHolderGroupId, type, status, description, createdTimestamp, additionalProperties);
   }
 
   @Override
@@ -249,6 +297,8 @@ public class TSSRequest {
     sb.append("    targetKeyShareHolderGroupId: ").append(toIndentedString(targetKeyShareHolderGroupId)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -277,6 +327,8 @@ public class TSSRequest {
     openapiFields.add("target_key_share_holder_group_id");
     openapiFields.add("type");
     openapiFields.add("status");
+    openapiFields.add("description");
+    openapiFields.add("created_timestamp");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -312,6 +364,9 @@ public class TSSRequest {
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
         TSSRequestStatus.validateJsonElement(jsonObj.get("status"));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
   }
 
