@@ -233,7 +233,7 @@ public class WalletsExchangeWalletApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/wallets/exchanges/settings";
+        String localVarPath = "/wallets/exchanges";
 
         List<Pair> localVarQueryParams = new ArrayList<>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<>();

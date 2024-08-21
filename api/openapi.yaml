@@ -2908,7 +2908,7 @@ paths:
       - Wallets - MPC Wallets
       x-accepts:
       - application/json
-  /wallets/exchanges/settings:
+  /wallets/exchanges:
     get:
       description: "This operation retrieves the information about the exchanges supported\
         \ by Cobo's Exchange Wallets, including exchange IDs and trading account types."
