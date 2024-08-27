@@ -49,7 +49,7 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>com.cobo</groupId>
+  <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
   <version>1.2.0</version>
   <scope>compile</scope>
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo:cobo-waas2:1.2.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.2.0"
   }
 ```
 

@@ -1,6 +1,6 @@
 lazy val root = (project in file(".")).
   settings(
-    organization := "com.cobo",
+    organization := "com.cobo.waas2",
     name := "cobo-waas2",
     version := "1.2.0",
     scalaVersion := "2.11.4",
