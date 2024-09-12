@@ -105,7 +105,7 @@ public class ContractCallDestination extends AbstractOpenApiSchema {
                     } else  {
                         // look up the discriminator value in the field `destination_type`
                         switch (jsonObject.get("destination_type").getAsString()) {
-                            case "EVM":
+                            case "EVM_Contract":
                                 deserialized = adapterEvmContractCallDestination.fromJsonTree(jsonObject);
                                 newContractCallDestination.setActualInstance(deserialized);
                                 return newContractCallDestination;
@@ -114,7 +114,7 @@ public class ContractCallDestination extends AbstractOpenApiSchema {
                                 newContractCallDestination.setActualInstance(deserialized);
                                 return newContractCallDestination;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for ContractCallDestination. Possible values: EVM EvmContractCallDestination", jsonObject.get("destination_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for ContractCallDestination. Possible values: EVM_Contract EvmContractCallDestination", jsonObject.get("destination_type").getAsString()));
                         }
                     }
 
