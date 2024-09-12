@@ -115,11 +115,11 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
                     } else  {
                         // look up the discriminator value in the field `destination_type`
                         switch (jsonObject.get("destination_type").getAsString()) {
-                            case "EVM_EIP_191":
+                            case "EVM_EIP_191_Signature":
                                 deserialized = adapterEvmEIP191MessageSignDestination.fromJsonTree(jsonObject);
                                 newMessageSignDestination.setActualInstance(deserialized);
                                 return newMessageSignDestination;
-                            case "EVM_EIP_712":
+                            case "EVM_EIP_712_Signature":
                                 deserialized = adapterEvmEIP712MessageSignDestination.fromJsonTree(jsonObject);
                                 newMessageSignDestination.setActualInstance(deserialized);
                                 return newMessageSignDestination;
@@ -132,7 +132,7 @@ public class MessageSignDestination extends AbstractOpenApiSchema {
                                 newMessageSignDestination.setActualInstance(deserialized);
                                 return newMessageSignDestination;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for MessageSignDestination. Possible values: EVM_EIP_191 EVM_EIP_712 EvmEIP191MessageSignDestination EvmEIP712MessageSignDestination", jsonObject.get("destination_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for MessageSignDestination. Possible values: EVM_EIP_191_Signature EVM_EIP_712_Signature EvmEIP191MessageSignDestination EvmEIP712MessageSignDestination", jsonObject.get("destination_type").getAsString()));
                         }
                     }
 

@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Information about the transaction destination type &#x60;EVM_Contract&#x60;. 
+ * Information about the transaction destination type &#x60;EVM_Contract&#x60;. Refer to [Transaction sources and destinations](/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -67,7 +67,7 @@ public class TransactionEvmContractDestination {
 
   public static final String SERIALIZED_NAME_CALLDATA = "calldata";
   @SerializedName(SERIALIZED_NAME_CALLDATA)
-  private byte[] calldata;
+  private String calldata;
 
   public TransactionEvmContractDestination() {
   }
@@ -129,7 +129,7 @@ public class TransactionEvmContractDestination {
   }
 
 
-  public TransactionEvmContractDestination calldata(byte[] calldata) {
+  public TransactionEvmContractDestination calldata(String calldata) {
     this.calldata = calldata;
     return this;
   }
@@ -139,11 +139,11 @@ public class TransactionEvmContractDestination {
    * @return calldata
   **/
   @javax.annotation.Nonnull
-  public byte[] getCalldata() {
+  public String getCalldata() {
     return calldata;
   }
 
-  public void setCalldata(byte[] calldata) {
+  public void setCalldata(String calldata) {
     this.calldata = calldata;
   }
 
@@ -205,13 +205,13 @@ public class TransactionEvmContractDestination {
     return Objects.equals(this.destinationType, transactionEvmContractDestination.destinationType) &&
         Objects.equals(this.address, transactionEvmContractDestination.address) &&
         Objects.equals(this.value, transactionEvmContractDestination.value) &&
-        Arrays.equals(this.calldata, transactionEvmContractDestination.calldata)&&
+        Objects.equals(this.calldata, transactionEvmContractDestination.calldata)&&
         Objects.equals(this.additionalProperties, transactionEvmContractDestination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationType, address, value, Arrays.hashCode(calldata), additionalProperties);
+    return Objects.hash(destinationType, address, value, calldata, additionalProperties);
   }
 
   @Override
@@ -284,6 +284,9 @@ public class TransactionEvmContractDestination {
       }
       if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
+      }
+      if (!jsonObj.get("calldata").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `calldata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("calldata").toString()));
       }
   }
 
