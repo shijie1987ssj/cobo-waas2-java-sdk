@@ -34,8 +34,6 @@ public enum TransactionStatus {
   
   PENDINGAUTHORIZATION("PendingAuthorization"),
   
-  QUEUED("Queued"),
-  
   PENDINGSIGNATURE("PendingSignature"),
   
   BROADCASTING("Broadcasting"),

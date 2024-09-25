@@ -81,7 +81,7 @@ public class RefreshToken200Response {
   }
 
    /**
-   * The new access token.
+   * The new Org Access Token.
    * @return accessToken
   **/
   @javax.annotation.Nullable
@@ -119,7 +119,7 @@ public class RefreshToken200Response {
   }
 
    /**
-   * The scope of the access token to limit the app&#39;s access to the organization&#39;s resources. **Note**: Currently this property value is empty. The scope of the access token is based on the permissions granted when the app user installs the app. 
+   * The scope of the Org Access Token to limit the app&#39;s access to the organization&#39;s resources. **Note**: Currently this property value is empty. The scope of the Org Access Token is based on the permissions granted when the app user installs the app. 
    * @return scope
   **/
   @javax.annotation.Nullable
@@ -138,7 +138,7 @@ public class RefreshToken200Response {
   }
 
    /**
-   * The time in seconds in which the new access token expires.
+   * The time in seconds in which the new Org Access Token expires.
    * @return expiresIn
   **/
   @javax.annotation.Nullable
@@ -157,7 +157,7 @@ public class RefreshToken200Response {
   }
 
    /**
-   * The refresh token, used to obtain another access token when the new access token expires.
+   * The Refresh Token, used to obtain another Org Access Token when the new Org Access Token expires. The expiration time for Refresh Tokens is currently set to 30 days and is subject to change.
    * @return refreshToken
   **/
   @javax.annotation.Nullable

@@ -61,12 +61,4 @@ public class MpcContractCallSourceTest {
         // TODO: test address
     }
 
-    /**
-     * Test the property 'nonce'
-     */
-    @Test
-    public void nonceTest() {
-        // TODO: test nonce
-    }
-
 }

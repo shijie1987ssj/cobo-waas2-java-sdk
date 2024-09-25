@@ -261,7 +261,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Create key share holder group
-     * This operation creates a key share holder group for a specified vault. 
+     * This operation creates a key share holder group for a specified vault. &lt;Note&gt;This operation will not return the &#x60;tss_key_share_groups&#x60; property until key shares have been created using the [Create TSS request](/v2/api-references/wallets--mpc-wallets/create-tss-request) operation. Creating a wallet with the [Create wallet](/v2/api-references/wallets/create-wallet) operation is only possible after you&#39;ve completed the previous actions.&lt;/Note&gt; 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
      * @param createKeyShareHolderGroupRequest The request body to create a key share holder group. (optional)
      * @return KeyShareHolderGroup
@@ -281,7 +281,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Create key share holder group
-     * This operation creates a key share holder group for a specified vault. 
+     * This operation creates a key share holder group for a specified vault. &lt;Note&gt;This operation will not return the &#x60;tss_key_share_groups&#x60; property until key shares have been created using the [Create TSS request](/v2/api-references/wallets--mpc-wallets/create-tss-request) operation. Creating a wallet with the [Create wallet](/v2/api-references/wallets/create-wallet) operation is only possible after you&#39;ve completed the previous actions.&lt;/Note&gt; 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
      * @param createKeyShareHolderGroupRequest The request body to create a key share holder group. (optional)
      * @return ApiResponse&lt;KeyShareHolderGroup&gt;
@@ -302,7 +302,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Create key share holder group (asynchronously)
-     * This operation creates a key share holder group for a specified vault. 
+     * This operation creates a key share holder group for a specified vault. &lt;Note&gt;This operation will not return the &#x60;tss_key_share_groups&#x60; property until key shares have been created using the [Create TSS request](/v2/api-references/wallets--mpc-wallets/create-tss-request) operation. Creating a wallet with the [Create wallet](/v2/api-references/wallets/create-wallet) operation is only possible after you&#39;ve completed the previous actions.&lt;/Note&gt; 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
      * @param createKeyShareHolderGroupRequest The request body to create a key share holder group. (optional)
      * @param _callback The callback to be executed when the API call finishes

@@ -65,14 +65,6 @@ public class ContractCallSourceTest {
     }
 
     /**
-     * Test the property 'nonce'
-     */
-    @Test
-    public void nonceTest() {
-        // TODO: test nonce
-    }
-
-    /**
      * Test the property 'delegate'
      */
     @Test

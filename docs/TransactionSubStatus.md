@@ -7,8 +7,6 @@
 
 * `REJECTEDKYT` (value: `"RejectedKYT"`)
 
-* `REJECTEDTRAVELRULE` (value: `"RejectedTravelRule"`)
-
 * `PENDINGDOUBLECHECK` (value: `"PendingDoubleCheck"`)
 
 * `PENDINGSPENDERCHECK` (value: `"PendingSpenderCheck"`)
@@ -41,6 +39,8 @@
 
 * `FAILEDONCHAIN` (value: `"FailedOnChain"`)
 
+* `REVERTING` (value: `"Reverting"`)
+
 * `QUEUE` (value: `"Queue"`)
 
 * `PENDINGBLOCKCONFIRMATIONS` (value: `"PendingBlockConfirmations"`)
@@ -52,6 +52,20 @@
 * `CANCELEDBYAPI` (value: `"CanceledByAPI"`)
 
 * `ONCHAINREJECTION` (value: `"OnchainRejection"`)
+
+* `REJECTEDTRAVELRULE` (value: `"RejectedTravelRule"`)
+
+* `REJECTEDTRAVELRULEDUETOCOMPLIANCE` (value: `"RejectedTravelRuleDueToCompliance"`)
+
+* `PENDINGTRAVELRULEINFO` (value: `"PendingTravelRuleInfo"`)
+
+* `PENDINGTRAVELRULECHECK` (value: `"PendingTravelRuleCheck"`)
+
+* `REJECTEDTRAVELRULEDUETOUNSUPPORTEDTOKEN` (value: `"RejectedTravelRuleDueToUnsupportedToken"`)
+
+* `SIGNATUREVERIFICATIONSUCCESS` (value: `"SignatureVerificationSuccess"`)
+
+* `SIGNATUREVERIFICATIONFAILED` (value: `"SignatureVerificationFailed"`)
 
 
 

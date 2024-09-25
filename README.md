@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.3.0</version>
+  <version>1.4.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.3.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.4.0"
   }
 ```
 
@@ -95,7 +95,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.3.0.jar`
+* `target/cobo-waas2-1.4.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -154,8 +154,8 @@ Class | Method | HTTP request | Description
 *DevelopersWebhooksApi* | [**listWebhookEvents**](docs/DevelopersWebhooksApi.md#listWebhookEvents) | **GET** /webhooks/endpoints/{endpoint_id}/events | List all webhook events
 *DevelopersWebhooksApi* | [**retryWebhookEventById**](docs/DevelopersWebhooksApi.md#retryWebhookEventById) | **POST** /webhooks/endpoints/{endpoint_id}/events/{event_id}/retry | Retry event
 *DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
-*OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get access token
-*OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh access token
+*OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get Org Access Token
+*OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Org Access Token
 *StakingsApi* | [**createStakeActivity**](docs/StakingsApi.md#createStakeActivity) | **POST** /stakings/activities/stake | Create stake activity
 *StakingsApi* | [**createUnstakeActivity**](docs/StakingsApi.md#createUnstakeActivity) | **POST** /stakings/activities/unstake | Create unstake activity
 *StakingsApi* | [**createWithdrawActivity**](docs/StakingsApi.md#createWithdrawActivity) | **POST** /stakings/activities/withdraw | Create withdraw activity
@@ -232,6 +232,7 @@ Class | Method | HTTP request | Description
  - [ActivityStatus](docs/ActivityStatus.md)
  - [ActivityTimeline](docs/ActivityTimeline.md)
  - [ActivityType](docs/ActivityType.md)
+ - [AddressBook](docs/AddressBook.md)
  - [AddressEncoding](docs/AddressEncoding.md)
  - [AddressInfo](docs/AddressInfo.md)
  - [AddressTransferDestination](docs/AddressTransferDestination.md)

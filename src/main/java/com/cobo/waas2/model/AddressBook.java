@@ -12,7 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.ContractCallSourceType;
+import com.cobo.waas2.model.WalletType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -47,73 +47,93 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * MpcContractCallSource
+ * The data for address book entry information.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class MpcContractCallSource {
-  public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
-  @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
-  private ContractCallSourceType sourceType;
+public class AddressBook {
+  public static final String SERIALIZED_NAME_ORG_ID = "org_id";
+  @SerializedName(SERIALIZED_NAME_ORG_ID)
+  private UUID orgId;
 
-  public static final String SERIALIZED_NAME_WALLET_ID = "wallet_id";
-  @SerializedName(SERIALIZED_NAME_WALLET_ID)
-  private UUID walletId;
+  public static final String SERIALIZED_NAME_ENTRY_ID = "entry_id";
+  @SerializedName(SERIALIZED_NAME_ENTRY_ID)
+  private UUID entryId;
 
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private String address;
 
-  public MpcContractCallSource() {
+  public static final String SERIALIZED_NAME_MEMO = "memo";
+  @SerializedName(SERIALIZED_NAME_MEMO)
+  private String memo;
+
+  public static final String SERIALIZED_NAME_WALLET_NAME = "wallet_name";
+  @SerializedName(SERIALIZED_NAME_WALLET_NAME)
+  private String walletName;
+
+  public static final String SERIALIZED_NAME_WALLET_TYPE = "wallet_type";
+  @SerializedName(SERIALIZED_NAME_WALLET_TYPE)
+  private WalletType walletType;
+
+  public static final String SERIALIZED_NAME_LABEL = "label";
+  @SerializedName(SERIALIZED_NAME_LABEL)
+  private String label;
+
+  public static final String SERIALIZED_NAME_EMAIL = "email";
+  @SerializedName(SERIALIZED_NAME_EMAIL)
+  private String email;
+
+  public AddressBook() {
   }
 
-  public MpcContractCallSource sourceType(ContractCallSourceType sourceType) {
-    this.sourceType = sourceType;
+  public AddressBook orgId(UUID orgId) {
+    this.orgId = orgId;
     return this;
   }
 
    /**
-   * Get sourceType
-   * @return sourceType
+   * Get orgId
+   * @return orgId
   **/
   @javax.annotation.Nonnull
-  public ContractCallSourceType getSourceType() {
-    return sourceType;
+  public UUID getOrgId() {
+    return orgId;
   }
 
-  public void setSourceType(ContractCallSourceType sourceType) {
-    this.sourceType = sourceType;
+  public void setOrgId(UUID orgId) {
+    this.orgId = orgId;
   }
 
 
-  public MpcContractCallSource walletId(UUID walletId) {
-    this.walletId = walletId;
+  public AddressBook entryId(UUID entryId) {
+    this.entryId = entryId;
     return this;
   }
 
    /**
-   * The wallet ID.
-   * @return walletId
+   * Get entryId
+   * @return entryId
   **/
   @javax.annotation.Nonnull
-  public UUID getWalletId() {
-    return walletId;
+  public UUID getEntryId() {
+    return entryId;
   }
 
-  public void setWalletId(UUID walletId) {
-    this.walletId = walletId;
+  public void setEntryId(UUID entryId) {
+    this.entryId = entryId;
   }
 
 
-  public MpcContractCallSource address(String address) {
+  public AddressBook address(String address) {
     this.address = address;
     return this;
   }
 
    /**
-   * The wallet address.
+   * address.
    * @return address
   **/
   @javax.annotation.Nonnull
@@ -123,6 +143,101 @@ public class MpcContractCallSource {
 
   public void setAddress(String address) {
     this.address = address;
+  }
+
+
+  public AddressBook memo(String memo) {
+    this.memo = memo;
+    return this;
+  }
+
+   /**
+   * memo.
+   * @return memo
+  **/
+  @javax.annotation.Nullable
+  public String getMemo() {
+    return memo;
+  }
+
+  public void setMemo(String memo) {
+    this.memo = memo;
+  }
+
+
+  public AddressBook walletName(String walletName) {
+    this.walletName = walletName;
+    return this;
+  }
+
+   /**
+   * wallet name.
+   * @return walletName
+  **/
+  @javax.annotation.Nullable
+  public String getWalletName() {
+    return walletName;
+  }
+
+  public void setWalletName(String walletName) {
+    this.walletName = walletName;
+  }
+
+
+  public AddressBook walletType(WalletType walletType) {
+    this.walletType = walletType;
+    return this;
+  }
+
+   /**
+   * Get walletType
+   * @return walletType
+  **/
+  @javax.annotation.Nullable
+  public WalletType getWalletType() {
+    return walletType;
+  }
+
+  public void setWalletType(WalletType walletType) {
+    this.walletType = walletType;
+  }
+
+
+  public AddressBook label(String label) {
+    this.label = label;
+    return this;
+  }
+
+   /**
+   * The label to address.
+   * @return label
+  **/
+  @javax.annotation.Nonnull
+  public String getLabel() {
+    return label;
+  }
+
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+
+  public AddressBook email(String email) {
+    this.email = email;
+    return this;
+  }
+
+   /**
+   * email.
+   * @return email
+  **/
+  @javax.annotation.Nullable
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   /**
@@ -138,9 +253,9 @@ public class MpcContractCallSource {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the MpcContractCallSource instance itself
+   * @return the AddressBook instance itself
    */
-  public MpcContractCallSource putAdditionalProperty(String key, Object value) {
+  public AddressBook putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -179,25 +294,35 @@ public class MpcContractCallSource {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MpcContractCallSource mpcContractCallSource = (MpcContractCallSource) o;
-    return Objects.equals(this.sourceType, mpcContractCallSource.sourceType) &&
-        Objects.equals(this.walletId, mpcContractCallSource.walletId) &&
-        Objects.equals(this.address, mpcContractCallSource.address)&&
-        Objects.equals(this.additionalProperties, mpcContractCallSource.additionalProperties);
+    AddressBook addressBook = (AddressBook) o;
+    return Objects.equals(this.orgId, addressBook.orgId) &&
+        Objects.equals(this.entryId, addressBook.entryId) &&
+        Objects.equals(this.address, addressBook.address) &&
+        Objects.equals(this.memo, addressBook.memo) &&
+        Objects.equals(this.walletName, addressBook.walletName) &&
+        Objects.equals(this.walletType, addressBook.walletType) &&
+        Objects.equals(this.label, addressBook.label) &&
+        Objects.equals(this.email, addressBook.email)&&
+        Objects.equals(this.additionalProperties, addressBook.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sourceType, walletId, address, additionalProperties);
+    return Objects.hash(orgId, entryId, address, memo, walletName, walletType, label, email, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MpcContractCallSource {\n");
-    sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
-    sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
+    sb.append("class AddressBook {\n");
+    sb.append("    orgId: ").append(toIndentedString(orgId)).append("\n");
+    sb.append("    entryId: ").append(toIndentedString(entryId)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    memo: ").append(toIndentedString(memo)).append("\n");
+    sb.append("    walletName: ").append(toIndentedString(walletName)).append("\n");
+    sb.append("    walletType: ").append(toIndentedString(walletType)).append("\n");
+    sb.append("    label: ").append(toIndentedString(label)).append("\n");
+    sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -221,44 +346,67 @@ public class MpcContractCallSource {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("source_type");
-    openapiFields.add("wallet_id");
+    openapiFields.add("org_id");
+    openapiFields.add("entry_id");
     openapiFields.add("address");
+    openapiFields.add("memo");
+    openapiFields.add("wallet_name");
+    openapiFields.add("wallet_type");
+    openapiFields.add("label");
+    openapiFields.add("email");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("source_type");
-    openapiRequiredFields.add("wallet_id");
+    openapiRequiredFields.add("org_id");
+    openapiRequiredFields.add("entry_id");
     openapiRequiredFields.add("address");
+    openapiRequiredFields.add("label");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to MpcContractCallSource
+  * @throws IOException if the JSON Element is invalid with respect to AddressBook
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!MpcContractCallSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in MpcContractCallSource is not found in the empty JSON string", MpcContractCallSource.openapiRequiredFields.toString()));
+        if (!AddressBook.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AddressBook is not found in the empty JSON string", AddressBook.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : MpcContractCallSource.openapiRequiredFields) {
+      for (String requiredField : AddressBook.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the required field `source_type`
-      ContractCallSourceType.validateJsonElement(jsonObj.get("source_type"));
-      if (!jsonObj.get("wallet_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_id").toString()));
+      if (!jsonObj.get("org_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `org_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("org_id").toString()));
+      }
+      if (!jsonObj.get("entry_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `entry_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("entry_id").toString()));
       }
       if (!jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
+      }
+      if ((jsonObj.get("memo") != null && !jsonObj.get("memo").isJsonNull()) && !jsonObj.get("memo").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `memo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("memo").toString()));
+      }
+      if ((jsonObj.get("wallet_name") != null && !jsonObj.get("wallet_name").isJsonNull()) && !jsonObj.get("wallet_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `wallet_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_name").toString()));
+      }
+      // validate the optional field `wallet_type`
+      if (jsonObj.get("wallet_type") != null && !jsonObj.get("wallet_type").isJsonNull()) {
+        WalletType.validateJsonElement(jsonObj.get("wallet_type"));
+      }
+      if (!jsonObj.get("label").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
+      }
+      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
   }
 
@@ -266,16 +414,16 @@ public class MpcContractCallSource {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!MpcContractCallSource.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'MpcContractCallSource' and its subtypes
+       if (!AddressBook.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AddressBook' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<MpcContractCallSource> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(MpcContractCallSource.class));
+       final TypeAdapter<AddressBook> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AddressBook.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<MpcContractCallSource>() {
+       return (TypeAdapter<T>) new TypeAdapter<AddressBook>() {
            @Override
-           public void write(JsonWriter out, MpcContractCallSource value) throws IOException {
+           public void write(JsonWriter out, AddressBook value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -303,12 +451,12 @@ public class MpcContractCallSource {
            }
 
            @Override
-           public MpcContractCallSource read(JsonReader in) throws IOException {
+           public AddressBook read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             MpcContractCallSource instance = thisAdapter.fromJsonTree(jsonObj);
+             AddressBook instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -335,18 +483,18 @@ public class MpcContractCallSource {
   }
 
  /**
-  * Create an instance of MpcContractCallSource given an JSON string
+  * Create an instance of AddressBook given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of MpcContractCallSource
-  * @throws IOException if the JSON string is invalid with respect to MpcContractCallSource
+  * @return An instance of AddressBook
+  * @throws IOException if the JSON string is invalid with respect to AddressBook
   */
-  public static MpcContractCallSource fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, MpcContractCallSource.class);
+  public static AddressBook fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AddressBook.class);
   }
 
  /**
-  * Convert an instance of MpcContractCallSource to an JSON string
+  * Convert an instance of AddressBook to an JSON string
   *
   * @return JSON string
   */

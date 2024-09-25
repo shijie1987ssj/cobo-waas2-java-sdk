@@ -12,7 +12,7 @@ The information about a transaction that signs a message. You can provide the me
 |**chainId** | **String** | The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains). |  |
 |**source** | [**MessageSignSource**](MessageSignSource.md) |  |  |
 |**destination** | [**MessageSignDestination**](MessageSignDestination.md) |  |  |
-|**description** | **String** | The description of the message sign transaction. |  [optional] |
+|**description** | **String** | The description of the message signing transaction. |  [optional] |
 |**categoryNames** | **List&lt;String&gt;** | The custom category for you to identify your transactions. |  [optional] |
 
 

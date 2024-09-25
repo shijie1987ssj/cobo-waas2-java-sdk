@@ -73,7 +73,7 @@ public class RefreshTokenRequest {
   }
 
    /**
-   * The App ID, a unique identifier to distinguish Cobo Portal Apps. You can get the App ID by retrieving the Manifest file after receiving the notification of app launch approval.
+   * The client ID, a unique identifier to distinguish Cobo Portal Apps. You can get the client ID by retrieving the manifest file after publishing the app.
    * @return clientId
   **/
   @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class RefreshTokenRequest {
   }
 
    /**
-   * The refresh token of the current access token.
+   * The Refresh Token of the current Org Access Token.
    * @return refreshToken
   **/
   @javax.annotation.Nullable

@@ -11,8 +11,6 @@
 
 * `PENDINGAUTHORIZATION` (value: `"PendingAuthorization"`)
 
-* `QUEUED` (value: `"Queued"`)
-
 * `PENDINGSIGNATURE` (value: `"PendingSignature"`)
 
 * `BROADCASTING` (value: `"Broadcasting"`)
