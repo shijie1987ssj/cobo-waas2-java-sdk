@@ -340,7 +340,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **messageSignParams** | [**MessageSignParams**](MessageSignParams.md)| The request body to create a message sign transaction | [optional] |
+| **messageSignParams** | [**MessageSignParams**](MessageSignParams.md)| The request body to create a message signing transaction | [optional] |
 
 ### Return type
 
@@ -665,7 +665,7 @@ public class Example {
     TransactionsApi apiInstance = new TransactionsApi();
     String requestId = "web_send_by_user_327_1610444045047";
     String coboIds = "20231213122855000000000000000000,20231213122955000000000000000000";
-    UUID transactionIds = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479,557918d2-632a-4fe1-932f-315711f05fe3");
+    String transactionIds = "f47ac10b-58cc-4372-a567-0e02b2c3d479,557918d2-632a-4fe1-932f-315711f05fe3";
     String transactionHashes = "239861be9a4afe080c359b7fe4a1d035945ec46256b1a0f44d1267c71de8ec28";
     String types = "Deposit,Withdrawal";
     String statuses = "Completed,Failed";
@@ -700,7 +700,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **requestId** | **String**| The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. | [optional] |
 | **coboIds** | **String**| A list of Cobo IDs, separated by comma. A Cobo ID can be used to track a transaction. | [optional] |
-| **transactionIds** | **UUID**| A list of transaction IDs, separated by comma. | [optional] |
+| **transactionIds** | **String**| A list of transaction IDs, separated by comma. | [optional] |
 | **transactionHashes** | **String**| A list of transaction hashes, separated by comma. | [optional] |
 | **types** | **String**| A list of transaction types, separated by comma. Possible values include:    - &#x60;Deposit&#x60;: A deposit transaction.   - &#x60;Withdrawal&#x60;: A withdrawal transaction.   - &#x60;ContractCall&#x60;: A transaction that interacts with a smart contract.   - &#x60;MessageSign&#x60;: A transaction that signs a message.    - &#x60;ExternalSafeTx&#x60;: A transaction to a Smart Contract Wallet (Safe{Wallet}) that requires one or multiple signatures to be executed.  | [optional] |
 | **statuses** | **String**| A list of transaction statuses, separated by comma. Possible values include:    - &#x60;Submitted&#x60;: The transaction is submitted.   - &#x60;PendingScreening&#x60;: The transaction is pending screening by Risk Control.    - &#x60;PendingAuthorization&#x60;: The transaction is pending approvals.   - &#x60;PendingSignature&#x60;: The transaction is pending signature.    - &#x60;Broadcasting&#x60;: The transaction is being broadcast.   - &#x60;Confirming&#x60;: The transaction is waiting for the required number of confirmations.   - &#x60;Completed&#x60;: The transaction is completed.   - &#x60;Failed&#x60;: The transaction failed.   - &#x60;Rejected&#x60;: The transaction is rejected.   - &#x60;Pending&#x60;: The transaction is waiting to be included in the next block of the blockchain.  | [optional] |

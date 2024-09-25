@@ -165,7 +165,7 @@ public class MessageSignParams {
   }
 
    /**
-   * The description of the message sign transaction.
+   * The description of the message signing transaction.
    * @return description
   **/
   @javax.annotation.Nullable

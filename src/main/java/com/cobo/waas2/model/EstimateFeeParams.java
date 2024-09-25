@@ -116,7 +116,7 @@ public class EstimateFeeParams extends AbstractOpenApiSchema {
                     } else  {
                         // look up the discriminator value in the field `request_type`
                         switch (jsonObject.get("request_type").getAsString()) {
-                            case "Call":
+                            case "ContractCall":
                                 deserialized = adapterEstimateContractCallFeeParams.fromJsonTree(jsonObject);
                                 newEstimateFeeParams.setActualInstance(deserialized);
                                 return newEstimateFeeParams;
@@ -133,7 +133,7 @@ public class EstimateFeeParams extends AbstractOpenApiSchema {
                                 newEstimateFeeParams.setActualInstance(deserialized);
                                 return newEstimateFeeParams;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for EstimateFeeParams. Possible values: Call Transfer EstimateContractCallFeeParams EstimateTransferFeeParams", jsonObject.get("request_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for EstimateFeeParams. Possible values: ContractCall Transfer EstimateContractCallFeeParams EstimateTransferFeeParams", jsonObject.get("request_type").getAsString()));
                         }
                     }
 

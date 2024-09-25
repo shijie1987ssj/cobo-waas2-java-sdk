@@ -361,7 +361,7 @@ public class WalletsApiTest {
     /**
      * List all wallets
      *
-     * This operation retrieves the information of all wallets under your organization. You can filter the result by wallet type and subtype. For MPC Wallets, you can also filter by project ID and vault ID.  &lt;Note&gt;You must specify either the wallet type or subtype, or both.&lt;/Note&gt; 
+     * This operation retrieves the information of all wallets under your organization. You can filter the result by wallet type and subtype. For MPC Wallets, you can also filter by project ID and vault ID. 
      *
      * @throws ApiException if the Api call fails
      */

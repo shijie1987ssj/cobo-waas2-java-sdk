@@ -156,7 +156,7 @@ public class JSON {
                     @Override
                     public Class<? extends com.cobo.waas2.model.EstimateFeeParams> getClassForElement(JsonElement readElement) {
                         Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
-                        classByDiscriminatorValue.put("Call", com.cobo.waas2.model.EstimateContractCallFeeParams.class);
+                        classByDiscriminatorValue.put("ContractCall", com.cobo.waas2.model.EstimateContractCallFeeParams.class);
                         classByDiscriminatorValue.put("Transfer", com.cobo.waas2.model.EstimateTransferFeeParams.class);
                         classByDiscriminatorValue.put("EstimateContractCallFeeParams", com.cobo.waas2.model.EstimateContractCallFeeParams.class);
                         classByDiscriminatorValue.put("EstimateTransferFeeParams", com.cobo.waas2.model.EstimateTransferFeeParams.class);
@@ -505,6 +505,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.Activity.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.ActivityInitiator.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.ActivityTimeline.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.AddressBook.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.AddressInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.AddressTransferDestination.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.cobo.waas2.model.AddressTransferDestinationAccountOutput.CustomTypeAdapterFactory());

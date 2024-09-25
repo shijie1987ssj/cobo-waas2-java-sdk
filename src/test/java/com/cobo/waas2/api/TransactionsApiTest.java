@@ -190,7 +190,7 @@ public class TransactionsApiTest {
     public void listTransactionsTest() throws ApiException {
         String requestId = null;
         String coboIds = null;
-        UUID transactionIds = null;
+        String transactionIds = null;
         String transactionHashes = null;
         String types = null;
         String statuses = null;

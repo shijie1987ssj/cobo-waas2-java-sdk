@@ -559,7 +559,7 @@ public class TransactionsApi {
     }
     /**
      * Build call for createMessageSignTransaction
-     * @param messageSignParams The request body to create a message sign transaction (optional)
+     * @param messageSignParams The request body to create a message signing transaction (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -612,7 +612,7 @@ public class TransactionsApi {
     /**
      * Sign message
      * This operation creates a transaction to sign the provided message using cryptographic techniques.  In some scenarios, you want to sign a message for identity authentication or transaction approval. You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  You can get the signature result by calling [Get transaction information](/v2/api-references/transactions/get-transaction-information).   &lt;Note&gt;This operation only applies to transactions from MPC Wallets.&lt;/Note&gt; 
-     * @param messageSignParams The request body to create a message sign transaction (optional)
+     * @param messageSignParams The request body to create a message signing transaction (optional)
      * @return CreateTransferTransaction201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -631,7 +631,7 @@ public class TransactionsApi {
     /**
      * Sign message
      * This operation creates a transaction to sign the provided message using cryptographic techniques.  In some scenarios, you want to sign a message for identity authentication or transaction approval. You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  You can get the signature result by calling [Get transaction information](/v2/api-references/transactions/get-transaction-information).   &lt;Note&gt;This operation only applies to transactions from MPC Wallets.&lt;/Note&gt; 
-     * @param messageSignParams The request body to create a message sign transaction (optional)
+     * @param messageSignParams The request body to create a message signing transaction (optional)
      * @return ApiResponse&lt;CreateTransferTransaction201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -651,7 +651,7 @@ public class TransactionsApi {
     /**
      * Sign message (asynchronously)
      * This operation creates a transaction to sign the provided message using cryptographic techniques.  In some scenarios, you want to sign a message for identity authentication or transaction approval. You need to provide details such as the source address, destination address, and the message to be signed. A transaction request for tracking is returned upon successful operation.  You can get the signature result by calling [Get transaction information](/v2/api-references/transactions/get-transaction-information).   &lt;Note&gt;This operation only applies to transactions from MPC Wallets.&lt;/Note&gt; 
-     * @param messageSignParams The request body to create a message sign transaction (optional)
+     * @param messageSignParams The request body to create a message signing transaction (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1167,7 +1167,7 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTransactionsCall(String requestId, String coboIds, UUID transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listTransactionsCall(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1267,7 +1267,7 @@ public class TransactionsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listTransactionsValidateBeforeCall(String requestId, String coboIds, UUID transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listTransactionsValidateBeforeCall(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
         return listTransactionsCall(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, _callback);
 
     }
@@ -1302,7 +1302,7 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListTransactions200Response listTransactions(String requestId, String coboIds, UUID transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after) throws ApiException {
+    public ListTransactions200Response listTransactions(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after) throws ApiException {
         ApiResponse<ListTransactions200Response> localVarResp = listTransactionsWithHttpInfo(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after);
         return localVarResp.getData();
     }
@@ -1337,7 +1337,7 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListTransactions200Response> listTransactionsWithHttpInfo(String requestId, String coboIds, UUID transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after) throws ApiException {
+    public ApiResponse<ListTransactions200Response> listTransactionsWithHttpInfo(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after) throws ApiException {
         okhttp3.Call localVarCall = listTransactionsValidateBeforeCall(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, null);
         Type localVarReturnType = new TypeToken<ListTransactions200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1374,7 +1374,7 @@ public class TransactionsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTransactionsAsync(String requestId, String coboIds, UUID transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, final ApiCallback<ListTransactions200Response> _callback) throws ApiException {
+    public okhttp3.Call listTransactionsAsync(String requestId, String coboIds, String transactionIds, String transactionHashes, String types, String statuses, String walletIds, String chainIds, String tokenIds, String assetIds, UUID vaultId, UUID projectId, Long minCreatedTimestamp, Long maxCreatedTimestamp, Integer limit, String before, String after, final ApiCallback<ListTransactions200Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listTransactionsValidateBeforeCall(requestId, coboIds, transactionIds, transactionHashes, types, statuses, walletIds, chainIds, tokenIds, assetIds, vaultId, projectId, minCreatedTimestamp, maxCreatedTimestamp, limit, before, after, _callback);
         Type localVarReturnType = new TypeToken<ListTransactions200Response>(){}.getType();
