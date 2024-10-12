@@ -7,6 +7,7 @@ import okio.Buffer;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -77,7 +78,7 @@ public class AuthenticationInterceptor implements Interceptor {
         String nonce = String.valueOf(currentTime);
         //(method.upper(), path, timestamp, urlencode(params), body_str)
         String content = method + "|" + path + "|" + nonce + "|" + queryParams + "|" +body;
-        String sig = apiSigner.sign(content);
+        String sig = apiSigner.sign(content.getBytes());
         newRequestBuilder.removeHeader("BIZ-API-KEY");
         newRequestBuilder.removeHeader("BIZ-API-NONCE");
         newRequestBuilder.removeHeader("BIZ-API-SIGNATURE");

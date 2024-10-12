@@ -2,25 +2,20 @@ package com.cobo.waas2.demo;
 
 import com.cobo.waas2.ApiSigner;
 import com.cobo.waas2.CryptoUtils;
-
-import java.nio.charset.StandardCharsets;
+import org.apache.commons.lang3.StringUtils;
 
 
 public class LocalSigner implements ApiSigner {
     private final String secret;
 
     public LocalSigner(String privKey) {
+        System.out.println("构建 LocalSigner >>>>>>>>" + StringUtils.left(privKey, 4) + "..." + StringUtils.right(privKey, 4));
         secret = privKey;
     }
 
     @Override
     public String sign(byte[] message) {
-        return sign(new String(message, StandardCharsets.UTF_8));
-    }
-
-    @Override
-    public String sign(String message) {
-        return CryptoUtils.sign(secret, message);
+        return CryptoUtils.sign(secret, new String(message));
     }
 
     @Override
