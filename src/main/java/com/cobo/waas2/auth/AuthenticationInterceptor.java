@@ -1,5 +1,6 @@
 package com.cobo.waas2.auth;
 
+import com.cobo.waas2.ApiSigner;
 import okhttp3.*;
 import okio.Buffer;
 
@@ -10,20 +11,17 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-import static com.cobo.waas2.CryptoUtils.getPublicKey;
-import static com.cobo.waas2.CryptoUtils.sign;
-
 /**
  * A request interceptor that injects the API Key Header into requests, and signs messages, whenever required.
  */
 public class AuthenticationInterceptor implements Interceptor {
 
-    private final String privateKey;
+    private final ApiSigner apiSigner;
 
     private final boolean debug;
 
-    public AuthenticationInterceptor(String privateKey, boolean debug) {
-        this.privateKey = privateKey;
+    public AuthenticationInterceptor(ApiSigner apiSigner, boolean debug) {
+        this.apiSigner = apiSigner;
         this.debug = debug;
     }
 
@@ -79,11 +77,11 @@ public class AuthenticationInterceptor implements Interceptor {
         String nonce = String.valueOf(currentTime);
         //(method.upper(), path, timestamp, urlencode(params), body_str)
         String content = method + "|" + path + "|" + nonce + "|" + queryParams + "|" +body;
-        String sig = sign(privateKey,content);
+        String sig = apiSigner.sign(content);
         newRequestBuilder.removeHeader("BIZ-API-KEY");
         newRequestBuilder.removeHeader("BIZ-API-NONCE");
         newRequestBuilder.removeHeader("BIZ-API-SIGNATURE");
-        newRequestBuilder.addHeader("BIZ-API-KEY", getPublicKey(privateKey))
+        newRequestBuilder.addHeader("BIZ-API-KEY", apiSigner.getPublicKey())
                 .addHeader("BIZ-API-NONCE", nonce)
                 .addHeader("BIZ-API-SIGNATURE", sig);
 
@@ -101,12 +99,12 @@ public class AuthenticationInterceptor implements Interceptor {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         final AuthenticationInterceptor that = (AuthenticationInterceptor) o;
-        return Objects.equals(privateKey, that.privateKey);
+        return Objects.equals(apiSigner.getPublicKey(), that.apiSigner.getPublicKey());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(privateKey);
+        return Objects.hash(apiSigner.getPublicKey());
     }
 
     String pathSegmentsToString(List<String> pathSegments) {

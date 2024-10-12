@@ -11,6 +11,7 @@
 
 package com.cobo.waas2;
 
+import com.cobo.waas2.demo.LocalSigner;
 import okhttp3.*;
 import okhttp3.internal.http.HttpMethod;
 import okhttp3.internal.tls.OkHostnameVerifier;
@@ -1569,8 +1570,15 @@ public class ApiClient {
     }
 
     public void setPrivKey(String privKey) {
+        LocalSigner localSigner = new LocalSigner(privKey);
         httpClient = httpClient.newBuilder().addInterceptor(
-                new AuthenticationInterceptor(privKey, this.debugging)
+                new AuthenticationInterceptor(localSigner, this.debugging)
+        ).build();
+    }
+
+    public void setApiSigner(ApiSigner apiSigner) {
+        httpClient = httpClient.newBuilder().addInterceptor(
+                new AuthenticationInterceptor(apiSigner, this.debugging)
         ).build();
     }
 
