@@ -103,7 +103,7 @@ public class WalletsMpcWalletsApiTest {
     /**
      * Create vault
      *
-     * This operation creates a vault. 
+     * This operation creates a vault.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -176,7 +176,7 @@ public class WalletsMpcWalletsApiTest {
     /**
      * Get vault information
      *
-     * This operation retrieves detailed information about a vault. 
+     * This operation retrieves detailed information about a vault.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -252,7 +252,7 @@ public class WalletsMpcWalletsApiTest {
     /**
      * List all vaults
      *
-     * This operation retrieves a list of all vaults. You can filter the result by project ID.  **Notes for query parameters**: 1. &#x60;project_id&#x60; is required when &#x60;vault_type&#x60; is set to &#x60;User-Controlled&#x60;. 2. &#x60;project_id&#x60; must be left blank when &#x60;vault_type&#x60; is set to &#x60;Org-Controlled&#x60;. 
+     * This operation retrieves a list of all vaults. You can filter the result by project ID.  **Notes for query parameters**: 1. &#x60;project_id&#x60; is required when &#x60;vault_type&#x60; is set to &#x60;User-Controlled&#x60;. 2. &#x60;project_id&#x60; must be left blank when &#x60;vault_type&#x60; is set to &#x60;Org-Controlled&#x60;.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -319,7 +319,7 @@ public class WalletsMpcWalletsApiTest {
     /**
      * Update vault name
      *
-     * This operation updates a vault&#39;s name. 
+     * This operation updates a vault&#39;s name.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      *
      * @throws ApiException if the Api call fails
      */

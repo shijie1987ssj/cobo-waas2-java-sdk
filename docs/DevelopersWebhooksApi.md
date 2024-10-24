@@ -12,6 +12,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**listWebhookEventLogs**](DevelopersWebhooksApi.md#listWebhookEventLogs) | **GET** /webhooks/endpoints/{endpoint_id}/events/{event_id}/logs | List webhook event logs |
 | [**listWebhookEvents**](DevelopersWebhooksApi.md#listWebhookEvents) | **GET** /webhooks/endpoints/{endpoint_id}/events | List all webhook events |
 | [**retryWebhookEventById**](DevelopersWebhooksApi.md#retryWebhookEventById) | **POST** /webhooks/endpoints/{endpoint_id}/events/{event_id}/retry | Retry event |
+| [**triggerTestWebhookEvent**](DevelopersWebhooksApi.md#triggerTestWebhookEvent) | **POST** /webhooks/events/trigger | Trigger test event |
 | [**updateWebhookEndpointById**](DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint |
 
 
@@ -576,6 +577,74 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | The request was successful. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
+
+<a id="triggerTestWebhookEvent"></a>
+# **triggerTestWebhookEvent**
+> TriggerTestWebhookEvent201Response triggerTestWebhookEvent(triggerTestWebhookEventRequest)
+
+Trigger test event
+
+This operation tests the functionality of your webhook endpoint by triggering a test webhook event.   You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the &#x60;override_data&#x60; property to customize the payload. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.DevelopersWebhooksApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    DevelopersWebhooksApi apiInstance = new DevelopersWebhooksApi();
+    TriggerTestWebhookEventRequest triggerTestWebhookEventRequest = new TriggerTestWebhookEventRequest();
+    try {
+      TriggerTestWebhookEvent201Response result = apiInstance.triggerTestWebhookEvent(triggerTestWebhookEventRequest);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DevelopersWebhooksApi#triggerTestWebhookEvent");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **triggerTestWebhookEventRequest** | [**TriggerTestWebhookEventRequest**](TriggerTestWebhookEventRequest.md)| The request body used to trigger a test webhook event.  | [optional] |
+
+### Return type
+
+[**TriggerTestWebhookEvent201Response**](TriggerTestWebhookEvent201Response.md)
+
+### Authorization
+
+[CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

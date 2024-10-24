@@ -12,7 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.WalletType;
+import com.cobo.waas2.model.TransactionDestinationType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -20,7 +20,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,128 +46,59 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The token snapshot detail information.
+ * The information about the destination &#x60;Raw_Message_Signature&#x60;. Refer to [Transaction sources and destinations](/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.  Switch between the tabs to display the properties for different transaction destinations. 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class WalletBalanceSnapshotRecord {
-  public static final String SERIALIZED_NAME_WALLET_ID = "wallet_id";
-  @SerializedName(SERIALIZED_NAME_WALLET_ID)
-  private UUID walletId;
+public class TransactionRawMessageSignDestination {
+  public static final String SERIALIZED_NAME_DESTINATION_TYPE = "destination_type";
+  @SerializedName(SERIALIZED_NAME_DESTINATION_TYPE)
+  private TransactionDestinationType destinationType;
 
-  public static final String SERIALIZED_NAME_WALLET_TYPE = "wallet_type";
-  @SerializedName(SERIALIZED_NAME_WALLET_TYPE)
-  private WalletType walletType;
+  public static final String SERIALIZED_NAME_MSG_HASH = "msg_hash";
+  @SerializedName(SERIALIZED_NAME_MSG_HASH)
+  private String msgHash;
 
-  public static final String SERIALIZED_NAME_WALLET_NAME = "wallet_name";
-  @SerializedName(SERIALIZED_NAME_WALLET_NAME)
-  private String walletName;
-
-  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
-  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
-  private String tokenId;
-
-  public static final String SERIALIZED_NAME_BALANCE = "balance";
-  @SerializedName(SERIALIZED_NAME_BALANCE)
-  private String balance;
-
-  public WalletBalanceSnapshotRecord() {
+  public TransactionRawMessageSignDestination() {
   }
 
-  public WalletBalanceSnapshotRecord walletId(UUID walletId) {
-    this.walletId = walletId;
+  public TransactionRawMessageSignDestination destinationType(TransactionDestinationType destinationType) {
+    this.destinationType = destinationType;
     return this;
   }
 
    /**
-   * The wallet ID.
-   * @return walletId
+   * Get destinationType
+   * @return destinationType
   **/
   @javax.annotation.Nonnull
-  public UUID getWalletId() {
-    return walletId;
+  public TransactionDestinationType getDestinationType() {
+    return destinationType;
   }
 
-  public void setWalletId(UUID walletId) {
-    this.walletId = walletId;
+  public void setDestinationType(TransactionDestinationType destinationType) {
+    this.destinationType = destinationType;
   }
 
 
-  public WalletBalanceSnapshotRecord walletType(WalletType walletType) {
-    this.walletType = walletType;
+  public TransactionRawMessageSignDestination msgHash(String msgHash) {
+    this.msgHash = msgHash;
     return this;
   }
 
    /**
-   * Get walletType
-   * @return walletType
+   * Message hash to be signed, in hexadecimal format.
+   * @return msgHash
   **/
   @javax.annotation.Nullable
-  public WalletType getWalletType() {
-    return walletType;
+  public String getMsgHash() {
+    return msgHash;
   }
 
-  public void setWalletType(WalletType walletType) {
-    this.walletType = walletType;
-  }
-
-
-  public WalletBalanceSnapshotRecord walletName(String walletName) {
-    this.walletName = walletName;
-    return this;
-  }
-
-   /**
-   * The wallet name.
-   * @return walletName
-  **/
-  @javax.annotation.Nullable
-  public String getWalletName() {
-    return walletName;
-  }
-
-  public void setWalletName(String walletName) {
-    this.walletName = walletName;
-  }
-
-
-  public WalletBalanceSnapshotRecord tokenId(String tokenId) {
-    this.tokenId = tokenId;
-    return this;
-  }
-
-   /**
-   * The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](/v2/api-references/wallets/list-enabled-tokens).
-   * @return tokenId
-  **/
-  @javax.annotation.Nonnull
-  public String getTokenId() {
-    return tokenId;
-  }
-
-  public void setTokenId(String tokenId) {
-    this.tokenId = tokenId;
-  }
-
-
-  public WalletBalanceSnapshotRecord balance(String balance) {
-    this.balance = balance;
-    return this;
-  }
-
-   /**
-   * The balance of the token.
-   * @return balance
-  **/
-  @javax.annotation.Nonnull
-  public String getBalance() {
-    return balance;
-  }
-
-  public void setBalance(String balance) {
-    this.balance = balance;
+  public void setMsgHash(String msgHash) {
+    this.msgHash = msgHash;
   }
 
   /**
@@ -184,9 +114,9 @@ public class WalletBalanceSnapshotRecord {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the WalletBalanceSnapshotRecord instance itself
+   * @return the TransactionRawMessageSignDestination instance itself
    */
-  public WalletBalanceSnapshotRecord putAdditionalProperty(String key, Object value) {
+  public TransactionRawMessageSignDestination putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -225,29 +155,23 @@ public class WalletBalanceSnapshotRecord {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WalletBalanceSnapshotRecord walletBalanceSnapshotRecord = (WalletBalanceSnapshotRecord) o;
-    return Objects.equals(this.walletId, walletBalanceSnapshotRecord.walletId) &&
-        Objects.equals(this.walletType, walletBalanceSnapshotRecord.walletType) &&
-        Objects.equals(this.walletName, walletBalanceSnapshotRecord.walletName) &&
-        Objects.equals(this.tokenId, walletBalanceSnapshotRecord.tokenId) &&
-        Objects.equals(this.balance, walletBalanceSnapshotRecord.balance)&&
-        Objects.equals(this.additionalProperties, walletBalanceSnapshotRecord.additionalProperties);
+    TransactionRawMessageSignDestination transactionRawMessageSignDestination = (TransactionRawMessageSignDestination) o;
+    return Objects.equals(this.destinationType, transactionRawMessageSignDestination.destinationType) &&
+        Objects.equals(this.msgHash, transactionRawMessageSignDestination.msgHash)&&
+        Objects.equals(this.additionalProperties, transactionRawMessageSignDestination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(walletId, walletType, walletName, tokenId, balance, additionalProperties);
+    return Objects.hash(destinationType, msgHash, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WalletBalanceSnapshotRecord {\n");
-    sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
-    sb.append("    walletType: ").append(toIndentedString(walletType)).append("\n");
-    sb.append("    walletName: ").append(toIndentedString(walletName)).append("\n");
-    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
-    sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
+    sb.append("class TransactionRawMessageSignDestination {\n");
+    sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
+    sb.append("    msgHash: ").append(toIndentedString(msgHash)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -271,54 +195,38 @@ public class WalletBalanceSnapshotRecord {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("wallet_id");
-    openapiFields.add("wallet_type");
-    openapiFields.add("wallet_name");
-    openapiFields.add("token_id");
-    openapiFields.add("balance");
+    openapiFields.add("destination_type");
+    openapiFields.add("msg_hash");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("wallet_id");
-    openapiRequiredFields.add("token_id");
-    openapiRequiredFields.add("balance");
+    openapiRequiredFields.add("destination_type");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to WalletBalanceSnapshotRecord
+  * @throws IOException if the JSON Element is invalid with respect to TransactionRawMessageSignDestination
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!WalletBalanceSnapshotRecord.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WalletBalanceSnapshotRecord is not found in the empty JSON string", WalletBalanceSnapshotRecord.openapiRequiredFields.toString()));
+        if (!TransactionRawMessageSignDestination.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionRawMessageSignDestination is not found in the empty JSON string", TransactionRawMessageSignDestination.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WalletBalanceSnapshotRecord.openapiRequiredFields) {
+      for (String requiredField : TransactionRawMessageSignDestination.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("wallet_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wallet_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_id").toString()));
-      }
-      // validate the optional field `wallet_type`
-      if (jsonObj.get("wallet_type") != null && !jsonObj.get("wallet_type").isJsonNull()) {
-        WalletType.validateJsonElement(jsonObj.get("wallet_type"));
-      }
-      if ((jsonObj.get("wallet_name") != null && !jsonObj.get("wallet_name").isJsonNull()) && !jsonObj.get("wallet_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `wallet_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("wallet_name").toString()));
-      }
-      if (!jsonObj.get("token_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
-      }
-      if (!jsonObj.get("balance").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `balance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("balance").toString()));
+      // validate the required field `destination_type`
+      TransactionDestinationType.validateJsonElement(jsonObj.get("destination_type"));
+      if ((jsonObj.get("msg_hash") != null && !jsonObj.get("msg_hash").isJsonNull()) && !jsonObj.get("msg_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `msg_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("msg_hash").toString()));
       }
   }
 
@@ -326,16 +234,16 @@ public class WalletBalanceSnapshotRecord {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WalletBalanceSnapshotRecord.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WalletBalanceSnapshotRecord' and its subtypes
+       if (!TransactionRawMessageSignDestination.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TransactionRawMessageSignDestination' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WalletBalanceSnapshotRecord> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WalletBalanceSnapshotRecord.class));
+       final TypeAdapter<TransactionRawMessageSignDestination> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TransactionRawMessageSignDestination.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WalletBalanceSnapshotRecord>() {
+       return (TypeAdapter<T>) new TypeAdapter<TransactionRawMessageSignDestination>() {
            @Override
-           public void write(JsonWriter out, WalletBalanceSnapshotRecord value) throws IOException {
+           public void write(JsonWriter out, TransactionRawMessageSignDestination value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -363,12 +271,12 @@ public class WalletBalanceSnapshotRecord {
            }
 
            @Override
-           public WalletBalanceSnapshotRecord read(JsonReader in) throws IOException {
+           public TransactionRawMessageSignDestination read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             WalletBalanceSnapshotRecord instance = thisAdapter.fromJsonTree(jsonObj);
+             TransactionRawMessageSignDestination instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -395,18 +303,18 @@ public class WalletBalanceSnapshotRecord {
   }
 
  /**
-  * Create an instance of WalletBalanceSnapshotRecord given an JSON string
+  * Create an instance of TransactionRawMessageSignDestination given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WalletBalanceSnapshotRecord
-  * @throws IOException if the JSON string is invalid with respect to WalletBalanceSnapshotRecord
+  * @return An instance of TransactionRawMessageSignDestination
+  * @throws IOException if the JSON string is invalid with respect to TransactionRawMessageSignDestination
   */
-  public static WalletBalanceSnapshotRecord fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WalletBalanceSnapshotRecord.class);
+  public static TransactionRawMessageSignDestination fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TransactionRawMessageSignDestination.class);
   }
 
  /**
-  * Convert an instance of WalletBalanceSnapshotRecord to an JSON string
+  * Convert an instance of TransactionRawMessageSignDestination to an JSON string
   *
   * @return JSON string
   */

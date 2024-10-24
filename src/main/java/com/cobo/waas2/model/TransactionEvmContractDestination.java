@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.TransactionDestinationType;
+import com.cobo.waas2.model.TransactionEvmCalldataInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -68,6 +69,10 @@ public class TransactionEvmContractDestination {
   public static final String SERIALIZED_NAME_CALLDATA = "calldata";
   @SerializedName(SERIALIZED_NAME_CALLDATA)
   private String calldata;
+
+  public static final String SERIALIZED_NAME_CALLDATA_INFO = "calldata_info";
+  @SerializedName(SERIALIZED_NAME_CALLDATA_INFO)
+  private TransactionEvmCalldataInfo calldataInfo;
 
   public TransactionEvmContractDestination() {
   }
@@ -147,6 +152,25 @@ public class TransactionEvmContractDestination {
     this.calldata = calldata;
   }
 
+
+  public TransactionEvmContractDestination calldataInfo(TransactionEvmCalldataInfo calldataInfo) {
+    this.calldataInfo = calldataInfo;
+    return this;
+  }
+
+   /**
+   * Get calldataInfo
+   * @return calldataInfo
+  **/
+  @javax.annotation.Nullable
+  public TransactionEvmCalldataInfo getCalldataInfo() {
+    return calldataInfo;
+  }
+
+  public void setCalldataInfo(TransactionEvmCalldataInfo calldataInfo) {
+    this.calldataInfo = calldataInfo;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -205,13 +229,14 @@ public class TransactionEvmContractDestination {
     return Objects.equals(this.destinationType, transactionEvmContractDestination.destinationType) &&
         Objects.equals(this.address, transactionEvmContractDestination.address) &&
         Objects.equals(this.value, transactionEvmContractDestination.value) &&
-        Objects.equals(this.calldata, transactionEvmContractDestination.calldata)&&
+        Objects.equals(this.calldata, transactionEvmContractDestination.calldata) &&
+        Objects.equals(this.calldataInfo, transactionEvmContractDestination.calldataInfo)&&
         Objects.equals(this.additionalProperties, transactionEvmContractDestination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationType, address, value, calldata, additionalProperties);
+    return Objects.hash(destinationType, address, value, calldata, calldataInfo, additionalProperties);
   }
 
   @Override
@@ -222,6 +247,7 @@ public class TransactionEvmContractDestination {
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    calldata: ").append(toIndentedString(calldata)).append("\n");
+    sb.append("    calldataInfo: ").append(toIndentedString(calldataInfo)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -249,6 +275,7 @@ public class TransactionEvmContractDestination {
     openapiFields.add("address");
     openapiFields.add("value");
     openapiFields.add("calldata");
+    openapiFields.add("calldata_info");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -287,6 +314,10 @@ public class TransactionEvmContractDestination {
       }
       if (!jsonObj.get("calldata").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `calldata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("calldata").toString()));
+      }
+      // validate the optional field `calldata_info`
+      if (jsonObj.get("calldata_info") != null && !jsonObj.get("calldata_info").isJsonNull()) {
+        TransactionEvmCalldataInfo.validateJsonElement(jsonObj.get("calldata_info"));
       }
   }
 

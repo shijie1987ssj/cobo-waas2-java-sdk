@@ -1,6 +1,6 @@
 
 
-# RefreshToken200Response
+# RefreshToken201Response
 
 
 ## Properties

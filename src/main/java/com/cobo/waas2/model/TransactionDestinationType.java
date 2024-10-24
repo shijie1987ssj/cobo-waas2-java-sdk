@@ -38,6 +38,8 @@ public enum TransactionDestinationType {
   
   EVM_EIP_712_SIGNATURE("EVM_EIP_712_Signature"),
   
+  RAW_MESSAGE_SIGNATURE("Raw_Message_Signature"),
+  
   DEPOSITTOADDRESS("DepositToAddress"),
   
   DEPOSITTOWALLET("DepositToWallet");

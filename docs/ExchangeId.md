@@ -17,5 +17,9 @@
 
 * `BITGET` (value: `"bitget"`)
 
+* `BITMART` (value: `"bitmart"`)
+
+* `BITFINEX` (value: `"bitfinex"`)
+
 
 

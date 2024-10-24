@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The ID of the exchange. Possible values include:   - &#x60;binance&#x60;: Binance.   - &#x60;okx&#x60;: OKX.   - &#x60;deribit&#x60;: Deribit.   - &#x60;bybit&#x60;: Bybit.   - &#x60;gate&#x60;: Gate.io   - &#x60;bitget&#x60;: Bitget 
+ * The ID of the exchange. Possible values include:   - &#x60;binance&#x60;: Binance.   - &#x60;okx&#x60;: OKX.   - &#x60;deribit&#x60;: Deribit.   - &#x60;bybit&#x60;: Bybit.   - &#x60;gate&#x60;: Gate.io   - &#x60;bitget&#x60;: Bitget   - &#x60;bitmart&#x60;: BitMart   - &#x60;bitfinex&#x60;: Bitfinex 
  */
 @JsonAdapter(ExchangeId.Adapter.class)
 public enum ExchangeId {
@@ -38,7 +38,11 @@ public enum ExchangeId {
   
   GATE("gate"),
   
-  BITGET("bitget");
+  BITGET("bitget"),
+  
+  BITMART("bitmart"),
+  
+  BITFINEX("bitfinex");
 
   private String value;
 

@@ -22,17 +22,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for RefreshToken200Response
+ * Model tests for RefreshToken201Response
  */
-public class RefreshToken200ResponseTest {
-    private final RefreshToken200Response model = new RefreshToken200Response();
+public class RefreshToken201ResponseTest {
+    private final RefreshToken201Response model = new RefreshToken201Response();
 
     /**
-     * Model tests for RefreshToken200Response
+     * Model tests for RefreshToken201Response
      */
     @Test
-    public void testRefreshToken200Response() {
-        // TODO: test RefreshToken200Response
+    public void testRefreshToken201Response() {
+        // TODO: test RefreshToken201Response
     }
 
     /**
