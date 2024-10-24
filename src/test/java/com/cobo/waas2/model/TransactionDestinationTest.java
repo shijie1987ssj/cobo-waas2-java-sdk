@@ -15,9 +15,11 @@ import com.cobo.waas2.model.ExchangeId;
 import com.cobo.waas2.model.TransactionDepositToAddressDestination;
 import com.cobo.waas2.model.TransactionDepositToWalletDestination;
 import com.cobo.waas2.model.TransactionDestinationType;
+import com.cobo.waas2.model.TransactionEvmCalldataInfo;
 import com.cobo.waas2.model.TransactionEvmContractDestination;
 import com.cobo.waas2.model.TransactionMessageSignEIP191Destination;
 import com.cobo.waas2.model.TransactionMessageSignEIP712Destination;
+import com.cobo.waas2.model.TransactionRawMessageSignDestination;
 import com.cobo.waas2.model.TransactionTransferToAddressDestination;
 import com.cobo.waas2.model.TransactionTransferToAddressDestinationAccountOutput;
 import com.cobo.waas2.model.TransactionTransferToAddressDestinationUtxoOutputsInner;
@@ -158,6 +160,14 @@ public class TransactionDestinationTest {
     }
 
     /**
+     * Test the property 'calldataInfo'
+     */
+    @Test
+    public void calldataInfoTest() {
+        // TODO: test calldataInfo
+    }
+
+    /**
      * Test the property 'message'
      */
     @Test
@@ -171,6 +181,14 @@ public class TransactionDestinationTest {
     @Test
     public void structuredDataTest() {
         // TODO: test structuredData
+    }
+
+    /**
+     * Test the property 'msgHash'
+     */
+    @Test
+    public void msgHashTest() {
+        // TODO: test msgHash
     }
 
     /**

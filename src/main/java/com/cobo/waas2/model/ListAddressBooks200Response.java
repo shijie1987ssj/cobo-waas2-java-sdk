@@ -12,13 +12,17 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.AddressBook;
+import com.cobo.waas2.model.Pagination;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,59 +49,67 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The snapshot information.
+ * ListAddressBooks200Response
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class WalletBalanceSnapshot {
-  public static final String SERIALIZED_NAME_SNAPSHOT_ID = "snapshot_id";
-  @SerializedName(SERIALIZED_NAME_SNAPSHOT_ID)
-  private Integer snapshotId;
+public class ListAddressBooks200Response {
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private List<AddressBook> data = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_SNAPSHOT_NAME = "snapshot_name";
-  @SerializedName(SERIALIZED_NAME_SNAPSHOT_NAME)
-  private String snapshotName;
+  public static final String SERIALIZED_NAME_PAGINATION = "pagination";
+  @SerializedName(SERIALIZED_NAME_PAGINATION)
+  private Pagination pagination;
 
-  public WalletBalanceSnapshot() {
+  public ListAddressBooks200Response() {
   }
 
-  public WalletBalanceSnapshot snapshotId(Integer snapshotId) {
-    this.snapshotId = snapshotId;
+  public ListAddressBooks200Response data(List<AddressBook> data) {
+    this.data = data;
+    return this;
+  }
+
+  public ListAddressBooks200Response addDataItem(AddressBook dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
    /**
-   * The snapshot ID.
-   * @return snapshotId
-  **/
-  @javax.annotation.Nonnull
-  public Integer getSnapshotId() {
-    return snapshotId;
-  }
-
-  public void setSnapshotId(Integer snapshotId) {
-    this.snapshotId = snapshotId;
-  }
-
-
-  public WalletBalanceSnapshot snapshotName(String snapshotName) {
-    this.snapshotName = snapshotName;
-    return this;
-  }
-
-   /**
-   * The snapshot name.
-   * @return snapshotName
+   * Get data
+   * @return data
   **/
   @javax.annotation.Nullable
-  public String getSnapshotName() {
-    return snapshotName;
+  public List<AddressBook> getData() {
+    return data;
   }
 
-  public void setSnapshotName(String snapshotName) {
-    this.snapshotName = snapshotName;
+  public void setData(List<AddressBook> data) {
+    this.data = data;
+  }
+
+
+  public ListAddressBooks200Response pagination(Pagination pagination) {
+    this.pagination = pagination;
+    return this;
+  }
+
+   /**
+   * Get pagination
+   * @return pagination
+  **/
+  @javax.annotation.Nullable
+  public Pagination getPagination() {
+    return pagination;
+  }
+
+  public void setPagination(Pagination pagination) {
+    this.pagination = pagination;
   }
 
   /**
@@ -113,9 +125,9 @@ public class WalletBalanceSnapshot {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the WalletBalanceSnapshot instance itself
+   * @return the ListAddressBooks200Response instance itself
    */
-  public WalletBalanceSnapshot putAdditionalProperty(String key, Object value) {
+  public ListAddressBooks200Response putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -154,23 +166,23 @@ public class WalletBalanceSnapshot {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WalletBalanceSnapshot walletBalanceSnapshot = (WalletBalanceSnapshot) o;
-    return Objects.equals(this.snapshotId, walletBalanceSnapshot.snapshotId) &&
-        Objects.equals(this.snapshotName, walletBalanceSnapshot.snapshotName)&&
-        Objects.equals(this.additionalProperties, walletBalanceSnapshot.additionalProperties);
+    ListAddressBooks200Response listAddressBooks200Response = (ListAddressBooks200Response) o;
+    return Objects.equals(this.data, listAddressBooks200Response.data) &&
+        Objects.equals(this.pagination, listAddressBooks200Response.pagination)&&
+        Objects.equals(this.additionalProperties, listAddressBooks200Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(snapshotId, snapshotName, additionalProperties);
+    return Objects.hash(data, pagination, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WalletBalanceSnapshot {\n");
-    sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
-    sb.append("    snapshotName: ").append(toIndentedString(snapshotName)).append("\n");
+    sb.append("class ListAddressBooks200Response {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -194,36 +206,43 @@ public class WalletBalanceSnapshot {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("snapshot_id");
-    openapiFields.add("snapshot_name");
+    openapiFields.add("data");
+    openapiFields.add("pagination");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("snapshot_id");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to WalletBalanceSnapshot
+  * @throws IOException if the JSON Element is invalid with respect to ListAddressBooks200Response
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!WalletBalanceSnapshot.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WalletBalanceSnapshot is not found in the empty JSON string", WalletBalanceSnapshot.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : WalletBalanceSnapshot.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (!ListAddressBooks200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ListAddressBooks200Response is not found in the empty JSON string", ListAddressBooks200Response.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("snapshot_name") != null && !jsonObj.get("snapshot_name").isJsonNull()) && !jsonObj.get("snapshot_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `snapshot_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("snapshot_name").toString()));
+      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+        if (jsonArraydata != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("data").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+          }
+
+          // validate the optional field `data` (array)
+          for (int i = 0; i < jsonArraydata.size(); i++) {
+            AddressBook.validateJsonElement(jsonArraydata.get(i));
+          };
+        }
+      }
+      // validate the optional field `pagination`
+      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+        Pagination.validateJsonElement(jsonObj.get("pagination"));
       }
   }
 
@@ -231,16 +250,16 @@ public class WalletBalanceSnapshot {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WalletBalanceSnapshot.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WalletBalanceSnapshot' and its subtypes
+       if (!ListAddressBooks200Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ListAddressBooks200Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WalletBalanceSnapshot> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WalletBalanceSnapshot.class));
+       final TypeAdapter<ListAddressBooks200Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ListAddressBooks200Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WalletBalanceSnapshot>() {
+       return (TypeAdapter<T>) new TypeAdapter<ListAddressBooks200Response>() {
            @Override
-           public void write(JsonWriter out, WalletBalanceSnapshot value) throws IOException {
+           public void write(JsonWriter out, ListAddressBooks200Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -268,12 +287,12 @@ public class WalletBalanceSnapshot {
            }
 
            @Override
-           public WalletBalanceSnapshot read(JsonReader in) throws IOException {
+           public ListAddressBooks200Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             WalletBalanceSnapshot instance = thisAdapter.fromJsonTree(jsonObj);
+             ListAddressBooks200Response instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -300,18 +319,18 @@ public class WalletBalanceSnapshot {
   }
 
  /**
-  * Create an instance of WalletBalanceSnapshot given an JSON string
+  * Create an instance of ListAddressBooks200Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WalletBalanceSnapshot
-  * @throws IOException if the JSON string is invalid with respect to WalletBalanceSnapshot
+  * @return An instance of ListAddressBooks200Response
+  * @throws IOException if the JSON string is invalid with respect to ListAddressBooks200Response
   */
-  public static WalletBalanceSnapshot fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WalletBalanceSnapshot.class);
+  public static ListAddressBooks200Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ListAddressBooks200Response.class);
   }
 
  /**
-  * Convert an instance of WalletBalanceSnapshot to an JSON string
+  * Convert an instance of ListAddressBooks200Response to an JSON string
   *
   * @return JSON string
   */

@@ -2,20 +2,21 @@
 
 # AddressBook
 
-The data for address book entry information.
+The information of an address book entry.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**orgId** | **UUID** |  |  |
-|**entryId** | **UUID** |  |  |
-|**address** | **String** | address. |  |
-|**memo** | **String** | memo. |  [optional] |
-|**walletName** | **String** | wallet name. |  [optional] |
+|**orgId** | **UUID** | The organization ID. |  |
+|**entryId** | **UUID** | The entry ID. |  |
+|**address** | **String** | The wallet address. |  |
+|**memo** | **String** | The memo. |  [optional] |
+|**walletName** | **String** | The wallet name. |  [optional] |
 |**walletType** | **WalletType** |  |  [optional] |
-|**label** | **String** | The label to address. |  |
-|**email** | **String** | email. |  [optional] |
+|**label** | **String** | The address label. |  |
+|**chainIds** | **List&lt;String&gt;** | A list of chain IDs. |  [optional] |
+|**email** | **String** | The email of the address owner. |  [optional] |
 
 
 

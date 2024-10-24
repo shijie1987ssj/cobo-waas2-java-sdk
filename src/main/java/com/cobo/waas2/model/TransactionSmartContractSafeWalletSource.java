@@ -140,7 +140,7 @@ public class TransactionSmartContractSafeWalletSource {
    * Get delegate
    * @return delegate
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CoboSafeDelegate getDelegate() {
     return delegate;
   }
@@ -257,7 +257,6 @@ public class TransactionSmartContractSafeWalletSource {
     openapiRequiredFields.add("source_type");
     openapiRequiredFields.add("wallet_id");
     openapiRequiredFields.add("address");
-    openapiRequiredFields.add("delegate");
   }
 
  /**
@@ -288,8 +287,10 @@ public class TransactionSmartContractSafeWalletSource {
       if (!jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
-      // validate the required field `delegate`
-      CoboSafeDelegate.validateJsonElement(jsonObj.get("delegate"));
+      // validate the optional field `delegate`
+      if (jsonObj.get("delegate") != null && !jsonObj.get("delegate").isJsonNull()) {
+        CoboSafeDelegate.validateJsonElement(jsonObj.get("delegate"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.EstimateFeeRequestType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,128 +46,105 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * RefreshToken200Response
+ * SafeWalletDelegatesContractCall
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class RefreshToken200Response {
-  public static final String SERIALIZED_NAME_ACCESS_TOKEN = "access_token";
-  @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN)
-  private String accessToken;
+public class SafeWalletDelegatesContractCall {
+  public static final String SERIALIZED_NAME_REQUEST_TYPE = "request_type";
+  @SerializedName(SERIALIZED_NAME_REQUEST_TYPE)
+  private EstimateFeeRequestType requestType;
 
-  public static final String SERIALIZED_NAME_TOKEN_TYPE = "token_type";
-  @SerializedName(SERIALIZED_NAME_TOKEN_TYPE)
-  private String tokenType;
+  public static final String SERIALIZED_NAME_ADDRESS = "address";
+  @SerializedName(SERIALIZED_NAME_ADDRESS)
+  private String address;
 
-  public static final String SERIALIZED_NAME_SCOPE = "scope";
-  @SerializedName(SERIALIZED_NAME_SCOPE)
-  private String scope;
+  public static final String SERIALIZED_NAME_VALUE = "value";
+  @SerializedName(SERIALIZED_NAME_VALUE)
+  private String value;
 
-  public static final String SERIALIZED_NAME_EXPIRES_IN = "expires_in";
-  @SerializedName(SERIALIZED_NAME_EXPIRES_IN)
-  private Integer expiresIn;
+  public static final String SERIALIZED_NAME_CALLDATA = "calldata";
+  @SerializedName(SERIALIZED_NAME_CALLDATA)
+  private String calldata;
 
-  public static final String SERIALIZED_NAME_REFRESH_TOKEN = "refresh_token";
-  @SerializedName(SERIALIZED_NAME_REFRESH_TOKEN)
-  private String refreshToken;
-
-  public RefreshToken200Response() {
+  public SafeWalletDelegatesContractCall() {
   }
 
-  public RefreshToken200Response accessToken(String accessToken) {
-    this.accessToken = accessToken;
+  public SafeWalletDelegatesContractCall requestType(EstimateFeeRequestType requestType) {
+    this.requestType = requestType;
     return this;
   }
 
    /**
-   * The new Org Access Token.
-   * @return accessToken
+   * Get requestType
+   * @return requestType
   **/
-  @javax.annotation.Nullable
-  public String getAccessToken() {
-    return accessToken;
+  @javax.annotation.Nonnull
+  public EstimateFeeRequestType getRequestType() {
+    return requestType;
   }
 
-  public void setAccessToken(String accessToken) {
-    this.accessToken = accessToken;
+  public void setRequestType(EstimateFeeRequestType requestType) {
+    this.requestType = requestType;
   }
 
 
-  public RefreshToken200Response tokenType(String tokenType) {
-    this.tokenType = tokenType;
+  public SafeWalletDelegatesContractCall address(String address) {
+    this.address = address;
     return this;
   }
 
    /**
-   * The type of the tokens, which is Bearer.
-   * @return tokenType
+   * The destination address.
+   * @return address
   **/
   @javax.annotation.Nullable
-  public String getTokenType() {
-    return tokenType;
+  public String getAddress() {
+    return address;
   }
 
-  public void setTokenType(String tokenType) {
-    this.tokenType = tokenType;
+  public void setAddress(String address) {
+    this.address = address;
   }
 
 
-  public RefreshToken200Response scope(String scope) {
-    this.scope = scope;
+  public SafeWalletDelegatesContractCall value(String value) {
+    this.value = value;
     return this;
   }
 
    /**
-   * The scope of the Org Access Token to limit the app&#39;s access to the organization&#39;s resources. **Note**: Currently this property value is empty. The scope of the Org Access Token is based on the permissions granted when the app user installs the app. 
-   * @return scope
+   * The transfer amount. For example, if you trade 1.5 ETH, then the value is &#x60;1.5&#x60;. 
+   * @return value
   **/
   @javax.annotation.Nullable
-  public String getScope() {
-    return scope;
+  public String getValue() {
+    return value;
   }
 
-  public void setScope(String scope) {
-    this.scope = scope;
+  public void setValue(String value) {
+    this.value = value;
   }
 
 
-  public RefreshToken200Response expiresIn(Integer expiresIn) {
-    this.expiresIn = expiresIn;
+  public SafeWalletDelegatesContractCall calldata(String calldata) {
+    this.calldata = calldata;
     return this;
   }
 
    /**
-   * The time in seconds in which the new Org Access Token expires.
-   * @return expiresIn
+   * The data that is used to invoke a specific function or method within the specified contract at the destination address. 
+   * @return calldata
   **/
   @javax.annotation.Nullable
-  public Integer getExpiresIn() {
-    return expiresIn;
+  public String getCalldata() {
+    return calldata;
   }
 
-  public void setExpiresIn(Integer expiresIn) {
-    this.expiresIn = expiresIn;
-  }
-
-
-  public RefreshToken200Response refreshToken(String refreshToken) {
-    this.refreshToken = refreshToken;
-    return this;
-  }
-
-   /**
-   * The Refresh Token, used to obtain another Org Access Token when the new Org Access Token expires. The expiration time for Refresh Tokens is currently set to 30 days and is subject to change.
-   * @return refreshToken
-  **/
-  @javax.annotation.Nullable
-  public String getRefreshToken() {
-    return refreshToken;
-  }
-
-  public void setRefreshToken(String refreshToken) {
-    this.refreshToken = refreshToken;
+  public void setCalldata(String calldata) {
+    this.calldata = calldata;
   }
 
   /**
@@ -182,9 +160,9 @@ public class RefreshToken200Response {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the RefreshToken200Response instance itself
+   * @return the SafeWalletDelegatesContractCall instance itself
    */
-  public RefreshToken200Response putAdditionalProperty(String key, Object value) {
+  public SafeWalletDelegatesContractCall putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -223,29 +201,27 @@ public class RefreshToken200Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RefreshToken200Response refreshToken200Response = (RefreshToken200Response) o;
-    return Objects.equals(this.accessToken, refreshToken200Response.accessToken) &&
-        Objects.equals(this.tokenType, refreshToken200Response.tokenType) &&
-        Objects.equals(this.scope, refreshToken200Response.scope) &&
-        Objects.equals(this.expiresIn, refreshToken200Response.expiresIn) &&
-        Objects.equals(this.refreshToken, refreshToken200Response.refreshToken)&&
-        Objects.equals(this.additionalProperties, refreshToken200Response.additionalProperties);
+    SafeWalletDelegatesContractCall safeWalletDelegatesContractCall = (SafeWalletDelegatesContractCall) o;
+    return Objects.equals(this.requestType, safeWalletDelegatesContractCall.requestType) &&
+        Objects.equals(this.address, safeWalletDelegatesContractCall.address) &&
+        Objects.equals(this.value, safeWalletDelegatesContractCall.value) &&
+        Objects.equals(this.calldata, safeWalletDelegatesContractCall.calldata)&&
+        Objects.equals(this.additionalProperties, safeWalletDelegatesContractCall.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessToken, tokenType, scope, expiresIn, refreshToken, additionalProperties);
+    return Objects.hash(requestType, address, value, calldata, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RefreshToken200Response {\n");
-    sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
-    sb.append("    tokenType: ").append(toIndentedString(tokenType)).append("\n");
-    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
-    sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
-    sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
+    sb.append("class SafeWalletDelegatesContractCall {\n");
+    sb.append("    requestType: ").append(toIndentedString(requestType)).append("\n");
+    sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    value: ").append(toIndentedString(value)).append("\n");
+    sb.append("    calldata: ").append(toIndentedString(calldata)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -269,40 +245,46 @@ public class RefreshToken200Response {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("access_token");
-    openapiFields.add("token_type");
-    openapiFields.add("scope");
-    openapiFields.add("expires_in");
-    openapiFields.add("refresh_token");
+    openapiFields.add("request_type");
+    openapiFields.add("address");
+    openapiFields.add("value");
+    openapiFields.add("calldata");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("request_type");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to RefreshToken200Response
+  * @throws IOException if the JSON Element is invalid with respect to SafeWalletDelegatesContractCall
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!RefreshToken200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RefreshToken200Response is not found in the empty JSON string", RefreshToken200Response.openapiRequiredFields.toString()));
+        if (!SafeWalletDelegatesContractCall.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in SafeWalletDelegatesContractCall is not found in the empty JSON string", SafeWalletDelegatesContractCall.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : SafeWalletDelegatesContractCall.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("access_token") != null && !jsonObj.get("access_token").isJsonNull()) && !jsonObj.get("access_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_token").toString()));
+      // validate the required field `request_type`
+      EstimateFeeRequestType.validateJsonElement(jsonObj.get("request_type"));
+      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
-      if ((jsonObj.get("token_type") != null && !jsonObj.get("token_type").isJsonNull()) && !jsonObj.get("token_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_type").toString()));
+      if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
-      if ((jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonNull()) && !jsonObj.get("scope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
-      }
-      if ((jsonObj.get("refresh_token") != null && !jsonObj.get("refresh_token").isJsonNull()) && !jsonObj.get("refresh_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `refresh_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refresh_token").toString()));
+      if ((jsonObj.get("calldata") != null && !jsonObj.get("calldata").isJsonNull()) && !jsonObj.get("calldata").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `calldata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("calldata").toString()));
       }
   }
 
@@ -310,16 +292,16 @@ public class RefreshToken200Response {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RefreshToken200Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RefreshToken200Response' and its subtypes
+       if (!SafeWalletDelegatesContractCall.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'SafeWalletDelegatesContractCall' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RefreshToken200Response> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RefreshToken200Response.class));
+       final TypeAdapter<SafeWalletDelegatesContractCall> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(SafeWalletDelegatesContractCall.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RefreshToken200Response>() {
+       return (TypeAdapter<T>) new TypeAdapter<SafeWalletDelegatesContractCall>() {
            @Override
-           public void write(JsonWriter out, RefreshToken200Response value) throws IOException {
+           public void write(JsonWriter out, SafeWalletDelegatesContractCall value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -347,12 +329,12 @@ public class RefreshToken200Response {
            }
 
            @Override
-           public RefreshToken200Response read(JsonReader in) throws IOException {
+           public SafeWalletDelegatesContractCall read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             RefreshToken200Response instance = thisAdapter.fromJsonTree(jsonObj);
+             SafeWalletDelegatesContractCall instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -379,18 +361,18 @@ public class RefreshToken200Response {
   }
 
  /**
-  * Create an instance of RefreshToken200Response given an JSON string
+  * Create an instance of SafeWalletDelegatesContractCall given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of RefreshToken200Response
-  * @throws IOException if the JSON string is invalid with respect to RefreshToken200Response
+  * @return An instance of SafeWalletDelegatesContractCall
+  * @throws IOException if the JSON string is invalid with respect to SafeWalletDelegatesContractCall
   */
-  public static RefreshToken200Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RefreshToken200Response.class);
+  public static SafeWalletDelegatesContractCall fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SafeWalletDelegatesContractCall.class);
   }
 
  /**
-  * Convert an instance of RefreshToken200Response to an JSON string
+  * Convert an instance of SafeWalletDelegatesContractCall to an JSON string
   *
   * @return JSON string
   */

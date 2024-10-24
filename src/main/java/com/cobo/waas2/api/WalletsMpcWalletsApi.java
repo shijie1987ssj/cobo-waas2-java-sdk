@@ -82,7 +82,7 @@ public class WalletsMpcWalletsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully modified the TSS request. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Successfully modified the TSS request. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -146,7 +146,7 @@ public class WalletsMpcWalletsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully modified the TSS request. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Successfully modified the TSS request. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -166,7 +166,7 @@ public class WalletsMpcWalletsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully modified the TSS request. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Successfully modified the TSS request. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -188,7 +188,7 @@ public class WalletsMpcWalletsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Successfully modified the TSS request. </td><td>  -  </td></tr>
+        <tr><td> 201 </td><td> Successfully modified the TSS request. </td><td>  -  </td></tr>
         <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
@@ -490,7 +490,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Create vault
-     * This operation creates a vault. 
+     * This operation creates a vault.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      * @param createMpcVaultRequest The request body to create a vault. (optional)
      * @return MPCVault
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -509,7 +509,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Create vault
-     * This operation creates a vault. 
+     * This operation creates a vault.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      * @param createMpcVaultRequest The request body to create a vault. (optional)
      * @return ApiResponse&lt;MPCVault&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -529,7 +529,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Create vault (asynchronously)
-     * This operation creates a vault. 
+     * This operation creates a vault.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      * @param createMpcVaultRequest The request body to create a vault. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1105,7 +1105,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Get vault information
-     * This operation retrieves detailed information about a vault. 
+     * This operation retrieves detailed information about a vault.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
      * @return MPCVault
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1124,7 +1124,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Get vault information
-     * This operation retrieves detailed information about a vault. 
+     * This operation retrieves detailed information about a vault.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
      * @return ApiResponse&lt;MPCVault&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1144,7 +1144,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Get vault information (asynchronously)
-     * This operation retrieves detailed information about a vault. 
+     * This operation retrieves detailed information about a vault.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1764,7 +1764,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * List all vaults
-     * This operation retrieves a list of all vaults. You can filter the result by project ID.  **Notes for query parameters**: 1. &#x60;project_id&#x60; is required when &#x60;vault_type&#x60; is set to &#x60;User-Controlled&#x60;. 2. &#x60;project_id&#x60; must be left blank when &#x60;vault_type&#x60; is set to &#x60;Org-Controlled&#x60;. 
+     * This operation retrieves a list of all vaults. You can filter the result by project ID.  **Notes for query parameters**: 1. &#x60;project_id&#x60; is required when &#x60;vault_type&#x60; is set to &#x60;User-Controlled&#x60;. 2. &#x60;project_id&#x60; must be left blank when &#x60;vault_type&#x60; is set to &#x60;Org-Controlled&#x60;.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      * @param vaultType The vault type. Possible values include: - &#x60;Org-Controlled&#x60;: This vault is a collection of [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/introduction#organization-controlled-wallets).  - &#x60;User-Controlled&#x60;: This vault is a collection of [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/introduction#user-controlled-wallets).  (required)
      * @param projectId The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects).  (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
@@ -1787,7 +1787,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * List all vaults
-     * This operation retrieves a list of all vaults. You can filter the result by project ID.  **Notes for query parameters**: 1. &#x60;project_id&#x60; is required when &#x60;vault_type&#x60; is set to &#x60;User-Controlled&#x60;. 2. &#x60;project_id&#x60; must be left blank when &#x60;vault_type&#x60; is set to &#x60;Org-Controlled&#x60;. 
+     * This operation retrieves a list of all vaults. You can filter the result by project ID.  **Notes for query parameters**: 1. &#x60;project_id&#x60; is required when &#x60;vault_type&#x60; is set to &#x60;User-Controlled&#x60;. 2. &#x60;project_id&#x60; must be left blank when &#x60;vault_type&#x60; is set to &#x60;Org-Controlled&#x60;.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      * @param vaultType The vault type. Possible values include: - &#x60;Org-Controlled&#x60;: This vault is a collection of [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/introduction#organization-controlled-wallets).  - &#x60;User-Controlled&#x60;: This vault is a collection of [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/introduction#user-controlled-wallets).  (required)
      * @param projectId The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects).  (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
@@ -1811,7 +1811,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * List all vaults (asynchronously)
-     * This operation retrieves a list of all vaults. You can filter the result by project ID.  **Notes for query parameters**: 1. &#x60;project_id&#x60; is required when &#x60;vault_type&#x60; is set to &#x60;User-Controlled&#x60;. 2. &#x60;project_id&#x60; must be left blank when &#x60;vault_type&#x60; is set to &#x60;Org-Controlled&#x60;. 
+     * This operation retrieves a list of all vaults. You can filter the result by project ID.  **Notes for query parameters**: 1. &#x60;project_id&#x60; is required when &#x60;vault_type&#x60; is set to &#x60;User-Controlled&#x60;. 2. &#x60;project_id&#x60; must be left blank when &#x60;vault_type&#x60; is set to &#x60;Org-Controlled&#x60;.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      * @param vaultType The vault type. Possible values include: - &#x60;Org-Controlled&#x60;: This vault is a collection of [Organization-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/introduction#organization-controlled-wallets).  - &#x60;User-Controlled&#x60;: This vault is a collection of [User-Controlled Wallets](https://manuals.cobo.com/en/portal/mpc-wallets/introduction#user-controlled-wallets).  (required)
      * @param projectId The project ID, which you can retrieve by calling [List all projects](/v2/api-references/wallets--mpc-wallets/list-all-projects).  (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
@@ -2307,7 +2307,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Update vault name
-     * This operation updates a vault&#39;s name. 
+     * This operation updates a vault&#39;s name.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
      * @param updateMpcVaultByIdRequest The request body to update a vault&#39;s name. (optional)
      * @return MPCVault
@@ -2327,7 +2327,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Update vault name
-     * This operation updates a vault&#39;s name. 
+     * This operation updates a vault&#39;s name.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
      * @param updateMpcVaultByIdRequest The request body to update a vault&#39;s name. (optional)
      * @return ApiResponse&lt;MPCVault&gt;
@@ -2348,7 +2348,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Update vault name (asynchronously)
-     * This operation updates a vault&#39;s name. 
+     * This operation updates a vault&#39;s name.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
      * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
      * @param updateMpcVaultByIdRequest The request body to update a vault&#39;s name. (optional)
      * @param _callback The callback to be executed when the API call finishes

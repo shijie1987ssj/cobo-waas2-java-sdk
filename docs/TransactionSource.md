@@ -13,7 +13,7 @@
 |**includedUtxos** | [**List&lt;TransactionUtxo&gt;**](TransactionUtxo.md) |  |  [optional] |
 |**excludedUtxos** | [**List&lt;TransactionUtxo&gt;**](TransactionUtxo.md) |  |  [optional] |
 |**signerKeyShareHolderGroupId** | **String** | The ID of the key share holder group that is selected to sign the transaction. |  [optional] |
-|**delegate** | [**CoboSafeDelegate**](CoboSafeDelegate.md) |  |  |
+|**delegate** | [**CoboSafeDelegate**](CoboSafeDelegate.md) |  |  [optional] |
 |**exchangeId** | **ExchangeId** |  |  |
 |**tradingAccountType** | **String** | The exchange trading account or a sub-wallet ID. |  [optional] |
 |**walletType** | **WalletType** |  |  |
