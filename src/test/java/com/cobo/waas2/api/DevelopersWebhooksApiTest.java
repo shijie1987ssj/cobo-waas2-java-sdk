@@ -21,6 +21,8 @@ import com.cobo.waas2.model.ListWebhookEventDefinitions200ResponseInner;
 import com.cobo.waas2.model.ListWebhookEventLogs200Response;
 import com.cobo.waas2.model.ListWebhookEvents200Response;
 import com.cobo.waas2.model.RetryWebhookEventById201Response;
+import com.cobo.waas2.model.TriggerTestWebhookEvent201Response;
+import com.cobo.waas2.model.TriggerTestWebhookEventRequest;
 import java.util.UUID;
 import com.cobo.waas2.model.UpdateWebhookEndpointByIdRequest;
 import com.cobo.waas2.model.WebhookEndpoint;
@@ -172,6 +174,20 @@ public class DevelopersWebhooksApiTest {
         UUID eventId = null;
         UUID endpointId = null;
         RetryWebhookEventById201Response response = api.retryWebhookEventById(eventId, endpointId);
+        // TODO: test validations
+    }
+
+    /**
+     * Trigger test event
+     *
+     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event.   You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the &#x60;override_data&#x60; property to customize the payload. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void triggerTestWebhookEventTest() throws ApiException {
+        TriggerTestWebhookEventRequest triggerTestWebhookEventRequest = null;
+        TriggerTestWebhookEvent201Response response = api.triggerTestWebhookEvent(triggerTestWebhookEventRequest);
         // TODO: test validations
     }
 

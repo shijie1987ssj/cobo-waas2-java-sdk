@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.EstimateFeeRequestType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,49 +23,49 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for BookkeepingSummary
+ * Model tests for SafeWalletDelegatesTransfer
  */
-public class BookkeepingSummaryTest {
-    private final BookkeepingSummary model = new BookkeepingSummary();
+public class SafeWalletDelegatesTransferTest {
+    private final SafeWalletDelegatesTransfer model = new SafeWalletDelegatesTransfer();
 
     /**
-     * Model tests for BookkeepingSummary
+     * Model tests for SafeWalletDelegatesTransfer
      */
     @Test
-    public void testBookkeepingSummary() {
-        // TODO: test BookkeepingSummary
+    public void testSafeWalletDelegatesTransfer() {
+        // TODO: test SafeWalletDelegatesTransfer
     }
 
     /**
-     * Test the property 'totalTransactionCount'
+     * Test the property 'requestType'
      */
     @Test
-    public void totalTransactionCountTest() {
-        // TODO: test totalTransactionCount
+    public void requestTypeTest() {
+        // TODO: test requestType
     }
 
     /**
-     * Test the property 'totalInflowValue'
+     * Test the property 'tokenId'
      */
     @Test
-    public void totalInflowValueTest() {
-        // TODO: test totalInflowValue
+    public void tokenIdTest() {
+        // TODO: test tokenId
     }
 
     /**
-     * Test the property 'totalOutflowValue'
+     * Test the property 'amount'
      */
     @Test
-    public void totalOutflowValueTest() {
-        // TODO: test totalOutflowValue
+    public void amountTest() {
+        // TODO: test amount
     }
 
     /**
-     * Test the property 'totalFeeValue'
+     * Test the property 'address'
      */
     @Test
-    public void totalFeeValueTest() {
-        // TODO: test totalFeeValue
+    public void addressTest() {
+        // TODO: test address
     }
 
 }

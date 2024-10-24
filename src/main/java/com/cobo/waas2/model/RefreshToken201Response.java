@@ -45,105 +45,128 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The bookkeeping item information.
+ * RefreshToken201Response
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class BookkeepingSummary {
-  public static final String SERIALIZED_NAME_TOTAL_TRANSACTION_COUNT = "total_transaction_count";
-  @SerializedName(SERIALIZED_NAME_TOTAL_TRANSACTION_COUNT)
-  private Integer totalTransactionCount;
+public class RefreshToken201Response {
+  public static final String SERIALIZED_NAME_ACCESS_TOKEN = "access_token";
+  @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN)
+  private String accessToken;
 
-  public static final String SERIALIZED_NAME_TOTAL_INFLOW_VALUE = "total_inflow_value";
-  @SerializedName(SERIALIZED_NAME_TOTAL_INFLOW_VALUE)
-  private String totalInflowValue;
+  public static final String SERIALIZED_NAME_TOKEN_TYPE = "token_type";
+  @SerializedName(SERIALIZED_NAME_TOKEN_TYPE)
+  private String tokenType;
 
-  public static final String SERIALIZED_NAME_TOTAL_OUTFLOW_VALUE = "total_outflow_value";
-  @SerializedName(SERIALIZED_NAME_TOTAL_OUTFLOW_VALUE)
-  private String totalOutflowValue;
+  public static final String SERIALIZED_NAME_SCOPE = "scope";
+  @SerializedName(SERIALIZED_NAME_SCOPE)
+  private String scope;
 
-  public static final String SERIALIZED_NAME_TOTAL_FEE_VALUE = "total_fee_value";
-  @SerializedName(SERIALIZED_NAME_TOTAL_FEE_VALUE)
-  private String totalFeeValue;
+  public static final String SERIALIZED_NAME_EXPIRES_IN = "expires_in";
+  @SerializedName(SERIALIZED_NAME_EXPIRES_IN)
+  private Integer expiresIn;
 
-  public BookkeepingSummary() {
+  public static final String SERIALIZED_NAME_REFRESH_TOKEN = "refresh_token";
+  @SerializedName(SERIALIZED_NAME_REFRESH_TOKEN)
+  private String refreshToken;
+
+  public RefreshToken201Response() {
   }
 
-  public BookkeepingSummary totalTransactionCount(Integer totalTransactionCount) {
-    this.totalTransactionCount = totalTransactionCount;
+  public RefreshToken201Response accessToken(String accessToken) {
+    this.accessToken = accessToken;
     return this;
   }
 
    /**
-   * Total transaction count.
-   * @return totalTransactionCount
-  **/
-  @javax.annotation.Nonnull
-  public Integer getTotalTransactionCount() {
-    return totalTransactionCount;
-  }
-
-  public void setTotalTransactionCount(Integer totalTransactionCount) {
-    this.totalTransactionCount = totalTransactionCount;
-  }
-
-
-  public BookkeepingSummary totalInflowValue(String totalInflowValue) {
-    this.totalInflowValue = totalInflowValue;
-    return this;
-  }
-
-   /**
-   * The USD value of the inflow.
-   * @return totalInflowValue
-  **/
-  @javax.annotation.Nonnull
-  public String getTotalInflowValue() {
-    return totalInflowValue;
-  }
-
-  public void setTotalInflowValue(String totalInflowValue) {
-    this.totalInflowValue = totalInflowValue;
-  }
-
-
-  public BookkeepingSummary totalOutflowValue(String totalOutflowValue) {
-    this.totalOutflowValue = totalOutflowValue;
-    return this;
-  }
-
-   /**
-   * The USD value of the outflow.
-   * @return totalOutflowValue
-  **/
-  @javax.annotation.Nonnull
-  public String getTotalOutflowValue() {
-    return totalOutflowValue;
-  }
-
-  public void setTotalOutflowValue(String totalOutflowValue) {
-    this.totalOutflowValue = totalOutflowValue;
-  }
-
-
-  public BookkeepingSummary totalFeeValue(String totalFeeValue) {
-    this.totalFeeValue = totalFeeValue;
-    return this;
-  }
-
-   /**
-   * The USD value of the fee.
-   * @return totalFeeValue
+   * The new Org Access Token.
+   * @return accessToken
   **/
   @javax.annotation.Nullable
-  public String getTotalFeeValue() {
-    return totalFeeValue;
+  public String getAccessToken() {
+    return accessToken;
   }
 
-  public void setTotalFeeValue(String totalFeeValue) {
-    this.totalFeeValue = totalFeeValue;
+  public void setAccessToken(String accessToken) {
+    this.accessToken = accessToken;
+  }
+
+
+  public RefreshToken201Response tokenType(String tokenType) {
+    this.tokenType = tokenType;
+    return this;
+  }
+
+   /**
+   * The type of the tokens, which is Bearer.
+   * @return tokenType
+  **/
+  @javax.annotation.Nullable
+  public String getTokenType() {
+    return tokenType;
+  }
+
+  public void setTokenType(String tokenType) {
+    this.tokenType = tokenType;
+  }
+
+
+  public RefreshToken201Response scope(String scope) {
+    this.scope = scope;
+    return this;
+  }
+
+   /**
+   * The scope of the Org Access Token to limit the app&#39;s access to the organization&#39;s resources. **Note**: Currently this property value is empty. The scope of the Org Access Token is based on the permissions granted when the app user installs the app. 
+   * @return scope
+  **/
+  @javax.annotation.Nullable
+  public String getScope() {
+    return scope;
+  }
+
+  public void setScope(String scope) {
+    this.scope = scope;
+  }
+
+
+  public RefreshToken201Response expiresIn(Integer expiresIn) {
+    this.expiresIn = expiresIn;
+    return this;
+  }
+
+   /**
+   * The time in seconds in which the new Org Access Token expires.
+   * @return expiresIn
+  **/
+  @javax.annotation.Nullable
+  public Integer getExpiresIn() {
+    return expiresIn;
+  }
+
+  public void setExpiresIn(Integer expiresIn) {
+    this.expiresIn = expiresIn;
+  }
+
+
+  public RefreshToken201Response refreshToken(String refreshToken) {
+    this.refreshToken = refreshToken;
+    return this;
+  }
+
+   /**
+   * The Refresh Token, used to obtain another Org Access Token when the new Org Access Token expires. The expiration time for Refresh Tokens is currently set to 30 days and is subject to change.
+   * @return refreshToken
+  **/
+  @javax.annotation.Nullable
+  public String getRefreshToken() {
+    return refreshToken;
+  }
+
+  public void setRefreshToken(String refreshToken) {
+    this.refreshToken = refreshToken;
   }
 
   /**
@@ -159,9 +182,9 @@ public class BookkeepingSummary {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the BookkeepingSummary instance itself
+   * @return the RefreshToken201Response instance itself
    */
-  public BookkeepingSummary putAdditionalProperty(String key, Object value) {
+  public RefreshToken201Response putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -200,27 +223,29 @@ public class BookkeepingSummary {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BookkeepingSummary bookkeepingSummary = (BookkeepingSummary) o;
-    return Objects.equals(this.totalTransactionCount, bookkeepingSummary.totalTransactionCount) &&
-        Objects.equals(this.totalInflowValue, bookkeepingSummary.totalInflowValue) &&
-        Objects.equals(this.totalOutflowValue, bookkeepingSummary.totalOutflowValue) &&
-        Objects.equals(this.totalFeeValue, bookkeepingSummary.totalFeeValue)&&
-        Objects.equals(this.additionalProperties, bookkeepingSummary.additionalProperties);
+    RefreshToken201Response refreshToken201Response = (RefreshToken201Response) o;
+    return Objects.equals(this.accessToken, refreshToken201Response.accessToken) &&
+        Objects.equals(this.tokenType, refreshToken201Response.tokenType) &&
+        Objects.equals(this.scope, refreshToken201Response.scope) &&
+        Objects.equals(this.expiresIn, refreshToken201Response.expiresIn) &&
+        Objects.equals(this.refreshToken, refreshToken201Response.refreshToken)&&
+        Objects.equals(this.additionalProperties, refreshToken201Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalTransactionCount, totalInflowValue, totalOutflowValue, totalFeeValue, additionalProperties);
+    return Objects.hash(accessToken, tokenType, scope, expiresIn, refreshToken, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BookkeepingSummary {\n");
-    sb.append("    totalTransactionCount: ").append(toIndentedString(totalTransactionCount)).append("\n");
-    sb.append("    totalInflowValue: ").append(toIndentedString(totalInflowValue)).append("\n");
-    sb.append("    totalOutflowValue: ").append(toIndentedString(totalOutflowValue)).append("\n");
-    sb.append("    totalFeeValue: ").append(toIndentedString(totalFeeValue)).append("\n");
+    sb.append("class RefreshToken201Response {\n");
+    sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
+    sb.append("    tokenType: ").append(toIndentedString(tokenType)).append("\n");
+    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
+    sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
+    sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -244,46 +269,40 @@ public class BookkeepingSummary {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("total_transaction_count");
-    openapiFields.add("total_inflow_value");
-    openapiFields.add("total_outflow_value");
-    openapiFields.add("total_fee_value");
+    openapiFields.add("access_token");
+    openapiFields.add("token_type");
+    openapiFields.add("scope");
+    openapiFields.add("expires_in");
+    openapiFields.add("refresh_token");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("total_transaction_count");
-    openapiRequiredFields.add("total_inflow_value");
-    openapiRequiredFields.add("total_outflow_value");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to BookkeepingSummary
+  * @throws IOException if the JSON Element is invalid with respect to RefreshToken201Response
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!BookkeepingSummary.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in BookkeepingSummary is not found in the empty JSON string", BookkeepingSummary.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : BookkeepingSummary.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (!RefreshToken201Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in RefreshToken201Response is not found in the empty JSON string", RefreshToken201Response.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("total_inflow_value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `total_inflow_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("total_inflow_value").toString()));
+      if ((jsonObj.get("access_token") != null && !jsonObj.get("access_token").isJsonNull()) && !jsonObj.get("access_token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `access_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_token").toString()));
       }
-      if (!jsonObj.get("total_outflow_value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `total_outflow_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("total_outflow_value").toString()));
+      if ((jsonObj.get("token_type") != null && !jsonObj.get("token_type").isJsonNull()) && !jsonObj.get("token_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `token_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_type").toString()));
       }
-      if ((jsonObj.get("total_fee_value") != null && !jsonObj.get("total_fee_value").isJsonNull()) && !jsonObj.get("total_fee_value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `total_fee_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("total_fee_value").toString()));
+      if ((jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonNull()) && !jsonObj.get("scope").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
+      }
+      if ((jsonObj.get("refresh_token") != null && !jsonObj.get("refresh_token").isJsonNull()) && !jsonObj.get("refresh_token").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `refresh_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refresh_token").toString()));
       }
   }
 
@@ -291,16 +310,16 @@ public class BookkeepingSummary {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!BookkeepingSummary.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'BookkeepingSummary' and its subtypes
+       if (!RefreshToken201Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'RefreshToken201Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<BookkeepingSummary> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(BookkeepingSummary.class));
+       final TypeAdapter<RefreshToken201Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(RefreshToken201Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<BookkeepingSummary>() {
+       return (TypeAdapter<T>) new TypeAdapter<RefreshToken201Response>() {
            @Override
-           public void write(JsonWriter out, BookkeepingSummary value) throws IOException {
+           public void write(JsonWriter out, RefreshToken201Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -328,12 +347,12 @@ public class BookkeepingSummary {
            }
 
            @Override
-           public BookkeepingSummary read(JsonReader in) throws IOException {
+           public RefreshToken201Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             BookkeepingSummary instance = thisAdapter.fromJsonTree(jsonObj);
+             RefreshToken201Response instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -360,18 +379,18 @@ public class BookkeepingSummary {
   }
 
  /**
-  * Create an instance of BookkeepingSummary given an JSON string
+  * Create an instance of RefreshToken201Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of BookkeepingSummary
-  * @throws IOException if the JSON string is invalid with respect to BookkeepingSummary
+  * @return An instance of RefreshToken201Response
+  * @throws IOException if the JSON string is invalid with respect to RefreshToken201Response
   */
-  public static BookkeepingSummary fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, BookkeepingSummary.class);
+  public static RefreshToken201Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, RefreshToken201Response.class);
   }
 
  /**
-  * Convert an instance of BookkeepingSummary to an JSON string
+  * Convert an instance of RefreshToken201Response to an JSON string
   *
   * @return JSON string
   */

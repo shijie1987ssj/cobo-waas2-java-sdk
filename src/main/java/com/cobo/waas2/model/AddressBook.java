@@ -19,7 +19,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 import com.google.gson.Gson;
@@ -47,7 +49,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The data for address book entry information.
+ * The information of an address book entry.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -82,6 +84,10 @@ public class AddressBook {
   @SerializedName(SERIALIZED_NAME_LABEL)
   private String label;
 
+  public static final String SERIALIZED_NAME_CHAIN_IDS = "chain_ids";
+  @SerializedName(SERIALIZED_NAME_CHAIN_IDS)
+  private List<String> chainIds = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
@@ -95,7 +101,7 @@ public class AddressBook {
   }
 
    /**
-   * Get orgId
+   * The organization ID.
    * @return orgId
   **/
   @javax.annotation.Nonnull
@@ -114,7 +120,7 @@ public class AddressBook {
   }
 
    /**
-   * Get entryId
+   * The entry ID.
    * @return entryId
   **/
   @javax.annotation.Nonnull
@@ -133,7 +139,7 @@ public class AddressBook {
   }
 
    /**
-   * address.
+   * The wallet address.
    * @return address
   **/
   @javax.annotation.Nonnull
@@ -152,7 +158,7 @@ public class AddressBook {
   }
 
    /**
-   * memo.
+   * The memo.
    * @return memo
   **/
   @javax.annotation.Nullable
@@ -171,7 +177,7 @@ public class AddressBook {
   }
 
    /**
-   * wallet name.
+   * The wallet name.
    * @return walletName
   **/
   @javax.annotation.Nullable
@@ -209,7 +215,7 @@ public class AddressBook {
   }
 
    /**
-   * The label to address.
+   * The address label.
    * @return label
   **/
   @javax.annotation.Nonnull
@@ -222,13 +228,40 @@ public class AddressBook {
   }
 
 
+  public AddressBook chainIds(List<String> chainIds) {
+    this.chainIds = chainIds;
+    return this;
+  }
+
+  public AddressBook addChainIdsItem(String chainIdsItem) {
+    if (this.chainIds == null) {
+      this.chainIds = new ArrayList<>();
+    }
+    this.chainIds.add(chainIdsItem);
+    return this;
+  }
+
+   /**
+   * A list of chain IDs.
+   * @return chainIds
+  **/
+  @javax.annotation.Nullable
+  public List<String> getChainIds() {
+    return chainIds;
+  }
+
+  public void setChainIds(List<String> chainIds) {
+    this.chainIds = chainIds;
+  }
+
+
   public AddressBook email(String email) {
     this.email = email;
     return this;
   }
 
    /**
-   * email.
+   * The email of the address owner.
    * @return email
   **/
   @javax.annotation.Nullable
@@ -302,13 +335,14 @@ public class AddressBook {
         Objects.equals(this.walletName, addressBook.walletName) &&
         Objects.equals(this.walletType, addressBook.walletType) &&
         Objects.equals(this.label, addressBook.label) &&
+        Objects.equals(this.chainIds, addressBook.chainIds) &&
         Objects.equals(this.email, addressBook.email)&&
         Objects.equals(this.additionalProperties, addressBook.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(orgId, entryId, address, memo, walletName, walletType, label, email, additionalProperties);
+    return Objects.hash(orgId, entryId, address, memo, walletName, walletType, label, chainIds, email, additionalProperties);
   }
 
   @Override
@@ -322,6 +356,7 @@ public class AddressBook {
     sb.append("    walletName: ").append(toIndentedString(walletName)).append("\n");
     sb.append("    walletType: ").append(toIndentedString(walletType)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
+    sb.append("    chainIds: ").append(toIndentedString(chainIds)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -353,6 +388,7 @@ public class AddressBook {
     openapiFields.add("wallet_name");
     openapiFields.add("wallet_type");
     openapiFields.add("label");
+    openapiFields.add("chain_ids");
     openapiFields.add("email");
 
     // a set of required properties/fields (JSON key names)
@@ -404,6 +440,10 @@ public class AddressBook {
       }
       if (!jsonObj.get("label").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("chain_ids") != null && !jsonObj.get("chain_ids").isJsonNull() && !jsonObj.get("chain_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `chain_ids` to be an array in the JSON string but got `%s`", jsonObj.get("chain_ids").toString()));
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
