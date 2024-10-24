@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.TransactionDestinationType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,33 +23,33 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for WalletBalanceSnapshot
+ * Model tests for TransactionRawMessageSignDestination
  */
-public class WalletBalanceSnapshotTest {
-    private final WalletBalanceSnapshot model = new WalletBalanceSnapshot();
+public class TransactionRawMessageSignDestinationTest {
+    private final TransactionRawMessageSignDestination model = new TransactionRawMessageSignDestination();
 
     /**
-     * Model tests for WalletBalanceSnapshot
+     * Model tests for TransactionRawMessageSignDestination
      */
     @Test
-    public void testWalletBalanceSnapshot() {
-        // TODO: test WalletBalanceSnapshot
+    public void testTransactionRawMessageSignDestination() {
+        // TODO: test TransactionRawMessageSignDestination
     }
 
     /**
-     * Test the property 'snapshotId'
+     * Test the property 'destinationType'
      */
     @Test
-    public void snapshotIdTest() {
-        // TODO: test snapshotId
+    public void destinationTypeTest() {
+        // TODO: test destinationType
     }
 
     /**
-     * Test the property 'snapshotName'
+     * Test the property 'msgHash'
      */
     @Test
-    public void snapshotNameTest() {
-        // TODO: test snapshotName
+    public void msgHashTest() {
+        // TODO: test msgHash
     }
 
 }

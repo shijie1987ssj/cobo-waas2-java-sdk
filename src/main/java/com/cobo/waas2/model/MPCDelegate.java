@@ -94,7 +94,7 @@ public class MPCDelegate {
   }
 
    /**
-   * The wallet ID of the Delegate. This is required when initiating a transfer from Smart Contract Wallets (Safe{Wallet}).
+   * The wallet ID of the Delegate. This is required when initiating a transfer or contract call from Smart Contract Wallets (Safe{Wallet}).
    * @return walletId
   **/
   @javax.annotation.Nonnull
@@ -113,7 +113,7 @@ public class MPCDelegate {
   }
 
    /**
-   * The wallet address of the Delegate. This is required when initiating a transfer from Smart Contract Wallets (Safe{Wallet}).
+   * The wallet address of the Delegate. This is required when initiating a transfer or contract call from Smart Contract Wallets (Safe{Wallet}).
    * @return address
   **/
   @javax.annotation.Nonnull

@@ -32,6 +32,8 @@ import com.cobo.waas2.model.ListWebhookEventDefinitions200ResponseInner;
 import com.cobo.waas2.model.ListWebhookEventLogs200Response;
 import com.cobo.waas2.model.ListWebhookEvents200Response;
 import com.cobo.waas2.model.RetryWebhookEventById201Response;
+import com.cobo.waas2.model.TriggerTestWebhookEvent201Response;
+import com.cobo.waas2.model.TriggerTestWebhookEventRequest;
 import java.util.UUID;
 import com.cobo.waas2.model.UpdateWebhookEndpointByIdRequest;
 import com.cobo.waas2.model.WebhookEndpoint;
@@ -1115,6 +1117,119 @@ public class DevelopersWebhooksApi {
 
         okhttp3.Call localVarCall = retryWebhookEventByIdValidateBeforeCall(eventId, endpointId, _callback);
         Type localVarReturnType = new TypeToken<RetryWebhookEventById201Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for triggerTestWebhookEvent
+     * @param triggerTestWebhookEventRequest The request body used to trigger a test webhook event.  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call triggerTestWebhookEventCall(TriggerTestWebhookEventRequest triggerTestWebhookEventRequest, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = triggerTestWebhookEventRequest;
+
+        // create path and map variables
+        String localVarPath = "/webhooks/events/trigger";
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call triggerTestWebhookEventValidateBeforeCall(TriggerTestWebhookEventRequest triggerTestWebhookEventRequest, final ApiCallback _callback) throws ApiException {
+        return triggerTestWebhookEventCall(triggerTestWebhookEventRequest, _callback);
+
+    }
+
+    /**
+     * Trigger test event
+     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event.   You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the &#x60;override_data&#x60; property to customize the payload. 
+     * @param triggerTestWebhookEventRequest The request body used to trigger a test webhook event.  (optional)
+     * @return TriggerTestWebhookEvent201Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public TriggerTestWebhookEvent201Response triggerTestWebhookEvent(TriggerTestWebhookEventRequest triggerTestWebhookEventRequest) throws ApiException {
+        ApiResponse<TriggerTestWebhookEvent201Response> localVarResp = triggerTestWebhookEventWithHttpInfo(triggerTestWebhookEventRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Trigger test event
+     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event.   You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the &#x60;override_data&#x60; property to customize the payload. 
+     * @param triggerTestWebhookEventRequest The request body used to trigger a test webhook event.  (optional)
+     * @return ApiResponse&lt;TriggerTestWebhookEvent201Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TriggerTestWebhookEvent201Response> triggerTestWebhookEventWithHttpInfo(TriggerTestWebhookEventRequest triggerTestWebhookEventRequest) throws ApiException {
+        okhttp3.Call localVarCall = triggerTestWebhookEventValidateBeforeCall(triggerTestWebhookEventRequest, null);
+        Type localVarReturnType = new TypeToken<TriggerTestWebhookEvent201Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Trigger test event (asynchronously)
+     * This operation tests the functionality of your webhook endpoint by triggering a test webhook event.   You only need to provide the event type. By default, the payload contains dummy data with no impact on your real business transactions or activities. You can optionally provide the &#x60;override_data&#x60; property to customize the payload. 
+     * @param triggerTestWebhookEventRequest The request body used to trigger a test webhook event.  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call triggerTestWebhookEventAsync(TriggerTestWebhookEventRequest triggerTestWebhookEventRequest, final ApiCallback<TriggerTestWebhookEvent201Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = triggerTestWebhookEventValidateBeforeCall(triggerTestWebhookEventRequest, _callback);
+        Type localVarReturnType = new TypeToken<TriggerTestWebhookEvent201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

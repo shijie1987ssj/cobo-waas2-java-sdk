@@ -15,7 +15,7 @@ The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo’s Wa
 - Programmatic control of smart contract wallets such as Safe{Wallet} with fine-grained access controls
 - Seamlessly transfer funds across multiple exchanges, including Binance, OKX, Bybit, Deribit, and more
 
-For more information about the WaaS 2.0 API, see [Introduction to WaaS 2.0](https://www.cobo.com/developers/v2/guides/overview/introduction).
+For more information about the WaaS 2.0 API, see [Introduction to WaaS 2.0](/v2/guides/overview/introduction).
 
 
   For more information, please visit [https://www.cobo.com/waas](https://www.cobo.com/waas)
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.4.0</version>
+  <version>1.5.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.4.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.5.0"
   }
 ```
 
@@ -97,7 +97,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.4.0.jar`
+* `target/cobo-waas2-1.5.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -147,6 +147,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AddressBooksApi* | [**listAddressBooks**](docs/AddressBooksApi.md#listAddressBooks) | **GET** /address_books | List address book entries
 *DevelopersWebhooksApi* | [**createWebhookEndpoint**](docs/DevelopersWebhooksApi.md#createWebhookEndpoint) | **POST** /webhooks/endpoints | Register webhook endpoint
 *DevelopersWebhooksApi* | [**getWebhookEndpointById**](docs/DevelopersWebhooksApi.md#getWebhookEndpointById) | **GET** /webhooks/endpoints/{endpoint_id} | Get webhook endpoint information
 *DevelopersWebhooksApi* | [**getWebhookEventById**](docs/DevelopersWebhooksApi.md#getWebhookEventById) | **GET** /webhooks/endpoints/{endpoint_id}/events/{event_id} | Retrieve event information
@@ -155,6 +156,7 @@ Class | Method | HTTP request | Description
 *DevelopersWebhooksApi* | [**listWebhookEventLogs**](docs/DevelopersWebhooksApi.md#listWebhookEventLogs) | **GET** /webhooks/endpoints/{endpoint_id}/events/{event_id}/logs | List webhook event logs
 *DevelopersWebhooksApi* | [**listWebhookEvents**](docs/DevelopersWebhooksApi.md#listWebhookEvents) | **GET** /webhooks/endpoints/{endpoint_id}/events | List all webhook events
 *DevelopersWebhooksApi* | [**retryWebhookEventById**](docs/DevelopersWebhooksApi.md#retryWebhookEventById) | **POST** /webhooks/endpoints/{endpoint_id}/events/{event_id}/retry | Retry event
+*DevelopersWebhooksApi* | [**triggerTestWebhookEvent**](docs/DevelopersWebhooksApi.md#triggerTestWebhookEvent) | **POST** /webhooks/events/trigger | Trigger test event
 *DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
 *OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get Org Access Token
 *OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Org Access Token
@@ -170,7 +172,7 @@ Class | Method | HTTP request | Description
 *StakingsApi* | [**listStakings**](docs/StakingsApi.md#listStakings) | **GET** /stakings | List staking positions
 *TransactionsApi* | [**broadcastSignedTransactions**](docs/TransactionsApi.md#broadcastSignedTransactions) | **POST** /transactions/broadcast | Broadcast signed transactions
 *TransactionsApi* | [**cancelTransactionById**](docs/TransactionsApi.md#cancelTransactionById) | **POST** /transactions/{transaction_id}/cancel | Cancel transaction
-*TransactionsApi* | [**checkLoopTransfers**](docs/TransactionsApi.md#checkLoopTransfers) | **GET** /transactions/check_loop_transfers | Check Loop transfers
+*TransactionsApi* | [**checkLoopTransfers**](docs/TransactionsApi.md#checkLoopTransfers) | **GET** /transactions/check_loop_transfers | Check Cobo Loop transfers
 *TransactionsApi* | [**createContractCallTransaction**](docs/TransactionsApi.md#createContractCallTransaction) | **POST** /transactions/contract_call | Call smart contract
 *TransactionsApi* | [**createMessageSignTransaction**](docs/TransactionsApi.md#createMessageSignTransaction) | **POST** /transactions/message_sign | Sign message
 *TransactionsApi* | [**createTransferTransaction**](docs/TransactionsApi.md#createTransferTransaction) | **POST** /transactions/transfer | Transfer token
@@ -224,6 +226,7 @@ Class | Method | HTTP request | Description
 *WalletsMpcWalletsApi* | [**updateKeyShareHolderGroupById**](docs/WalletsMpcWalletsApi.md#updateKeyShareHolderGroupById) | **PUT** /wallets/mpc/vaults/{vault_id}/key_share_holder_groups/{key_share_holder_group_id} | Update key share holder group
 *WalletsMpcWalletsApi* | [**updateMpcProjectById**](docs/WalletsMpcWalletsApi.md#updateMpcProjectById) | **PUT** /wallets/mpc/projects/{project_id} | Update project name
 *WalletsMpcWalletsApi* | [**updateMpcVaultById**](docs/WalletsMpcWalletsApi.md#updateMpcVaultById) | **PUT** /wallets/mpc/vaults/{vault_id} | Update vault name
+*WalletsSmartContractWalletsApi* | [**listSafeWalletDelegates**](docs/WalletsSmartContractWalletsApi.md#listSafeWalletDelegates) | **POST** /wallets/{wallet_id}/smart_contracts/delegates | List Delegates
 
 
 ## Documentation for Models
@@ -242,6 +245,8 @@ Class | Method | HTTP request | Description
  - [AddressTransferDestinationUtxoOutputsInner](docs/AddressTransferDestinationUtxoOutputsInner.md)
  - [AmountDetailsInner](docs/AmountDetailsInner.md)
  - [AmountStatus](docs/AmountStatus.md)
+ - [ApiLogDetails](docs/ApiLogDetails.md)
+ - [ApiLogSummary](docs/ApiLogSummary.md)
  - [AssetBalance](docs/AssetBalance.md)
  - [AssetInfo](docs/AssetInfo.md)
  - [BabylonStakeExtra](docs/BabylonStakeExtra.md)
@@ -251,8 +256,6 @@ Class | Method | HTTP request | Description
  - [BaseEstimateStakingFee](docs/BaseEstimateStakingFee.md)
  - [BaseStakeExtra](docs/BaseStakeExtra.md)
  - [BaseStakeSource](docs/BaseStakeSource.md)
- - [BookkeepingRecord](docs/BookkeepingRecord.md)
- - [BookkeepingSummary](docs/BookkeepingSummary.md)
  - [BroadcastSignedTransactions201ResponseInner](docs/BroadcastSignedTransactions201ResponseInner.md)
  - [BroadcastSignedTransactionsRequest](docs/BroadcastSignedTransactionsRequest.md)
  - [ChainInfo](docs/ChainInfo.md)
@@ -340,6 +343,7 @@ Class | Method | HTTP request | Description
  - [KeyShareHolderGroupType](docs/KeyShareHolderGroupType.md)
  - [KeyShareHolderStatus](docs/KeyShareHolderStatus.md)
  - [KeyShareHolderType](docs/KeyShareHolderType.md)
+ - [ListAddressBooks200Response](docs/ListAddressBooks200Response.md)
  - [ListAddresses200Response](docs/ListAddresses200Response.md)
  - [ListAssetBalancesForExchangeWallet200Response](docs/ListAssetBalancesForExchangeWallet200Response.md)
  - [ListExchanges200ResponseInner](docs/ListExchanges200ResponseInner.md)
@@ -386,7 +390,7 @@ Class | Method | HTTP request | Description
  - [PoolDetailsAllOfValidatorsInfo](docs/PoolDetailsAllOfValidatorsInfo.md)
  - [PoolSummary](docs/PoolSummary.md)
  - [RawMessageSignDestination](docs/RawMessageSignDestination.md)
- - [RefreshToken200Response](docs/RefreshToken200Response.md)
+ - [RefreshToken201Response](docs/RefreshToken201Response.md)
  - [RefreshTokenRequest](docs/RefreshTokenRequest.md)
  - [ReplaceType](docs/ReplaceType.md)
  - [RetryWebhookEventById201Response](docs/RetryWebhookEventById201Response.md)
@@ -394,6 +398,9 @@ Class | Method | HTTP request | Description
  - [SafeContractCallSource](docs/SafeContractCallSource.md)
  - [SafeTransferSource](docs/SafeTransferSource.md)
  - [SafeWallet](docs/SafeWallet.md)
+ - [SafeWalletDelegates](docs/SafeWalletDelegates.md)
+ - [SafeWalletDelegatesContractCall](docs/SafeWalletDelegatesContractCall.md)
+ - [SafeWalletDelegatesTransfer](docs/SafeWalletDelegatesTransfer.md)
  - [SmartContractInitiator](docs/SmartContractInitiator.md)
  - [SmartContractWalletInfo](docs/SmartContractWalletInfo.md)
  - [SmartContractWalletOperationType](docs/SmartContractWalletOperationType.md)
@@ -411,6 +418,7 @@ Class | Method | HTTP request | Description
  - [TSSRequestStatus](docs/TSSRequestStatus.md)
  - [TSSRequestType](docs/TSSRequestType.md)
  - [TSSRequestWebhookEventData](docs/TSSRequestWebhookEventData.md)
+ - [TokenAssetModelType](docs/TokenAssetModelType.md)
  - [TokenBalance](docs/TokenBalance.md)
  - [TokenBalanceBalance](docs/TokenBalanceBalance.md)
  - [TokenInfo](docs/TokenInfo.md)
@@ -427,7 +435,9 @@ Class | Method | HTTP request | Description
  - [TransactionDestinationType](docs/TransactionDestinationType.md)
  - [TransactionDetail](docs/TransactionDetail.md)
  - [TransactionDetails](docs/TransactionDetails.md)
+ - [TransactionEvmCalldataInfo](docs/TransactionEvmCalldataInfo.md)
  - [TransactionEvmContractDestination](docs/TransactionEvmContractDestination.md)
+ - [TransactionEvmContractMethod](docs/TransactionEvmContractMethod.md)
  - [TransactionEvmEip1559Fee](docs/TransactionEvmEip1559Fee.md)
  - [TransactionEvmLegacyFee](docs/TransactionEvmLegacyFee.md)
  - [TransactionExchangeWalletSource](docs/TransactionExchangeWalletSource.md)
@@ -438,6 +448,7 @@ Class | Method | HTTP request | Description
  - [TransactionMPCWalletSource](docs/TransactionMPCWalletSource.md)
  - [TransactionMessageSignEIP191Destination](docs/TransactionMessageSignEIP191Destination.md)
  - [TransactionMessageSignEIP712Destination](docs/TransactionMessageSignEIP712Destination.md)
+ - [TransactionRawMessageSignDestination](docs/TransactionRawMessageSignDestination.md)
  - [TransactionRawTxInfo](docs/TransactionRawTxInfo.md)
  - [TransactionRbf](docs/TransactionRbf.md)
  - [TransactionRbfSource](docs/TransactionRbfSource.md)
@@ -472,6 +483,8 @@ Class | Method | HTTP request | Description
  - [TransferDestinationType](docs/TransferDestinationType.md)
  - [TransferParams](docs/TransferParams.md)
  - [TransferSource](docs/TransferSource.md)
+ - [TriggerTestWebhookEvent201Response](docs/TriggerTestWebhookEvent201Response.md)
+ - [TriggerTestWebhookEventRequest](docs/TriggerTestWebhookEventRequest.md)
  - [UTXO](docs/UTXO.md)
  - [UpdateCustodialWalletParams](docs/UpdateCustodialWalletParams.md)
  - [UpdateExchangeWalletParams](docs/UpdateExchangeWalletParams.md)
@@ -485,8 +498,6 @@ Class | Method | HTTP request | Description
  - [UpdateWebhookEndpointByIdRequest](docs/UpdateWebhookEndpointByIdRequest.md)
  - [UtxoFeeBasePrice](docs/UtxoFeeBasePrice.md)
  - [UtxoFeeRate](docs/UtxoFeeRate.md)
- - [WalletBalanceSnapshot](docs/WalletBalanceSnapshot.md)
- - [WalletBalanceSnapshotRecord](docs/WalletBalanceSnapshotRecord.md)
  - [WalletInfo](docs/WalletInfo.md)
  - [WalletSubtype](docs/WalletSubtype.md)
  - [WalletType](docs/WalletType.md)

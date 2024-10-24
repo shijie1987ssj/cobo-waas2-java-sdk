@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The fee model. Possible values include: - &#x60;Fixed&#x60;: The fixed fee model.  - &#x60;EVM_EIP_1559&#x60;: The EIP-1559 fee model. - &#x60;EVM_Legacy&#x60;: The legacy fee model. - &#x60;UTXO&#x60;: The fee model used in UTXO-based blockchains, such as Bitcoin. 
+ * The fee model. Possible values include: - &#x60;Fixed&#x60;: The fixed fee model.  - &#x60;EVM_EIP_1559&#x60;: The EIP-1559 fee model. - &#x60;EVM_Legacy&#x60;: The legacy fee model. - &#x60;UTXO&#x60;: The fee model used in UTXO-based blockchains, such as Bitcoin.  Each fee model requires a different set of properties. Switch between the above tabs for details. 
  */
 @JsonAdapter(FeeType.Adapter.class)
 public enum FeeType {

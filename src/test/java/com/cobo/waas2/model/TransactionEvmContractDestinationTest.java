@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.TransactionDestinationType;
+import com.cobo.waas2.model.TransactionEvmCalldataInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -66,6 +67,14 @@ public class TransactionEvmContractDestinationTest {
     @Test
     public void calldataTest() {
         // TODO: test calldata
+    }
+
+    /**
+     * Test the property 'calldataInfo'
+     */
+    @Test
+    public void calldataInfoTest() {
+        // TODO: test calldataInfo
     }
 
 }
