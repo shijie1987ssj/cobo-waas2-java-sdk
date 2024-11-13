@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.BabylonStakeExtra;
+import com.cobo.waas2.model.EthStakeExtra;
 import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -73,6 +74,7 @@ public class CreateStakeActivityExtra extends AbstractOpenApiSchema {
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<BabylonStakeExtra> adapterBabylonStakeExtra = gson.getDelegateAdapter(this, TypeToken.get(BabylonStakeExtra.class));
+            final TypeAdapter<EthStakeExtra> adapterEthStakeExtra = gson.getDelegateAdapter(this, TypeToken.get(EthStakeExtra.class));
 
             return (TypeAdapter<T>) new TypeAdapter<CreateStakeActivityExtra>() {
                 @Override
@@ -88,7 +90,13 @@ public class CreateStakeActivityExtra extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: BabylonStakeExtra");
+                    // check if the actual instance is of the type `EthStakeExtra`
+                    if (value.getActualInstance() instanceof EthStakeExtra) {
+                        JsonElement element = adapterEthStakeExtra.toJsonTree((EthStakeExtra)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: BabylonStakeExtra, EthStakeExtra");
                 }
 
                 @Override
@@ -109,12 +117,20 @@ public class CreateStakeActivityExtra extends AbstractOpenApiSchema {
                                 deserialized = adapterBabylonStakeExtra.fromJsonTree(jsonObject);
                                 newCreateStakeActivityExtra.setActualInstance(deserialized);
                                 return newCreateStakeActivityExtra;
+                            case "ETHBeacon":
+                                deserialized = adapterEthStakeExtra.fromJsonTree(jsonObject);
+                                newCreateStakeActivityExtra.setActualInstance(deserialized);
+                                return newCreateStakeActivityExtra;
                             case "BabylonStakeExtra":
                                 deserialized = adapterBabylonStakeExtra.fromJsonTree(jsonObject);
                                 newCreateStakeActivityExtra.setActualInstance(deserialized);
                                 return newCreateStakeActivityExtra;
+                            case "EthStakeExtra":
+                                deserialized = adapterEthStakeExtra.fromJsonTree(jsonObject);
+                                newCreateStakeActivityExtra.setActualInstance(deserialized);
+                                return newCreateStakeActivityExtra;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for CreateStakeActivityExtra. Possible values: Babylon BabylonStakeExtra", jsonObject.get("pool_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for CreateStakeActivityExtra. Possible values: Babylon ETHBeacon BabylonStakeExtra EthStakeExtra", jsonObject.get("pool_type").getAsString()));
                         }
                     }
 
@@ -133,6 +149,18 @@ public class CreateStakeActivityExtra extends AbstractOpenApiSchema {
                         // deserialization failed, continue
                         errorMessages.add(String.format("Deserialization for BabylonStakeExtra failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'BabylonStakeExtra'", e);
+                    }
+                    // deserialize EthStakeExtra
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EthStakeExtra.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEthStakeExtra;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EthStakeExtra'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for EthStakeExtra failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EthStakeExtra'", e);
                     }
 
                     if (match == 1) {
@@ -159,8 +187,14 @@ public class CreateStakeActivityExtra extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public CreateStakeActivityExtra(EthStakeExtra o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     static {
         schemas.put("BabylonStakeExtra", BabylonStakeExtra.class);
+        schemas.put("EthStakeExtra", EthStakeExtra.class);
     }
 
     @Override
@@ -171,7 +205,7 @@ public class CreateStakeActivityExtra extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * BabylonStakeExtra
+     * BabylonStakeExtra, EthStakeExtra
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -182,14 +216,19 @@ public class CreateStakeActivityExtra extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be BabylonStakeExtra");
+        if (instance instanceof EthStakeExtra) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be BabylonStakeExtra, EthStakeExtra");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * BabylonStakeExtra
+     * BabylonStakeExtra, EthStakeExtra
      *
-     * @return The actual instance (BabylonStakeExtra)
+     * @return The actual instance (BabylonStakeExtra, EthStakeExtra)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -206,6 +245,16 @@ public class CreateStakeActivityExtra extends AbstractOpenApiSchema {
      */
     public BabylonStakeExtra getBabylonStakeExtra() throws ClassCastException {
         return (BabylonStakeExtra)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `EthStakeExtra`. If the actual instance is not `EthStakeExtra`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EthStakeExtra`
+     * @throws ClassCastException if the instance is not `EthStakeExtra`
+     */
+    public EthStakeExtra getEthStakeExtra() throws ClassCastException {
+        return (EthStakeExtra)super.getActualInstance();
     }
 
     /**
@@ -226,8 +275,16 @@ public class CreateStakeActivityExtra extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for BabylonStakeExtra failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with EthStakeExtra
+        try {
+            EthStakeExtra.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for EthStakeExtra failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for CreateStakeActivityExtra with oneOf schemas: BabylonStakeExtra. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for CreateStakeActivityExtra with oneOf schemas: BabylonStakeExtra, EthStakeExtra. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

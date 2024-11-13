@@ -28,7 +28,9 @@ import com.google.gson.stream.JsonWriter;
 public enum StakingPoolType {
   UNKNOWN(null),
   
-  BABYLON("Babylon");
+  BABYLON("Babylon"),
+  
+  ETHBEACON("ETHBeacon");
 
   private String value;
 

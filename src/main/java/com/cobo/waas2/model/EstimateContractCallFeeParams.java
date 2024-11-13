@@ -92,7 +92,7 @@ public class EstimateContractCallFeeParams {
    * The request ID that is used to track a transaction request. The request ID is provided by you and must be unique within your organization. It is recommended to use the same request ID as the transaction for which you want to estimate the transaction fee.
    * @return requestId
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getRequestId() {
     return requestId;
   }
@@ -307,7 +307,6 @@ public class EstimateContractCallFeeParams {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("request_id");
     openapiRequiredFields.add("request_type");
     openapiRequiredFields.add("chain_id");
     openapiRequiredFields.add("source");
@@ -334,7 +333,7 @@ public class EstimateContractCallFeeParams {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("request_id").isJsonPrimitive()) {
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
       }
       // validate the required field `request_type`

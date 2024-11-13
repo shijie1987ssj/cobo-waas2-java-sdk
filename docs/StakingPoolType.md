@@ -7,5 +7,7 @@
 
 * `BABYLON` (value: `"Babylon"`)
 
+* `ETHBEACON` (value: `"ETHBeacon"`)
+
 
 

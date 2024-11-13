@@ -1,29 +1,48 @@
 package com.cobo.waas2.auth;
 
+import com.cobo.waas2.CryptoUtils;
 import okhttp3.*;
 import okio.Buffer;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-import static com.cobo.waas2.CryptoUtils.getPublicKey;
-import static com.cobo.waas2.CryptoUtils.sign;
+import static com.cobo.waas2.CryptoUtils.*;
 
 /**
  * A request interceptor that injects the API Key Header into requests, and signs messages, whenever required.
  */
 public class AuthenticationInterceptor implements Interceptor {
 
-    private final String privateKey;
+    //private final String privateKey;
+
+    private final Signer signer;
 
     private final boolean debug;
 
     public AuthenticationInterceptor(String privateKey, boolean debug) {
-        this.privateKey = privateKey;
+        this(privateKey,debug, "ED25519");
+    }
+
+    public AuthenticationInterceptor(String privateKey, boolean debug, String keyType) {
+        this.debug = debug;
+        if (keyType.equals("ED25519")) {
+            this.signer = new LocalEd25519Signer(privateKey);
+        } else if (keyType.equals("SECP256K1")) {
+            this.signer = new LocalSecp256k1Signer(privateKey);
+        } else {
+            throw new IllegalArgumentException("Invalid keyType "+ keyType);
+        }
+    }
+
+    public AuthenticationInterceptor(Signer signer, boolean debug) {
+        this.signer = signer;
         this.debug = debug;
     }
 
@@ -34,16 +53,36 @@ public class AuthenticationInterceptor implements Interceptor {
 
         Request newRequest = addHeader(original, newRequestBuilder);
         Response response = chain.proceed(newRequest);
+        String ts = response.header("BIZ_TIMESTAMP");
+        String respSignature = response.header("BIZ_RESP_SIGNATURE");
         String responseBody = response.body() == null ? "null" : response.body().string();
-
+        String coboPubKey = getCoboPubkey(original);
         if (debug) {
             System.out.println("response <<<<<<<<");
             System.out.println("responseBody:" + responseBody);
         }
+        boolean verifyResult = CryptoUtils.verifySignature(responseBody + "|" + ts, coboPubKey, respSignature);
+        if (!verifyResult) throw new RuntimeException("response verify failed");
         MediaType mediaType = response.body().contentType();
         return response.newBuilder()
                 .body(ResponseBody.create(mediaType, responseBody))
                 .build();
+    }
+
+    @NotNull
+    private static String getCoboPubkey(Request original) {
+        String hostUrl = original.url().host();
+        String coboPubKey;
+        if (hostUrl.equals("api.sandbox.cobo.com")) {
+            coboPubKey= "893d8a6112ae22429a7453599256391d7928e16870ecab888ee3ce65febada08";
+        } else if (hostUrl.equals("api.dev.cobo.com")) {
+            coboPubKey= "a04ea1d5fa8da71f1dcfccf972b9c4eba0a2d8aba1f6da26f49977b08a0d2718";
+        } else if(hostUrl.equals("api.cobo.com")) {
+            coboPubKey = "8d4a482641adb2a34b726f05827dba9a9653e5857469b8749052bf4458a86729";
+        } else {
+            throw new RuntimeException("Invalid host " + hostUrl);
+        }
+        return coboPubKey;
     }
 
     private Request addHeader(Request original, Request.Builder newRequestBuilder) throws UnsupportedEncodingException {
@@ -79,11 +118,16 @@ public class AuthenticationInterceptor implements Interceptor {
         String nonce = String.valueOf(currentTime);
         //(method.upper(), path, timestamp, urlencode(params), body_str)
         String content = method + "|" + path + "|" + nonce + "|" + queryParams + "|" +body;
-        String sig = sign(privateKey,content);
+        String sig = null;
+        try {
+            sig = signer.sign(hashTwice(content));
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
         newRequestBuilder.removeHeader("BIZ-API-KEY");
         newRequestBuilder.removeHeader("BIZ-API-NONCE");
         newRequestBuilder.removeHeader("BIZ-API-SIGNATURE");
-        newRequestBuilder.addHeader("BIZ-API-KEY", getPublicKey(privateKey))
+        newRequestBuilder.addHeader("BIZ-API-KEY", signer.getPublicKey())
                 .addHeader("BIZ-API-NONCE", nonce)
                 .addHeader("BIZ-API-SIGNATURE", sig);
 
@@ -94,19 +138,6 @@ public class AuthenticationInterceptor implements Interceptor {
             System.out.println(request.method() + "\n" + request.url() + "\n" + "content:" + content + "\nsig:" + sig + "\nnonce:" + nonce);
         }
         return request;
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        final AuthenticationInterceptor that = (AuthenticationInterceptor) o;
-        return Objects.equals(privateKey, that.privateKey);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(privateKey);
     }
 
     String pathSegmentsToString(List<String> pathSegments) {
