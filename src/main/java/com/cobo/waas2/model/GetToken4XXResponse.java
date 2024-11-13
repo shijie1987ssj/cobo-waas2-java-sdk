@@ -56,9 +56,9 @@ public class GetToken4XXResponse {
   @SerializedName(SERIALIZED_NAME_ERROR)
   private String error;
 
-  public static final String SERIALIZED_NAME_ERROR_MESSAGE = "error_message";
-  @SerializedName(SERIALIZED_NAME_ERROR_MESSAGE)
-  private String errorMessage;
+  public static final String SERIALIZED_NAME_ERROR_DESCRIPTION = "error_description";
+  @SerializedName(SERIALIZED_NAME_ERROR_DESCRIPTION)
+  private String errorDescription;
 
   public GetToken4XXResponse() {
   }
@@ -82,22 +82,22 @@ public class GetToken4XXResponse {
   }
 
 
-  public GetToken4XXResponse errorMessage(String errorMessage) {
-    this.errorMessage = errorMessage;
+  public GetToken4XXResponse errorDescription(String errorDescription) {
+    this.errorDescription = errorDescription;
     return this;
   }
 
    /**
    * The error description.
-   * @return errorMessage
+   * @return errorDescription
   **/
-  @javax.annotation.Nullable
-  public String getErrorMessage() {
-    return errorMessage;
+  @javax.annotation.Nonnull
+  public String getErrorDescription() {
+    return errorDescription;
   }
 
-  public void setErrorMessage(String errorMessage) {
-    this.errorMessage = errorMessage;
+  public void setErrorDescription(String errorDescription) {
+    this.errorDescription = errorDescription;
   }
 
   /**
@@ -156,13 +156,13 @@ public class GetToken4XXResponse {
     }
     GetToken4XXResponse getToken4XXResponse = (GetToken4XXResponse) o;
     return Objects.equals(this.error, getToken4XXResponse.error) &&
-        Objects.equals(this.errorMessage, getToken4XXResponse.errorMessage)&&
+        Objects.equals(this.errorDescription, getToken4XXResponse.errorDescription)&&
         Objects.equals(this.additionalProperties, getToken4XXResponse.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(error, errorMessage, additionalProperties);
+    return Objects.hash(error, errorDescription, additionalProperties);
   }
 
   @Override
@@ -170,7 +170,7 @@ public class GetToken4XXResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetToken4XXResponse {\n");
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
-    sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+    sb.append("    errorDescription: ").append(toIndentedString(errorDescription)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -195,11 +195,12 @@ public class GetToken4XXResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("error");
-    openapiFields.add("error_message");
+    openapiFields.add("error_description");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("error");
+    openapiRequiredFields.add("error_description");
   }
 
  /**
@@ -225,8 +226,8 @@ public class GetToken4XXResponse {
       if (!jsonObj.get("error").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error").toString()));
       }
-      if ((jsonObj.get("error_message") != null && !jsonObj.get("error_message").isJsonNull()) && !jsonObj.get("error_message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `error_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_message").toString()));
+      if (!jsonObj.get("error_description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `error_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error_description").toString()));
       }
   }
 

@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.BabylonStakeExtra;
+import com.cobo.waas2.model.EthStakeExtra;
 import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -67,6 +68,14 @@ public class CreateStakeActivityExtraTest {
     @Test
     public void autoBroadcastTest() {
         // TODO: test autoBroadcast
+    }
+
+    /**
+     * Test the property 'providerName'
+     */
+    @Test
+    public void providerNameTest() {
+        // TODO: test providerName
     }
 
 }

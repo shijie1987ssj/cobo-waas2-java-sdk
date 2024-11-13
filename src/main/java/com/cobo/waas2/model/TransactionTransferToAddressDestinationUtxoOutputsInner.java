@@ -60,10 +60,6 @@ public class TransactionTransferToAddressDestinationUtxoOutputsInner {
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private String amount;
 
-  public static final String SERIALIZED_NAME_SCRIPT = "script";
-  @SerializedName(SERIALIZED_NAME_SCRIPT)
-  private String script;
-
   public TransactionTransferToAddressDestinationUtxoOutputsInner() {
   }
 
@@ -102,25 +98,6 @@ public class TransactionTransferToAddressDestinationUtxoOutputsInner {
 
   public void setAmount(String amount) {
     this.amount = amount;
-  }
-
-
-  public TransactionTransferToAddressDestinationUtxoOutputsInner script(String script) {
-    this.script = script;
-    return this;
-  }
-
-   /**
-   * The script of the output. It is a programmable code fragment that defines the conditions under which the UTXO can be spent.
-   * @return script
-  **/
-  @javax.annotation.Nullable
-  public String getScript() {
-    return script;
-  }
-
-  public void setScript(String script) {
-    this.script = script;
   }
 
   /**
@@ -179,14 +156,13 @@ public class TransactionTransferToAddressDestinationUtxoOutputsInner {
     }
     TransactionTransferToAddressDestinationUtxoOutputsInner transactionTransferToAddressDestinationUtxoOutputsInner = (TransactionTransferToAddressDestinationUtxoOutputsInner) o;
     return Objects.equals(this.address, transactionTransferToAddressDestinationUtxoOutputsInner.address) &&
-        Objects.equals(this.amount, transactionTransferToAddressDestinationUtxoOutputsInner.amount) &&
-        Objects.equals(this.script, transactionTransferToAddressDestinationUtxoOutputsInner.script)&&
+        Objects.equals(this.amount, transactionTransferToAddressDestinationUtxoOutputsInner.amount)&&
         Objects.equals(this.additionalProperties, transactionTransferToAddressDestinationUtxoOutputsInner.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, amount, script, additionalProperties);
+    return Objects.hash(address, amount, additionalProperties);
   }
 
   @Override
@@ -195,7 +171,6 @@ public class TransactionTransferToAddressDestinationUtxoOutputsInner {
     sb.append("class TransactionTransferToAddressDestinationUtxoOutputsInner {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    script: ").append(toIndentedString(script)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -221,7 +196,6 @@ public class TransactionTransferToAddressDestinationUtxoOutputsInner {
     openapiFields = new HashSet<String>();
     openapiFields.add("address");
     openapiFields.add("amount");
-    openapiFields.add("script");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -245,9 +219,6 @@ public class TransactionTransferToAddressDestinationUtxoOutputsInner {
       }
       if ((jsonObj.get("amount") != null && !jsonObj.get("amount").isJsonNull()) && !jsonObj.get("amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
-      }
-      if ((jsonObj.get("script") != null && !jsonObj.get("script").isJsonNull()) && !jsonObj.get("script").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `script` to be a primitive type in the JSON string but got `%s`", jsonObj.get("script").toString()));
       }
   }
 

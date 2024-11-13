@@ -10,7 +10,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 <a id="getToken"></a>
 # **getToken**
-> GetToken200Response getToken(clientId, orgId, grantType)
+> GetToken2XXResponse getToken(clientId, orgId, grantType)
 
 Get Org Access Token
 
@@ -39,7 +39,7 @@ public class Example {
     String orgId = "e3986401-4aec-480a-973d-e775a4518413";
     String grantType = "org_implicit";
     try {
-      GetToken200Response result = apiInstance.getToken(clientId, orgId, grantType);
+      GetToken2XXResponse result = apiInstance.getToken(clientId, orgId, grantType);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OAuthApi#getToken");
@@ -62,7 +62,7 @@ public class Example {
 
 ### Return type
 
-[**GetToken200Response**](GetToken200Response.md)
+[**GetToken2XXResponse**](GetToken2XXResponse.md)
 
 ### Authorization
 
@@ -76,13 +76,13 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The request was successful. |  -  |
+| **2XX** | The request was successful. |  -  |
 | **4XX** | Unauthorized. Please provide valid credentials. |  -  |
 | **5XX** | Internal server error. |  -  |
 
 <a id="refreshToken"></a>
 # **refreshToken**
-> RefreshToken201Response refreshToken(refreshTokenRequest)
+> RefreshToken2XXResponse refreshToken(refreshTokenRequest)
 
 Refresh Org Access Token
 
@@ -109,7 +109,7 @@ public class Example {
     OAuthApi apiInstance = new OAuthApi();
     RefreshTokenRequest refreshTokenRequest = new RefreshTokenRequest();
     try {
-      RefreshToken201Response result = apiInstance.refreshToken(refreshTokenRequest);
+      RefreshToken2XXResponse result = apiInstance.refreshToken(refreshTokenRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OAuthApi#refreshToken");
@@ -130,7 +130,7 @@ public class Example {
 
 ### Return type
 
-[**RefreshToken201Response**](RefreshToken201Response.md)
+[**RefreshToken2XXResponse**](RefreshToken2XXResponse.md)
 
 ### Authorization
 
@@ -144,7 +144,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | The request was successful. |  -  |
+| **2XX** | The request was successful. |  -  |
 | **4XX** | Unauthorized. Please provide valid credentials. |  -  |
 | **5XX** | Internal server error. |  -  |
 

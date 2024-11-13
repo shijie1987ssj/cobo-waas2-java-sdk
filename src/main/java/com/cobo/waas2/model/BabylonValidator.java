@@ -86,7 +86,9 @@ public class BabylonValidator {
   public enum SupportedPosChainsEnum {
     BABYLON("Babylon"),
     
-    COSMOS("Cosmos");
+    COSMOS("Cosmos"),
+    
+    ETHEREUM("Ethereum");
 
     private String value;
 

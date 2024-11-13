@@ -1,6 +1,6 @@
 
 
-# GetToken200Response
+# GetToken2XXResponse
 
 
 ## Properties

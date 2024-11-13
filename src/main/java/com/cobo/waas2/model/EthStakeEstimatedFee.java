@@ -12,13 +12,17 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.EstimatedFee;
+import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,128 +49,90 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * GetToken200Response
+ * EthStakeEstimatedFee
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class GetToken200Response {
-  public static final String SERIALIZED_NAME_ACCESS_TOKEN = "access_token";
-  @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN)
-  private String accessToken;
+public class EthStakeEstimatedFee {
+  public static final String SERIALIZED_NAME_POOL_TYPE = "pool_type";
+  @SerializedName(SERIALIZED_NAME_POOL_TYPE)
+  private StakingPoolType poolType;
 
-  public static final String SERIALIZED_NAME_TOKEN_TYPE = "token_type";
-  @SerializedName(SERIALIZED_NAME_TOKEN_TYPE)
-  private String tokenType;
+  public static final String SERIALIZED_NAME_FEE = "fee";
+  @SerializedName(SERIALIZED_NAME_FEE)
+  private EstimatedFee fee;
 
-  public static final String SERIALIZED_NAME_SCOPE = "scope";
-  @SerializedName(SERIALIZED_NAME_SCOPE)
-  private String scope;
+  public static final String SERIALIZED_NAME_VALIDATOR_PUBKEYS = "validator_pubkeys";
+  @SerializedName(SERIALIZED_NAME_VALIDATOR_PUBKEYS)
+  private List<String> validatorPubkeys = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_EXPIRES_IN = "expires_in";
-  @SerializedName(SERIALIZED_NAME_EXPIRES_IN)
-  private Integer expiresIn;
-
-  public static final String SERIALIZED_NAME_REFRESH_TOKEN = "refresh_token";
-  @SerializedName(SERIALIZED_NAME_REFRESH_TOKEN)
-  private String refreshToken;
-
-  public GetToken200Response() {
+  public EthStakeEstimatedFee() {
   }
 
-  public GetToken200Response accessToken(String accessToken) {
-    this.accessToken = accessToken;
+  public EthStakeEstimatedFee poolType(StakingPoolType poolType) {
+    this.poolType = poolType;
     return this;
   }
 
    /**
-   * The Org Access Token.
-   * @return accessToken
+   * Get poolType
+   * @return poolType
   **/
   @javax.annotation.Nullable
-  public String getAccessToken() {
-    return accessToken;
+  public StakingPoolType getPoolType() {
+    return poolType;
   }
 
-  public void setAccessToken(String accessToken) {
-    this.accessToken = accessToken;
+  public void setPoolType(StakingPoolType poolType) {
+    this.poolType = poolType;
   }
 
 
-  public GetToken200Response tokenType(String tokenType) {
-    this.tokenType = tokenType;
+  public EthStakeEstimatedFee fee(EstimatedFee fee) {
+    this.fee = fee;
     return this;
   }
 
    /**
-   * The type of the tokens, which is Bearer.
-   * @return tokenType
+   * Get fee
+   * @return fee
   **/
   @javax.annotation.Nullable
-  public String getTokenType() {
-    return tokenType;
+  public EstimatedFee getFee() {
+    return fee;
   }
 
-  public void setTokenType(String tokenType) {
-    this.tokenType = tokenType;
+  public void setFee(EstimatedFee fee) {
+    this.fee = fee;
   }
 
 
-  public GetToken200Response scope(String scope) {
-    this.scope = scope;
+  public EthStakeEstimatedFee validatorPubkeys(List<String> validatorPubkeys) {
+    this.validatorPubkeys = validatorPubkeys;
+    return this;
+  }
+
+  public EthStakeEstimatedFee addValidatorPubkeysItem(String validatorPubkeysItem) {
+    if (this.validatorPubkeys == null) {
+      this.validatorPubkeys = new ArrayList<>();
+    }
+    this.validatorPubkeys.add(validatorPubkeysItem);
     return this;
   }
 
    /**
-   * The scope of the Org Access Token to limit the app&#39;s access to the organization&#39;s resources.  **Note**: Currently this property value is empty. The scope of the Org Access Token is based on the permissions granted when the app user installs the app. 
-   * @return scope
+   * A list of public keys associated with the Ethereum validators for this staking operation.
+   * @return validatorPubkeys
   **/
   @javax.annotation.Nullable
-  public String getScope() {
-    return scope;
+  public List<String> getValidatorPubkeys() {
+    return validatorPubkeys;
   }
 
-  public void setScope(String scope) {
-    this.scope = scope;
-  }
-
-
-  public GetToken200Response expiresIn(Integer expiresIn) {
-    this.expiresIn = expiresIn;
-    return this;
-  }
-
-   /**
-   * The time in seconds in which the Org Access Token expires.
-   * @return expiresIn
-  **/
-  @javax.annotation.Nullable
-  public Integer getExpiresIn() {
-    return expiresIn;
-  }
-
-  public void setExpiresIn(Integer expiresIn) {
-    this.expiresIn = expiresIn;
-  }
-
-
-  public GetToken200Response refreshToken(String refreshToken) {
-    this.refreshToken = refreshToken;
-    return this;
-  }
-
-   /**
-   * The Refresh Token, used to obtain a new Org Access Token when the current Org Access Token expires. The expiration time for Refresh Tokens is currently set to 30 days and is subject to change.
-   * @return refreshToken
-  **/
-  @javax.annotation.Nullable
-  public String getRefreshToken() {
-    return refreshToken;
-  }
-
-  public void setRefreshToken(String refreshToken) {
-    this.refreshToken = refreshToken;
+  public void setValidatorPubkeys(List<String> validatorPubkeys) {
+    this.validatorPubkeys = validatorPubkeys;
   }
 
   /**
@@ -182,9 +148,9 @@ public class GetToken200Response {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the GetToken200Response instance itself
+   * @return the EthStakeEstimatedFee instance itself
    */
-  public GetToken200Response putAdditionalProperty(String key, Object value) {
+  public EthStakeEstimatedFee putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -223,29 +189,25 @@ public class GetToken200Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetToken200Response getToken200Response = (GetToken200Response) o;
-    return Objects.equals(this.accessToken, getToken200Response.accessToken) &&
-        Objects.equals(this.tokenType, getToken200Response.tokenType) &&
-        Objects.equals(this.scope, getToken200Response.scope) &&
-        Objects.equals(this.expiresIn, getToken200Response.expiresIn) &&
-        Objects.equals(this.refreshToken, getToken200Response.refreshToken)&&
-        Objects.equals(this.additionalProperties, getToken200Response.additionalProperties);
+    EthStakeEstimatedFee ethStakeEstimatedFee = (EthStakeEstimatedFee) o;
+    return Objects.equals(this.poolType, ethStakeEstimatedFee.poolType) &&
+        Objects.equals(this.fee, ethStakeEstimatedFee.fee) &&
+        Objects.equals(this.validatorPubkeys, ethStakeEstimatedFee.validatorPubkeys)&&
+        Objects.equals(this.additionalProperties, ethStakeEstimatedFee.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessToken, tokenType, scope, expiresIn, refreshToken, additionalProperties);
+    return Objects.hash(poolType, fee, validatorPubkeys, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetToken200Response {\n");
-    sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
-    sb.append("    tokenType: ").append(toIndentedString(tokenType)).append("\n");
-    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
-    sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
-    sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
+    sb.append("class EthStakeEstimatedFee {\n");
+    sb.append("    poolType: ").append(toIndentedString(poolType)).append("\n");
+    sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    validatorPubkeys: ").append(toIndentedString(validatorPubkeys)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -269,11 +231,9 @@ public class GetToken200Response {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("access_token");
-    openapiFields.add("token_type");
-    openapiFields.add("scope");
-    openapiFields.add("expires_in");
-    openapiFields.add("refresh_token");
+    openapiFields.add("pool_type");
+    openapiFields.add("fee");
+    openapiFields.add("validator_pubkeys");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -283,26 +243,26 @@ public class GetToken200Response {
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetToken200Response
+  * @throws IOException if the JSON Element is invalid with respect to EthStakeEstimatedFee
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!GetToken200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetToken200Response is not found in the empty JSON string", GetToken200Response.openapiRequiredFields.toString()));
+        if (!EthStakeEstimatedFee.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in EthStakeEstimatedFee is not found in the empty JSON string", EthStakeEstimatedFee.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("access_token") != null && !jsonObj.get("access_token").isJsonNull()) && !jsonObj.get("access_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_token").toString()));
+      // validate the optional field `pool_type`
+      if (jsonObj.get("pool_type") != null && !jsonObj.get("pool_type").isJsonNull()) {
+        StakingPoolType.validateJsonElement(jsonObj.get("pool_type"));
       }
-      if ((jsonObj.get("token_type") != null && !jsonObj.get("token_type").isJsonNull()) && !jsonObj.get("token_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_type").toString()));
+      // validate the optional field `fee`
+      if (jsonObj.get("fee") != null && !jsonObj.get("fee").isJsonNull()) {
+        EstimatedFee.validateJsonElement(jsonObj.get("fee"));
       }
-      if ((jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonNull()) && !jsonObj.get("scope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
-      }
-      if ((jsonObj.get("refresh_token") != null && !jsonObj.get("refresh_token").isJsonNull()) && !jsonObj.get("refresh_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `refresh_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refresh_token").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("validator_pubkeys") != null && !jsonObj.get("validator_pubkeys").isJsonNull() && !jsonObj.get("validator_pubkeys").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `validator_pubkeys` to be an array in the JSON string but got `%s`", jsonObj.get("validator_pubkeys").toString()));
       }
   }
 
@@ -310,16 +270,16 @@ public class GetToken200Response {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetToken200Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetToken200Response' and its subtypes
+       if (!EthStakeEstimatedFee.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'EthStakeEstimatedFee' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetToken200Response> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetToken200Response.class));
+       final TypeAdapter<EthStakeEstimatedFee> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(EthStakeEstimatedFee.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GetToken200Response>() {
+       return (TypeAdapter<T>) new TypeAdapter<EthStakeEstimatedFee>() {
            @Override
-           public void write(JsonWriter out, GetToken200Response value) throws IOException {
+           public void write(JsonWriter out, EthStakeEstimatedFee value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -347,12 +307,12 @@ public class GetToken200Response {
            }
 
            @Override
-           public GetToken200Response read(JsonReader in) throws IOException {
+           public EthStakeEstimatedFee read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             GetToken200Response instance = thisAdapter.fromJsonTree(jsonObj);
+             EthStakeEstimatedFee instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -379,18 +339,18 @@ public class GetToken200Response {
   }
 
  /**
-  * Create an instance of GetToken200Response given an JSON string
+  * Create an instance of EthStakeEstimatedFee given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of GetToken200Response
-  * @throws IOException if the JSON string is invalid with respect to GetToken200Response
+  * @return An instance of EthStakeEstimatedFee
+  * @throws IOException if the JSON string is invalid with respect to EthStakeEstimatedFee
   */
-  public static GetToken200Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetToken200Response.class);
+  public static EthStakeEstimatedFee fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, EthStakeEstimatedFee.class);
   }
 
  /**
-  * Convert an instance of GetToken200Response to an JSON string
+  * Convert an instance of EthStakeEstimatedFee to an JSON string
   *
   * @return JSON string
   */

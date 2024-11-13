@@ -23,6 +23,7 @@
 |---- | -----|
 | BABYLON | &quot;Babylon&quot; |
 | COSMOS | &quot;Cosmos&quot; |
+| ETHEREUM | &quot;Ethereum&quot; |
 
 
 

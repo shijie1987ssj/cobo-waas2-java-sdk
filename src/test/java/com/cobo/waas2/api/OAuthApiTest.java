@@ -15,9 +15,9 @@ import com.cobo.waas2.ApiClient;
 import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.ErrorResponse;
-import com.cobo.waas2.model.GetToken200Response;
+import com.cobo.waas2.model.GetToken2XXResponse;
 import com.cobo.waas2.model.GetToken4XXResponse;
-import com.cobo.waas2.model.RefreshToken201Response;
+import com.cobo.waas2.model.RefreshToken2XXResponse;
 import com.cobo.waas2.model.RefreshTokenRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -52,7 +52,7 @@ public class OAuthApiTest {
         String clientId = null;
         String orgId = null;
         String grantType = null;
-        GetToken200Response response = api.getToken(clientId, orgId, grantType);
+        GetToken2XXResponse response = api.getToken(clientId, orgId, grantType);
         // TODO: test validations
     }
 
@@ -66,7 +66,7 @@ public class OAuthApiTest {
     @Test
     public void refreshTokenTest() throws ApiException {
         RefreshTokenRequest refreshTokenRequest = null;
-        RefreshToken201Response response = api.refreshToken(refreshTokenRequest);
+        RefreshToken2XXResponse response = api.refreshToken(refreshTokenRequest);
         // TODO: test validations
     }
 

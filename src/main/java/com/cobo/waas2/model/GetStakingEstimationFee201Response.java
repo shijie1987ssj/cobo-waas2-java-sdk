@@ -12,337 +12,304 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.BabylonStakeEstimatedFee;
+import com.cobo.waas2.model.EstimatedFee;
+import com.cobo.waas2.model.EthStakeEstimatedFee;
 import com.cobo.waas2.model.FeeType;
+import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
+
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonParseException;
 
 import com.cobo.waas2.JSON;
 
-/**
- * GetStakingEstimationFee201Response
- */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class GetStakingEstimationFee201Response {
-  public static final String SERIALIZED_NAME_FEE_TYPE = "fee_type";
-  @SerializedName(SERIALIZED_NAME_FEE_TYPE)
-  private FeeType feeType = FeeType.EVM_EIP_1559;
+public class GetStakingEstimationFee201Response extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(GetStakingEstimationFee201Response.class.getName());
 
-  public static final String SERIALIZED_NAME_FEE_AMOUNT = "fee_amount";
-  @SerializedName(SERIALIZED_NAME_FEE_AMOUNT)
-  private String feeAmount;
+    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+        @SuppressWarnings("unchecked")
+        @Override
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+            if (!GetStakingEstimationFee201Response.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GetStakingEstimationFee201Response' and its subtypes
+            }
+            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+            final TypeAdapter<EthStakeEstimatedFee> adapterEthStakeEstimatedFee = gson.getDelegateAdapter(this, TypeToken.get(EthStakeEstimatedFee.class));
+            final TypeAdapter<BabylonStakeEstimatedFee> adapterBabylonStakeEstimatedFee = gson.getDelegateAdapter(this, TypeToken.get(BabylonStakeEstimatedFee.class));
 
-  public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
-  @SerializedName(SERIALIZED_NAME_TOKEN_ID)
-  private String tokenId;
+            return (TypeAdapter<T>) new TypeAdapter<GetStakingEstimationFee201Response>() {
+                @Override
+                public void write(JsonWriter out, GetStakingEstimationFee201Response value) throws IOException {
+                    if (value == null || value.getActualInstance() == null) {
+                        elementAdapter.write(out, null);
+                        return;
+                    }
 
-  public GetStakingEstimationFee201Response() {
-  }
+                    // check if the actual instance is of the type `EthStakeEstimatedFee`
+                    if (value.getActualInstance() instanceof EthStakeEstimatedFee) {
+                        JsonElement element = adapterEthStakeEstimatedFee.toJsonTree((EthStakeEstimatedFee)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `BabylonStakeEstimatedFee`
+                    if (value.getActualInstance() instanceof BabylonStakeEstimatedFee) {
+                        JsonElement element = adapterBabylonStakeEstimatedFee.toJsonTree((BabylonStakeEstimatedFee)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: BabylonStakeEstimatedFee, EthStakeEstimatedFee");
+                }
 
-  public GetStakingEstimationFee201Response feeType(FeeType feeType) {
-    this.feeType = feeType;
-    return this;
-  }
+                @Override
+                public GetStakingEstimationFee201Response read(JsonReader in) throws IOException {
+                    Object deserialized = null;
+                    JsonElement jsonElement = elementAdapter.read(in);
 
-   /**
-   * Get feeType
-   * @return feeType
-  **/
-  @javax.annotation.Nullable
-  public FeeType getFeeType() {
-    return feeType;
-  }
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
 
-  public void setFeeType(FeeType feeType) {
-    this.feeType = feeType;
-  }
+                    // use discriminator value for faster oneOf lookup
+                    GetStakingEstimationFee201Response newGetStakingEstimationFee201Response = new GetStakingEstimationFee201Response();
+                    if (jsonObject.get("pool_type") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for GetStakingEstimationFee201Response as `pool_type` was not found in the payload or the payload is empty.");
+                    } else  {
+                        // look up the discriminator value in the field `pool_type`
+                        switch (jsonObject.get("pool_type").getAsString()) {
+                            case "Babylon":
+                                deserialized = adapterBabylonStakeEstimatedFee.fromJsonTree(jsonObject);
+                                newGetStakingEstimationFee201Response.setActualInstance(deserialized);
+                                return newGetStakingEstimationFee201Response;
+                            case "ETHBeacon":
+                                deserialized = adapterEthStakeEstimatedFee.fromJsonTree(jsonObject);
+                                newGetStakingEstimationFee201Response.setActualInstance(deserialized);
+                                return newGetStakingEstimationFee201Response;
+                            case "BabylonStakeEstimatedFee":
+                                deserialized = adapterBabylonStakeEstimatedFee.fromJsonTree(jsonObject);
+                                newGetStakingEstimationFee201Response.setActualInstance(deserialized);
+                                return newGetStakingEstimationFee201Response;
+                            case "EthStakeEstimatedFee":
+                                deserialized = adapterEthStakeEstimatedFee.fromJsonTree(jsonObject);
+                                newGetStakingEstimationFee201Response.setActualInstance(deserialized);
+                                return newGetStakingEstimationFee201Response;
+                            default:
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for GetStakingEstimationFee201Response. Possible values: Babylon ETHBeacon BabylonStakeEstimatedFee EthStakeEstimatedFee", jsonObject.get("pool_type").getAsString()));
+                        }
+                    }
 
+                    int match = 0;
+                    ArrayList<String> errorMessages = new ArrayList<>();
+                    TypeAdapter actualAdapter = elementAdapter;
 
-  public GetStakingEstimationFee201Response feeAmount(String feeAmount) {
-    this.feeAmount = feeAmount;
-    return this;
-  }
+                    // deserialize EthStakeEstimatedFee
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        EthStakeEstimatedFee.validateJsonElement(jsonElement);
+                        actualAdapter = adapterEthStakeEstimatedFee;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'EthStakeEstimatedFee'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for EthStakeEstimatedFee failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'EthStakeEstimatedFee'", e);
+                    }
+                    // deserialize BabylonStakeEstimatedFee
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        BabylonStakeEstimatedFee.validateJsonElement(jsonElement);
+                        actualAdapter = adapterBabylonStakeEstimatedFee;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'BabylonStakeEstimatedFee'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for BabylonStakeEstimatedFee failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'BabylonStakeEstimatedFee'", e);
+                    }
 
-   /**
-   * The amount of the estimated fee.
-   * @return feeAmount
-  **/
-  @javax.annotation.Nullable
-  public String getFeeAmount() {
-    return feeAmount;
-  }
+                    if (match == 1) {
+                        GetStakingEstimationFee201Response ret = new GetStakingEstimationFee201Response();
+                        ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                        return ret;
+                    }
 
-  public void setFeeAmount(String feeAmount) {
-    this.feeAmount = feeAmount;
-  }
-
-
-  public GetStakingEstimationFee201Response tokenId(String tokenId) {
-    this.tokenId = tokenId;
-    return this;
-  }
-
-   /**
-   * The token ID of the staking fee.
-   * @return tokenId
-  **/
-  @javax.annotation.Nullable
-  public String getTokenId() {
-    return tokenId;
-  }
-
-  public void setTokenId(String tokenId) {
-    this.tokenId = tokenId;
-  }
-
-  /**
-   * A container for additional, undeclared properties.
-   * This is a holder for any undeclared properties as specified with
-   * the 'additionalProperties' keyword in the OAS document.
-   */
-  private Map<String, Object> additionalProperties;
-
-  /**
-   * Set the additional (undeclared) property with the specified name and value.
-   * If the property does not already exist, create it otherwise replace it.
-   *
-   * @param key name of the property
-   * @param value value of the property
-   * @return the GetStakingEstimationFee201Response instance itself
-   */
-  public GetStakingEstimationFee201Response putAdditionalProperty(String key, Object value) {
-    if (this.additionalProperties == null) {
-        this.additionalProperties = new HashMap<String, Object>();
-    }
-    this.additionalProperties.put(key, value);
-    return this;
-  }
-
-  /**
-   * Return the additional (undeclared) property.
-   *
-   * @return a map of objects
-   */
-  public Map<String, Object> getAdditionalProperties() {
-    return additionalProperties;
-  }
-
-  /**
-   * Return the additional (undeclared) property with the specified name.
-   *
-   * @param key name of the property
-   * @return an object
-   */
-  public Object getAdditionalProperty(String key) {
-    if (this.additionalProperties == null) {
-        return null;
-    }
-    return this.additionalProperties.get(key);
-  }
-
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    GetStakingEstimationFee201Response getStakingEstimationFee201Response = (GetStakingEstimationFee201Response) o;
-    return Objects.equals(this.feeType, getStakingEstimationFee201Response.feeType) &&
-        Objects.equals(this.feeAmount, getStakingEstimationFee201Response.feeAmount) &&
-        Objects.equals(this.tokenId, getStakingEstimationFee201Response.tokenId)&&
-        Objects.equals(this.additionalProperties, getStakingEstimationFee201Response.additionalProperties);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(feeType, feeAmount, tokenId, additionalProperties);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class GetStakingEstimationFee201Response {\n");
-    sb.append("    feeType: ").append(toIndentedString(feeType)).append("\n");
-    sb.append("    feeAmount: ").append(toIndentedString(feeAmount)).append("\n");
-    sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
-    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
-
-
-  public static HashSet<String> openapiFields;
-  public static HashSet<String> openapiRequiredFields;
-
-  static {
-    // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>();
-    openapiFields.add("fee_type");
-    openapiFields.add("fee_amount");
-    openapiFields.add("token_id");
-
-    // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>();
-  }
-
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to GetStakingEstimationFee201Response
-  */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!GetStakingEstimationFee201Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GetStakingEstimationFee201Response is not found in the empty JSON string", GetStakingEstimationFee201Response.openapiRequiredFields.toString()));
+                    throw new IOException(String.format("Failed deserialization for GetStakingEstimationFee201Response: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", match, errorMessages, jsonElement.toString()));
+                }
+            }.nullSafe();
         }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `fee_type`
-      if (jsonObj.get("fee_type") != null && !jsonObj.get("fee_type").isJsonNull()) {
-        FeeType.validateJsonElement(jsonObj.get("fee_type"));
-      }
-      if ((jsonObj.get("fee_amount") != null && !jsonObj.get("fee_amount").isJsonNull()) && !jsonObj.get("fee_amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `fee_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fee_amount").toString()));
-      }
-      if ((jsonObj.get("token_id") != null && !jsonObj.get("token_id").isJsonNull()) && !jsonObj.get("token_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
-      }
-  }
+    }
 
-  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    // store a list of schema names defined in oneOf
+    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
+
+    public GetStakingEstimationFee201Response() {
+        super("oneOf", Boolean.FALSE);
+    }
+
+    public GetStakingEstimationFee201Response(BabylonStakeEstimatedFee o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public GetStakingEstimationFee201Response(EthStakeEstimatedFee o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("EthStakeEstimatedFee", EthStakeEstimatedFee.class);
+        schemas.put("BabylonStakeEstimatedFee", BabylonStakeEstimatedFee.class);
+    }
+
+    @Override
+    public Map<String, Class<?>> getSchemas() {
+        return GetStakingEstimationFee201Response.schemas;
+    }
+
+    /**
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas:
+     * BabylonStakeEstimatedFee, EthStakeEstimatedFee
+     *
+     * It could be an instance of the 'oneOf' schemas.
+     */
+    @Override
+    public void setActualInstance(Object instance) {
+        if (instance instanceof EthStakeEstimatedFee) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof BabylonStakeEstimatedFee) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be BabylonStakeEstimatedFee, EthStakeEstimatedFee");
+    }
+
+    /**
+     * Get the actual instance, which can be the following:
+     * BabylonStakeEstimatedFee, EthStakeEstimatedFee
+     *
+     * @return The actual instance (BabylonStakeEstimatedFee, EthStakeEstimatedFee)
+     */
     @SuppressWarnings("unchecked")
     @Override
-    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GetStakingEstimationFee201Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GetStakingEstimationFee201Response' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GetStakingEstimationFee201Response> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GetStakingEstimationFee201Response.class));
-
-       return (TypeAdapter<T>) new TypeAdapter<GetStakingEstimationFee201Response>() {
-           @Override
-           public void write(JsonWriter out, GetStakingEstimationFee201Response value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             obj.remove("additionalProperties");
-             // serialize additional properties
-             if (value.getAdditionalProperties() != null) {
-               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
-                   obj.addProperty(entry.getKey(), (String) entry.getValue());
-                 else if (entry.getValue() instanceof Number)
-                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
-                 else if (entry.getValue() instanceof Boolean)
-                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
-                 else if (entry.getValue() instanceof Character)
-                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
-                 else {
-                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
-                   if (jsonElement.isJsonArray()) {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
-                   } else {
-                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
-                   }
-                 }
-               }
-             }
-             elementAdapter.write(out, obj);
-           }
-
-           @Override
-           public GetStakingEstimationFee201Response read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             JsonObject jsonObj = jsonElement.getAsJsonObject();
-             // store additional fields in the deserialized instance
-             GetStakingEstimationFee201Response instance = thisAdapter.fromJsonTree(jsonObj);
-             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
-               if (!openapiFields.contains(entry.getKey())) {
-                 if (entry.getValue().isJsonPrimitive()) { // primitive type
-                   if (entry.getValue().getAsJsonPrimitive().isString())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
-                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
-                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
-                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
-                   else
-                     throw new IllegalArgumentException(String.format("The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
-                 } else if (entry.getValue().isJsonArray()) {
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
-                 } else { // JSON object
-                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
-                 }
-               }
-             }
-             return instance;
-           }
-
-       }.nullSafe();
+    public Object getActualInstance() {
+        return super.getActualInstance();
     }
-  }
 
- /**
-  * Create an instance of GetStakingEstimationFee201Response given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of GetStakingEstimationFee201Response
-  * @throws IOException if the JSON string is invalid with respect to GetStakingEstimationFee201Response
-  */
-  public static GetStakingEstimationFee201Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GetStakingEstimationFee201Response.class);
-  }
+    /**
+     * Get the actual instance of `EthStakeEstimatedFee`. If the actual instance is not `EthStakeEstimatedFee`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `EthStakeEstimatedFee`
+     * @throws ClassCastException if the instance is not `EthStakeEstimatedFee`
+     */
+    public EthStakeEstimatedFee getEthStakeEstimatedFee() throws ClassCastException {
+        return (EthStakeEstimatedFee)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `BabylonStakeEstimatedFee`. If the actual instance is not `BabylonStakeEstimatedFee`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BabylonStakeEstimatedFee`
+     * @throws ClassCastException if the instance is not `BabylonStakeEstimatedFee`
+     */
+    public BabylonStakeEstimatedFee getBabylonStakeEstimatedFee() throws ClassCastException {
+        return (BabylonStakeEstimatedFee)super.getActualInstance();
+    }
 
- /**
-  * Convert an instance of GetStakingEstimationFee201Response to an JSON string
-  *
-  * @return JSON string
-  */
-  public String toJson() {
-    return JSON.getGson().toJson(this);
-  }
+    /**
+     * Validates the JSON Element and throws an exception if issues found
+     *
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to GetStakingEstimationFee201Response
+     */
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        // validate oneOf schemas one by one
+        int validCount = 0;
+        ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with EthStakeEstimatedFee
+        try {
+            EthStakeEstimatedFee.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for EthStakeEstimatedFee failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with BabylonStakeEstimatedFee
+        try {
+            BabylonStakeEstimatedFee.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for BabylonStakeEstimatedFee failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        if (validCount != 1) {
+            // throw new IOException(String.format("The JSON string is invalid for GetStakingEstimationFee201Response with oneOf schemas: BabylonStakeEstimatedFee, EthStakeEstimatedFee. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+        }
+    }
+
+    /**
+     * Create an instance of GetStakingEstimationFee201Response given an JSON string
+     *
+     * @param jsonString JSON string
+     * @return An instance of GetStakingEstimationFee201Response
+     * @throws IOException if the JSON string is invalid with respect to GetStakingEstimationFee201Response
+     */
+    public static GetStakingEstimationFee201Response fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, GetStakingEstimationFee201Response.class);
+    }
+
+    /**
+     * Convert an instance of GetStakingEstimationFee201Response to an JSON string
+     *
+     * @return JSON string
+     */
+    public String toJson() {
+        return JSON.getGson().toJson(this);
+    }
 }
 
