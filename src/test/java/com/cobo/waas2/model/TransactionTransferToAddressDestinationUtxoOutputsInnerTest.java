@@ -51,12 +51,4 @@ public class TransactionTransferToAddressDestinationUtxoOutputsInnerTest {
         // TODO: test amount
     }
 
-    /**
-     * Test the property 'script'
-     */
-    @Test
-    public void scriptTest() {
-        // TODO: test script
-    }
-
 }

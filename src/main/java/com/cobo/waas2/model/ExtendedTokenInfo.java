@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.TokenAssetModelType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -103,6 +104,10 @@ public class ExtendedTokenInfo {
   public static final String SERIALIZED_NAME_CUSTODIAL_MINIMUM_DEPOSIT_THRESHOLD = "custodial_minimum_deposit_threshold";
   @SerializedName(SERIALIZED_NAME_CUSTODIAL_MINIMUM_DEPOSIT_THRESHOLD)
   private String custodialMinimumDepositThreshold;
+
+  public static final String SERIALIZED_NAME_ASSET_MODEL_TYPE = "asset_model_type";
+  @SerializedName(SERIALIZED_NAME_ASSET_MODEL_TYPE)
+  private TokenAssetModelType assetModelType;
 
   public ExtendedTokenInfo() {
   }
@@ -322,7 +327,7 @@ public class ExtendedTokenInfo {
   }
 
    /**
-   * The minimum withdrawal amount for Custodial Wallets. If your withdrawal amount is smaller than this threshold, the withdrawal request will receive an error.  Note: [Loop transfers](https://loop.top/) do not have this limitation. 
+   * The minimum withdrawal amount for Custodial Wallets. If your withdrawal amount is smaller than this threshold, the withdrawal request will receive an error.  Note: [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop) transfers do not have this limitation. 
    * @return dustThreshold
   **/
   @javax.annotation.Nullable
@@ -341,7 +346,7 @@ public class ExtendedTokenInfo {
   }
 
    /**
-   * The minimum deposit amount for Custodial Wallets. If the amount you deposit to a Custodial Wallet is smaller than this threshold, the deposit will not show up on Cobo Portal or trigger any webhook events.  Note: [Loop transfers](https://loop.top/) do not have this limitation. 
+   * The minimum deposit amount for Custodial Wallets. If the amount you deposit to a Custodial Wallet is smaller than this threshold, the deposit will not show up on Cobo Portal or trigger any webhook events.  Note: [Cobo Loop](https://manuals.cobo.com/en/portal/custodial-wallets/cobo-loop)transfers do not have this limitation. 
    * @return custodialMinimumDepositThreshold
   **/
   @javax.annotation.Nullable
@@ -351,6 +356,25 @@ public class ExtendedTokenInfo {
 
   public void setCustodialMinimumDepositThreshold(String custodialMinimumDepositThreshold) {
     this.custodialMinimumDepositThreshold = custodialMinimumDepositThreshold;
+  }
+
+
+  public ExtendedTokenInfo assetModelType(TokenAssetModelType assetModelType) {
+    this.assetModelType = assetModelType;
+    return this;
+  }
+
+   /**
+   * Get assetModelType
+   * @return assetModelType
+  **/
+  @javax.annotation.Nullable
+  public TokenAssetModelType getAssetModelType() {
+    return assetModelType;
+  }
+
+  public void setAssetModelType(TokenAssetModelType assetModelType) {
+    this.assetModelType = assetModelType;
   }
 
   /**
@@ -420,13 +444,14 @@ public class ExtendedTokenInfo {
         Objects.equals(this.canDeposit, extendedTokenInfo.canDeposit) &&
         Objects.equals(this.canWithdraw, extendedTokenInfo.canWithdraw) &&
         Objects.equals(this.dustThreshold, extendedTokenInfo.dustThreshold) &&
-        Objects.equals(this.custodialMinimumDepositThreshold, extendedTokenInfo.custodialMinimumDepositThreshold)&&
+        Objects.equals(this.custodialMinimumDepositThreshold, extendedTokenInfo.custodialMinimumDepositThreshold) &&
+        Objects.equals(this.assetModelType, extendedTokenInfo.assetModelType)&&
         Objects.equals(this.additionalProperties, extendedTokenInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tokenId, chainId, assetId, symbol, name, decimal, iconUrl, tokenAddress, feeTokenId, canDeposit, canWithdraw, dustThreshold, custodialMinimumDepositThreshold, additionalProperties);
+    return Objects.hash(tokenId, chainId, assetId, symbol, name, decimal, iconUrl, tokenAddress, feeTokenId, canDeposit, canWithdraw, dustThreshold, custodialMinimumDepositThreshold, assetModelType, additionalProperties);
   }
 
   @Override
@@ -446,6 +471,7 @@ public class ExtendedTokenInfo {
     sb.append("    canWithdraw: ").append(toIndentedString(canWithdraw)).append("\n");
     sb.append("    dustThreshold: ").append(toIndentedString(dustThreshold)).append("\n");
     sb.append("    custodialMinimumDepositThreshold: ").append(toIndentedString(custodialMinimumDepositThreshold)).append("\n");
+    sb.append("    assetModelType: ").append(toIndentedString(assetModelType)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -482,6 +508,7 @@ public class ExtendedTokenInfo {
     openapiFields.add("can_withdraw");
     openapiFields.add("dust_threshold");
     openapiFields.add("custodial_minimum_deposit_threshold");
+    openapiFields.add("asset_model_type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -538,6 +565,10 @@ public class ExtendedTokenInfo {
       }
       if ((jsonObj.get("custodial_minimum_deposit_threshold") != null && !jsonObj.get("custodial_minimum_deposit_threshold").isJsonNull()) && !jsonObj.get("custodial_minimum_deposit_threshold").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `custodial_minimum_deposit_threshold` to be a primitive type in the JSON string but got `%s`", jsonObj.get("custodial_minimum_deposit_threshold").toString()));
+      }
+      // validate the optional field `asset_model_type`
+      if (jsonObj.get("asset_model_type") != null && !jsonObj.get("asset_model_type").isJsonNull()) {
+        TokenAssetModelType.validateJsonElement(jsonObj.get("asset_model_type"));
       }
   }
 

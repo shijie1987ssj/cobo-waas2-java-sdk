@@ -4,12 +4,12 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**checkAddressChainsValidity**](WalletsApi.md#checkAddressChainsValidity) | **GET** /wallets/check_address_chains_validity | Check address validity across chains |
 | [**checkAddressValidity**](WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity |
 | [**checkAddressesValidity**](WalletsApi.md#checkAddressesValidity) | **GET** /wallets/check_addresses_validity | Check addresses validity |
 | [**createAddress**](WalletsApi.md#createAddress) | **POST** /wallets/{wallet_id}/addresses | Create addresses in wallet |
 | [**createWallet**](WalletsApi.md#createWallet) | **POST** /wallets | Create wallet |
 | [**deleteWalletById**](WalletsApi.md#deleteWalletById) | **POST** /wallets/{wallet_id}/delete | Delete wallet |
-| [**getAddress**](WalletsApi.md#getAddress) | **GET** /wallets/{wallet_id}/addresses/{address} | Get address information |
 | [**getChainById**](WalletsApi.md#getChainById) | **GET** /wallets/chains/{chain_id} | Get chain information |
 | [**getMaxTransferableValue**](WalletsApi.md#getMaxTransferableValue) | **GET** /wallets/{wallet_id}/max_transferable_value | Get maximum transferable value |
 | [**getTokenById**](WalletsApi.md#getTokenById) | **GET** /wallets/tokens/{token_id} | Get token information |
@@ -27,6 +27,76 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**unlockUtxos**](WalletsApi.md#unlockUtxos) | **POST** /wallets/{wallet_id}/utxos/unlock | Unlock UTXOs |
 | [**updateWalletById**](WalletsApi.md#updateWalletById) | **PUT** /wallets/{wallet_id} | Update wallet |
 
+
+<a id="checkAddressChainsValidity"></a>
+# **checkAddressChainsValidity**
+> List&lt;CheckAddressChainsValidity200ResponseInner&gt; checkAddressChainsValidity(address, chainIds)
+
+Check address validity across chains
+
+This operation verifies if a given address is valid for a list of chains. 
+
+### Example
+```java
+// Import classes:
+import com.cobo.waas2.ApiClient;
+import com.cobo.waas2.ApiException;
+import com.cobo.waas2.Configuration;
+import com.cobo.waas2.model.*;
+import com.cobo.waas2.Env;
+import com.cobo.waas2.api.WalletsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
+    defaultClient.setEnv(Env.DEV);
+
+    // Replace `<YOUR_PRIVATE_KEY>` with your private key
+    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
+    WalletsApi apiInstance = new WalletsApi();
+    String address = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
+    String chainIds = "BTC,ETH";
+    try {
+      List<CheckAddressChainsValidity200ResponseInner> result = apiInstance.checkAddressChainsValidity(address, chainIds);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling WalletsApi#checkAddressChainsValidity");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **address** | **String**| The wallet address. | |
+| **chainIds** | **String**| A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains). | |
+
+### Return type
+
+[**List&lt;CheckAddressChainsValidity200ResponseInner&gt;**](CheckAddressChainsValidity200ResponseInner.md)
+
+### Authorization
+
+[CoboAuth](../README.md#CoboAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The request was successful. |  -  |
+| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
+| **5XX** | Internal server error. |  -  |
 
 <a id="checkAddressValidity"></a>
 # **checkAddressValidity**
@@ -374,76 +444,6 @@ public class Example {
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
-<a id="getAddress"></a>
-# **getAddress**
-> List&lt;AddressInfo&gt; getAddress(walletId, address)
-
-Get address information
-
-This operation retrieves the detailed information about a specified address within a wallet. 
-
-### Example
-```java
-// Import classes:
-import com.cobo.waas2.ApiClient;
-import com.cobo.waas2.ApiException;
-import com.cobo.waas2.Configuration;
-import com.cobo.waas2.model.*;
-import com.cobo.waas2.Env;
-import com.cobo.waas2.api.WalletsApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    // Select the development environment. To use the production environment, replace `Env.DEV` with `Env.PROD
-    defaultClient.setEnv(Env.DEV);
-
-    // Replace `<YOUR_PRIVATE_KEY>` with your private key
-    defaultClient.setPrivKey("<YOUR_PRIVATE_KEY>");
-    WalletsApi apiInstance = new WalletsApi();
-    UUID walletId = UUID.fromString("f47ac10b-58cc-4372-a567-0e02b2c3d479");
-    String address = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
-    try {
-      List<AddressInfo> result = apiInstance.getAddress(walletId, address);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling WalletsApi#getAddress");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **walletId** | **UUID**| The wallet ID. | |
-| **address** | **String**| The wallet address. | |
-
-### Return type
-
-[**List&lt;AddressInfo&gt;**](AddressInfo.md)
-
-### Authorization
-
-[CoboAuth](../README.md#CoboAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Successfully listed address information |  -  |
-| **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
-| **5XX** | Internal server error. |  -  |
-
 <a id="getChainById"></a>
 # **getChainById**
 > ChainInfo getChainById(chainId)
@@ -518,7 +518,7 @@ public class Example {
 
 Get maximum transferable value
 
-This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify &#x60;to_address&#x60; in your query because it affects the transaction fee. 
+This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify &#x60;to_address&#x60; in your query because it affects the transaction fee.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -777,7 +777,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **walletId** | **UUID**| The wallet ID. | |
 | **chainIds** | **String**| A list of chain IDs, separated by comma. The chain ID is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains). | [optional] |
-| **addresses** | **String**| A list of wallet addresses, separated by comma. | [optional] |
+| **addresses** | **String**| A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). | [optional] |
 | **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
 | **before** | **String**| An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify &#x60;before&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;, the request will retrieve a list of data objects that end before the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;. You can set this parameter to the value of &#x60;pagination.before&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  - If you set &#x60;before&#x60; to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
 | **after** | **String**| An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify &#x60;after&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;, the request will retrieve a list of data objects that start after the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;. You can set this parameter to the value of &#x60;pagination.after&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |

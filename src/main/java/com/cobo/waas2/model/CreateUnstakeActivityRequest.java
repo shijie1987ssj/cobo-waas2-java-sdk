@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.CreateUnstakeActivityExtra;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -68,6 +69,10 @@ public class CreateUnstakeActivityRequest {
   public static final String SERIALIZED_NAME_FEE = "fee";
   @SerializedName(SERIALIZED_NAME_FEE)
   private TransactionRequestFee fee;
+
+  public static final String SERIALIZED_NAME_EXTRA = "extra";
+  @SerializedName(SERIALIZED_NAME_EXTRA)
+  private CreateUnstakeActivityExtra extra;
 
   public static final String SERIALIZED_NAME_APP_INITIATOR = "app_initiator";
   @SerializedName(SERIALIZED_NAME_APP_INITIATOR)
@@ -152,6 +157,25 @@ public class CreateUnstakeActivityRequest {
   }
 
 
+  public CreateUnstakeActivityRequest extra(CreateUnstakeActivityExtra extra) {
+    this.extra = extra;
+    return this;
+  }
+
+   /**
+   * Get extra
+   * @return extra
+  **/
+  @javax.annotation.Nullable
+  public CreateUnstakeActivityExtra getExtra() {
+    return extra;
+  }
+
+  public void setExtra(CreateUnstakeActivityExtra extra) {
+    this.extra = extra;
+  }
+
+
   public CreateUnstakeActivityRequest appInitiator(String appInitiator) {
     this.appInitiator = appInitiator;
     return this;
@@ -229,13 +253,14 @@ public class CreateUnstakeActivityRequest {
         Objects.equals(this.stakingId, createUnstakeActivityRequest.stakingId) &&
         Objects.equals(this.amount, createUnstakeActivityRequest.amount) &&
         Objects.equals(this.fee, createUnstakeActivityRequest.fee) &&
+        Objects.equals(this.extra, createUnstakeActivityRequest.extra) &&
         Objects.equals(this.appInitiator, createUnstakeActivityRequest.appInitiator)&&
         Objects.equals(this.additionalProperties, createUnstakeActivityRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, stakingId, amount, fee, appInitiator, additionalProperties);
+    return Objects.hash(requestId, stakingId, amount, fee, extra, appInitiator, additionalProperties);
   }
 
   @Override
@@ -246,6 +271,7 @@ public class CreateUnstakeActivityRequest {
     sb.append("    stakingId: ").append(toIndentedString(stakingId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    appInitiator: ").append(toIndentedString(appInitiator)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -274,6 +300,7 @@ public class CreateUnstakeActivityRequest {
     openapiFields.add("staking_id");
     openapiFields.add("amount");
     openapiFields.add("fee");
+    openapiFields.add("extra");
     openapiFields.add("app_initiator");
 
     // a set of required properties/fields (JSON key names)
@@ -313,6 +340,10 @@ public class CreateUnstakeActivityRequest {
       // validate the optional field `fee`
       if (jsonObj.get("fee") != null && !jsonObj.get("fee").isJsonNull()) {
         TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
+      }
+      // validate the optional field `extra`
+      if (jsonObj.get("extra") != null && !jsonObj.get("extra").isJsonNull()) {
+        CreateUnstakeActivityExtra.validateJsonElement(jsonObj.get("extra"));
       }
       if ((jsonObj.get("app_initiator") != null && !jsonObj.get("app_initiator").isJsonNull()) && !jsonObj.get("app_initiator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `app_initiator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("app_initiator").toString()));

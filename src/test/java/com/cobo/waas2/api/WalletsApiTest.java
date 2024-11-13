@@ -16,6 +16,7 @@ import com.cobo.waas2.ApiException;
 import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.AddressInfo;
 import com.cobo.waas2.model.ChainInfo;
+import com.cobo.waas2.model.CheckAddressChainsValidity200ResponseInner;
 import com.cobo.waas2.model.CheckAddressValidity200Response;
 import com.cobo.waas2.model.CheckAddressesValidity200ResponseInner;
 import com.cobo.waas2.model.CreateAddressRequest;
@@ -58,6 +59,21 @@ public class WalletsApiTest {
         defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
     }
     private final WalletsApi api = new WalletsApi();
+
+    /**
+     * Check address validity across chains
+     *
+     * This operation verifies if a given address is valid for a list of chains. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void checkAddressChainsValidityTest() throws ApiException {
+        String address = null;
+        String chainIds = null;
+        List<CheckAddressChainsValidity200ResponseInner> response = api.checkAddressChainsValidity(address, chainIds);
+        // TODO: test validations
+    }
 
     /**
      * Check address validity
@@ -133,21 +149,6 @@ public class WalletsApiTest {
     }
 
     /**
-     * Get address information
-     *
-     * This operation retrieves the detailed information about a specified address within a wallet. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getAddressTest() throws ApiException {
-        UUID walletId = null;
-        String address = null;
-        List<AddressInfo> response = api.getAddress(walletId, address);
-        // TODO: test validations
-    }
-
-    /**
      * Get chain information
      *
      * This operation retrieves the detailed information about a specified chain. 
@@ -164,7 +165,7 @@ public class WalletsApiTest {
     /**
      * Get maximum transferable value
      *
-     * This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify &#x60;to_address&#x60; in your query because it affects the transaction fee. 
+     * This operation retrieves the maximum amount that you can transfer from a wallet or a specified wallet address, along with the corresponding transaction fee.  You must specify &#x60;to_address&#x60; in your query because it affects the transaction fee.  &lt;Note&gt;This operation is applicable to Custodial Wallets and MPC Wallets only.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */

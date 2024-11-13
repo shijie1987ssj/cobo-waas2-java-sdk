@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.CreateUnstakeActivityExtra;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -68,6 +69,10 @@ public class CreateUnstakeActivity {
   public static final String SERIALIZED_NAME_FEE = "fee";
   @SerializedName(SERIALIZED_NAME_FEE)
   private TransactionRequestFee fee;
+
+  public static final String SERIALIZED_NAME_EXTRA = "extra";
+  @SerializedName(SERIALIZED_NAME_EXTRA)
+  private CreateUnstakeActivityExtra extra;
 
   public CreateUnstakeActivity() {
   }
@@ -147,6 +152,25 @@ public class CreateUnstakeActivity {
     this.fee = fee;
   }
 
+
+  public CreateUnstakeActivity extra(CreateUnstakeActivityExtra extra) {
+    this.extra = extra;
+    return this;
+  }
+
+   /**
+   * Get extra
+   * @return extra
+  **/
+  @javax.annotation.Nullable
+  public CreateUnstakeActivityExtra getExtra() {
+    return extra;
+  }
+
+  public void setExtra(CreateUnstakeActivityExtra extra) {
+    this.extra = extra;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -205,13 +229,14 @@ public class CreateUnstakeActivity {
     return Objects.equals(this.requestId, createUnstakeActivity.requestId) &&
         Objects.equals(this.stakingId, createUnstakeActivity.stakingId) &&
         Objects.equals(this.amount, createUnstakeActivity.amount) &&
-        Objects.equals(this.fee, createUnstakeActivity.fee)&&
+        Objects.equals(this.fee, createUnstakeActivity.fee) &&
+        Objects.equals(this.extra, createUnstakeActivity.extra)&&
         Objects.equals(this.additionalProperties, createUnstakeActivity.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, stakingId, amount, fee, additionalProperties);
+    return Objects.hash(requestId, stakingId, amount, fee, extra, additionalProperties);
   }
 
   @Override
@@ -222,6 +247,7 @@ public class CreateUnstakeActivity {
     sb.append("    stakingId: ").append(toIndentedString(stakingId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -249,6 +275,7 @@ public class CreateUnstakeActivity {
     openapiFields.add("staking_id");
     openapiFields.add("amount");
     openapiFields.add("fee");
+    openapiFields.add("extra");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -287,6 +314,10 @@ public class CreateUnstakeActivity {
       // validate the optional field `fee`
       if (jsonObj.get("fee") != null && !jsonObj.get("fee").isJsonNull()) {
         TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
+      }
+      // validate the optional field `extra`
+      if (jsonObj.get("extra") != null && !jsonObj.get("extra").isJsonNull()) {
+        CreateUnstakeActivityExtra.validateJsonElement(jsonObj.get("extra"));
       }
   }
 

@@ -5,7 +5,7 @@
     <artifactId>cobo-waas2</artifactId>
     <packaging>jar</packaging>
     <name>cobo-waas2</name>
-    <version>1.4.0.6</version>
+    <version>1.6.0</version>
     <url>https://github.com/CoboGlobal/cobo-waas2-java-sdk</url>
     <description>Cobo WaaS 2.0 Java SDK</description>
     <scm>
@@ -354,6 +354,11 @@
             <version>${eddsa-version}</version>
         </dependency>
         <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk18on</artifactId>
+            <version>${bcprov-jdk18on-version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring.boot.version}</version>
@@ -391,6 +396,7 @@
         <junit-platform-runner.version>1.10.0</junit-platform-runner.version>
         <javax.ws.rs-api-version>2.1.1</javax.ws.rs-api-version>
         <eddsa-version>0.3.0</eddsa-version>
+        <bcprov-jdk18on-version>1.78.1</bcprov-jdk18on-version>
         <jsr311-api-version>1.1.1</jsr311-api-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spotless.version>2.43.0</spotless.version>

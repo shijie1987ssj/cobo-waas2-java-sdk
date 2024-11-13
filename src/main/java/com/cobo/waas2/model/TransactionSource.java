@@ -185,7 +185,7 @@ public class TransactionSource extends AbstractOpenApiSchema {
                                 deserialized = adapterTransactionMPCWalletSource.fromJsonTree(jsonObject);
                                 newTransactionSource.setActualInstance(deserialized);
                                 return newTransactionSource;
-                            case "SafeWallet":
+                            case "Safe{Wallet}":
                                 deserialized = adapterTransactionSmartContractSafeWalletSource.fromJsonTree(jsonObject);
                                 newTransactionSource.setActualInstance(deserialized);
                                 return newTransactionSource;
@@ -226,7 +226,7 @@ public class TransactionSource extends AbstractOpenApiSchema {
                                 newTransactionSource.setActualInstance(deserialized);
                                 return newTransactionSource;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionSource. Possible values: Asset DepositFromAddress DepositFromLoop DepositFromWallet Main Org-Controlled SafeWallet Sub User-Controlled TransactionCustodialAssetWalletSource TransactionDepositFromAddressSource TransactionDepositFromLoopSource TransactionDepositFromWalletSource TransactionExchangeWalletSource TransactionMPCWalletSource TransactionSmartContractSafeWalletSource", jsonObject.get("source_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionSource. Possible values: Asset DepositFromAddress DepositFromLoop DepositFromWallet Main Org-Controlled Safe{Wallet} Sub User-Controlled TransactionCustodialAssetWalletSource TransactionDepositFromAddressSource TransactionDepositFromLoopSource TransactionDepositFromWalletSource TransactionExchangeWalletSource TransactionMPCWalletSource TransactionSmartContractSafeWalletSource", jsonObject.get("source_type").getAsString()));
                         }
                     }
 

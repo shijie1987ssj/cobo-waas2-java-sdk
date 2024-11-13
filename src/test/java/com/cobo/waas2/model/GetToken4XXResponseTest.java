@@ -44,11 +44,11 @@ public class GetToken4XXResponseTest {
     }
 
     /**
-     * Test the property 'errorMessage'
+     * Test the property 'errorDescription'
      */
     @Test
-    public void errorMessageTest() {
-        // TODO: test errorMessage
+    public void errorDescriptionTest() {
+        // TODO: test errorDescription
     }
 
 }

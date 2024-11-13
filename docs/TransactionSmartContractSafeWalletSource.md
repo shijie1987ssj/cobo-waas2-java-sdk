@@ -11,7 +11,7 @@ Information about the transaction source type `Safe{Wallet}`. Refer to [Transact
 |**sourceType** | **TransactionSourceType** |  |  |
 |**walletId** | **UUID** | The wallet ID. |  |
 |**address** | **String** | The wallet address. |  |
-|**delegate** | [**CoboSafeDelegate**](CoboSafeDelegate.md) |  |  |
+|**delegate** | [**CoboSafeDelegate**](CoboSafeDelegate.md) |  |  [optional] |
 
 
 
