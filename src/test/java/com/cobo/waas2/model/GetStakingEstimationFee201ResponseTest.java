@@ -11,14 +11,20 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.BabylonStakeEstimatedFee;
+import com.cobo.waas2.model.EstimatedFee;
+import com.cobo.waas2.model.EthStakeEstimatedFee;
 import com.cobo.waas2.model.FeeType;
+import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -34,6 +40,30 @@ public class GetStakingEstimationFee201ResponseTest {
     @Test
     public void testGetStakingEstimationFee201Response() {
         // TODO: test GetStakingEstimationFee201Response
+    }
+
+    /**
+     * Test the property 'poolType'
+     */
+    @Test
+    public void poolTypeTest() {
+        // TODO: test poolType
+    }
+
+    /**
+     * Test the property 'fee'
+     */
+    @Test
+    public void feeTest() {
+        // TODO: test fee
+    }
+
+    /**
+     * Test the property 'validatorPubkeys'
+     */
+    @Test
+    public void validatorPubkeysTest() {
+        // TODO: test validatorPubkeys
     }
 
     /**

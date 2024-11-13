@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.BabylonStakingExtra;
+import com.cobo.waas2.model.EthStakingExtra;
 import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;

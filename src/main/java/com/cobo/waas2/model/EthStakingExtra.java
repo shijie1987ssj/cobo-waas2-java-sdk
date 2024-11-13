@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,128 +46,59 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * RefreshToken201Response
+ * EthStakingExtra
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class RefreshToken201Response {
-  public static final String SERIALIZED_NAME_ACCESS_TOKEN = "access_token";
-  @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN)
-  private String accessToken;
+public class EthStakingExtra {
+  public static final String SERIALIZED_NAME_POOL_TYPE = "pool_type";
+  @SerializedName(SERIALIZED_NAME_POOL_TYPE)
+  private StakingPoolType poolType;
 
-  public static final String SERIALIZED_NAME_TOKEN_TYPE = "token_type";
-  @SerializedName(SERIALIZED_NAME_TOKEN_TYPE)
-  private String tokenType;
+  public static final String SERIALIZED_NAME_POS_CHAIN = "pos_chain";
+  @SerializedName(SERIALIZED_NAME_POS_CHAIN)
+  private String posChain;
 
-  public static final String SERIALIZED_NAME_SCOPE = "scope";
-  @SerializedName(SERIALIZED_NAME_SCOPE)
-  private String scope;
-
-  public static final String SERIALIZED_NAME_EXPIRES_IN = "expires_in";
-  @SerializedName(SERIALIZED_NAME_EXPIRES_IN)
-  private Integer expiresIn;
-
-  public static final String SERIALIZED_NAME_REFRESH_TOKEN = "refresh_token";
-  @SerializedName(SERIALIZED_NAME_REFRESH_TOKEN)
-  private String refreshToken;
-
-  public RefreshToken201Response() {
+  public EthStakingExtra() {
   }
 
-  public RefreshToken201Response accessToken(String accessToken) {
-    this.accessToken = accessToken;
+  public EthStakingExtra poolType(StakingPoolType poolType) {
+    this.poolType = poolType;
     return this;
   }
 
    /**
-   * The new Org Access Token.
-   * @return accessToken
+   * Get poolType
+   * @return poolType
   **/
-  @javax.annotation.Nullable
-  public String getAccessToken() {
-    return accessToken;
+  @javax.annotation.Nonnull
+  public StakingPoolType getPoolType() {
+    return poolType;
   }
 
-  public void setAccessToken(String accessToken) {
-    this.accessToken = accessToken;
+  public void setPoolType(StakingPoolType poolType) {
+    this.poolType = poolType;
   }
 
 
-  public RefreshToken201Response tokenType(String tokenType) {
-    this.tokenType = tokenType;
+  public EthStakingExtra posChain(String posChain) {
+    this.posChain = posChain;
     return this;
   }
 
    /**
-   * The type of the tokens, which is Bearer.
-   * @return tokenType
+   * The Proof-of-Stake (PoS) chain.
+   * @return posChain
   **/
-  @javax.annotation.Nullable
-  public String getTokenType() {
-    return tokenType;
+  @javax.annotation.Nonnull
+  public String getPosChain() {
+    return posChain;
   }
 
-  public void setTokenType(String tokenType) {
-    this.tokenType = tokenType;
-  }
-
-
-  public RefreshToken201Response scope(String scope) {
-    this.scope = scope;
-    return this;
-  }
-
-   /**
-   * The scope of the Org Access Token to limit the app&#39;s access to the organization&#39;s resources. **Note**: Currently this property value is empty. The scope of the Org Access Token is based on the permissions granted when the app user installs the app. 
-   * @return scope
-  **/
-  @javax.annotation.Nullable
-  public String getScope() {
-    return scope;
-  }
-
-  public void setScope(String scope) {
-    this.scope = scope;
-  }
-
-
-  public RefreshToken201Response expiresIn(Integer expiresIn) {
-    this.expiresIn = expiresIn;
-    return this;
-  }
-
-   /**
-   * The time in seconds in which the new Org Access Token expires.
-   * @return expiresIn
-  **/
-  @javax.annotation.Nullable
-  public Integer getExpiresIn() {
-    return expiresIn;
-  }
-
-  public void setExpiresIn(Integer expiresIn) {
-    this.expiresIn = expiresIn;
-  }
-
-
-  public RefreshToken201Response refreshToken(String refreshToken) {
-    this.refreshToken = refreshToken;
-    return this;
-  }
-
-   /**
-   * The Refresh Token, used to obtain another Org Access Token when the new Org Access Token expires. The expiration time for Refresh Tokens is currently set to 30 days and is subject to change.
-   * @return refreshToken
-  **/
-  @javax.annotation.Nullable
-  public String getRefreshToken() {
-    return refreshToken;
-  }
-
-  public void setRefreshToken(String refreshToken) {
-    this.refreshToken = refreshToken;
+  public void setPosChain(String posChain) {
+    this.posChain = posChain;
   }
 
   /**
@@ -182,9 +114,9 @@ public class RefreshToken201Response {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the RefreshToken201Response instance itself
+   * @return the EthStakingExtra instance itself
    */
-  public RefreshToken201Response putAdditionalProperty(String key, Object value) {
+  public EthStakingExtra putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -223,29 +155,23 @@ public class RefreshToken201Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RefreshToken201Response refreshToken201Response = (RefreshToken201Response) o;
-    return Objects.equals(this.accessToken, refreshToken201Response.accessToken) &&
-        Objects.equals(this.tokenType, refreshToken201Response.tokenType) &&
-        Objects.equals(this.scope, refreshToken201Response.scope) &&
-        Objects.equals(this.expiresIn, refreshToken201Response.expiresIn) &&
-        Objects.equals(this.refreshToken, refreshToken201Response.refreshToken)&&
-        Objects.equals(this.additionalProperties, refreshToken201Response.additionalProperties);
+    EthStakingExtra ethStakingExtra = (EthStakingExtra) o;
+    return Objects.equals(this.poolType, ethStakingExtra.poolType) &&
+        Objects.equals(this.posChain, ethStakingExtra.posChain)&&
+        Objects.equals(this.additionalProperties, ethStakingExtra.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessToken, tokenType, scope, expiresIn, refreshToken, additionalProperties);
+    return Objects.hash(poolType, posChain, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RefreshToken201Response {\n");
-    sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
-    sb.append("    tokenType: ").append(toIndentedString(tokenType)).append("\n");
-    sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
-    sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
-    sb.append("    refreshToken: ").append(toIndentedString(refreshToken)).append("\n");
+    sb.append("class EthStakingExtra {\n");
+    sb.append("    poolType: ").append(toIndentedString(poolType)).append("\n");
+    sb.append("    posChain: ").append(toIndentedString(posChain)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -269,40 +195,39 @@ public class RefreshToken201Response {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("access_token");
-    openapiFields.add("token_type");
-    openapiFields.add("scope");
-    openapiFields.add("expires_in");
-    openapiFields.add("refresh_token");
+    openapiFields.add("pool_type");
+    openapiFields.add("pos_chain");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("pool_type");
+    openapiRequiredFields.add("pos_chain");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to RefreshToken201Response
+  * @throws IOException if the JSON Element is invalid with respect to EthStakingExtra
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!RefreshToken201Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RefreshToken201Response is not found in the empty JSON string", RefreshToken201Response.openapiRequiredFields.toString()));
+        if (!EthStakingExtra.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in EthStakingExtra is not found in the empty JSON string", EthStakingExtra.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : EthStakingExtra.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("access_token") != null && !jsonObj.get("access_token").isJsonNull()) && !jsonObj.get("access_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_token").toString()));
-      }
-      if ((jsonObj.get("token_type") != null && !jsonObj.get("token_type").isJsonNull()) && !jsonObj.get("token_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `token_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_type").toString()));
-      }
-      if ((jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonNull()) && !jsonObj.get("scope").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `scope` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scope").toString()));
-      }
-      if ((jsonObj.get("refresh_token") != null && !jsonObj.get("refresh_token").isJsonNull()) && !jsonObj.get("refresh_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `refresh_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("refresh_token").toString()));
+      // validate the required field `pool_type`
+      StakingPoolType.validateJsonElement(jsonObj.get("pool_type"));
+      if (!jsonObj.get("pos_chain").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pos_chain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pos_chain").toString()));
       }
   }
 
@@ -310,16 +235,16 @@ public class RefreshToken201Response {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RefreshToken201Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RefreshToken201Response' and its subtypes
+       if (!EthStakingExtra.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'EthStakingExtra' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RefreshToken201Response> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RefreshToken201Response.class));
+       final TypeAdapter<EthStakingExtra> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(EthStakingExtra.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RefreshToken201Response>() {
+       return (TypeAdapter<T>) new TypeAdapter<EthStakingExtra>() {
            @Override
-           public void write(JsonWriter out, RefreshToken201Response value) throws IOException {
+           public void write(JsonWriter out, EthStakingExtra value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -347,12 +272,12 @@ public class RefreshToken201Response {
            }
 
            @Override
-           public RefreshToken201Response read(JsonReader in) throws IOException {
+           public EthStakingExtra read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             RefreshToken201Response instance = thisAdapter.fromJsonTree(jsonObj);
+             EthStakingExtra instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -379,18 +304,18 @@ public class RefreshToken201Response {
   }
 
  /**
-  * Create an instance of RefreshToken201Response given an JSON string
+  * Create an instance of EthStakingExtra given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of RefreshToken201Response
-  * @throws IOException if the JSON string is invalid with respect to RefreshToken201Response
+  * @return An instance of EthStakingExtra
+  * @throws IOException if the JSON string is invalid with respect to EthStakingExtra
   */
-  public static RefreshToken201Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RefreshToken201Response.class);
+  public static EthStakingExtra fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, EthStakingExtra.class);
   }
 
  /**
-  * Convert an instance of RefreshToken201Response to an JSON string
+  * Convert an instance of EthStakingExtra to an JSON string
   *
   * @return JSON string
   */

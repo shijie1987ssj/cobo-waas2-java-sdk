@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.CreateUnstakeActivityExtra;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -66,6 +67,14 @@ public class CreateUnstakeActivityRequestTest {
     @Test
     public void feeTest() {
         // TODO: test fee
+    }
+
+    /**
+     * Test the property 'extra'
+     */
+    @Test
+    public void extraTest() {
+        // TODO: test extra
     }
 
     /**

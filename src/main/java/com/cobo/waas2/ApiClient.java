@@ -11,6 +11,7 @@
 
 package com.cobo.waas2;
 
+import com.cobo.waas2.auth.*;
 import okhttp3.*;
 import okhttp3.internal.http.HttpMethod;
 import okhttp3.internal.tls.OkHostnameVerifier;
@@ -194,7 +195,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("cobo-waas2-java-sdk/1.5.0");
+        setUserAgent("cobo-waas2-java-sdk/1.6.0");
 
         authentications = new HashMap<String, Authentication>();
     }
@@ -1569,8 +1570,18 @@ public class ApiClient {
     }
 
     public void setPrivKey(String privKey) {
+        setPrivKey(privKey, "ED25519");
+    }
+
+    public void setPrivKey(String privKey, String keyType) {
         httpClient = httpClient.newBuilder().addInterceptor(
-                new AuthenticationInterceptor(privKey, this.debugging)
+                new AuthenticationInterceptor(privKey, this.debugging, keyType)
+        ).build();
+    }
+
+    public void setSigner(Signer signer) {
+        httpClient = httpClient.newBuilder().addInterceptor(
+                new AuthenticationInterceptor(signer, this.debugging)
         ).build();
     }
 

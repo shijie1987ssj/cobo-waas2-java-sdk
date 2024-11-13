@@ -58,7 +58,7 @@ public class EstimatedEvmLegacyFeeSlow {
 
   public static final String SERIALIZED_NAME_GAS_LIMIT = "gas_limit";
   @SerializedName(SERIALIZED_NAME_GAS_LIMIT)
-  private String gasLimit = "21000";
+  private String gasLimit;
 
   public EstimatedEvmLegacyFeeSlow() {
   }

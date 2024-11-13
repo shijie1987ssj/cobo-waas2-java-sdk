@@ -60,10 +60,6 @@ public class AddressTransferDestinationUtxoOutputsInner {
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private String amount;
 
-  public static final String SERIALIZED_NAME_SCRIPT = "script";
-  @SerializedName(SERIALIZED_NAME_SCRIPT)
-  private String script;
-
   public AddressTransferDestinationUtxoOutputsInner() {
   }
 
@@ -95,32 +91,13 @@ public class AddressTransferDestinationUtxoOutputsInner {
    * The transfer amount. For example, if you trade 1.5 BTC, then the value is &#x60;1.5&#x60;. 
    * @return amount
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getAmount() {
     return amount;
   }
 
   public void setAmount(String amount) {
     this.amount = amount;
-  }
-
-
-  public AddressTransferDestinationUtxoOutputsInner script(String script) {
-    this.script = script;
-    return this;
-  }
-
-   /**
-   * The script of the output. It is a programmable code fragment that defines the conditions under which the UTXO can be spent.
-   * @return script
-  **/
-  @javax.annotation.Nullable
-  public String getScript() {
-    return script;
-  }
-
-  public void setScript(String script) {
-    this.script = script;
   }
 
   /**
@@ -179,14 +156,13 @@ public class AddressTransferDestinationUtxoOutputsInner {
     }
     AddressTransferDestinationUtxoOutputsInner addressTransferDestinationUtxoOutputsInner = (AddressTransferDestinationUtxoOutputsInner) o;
     return Objects.equals(this.address, addressTransferDestinationUtxoOutputsInner.address) &&
-        Objects.equals(this.amount, addressTransferDestinationUtxoOutputsInner.amount) &&
-        Objects.equals(this.script, addressTransferDestinationUtxoOutputsInner.script)&&
+        Objects.equals(this.amount, addressTransferDestinationUtxoOutputsInner.amount)&&
         Objects.equals(this.additionalProperties, addressTransferDestinationUtxoOutputsInner.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, amount, script, additionalProperties);
+    return Objects.hash(address, amount, additionalProperties);
   }
 
   @Override
@@ -195,7 +171,6 @@ public class AddressTransferDestinationUtxoOutputsInner {
     sb.append("class AddressTransferDestinationUtxoOutputsInner {\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    script: ").append(toIndentedString(script)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -221,11 +196,11 @@ public class AddressTransferDestinationUtxoOutputsInner {
     openapiFields = new HashSet<String>();
     openapiFields.add("address");
     openapiFields.add("amount");
-    openapiFields.add("script");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("address");
+    openapiRequiredFields.add("amount");
   }
 
  /**
@@ -251,11 +226,8 @@ public class AddressTransferDestinationUtxoOutputsInner {
       if (!jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
-      if ((jsonObj.get("amount") != null && !jsonObj.get("amount").isJsonNull()) && !jsonObj.get("amount").isJsonPrimitive()) {
+      if (!jsonObj.get("amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
-      }
-      if ((jsonObj.get("script") != null && !jsonObj.get("script").isJsonNull()) && !jsonObj.get("script").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `script` to be a primitive type in the JSON string but got `%s`", jsonObj.get("script").toString()));
       }
   }
 

@@ -9,7 +9,7 @@ The response of a failed request.
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**error** | **String** | The error name. |  |
-|**errorMessage** | **String** | The error description. |  [optional] |
+|**errorDescription** | **String** | The error description. |  |
 
 
 

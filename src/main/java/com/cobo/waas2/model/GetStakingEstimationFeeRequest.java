@@ -13,7 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.ActivityType;
-import com.cobo.waas2.model.CreateStakeActivityExtra;
+import com.cobo.waas2.model.CreateUnstakeActivityExtra;
 import com.cobo.waas2.model.EstimateStakeFee;
 import com.cobo.waas2.model.EstimateUnstakeFee;
 import com.cobo.waas2.model.EstimateWithdrawFee;

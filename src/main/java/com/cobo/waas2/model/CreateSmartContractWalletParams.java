@@ -110,7 +110,7 @@ public class CreateSmartContractWalletParams extends AbstractOpenApiSchema {
                     } else  {
                         // look up the discriminator value in the field `smart_contract_wallet_type`
                         switch (jsonObject.get("smart_contract_wallet_type").getAsString()) {
-                            case "Safe":
+                            case "Safe{Wallet}":
                                 deserialized = adapterCreateSafeWalletParams.fromJsonTree(jsonObject);
                                 newCreateSmartContractWalletParams.setActualInstance(deserialized);
                                 return newCreateSmartContractWalletParams;
@@ -119,7 +119,7 @@ public class CreateSmartContractWalletParams extends AbstractOpenApiSchema {
                                 newCreateSmartContractWalletParams.setActualInstance(deserialized);
                                 return newCreateSmartContractWalletParams;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for CreateSmartContractWalletParams. Possible values: Safe CreateSafeWalletParams", jsonObject.get("smart_contract_wallet_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for CreateSmartContractWalletParams. Possible values: Safe{Wallet} CreateSafeWalletParams", jsonObject.get("smart_contract_wallet_type").getAsString()));
                         }
                     }
 
