@@ -12,7 +12,6 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.EthStakingExtraAllOfBeaconValidators;
 import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -20,9 +19,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -64,10 +61,6 @@ public class EthStakingExtra {
   @SerializedName(SERIALIZED_NAME_POS_CHAIN)
   private String posChain;
 
-  public static final String SERIALIZED_NAME_BEACON_VALIDATORS = "beacon_validators";
-  @SerializedName(SERIALIZED_NAME_BEACON_VALIDATORS)
-  private List<EthStakingExtraAllOfBeaconValidators> beaconValidators = new ArrayList<>();
-
   public EthStakingExtra() {
   }
 
@@ -106,33 +99,6 @@ public class EthStakingExtra {
 
   public void setPosChain(String posChain) {
     this.posChain = posChain;
-  }
-
-
-  public EthStakingExtra beaconValidators(List<EthStakingExtraAllOfBeaconValidators> beaconValidators) {
-    this.beaconValidators = beaconValidators;
-    return this;
-  }
-
-  public EthStakingExtra addBeaconValidatorsItem(EthStakingExtraAllOfBeaconValidators beaconValidatorsItem) {
-    if (this.beaconValidators == null) {
-      this.beaconValidators = new ArrayList<>();
-    }
-    this.beaconValidators.add(beaconValidatorsItem);
-    return this;
-  }
-
-   /**
-   * The list of validator information.
-   * @return beaconValidators
-  **/
-  @javax.annotation.Nullable
-  public List<EthStakingExtraAllOfBeaconValidators> getBeaconValidators() {
-    return beaconValidators;
-  }
-
-  public void setBeaconValidators(List<EthStakingExtraAllOfBeaconValidators> beaconValidators) {
-    this.beaconValidators = beaconValidators;
   }
 
   /**
@@ -191,14 +157,13 @@ public class EthStakingExtra {
     }
     EthStakingExtra ethStakingExtra = (EthStakingExtra) o;
     return Objects.equals(this.poolType, ethStakingExtra.poolType) &&
-        Objects.equals(this.posChain, ethStakingExtra.posChain) &&
-        Objects.equals(this.beaconValidators, ethStakingExtra.beaconValidators)&&
+        Objects.equals(this.posChain, ethStakingExtra.posChain)&&
         Objects.equals(this.additionalProperties, ethStakingExtra.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(poolType, posChain, beaconValidators, additionalProperties);
+    return Objects.hash(poolType, posChain, additionalProperties);
   }
 
   @Override
@@ -207,7 +172,6 @@ public class EthStakingExtra {
     sb.append("class EthStakingExtra {\n");
     sb.append("    poolType: ").append(toIndentedString(poolType)).append("\n");
     sb.append("    posChain: ").append(toIndentedString(posChain)).append("\n");
-    sb.append("    beaconValidators: ").append(toIndentedString(beaconValidators)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -233,7 +197,6 @@ public class EthStakingExtra {
     openapiFields = new HashSet<String>();
     openapiFields.add("pool_type");
     openapiFields.add("pos_chain");
-    openapiFields.add("beacon_validators");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -265,20 +228,6 @@ public class EthStakingExtra {
       StakingPoolType.validateJsonElement(jsonObj.get("pool_type"));
       if (!jsonObj.get("pos_chain").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pos_chain` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pos_chain").toString()));
-      }
-      if (jsonObj.get("beacon_validators") != null && !jsonObj.get("beacon_validators").isJsonNull()) {
-        JsonArray jsonArraybeaconValidators = jsonObj.getAsJsonArray("beacon_validators");
-        if (jsonArraybeaconValidators != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("beacon_validators").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `beacon_validators` to be an array in the JSON string but got `%s`", jsonObj.get("beacon_validators").toString()));
-          }
-
-          // validate the optional field `beacon_validators` (array)
-          for (int i = 0; i < jsonArraybeaconValidators.size(); i++) {
-            EthStakingExtraAllOfBeaconValidators.validateJsonElement(jsonArraybeaconValidators.get(i));
-          };
-        }
       }
   }
 

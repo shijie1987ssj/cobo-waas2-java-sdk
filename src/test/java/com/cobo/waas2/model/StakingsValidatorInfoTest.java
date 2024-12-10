@@ -11,7 +11,6 @@
 
 package com.cobo.waas2.model;
 
-import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,41 +22,41 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for CreateWithdrawActivity
+ * Model tests for StakingsValidatorInfo
  */
-public class CreateWithdrawActivityTest {
-    private final CreateWithdrawActivity model = new CreateWithdrawActivity();
+public class StakingsValidatorInfoTest {
+    private final StakingsValidatorInfo model = new StakingsValidatorInfo();
 
     /**
-     * Model tests for CreateWithdrawActivity
+     * Model tests for StakingsValidatorInfo
      */
     @Test
-    public void testCreateWithdrawActivity() {
-        // TODO: test CreateWithdrawActivity
+    public void testStakingsValidatorInfo() {
+        // TODO: test StakingsValidatorInfo
     }
 
     /**
-     * Test the property 'requestId'
+     * Test the property 'iconUrl'
      */
     @Test
-    public void requestIdTest() {
-        // TODO: test requestId
+    public void iconUrlTest() {
+        // TODO: test iconUrl
     }
 
     /**
-     * Test the property 'stakingId'
+     * Test the property 'publicKey'
      */
     @Test
-    public void stakingIdTest() {
-        // TODO: test stakingId
+    public void publicKeyTest() {
+        // TODO: test publicKey
     }
 
     /**
-     * Test the property 'amount'
+     * Test the property 'name'
      */
     @Test
-    public void amountTest() {
-        // TODO: test amount
+    public void nameTest() {
+        // TODO: test name
     }
 
     /**
@@ -69,11 +68,11 @@ public class CreateWithdrawActivityTest {
     }
 
     /**
-     * Test the property 'fee'
+     * Test the property 'commissionRate'
      */
     @Test
-    public void feeTest() {
-        // TODO: test fee
+    public void commissionRateTest() {
+        // TODO: test commissionRate
     }
 
 }

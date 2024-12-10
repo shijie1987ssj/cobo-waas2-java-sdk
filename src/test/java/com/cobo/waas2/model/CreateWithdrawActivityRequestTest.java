@@ -61,6 +61,14 @@ public class CreateWithdrawActivityRequestTest {
     }
 
     /**
+     * Test the property 'address'
+     */
+    @Test
+    public void addressTest() {
+        // TODO: test address
+    }
+
+    /**
      * Test the property 'fee'
      */
     @Test

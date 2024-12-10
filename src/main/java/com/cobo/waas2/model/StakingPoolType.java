@@ -30,9 +30,7 @@ public enum StakingPoolType {
   
   BABYLON("Babylon"),
   
-  ETHBEACON("ETHBeacon"),
-  
-  COREBTC("CoreBTC");
+  ETHBEACON("ETHBeacon");
 
   private String value;
 
