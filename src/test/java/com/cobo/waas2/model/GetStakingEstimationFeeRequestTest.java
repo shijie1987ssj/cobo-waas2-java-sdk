@@ -13,11 +13,9 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.ActivityType;
 import com.cobo.waas2.model.CreateUnstakeActivityExtra;
-import com.cobo.waas2.model.EstimateClaimFee;
 import com.cobo.waas2.model.EstimateStakeFee;
 import com.cobo.waas2.model.EstimateUnstakeFee;
 import com.cobo.waas2.model.EstimateWithdrawFee;
-import com.cobo.waas2.model.StakingPoolId;
 import com.cobo.waas2.model.StakingSource;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
@@ -106,6 +104,14 @@ public class GetStakingEstimationFeeRequestTest {
     @Test
     public void stakingIdTest() {
         // TODO: test stakingId
+    }
+
+    /**
+     * Test the property 'address'
+     */
+    @Test
+    public void addressTest() {
+        // TODO: test address
     }
 
 }

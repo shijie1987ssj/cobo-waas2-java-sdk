@@ -111,7 +111,7 @@ public class Pagination {
   }
 
    /**
-   * The total number of records that match the query, across all pages.
+   * The total number of records that match the query criteria, unaffected by the pagination parameters (&#x60;before&#x60; , &#x60;after&#x60;, and &#x60;limit&#x60;).
    * @return totalCount
   **/
   @javax.annotation.Nonnull

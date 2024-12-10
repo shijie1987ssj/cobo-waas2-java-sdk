@@ -168,7 +168,7 @@ public class BabylonValidator {
    * The URL of the validator&#39;s icon.
    * @return iconUrl
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getIconUrl() {
     return iconUrl;
   }
@@ -225,7 +225,7 @@ public class BabylonValidator {
    * The public key of the validator.
    * @return publicKey
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public String getPublicKey() {
     return publicKey;
   }
@@ -244,7 +244,7 @@ public class BabylonValidator {
    * The commission rate of the validator.
    * @return commissionRate
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public Float getCommissionRate() {
     return commissionRate;
   }
@@ -271,7 +271,7 @@ public class BabylonValidator {
    * A list of supported Proof-of-Stake (PoS) chains.
    * @return supportedPosChains
   **/
-  @javax.annotation.Nullable
+  @javax.annotation.Nonnull
   public List<SupportedPosChainsEnum> getSupportedPosChains() {
     return supportedPosChains;
   }
@@ -395,7 +395,11 @@ public class BabylonValidator {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("pool_type");
+    openapiRequiredFields.add("icon_url");
     openapiRequiredFields.add("name");
+    openapiRequiredFields.add("public_key");
+    openapiRequiredFields.add("commission_rate");
+    openapiRequiredFields.add("supported_pos_chains");
   }
 
  /**
@@ -420,17 +424,19 @@ public class BabylonValidator {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `pool_type`
       StakingPoolType.validateJsonElement(jsonObj.get("pool_type"));
-      if ((jsonObj.get("icon_url") != null && !jsonObj.get("icon_url").isJsonNull()) && !jsonObj.get("icon_url").isJsonPrimitive()) {
+      if (!jsonObj.get("icon_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `icon_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("icon_url").toString()));
       }
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("public_key") != null && !jsonObj.get("public_key").isJsonNull()) && !jsonObj.get("public_key").isJsonPrimitive()) {
+      if (!jsonObj.get("public_key").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `public_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("public_key").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("supported_pos_chains") != null && !jsonObj.get("supported_pos_chains").isJsonNull() && !jsonObj.get("supported_pos_chains").isJsonArray()) {
+      // ensure the required json array is present
+      if (jsonObj.get("supported_pos_chains") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("supported_pos_chains").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `supported_pos_chains` to be an array in the JSON string but got `%s`", jsonObj.get("supported_pos_chains").toString()));
       }
   }

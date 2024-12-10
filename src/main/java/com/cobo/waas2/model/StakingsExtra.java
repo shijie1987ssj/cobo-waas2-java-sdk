@@ -13,9 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.BabylonStakingExtra;
-import com.cobo.waas2.model.CoreStakingExtra;
 import com.cobo.waas2.model.EthStakingExtra;
-import com.cobo.waas2.model.EthStakingExtraAllOfBeaconValidators;
 import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -23,9 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 
 
@@ -79,7 +75,6 @@ public class StakingsExtra extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<BabylonStakingExtra> adapterBabylonStakingExtra = gson.getDelegateAdapter(this, TypeToken.get(BabylonStakingExtra.class));
             final TypeAdapter<EthStakingExtra> adapterEthStakingExtra = gson.getDelegateAdapter(this, TypeToken.get(EthStakingExtra.class));
-            final TypeAdapter<CoreStakingExtra> adapterCoreStakingExtra = gson.getDelegateAdapter(this, TypeToken.get(CoreStakingExtra.class));
 
             return (TypeAdapter<T>) new TypeAdapter<StakingsExtra>() {
                 @Override
@@ -101,13 +96,7 @@ public class StakingsExtra extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `CoreStakingExtra`
-                    if (value.getActualInstance() instanceof CoreStakingExtra) {
-                        JsonElement element = adapterCoreStakingExtra.toJsonTree((CoreStakingExtra)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: BabylonStakingExtra, CoreStakingExtra, EthStakingExtra");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: BabylonStakingExtra, EthStakingExtra");
                 }
 
                 @Override
@@ -128,10 +117,6 @@ public class StakingsExtra extends AbstractOpenApiSchema {
                                 deserialized = adapterBabylonStakingExtra.fromJsonTree(jsonObject);
                                 newStakingsExtra.setActualInstance(deserialized);
                                 return newStakingsExtra;
-                            case "CoreBTC":
-                                deserialized = adapterCoreStakingExtra.fromJsonTree(jsonObject);
-                                newStakingsExtra.setActualInstance(deserialized);
-                                return newStakingsExtra;
                             case "ETHBeacon":
                                 deserialized = adapterEthStakingExtra.fromJsonTree(jsonObject);
                                 newStakingsExtra.setActualInstance(deserialized);
@@ -140,16 +125,12 @@ public class StakingsExtra extends AbstractOpenApiSchema {
                                 deserialized = adapterBabylonStakingExtra.fromJsonTree(jsonObject);
                                 newStakingsExtra.setActualInstance(deserialized);
                                 return newStakingsExtra;
-                            case "CoreStakingExtra":
-                                deserialized = adapterCoreStakingExtra.fromJsonTree(jsonObject);
-                                newStakingsExtra.setActualInstance(deserialized);
-                                return newStakingsExtra;
                             case "EthStakingExtra":
                                 deserialized = adapterEthStakingExtra.fromJsonTree(jsonObject);
                                 newStakingsExtra.setActualInstance(deserialized);
                                 return newStakingsExtra;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for StakingsExtra. Possible values: Babylon CoreBTC ETHBeacon BabylonStakingExtra CoreStakingExtra EthStakingExtra", jsonObject.get("pool_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for StakingsExtra. Possible values: Babylon ETHBeacon BabylonStakingExtra EthStakingExtra", jsonObject.get("pool_type").getAsString()));
                         }
                     }
 
@@ -181,18 +162,6 @@ public class StakingsExtra extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for EthStakingExtra failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EthStakingExtra'", e);
                     }
-                    // deserialize CoreStakingExtra
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        CoreStakingExtra.validateJsonElement(jsonElement);
-                        actualAdapter = adapterCoreStakingExtra;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'CoreStakingExtra'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for CoreStakingExtra failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'CoreStakingExtra'", e);
-                    }
 
                     if (match == 1) {
                         StakingsExtra ret = new StakingsExtra();
@@ -218,11 +187,6 @@ public class StakingsExtra extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
-    public StakingsExtra(CoreStakingExtra o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
-    }
-
     public StakingsExtra(EthStakingExtra o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
@@ -231,7 +195,6 @@ public class StakingsExtra extends AbstractOpenApiSchema {
     static {
         schemas.put("BabylonStakingExtra", BabylonStakingExtra.class);
         schemas.put("EthStakingExtra", EthStakingExtra.class);
-        schemas.put("CoreStakingExtra", CoreStakingExtra.class);
     }
 
     @Override
@@ -242,7 +205,7 @@ public class StakingsExtra extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * BabylonStakingExtra, CoreStakingExtra, EthStakingExtra
+     * BabylonStakingExtra, EthStakingExtra
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -258,19 +221,14 @@ public class StakingsExtra extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof CoreStakingExtra) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        throw new RuntimeException("Invalid instance type. Must be BabylonStakingExtra, CoreStakingExtra, EthStakingExtra");
+        throw new RuntimeException("Invalid instance type. Must be BabylonStakingExtra, EthStakingExtra");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * BabylonStakingExtra, CoreStakingExtra, EthStakingExtra
+     * BabylonStakingExtra, EthStakingExtra
      *
-     * @return The actual instance (BabylonStakingExtra, CoreStakingExtra, EthStakingExtra)
+     * @return The actual instance (BabylonStakingExtra, EthStakingExtra)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -297,16 +255,6 @@ public class StakingsExtra extends AbstractOpenApiSchema {
      */
     public EthStakingExtra getEthStakingExtra() throws ClassCastException {
         return (EthStakingExtra)super.getActualInstance();
-    }
-    /**
-     * Get the actual instance of `CoreStakingExtra`. If the actual instance is not `CoreStakingExtra`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `CoreStakingExtra`
-     * @throws ClassCastException if the instance is not `CoreStakingExtra`
-     */
-    public CoreStakingExtra getCoreStakingExtra() throws ClassCastException {
-        return (CoreStakingExtra)super.getActualInstance();
     }
 
     /**
@@ -335,16 +283,8 @@ public class StakingsExtra extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for EthStakingExtra failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with CoreStakingExtra
-        try {
-            CoreStakingExtra.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for CoreStakingExtra failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for StakingsExtra with oneOf schemas: BabylonStakingExtra, CoreStakingExtra, EthStakingExtra. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for StakingsExtra with oneOf schemas: BabylonStakingExtra, EthStakingExtra. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

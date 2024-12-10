@@ -14,7 +14,6 @@ package com.cobo.waas2.model;
 import com.cobo.waas2.model.ActivityStatus;
 import com.cobo.waas2.model.ActivityTimeline;
 import com.cobo.waas2.model.ActivityType;
-import com.cobo.waas2.model.StakingPoolId;
 import com.cobo.waas2.model.TransactionInitiatorType;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;

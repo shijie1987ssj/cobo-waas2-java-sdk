@@ -15,7 +15,6 @@ import java.util.Objects;
 import com.cobo.waas2.model.ActivityStatus;
 import com.cobo.waas2.model.ActivityTimeline;
 import com.cobo.waas2.model.ActivityType;
-import com.cobo.waas2.model.StakingPoolId;
 import com.cobo.waas2.model.TransactionInitiatorType;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
@@ -86,7 +85,7 @@ public class Activity {
 
   public static final String SERIALIZED_NAME_POOL_ID = "pool_id";
   @SerializedName(SERIALIZED_NAME_POOL_ID)
-  private StakingPoolId poolId;
+  private String poolId;
 
   public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
   @SerializedName(SERIALIZED_NAME_TOKEN_ID)
@@ -241,21 +240,21 @@ public class Activity {
   }
 
 
-  public Activity poolId(StakingPoolId poolId) {
+  public Activity poolId(String poolId) {
     this.poolId = poolId;
     return this;
   }
 
    /**
-   * Get poolId
+   * The ID of the staking pool.
    * @return poolId
   **/
   @javax.annotation.Nonnull
-  public StakingPoolId getPoolId() {
+  public String getPoolId() {
     return poolId;
   }
 
-  public void setPoolId(StakingPoolId poolId) {
+  public void setPoolId(String poolId) {
     this.poolId = poolId;
   }
 
@@ -633,8 +632,9 @@ public class Activity {
       if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
       }
-      // validate the required field `pool_id`
-      StakingPoolId.validateJsonElement(jsonObj.get("pool_id"));
+      if (!jsonObj.get("pool_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pool_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pool_id").toString()));
+      }
       if (!jsonObj.get("token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
       }

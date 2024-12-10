@@ -14,11 +14,9 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.ActivityType;
 import com.cobo.waas2.model.CreateUnstakeActivityExtra;
-import com.cobo.waas2.model.EstimateClaimFee;
 import com.cobo.waas2.model.EstimateStakeFee;
 import com.cobo.waas2.model.EstimateUnstakeFee;
 import com.cobo.waas2.model.EstimateWithdrawFee;
-import com.cobo.waas2.model.StakingPoolId;
 import com.cobo.waas2.model.StakingSource;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
@@ -82,7 +80,6 @@ public class GetStakingEstimationFeeRequest extends AbstractOpenApiSchema {
             final TypeAdapter<EstimateStakeFee> adapterEstimateStakeFee = gson.getDelegateAdapter(this, TypeToken.get(EstimateStakeFee.class));
             final TypeAdapter<EstimateUnstakeFee> adapterEstimateUnstakeFee = gson.getDelegateAdapter(this, TypeToken.get(EstimateUnstakeFee.class));
             final TypeAdapter<EstimateWithdrawFee> adapterEstimateWithdrawFee = gson.getDelegateAdapter(this, TypeToken.get(EstimateWithdrawFee.class));
-            final TypeAdapter<EstimateClaimFee> adapterEstimateClaimFee = gson.getDelegateAdapter(this, TypeToken.get(EstimateClaimFee.class));
 
             return (TypeAdapter<T>) new TypeAdapter<GetStakingEstimationFeeRequest>() {
                 @Override
@@ -110,13 +107,7 @@ public class GetStakingEstimationFeeRequest extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    // check if the actual instance is of the type `EstimateClaimFee`
-                    if (value.getActualInstance() instanceof EstimateClaimFee) {
-                        JsonElement element = adapterEstimateClaimFee.toJsonTree((EstimateClaimFee)value.getActualInstance());
-                        elementAdapter.write(out, element);
-                        return;
-                    }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EstimateClaimFee, EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee");
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee");
                 }
 
                 @Override
@@ -133,10 +124,6 @@ public class GetStakingEstimationFeeRequest extends AbstractOpenApiSchema {
                     } else  {
                         // look up the discriminator value in the field `activity_type`
                         switch (jsonObject.get("activity_type").getAsString()) {
-                            case "Claim":
-                                deserialized = adapterEstimateClaimFee.fromJsonTree(jsonObject);
-                                newGetStakingEstimationFeeRequest.setActualInstance(deserialized);
-                                return newGetStakingEstimationFeeRequest;
                             case "Stake":
                                 deserialized = adapterEstimateStakeFee.fromJsonTree(jsonObject);
                                 newGetStakingEstimationFeeRequest.setActualInstance(deserialized);
@@ -147,10 +134,6 @@ public class GetStakingEstimationFeeRequest extends AbstractOpenApiSchema {
                                 return newGetStakingEstimationFeeRequest;
                             case "Withdraw":
                                 deserialized = adapterEstimateWithdrawFee.fromJsonTree(jsonObject);
-                                newGetStakingEstimationFeeRequest.setActualInstance(deserialized);
-                                return newGetStakingEstimationFeeRequest;
-                            case "EstimateClaimFee":
-                                deserialized = adapterEstimateClaimFee.fromJsonTree(jsonObject);
                                 newGetStakingEstimationFeeRequest.setActualInstance(deserialized);
                                 return newGetStakingEstimationFeeRequest;
                             case "EstimateStakeFee":
@@ -166,7 +149,7 @@ public class GetStakingEstimationFeeRequest extends AbstractOpenApiSchema {
                                 newGetStakingEstimationFeeRequest.setActualInstance(deserialized);
                                 return newGetStakingEstimationFeeRequest;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for GetStakingEstimationFeeRequest. Possible values: Claim Stake Unstake Withdraw EstimateClaimFee EstimateStakeFee EstimateUnstakeFee EstimateWithdrawFee", jsonObject.get("activity_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for GetStakingEstimationFeeRequest. Possible values: Stake Unstake Withdraw EstimateStakeFee EstimateUnstakeFee EstimateWithdrawFee", jsonObject.get("activity_type").getAsString()));
                         }
                     }
 
@@ -210,18 +193,6 @@ public class GetStakingEstimationFeeRequest extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for EstimateWithdrawFee failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'EstimateWithdrawFee'", e);
                     }
-                    // deserialize EstimateClaimFee
-                    try {
-                        // validate the JSON object to see if any exception is thrown
-                        EstimateClaimFee.validateJsonElement(jsonElement);
-                        actualAdapter = adapterEstimateClaimFee;
-                        match++;
-                        log.log(Level.FINER, "Input data matches schema 'EstimateClaimFee'");
-                    } catch (Exception e) {
-                        // deserialization failed, continue
-                        errorMessages.add(String.format("Deserialization for EstimateClaimFee failed with `%s`.", e.getMessage()));
-                        log.log(Level.FINER, "Input data does not match schema 'EstimateClaimFee'", e);
-                    }
 
                     if (match == 1) {
                         GetStakingEstimationFeeRequest ret = new GetStakingEstimationFeeRequest();
@@ -240,11 +211,6 @@ public class GetStakingEstimationFeeRequest extends AbstractOpenApiSchema {
 
     public GetStakingEstimationFeeRequest() {
         super("oneOf", Boolean.FALSE);
-    }
-
-    public GetStakingEstimationFeeRequest(EstimateClaimFee o) {
-        super("oneOf", Boolean.FALSE);
-        setActualInstance(o);
     }
 
     public GetStakingEstimationFeeRequest(EstimateStakeFee o) {
@@ -266,7 +232,6 @@ public class GetStakingEstimationFeeRequest extends AbstractOpenApiSchema {
         schemas.put("EstimateStakeFee", EstimateStakeFee.class);
         schemas.put("EstimateUnstakeFee", EstimateUnstakeFee.class);
         schemas.put("EstimateWithdrawFee", EstimateWithdrawFee.class);
-        schemas.put("EstimateClaimFee", EstimateClaimFee.class);
     }
 
     @Override
@@ -277,7 +242,7 @@ public class GetStakingEstimationFeeRequest extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * EstimateClaimFee, EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee
+     * EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -298,19 +263,14 @@ public class GetStakingEstimationFeeRequest extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof EstimateClaimFee) {
-            super.setActualInstance(instance);
-            return;
-        }
-
-        throw new RuntimeException("Invalid instance type. Must be EstimateClaimFee, EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee");
+        throw new RuntimeException("Invalid instance type. Must be EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * EstimateClaimFee, EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee
+     * EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee
      *
-     * @return The actual instance (EstimateClaimFee, EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee)
+     * @return The actual instance (EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -348,16 +308,6 @@ public class GetStakingEstimationFeeRequest extends AbstractOpenApiSchema {
     public EstimateWithdrawFee getEstimateWithdrawFee() throws ClassCastException {
         return (EstimateWithdrawFee)super.getActualInstance();
     }
-    /**
-     * Get the actual instance of `EstimateClaimFee`. If the actual instance is not `EstimateClaimFee`,
-     * the ClassCastException will be thrown.
-     *
-     * @return The actual instance of `EstimateClaimFee`
-     * @throws ClassCastException if the instance is not `EstimateClaimFee`
-     */
-    public EstimateClaimFee getEstimateClaimFee() throws ClassCastException {
-        return (EstimateClaimFee)super.getActualInstance();
-    }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
@@ -393,16 +343,8 @@ public class GetStakingEstimationFeeRequest extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for EstimateWithdrawFee failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with EstimateClaimFee
-        try {
-            EstimateClaimFee.validateJsonElement(jsonElement);
-            validCount++;
-        } catch (Exception e) {
-            errorMessages.add(String.format("Deserialization for EstimateClaimFee failed with `%s`.", e.getMessage()));
-            // continue to the next one
-        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for GetStakingEstimationFeeRequest with oneOf schemas: EstimateClaimFee, EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for GetStakingEstimationFeeRequest with oneOf schemas: EstimateStakeFee, EstimateUnstakeFee, EstimateWithdrawFee. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

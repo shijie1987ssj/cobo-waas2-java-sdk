@@ -28,13 +28,11 @@ import java.io.IOException;
 import com.cobo.waas2.model.Activity;
 import com.cobo.waas2.model.ActivityStatus;
 import com.cobo.waas2.model.ActivityType;
-import com.cobo.waas2.model.CreateClaimActivityRequest;
 import com.cobo.waas2.model.CreateStakeActivity201Response;
 import com.cobo.waas2.model.CreateStakeActivityRequest;
 import com.cobo.waas2.model.CreateUnstakeActivityRequest;
 import com.cobo.waas2.model.CreateWithdrawActivityRequest;
 import com.cobo.waas2.model.ErrorResponse;
-import com.cobo.waas2.model.EthStakeEstimatedFee;
 import com.cobo.waas2.model.GetStakingEstimationFee201Response;
 import com.cobo.waas2.model.GetStakingEstimationFeeRequest;
 import com.cobo.waas2.model.ListStakingActivities200Response;
@@ -69,123 +67,6 @@ public class StakingsApi {
         this.localVarApiClient = apiClient;
     }
 
-    /**
-     * Build call for createClaimActivity
-     * @param createClaimActivityRequest The request body to create a staking request. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createClaimActivityCall(CreateClaimActivityRequest createClaimActivityRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = createClaimActivityRequest;
-
-        // create path and map variables
-        String localVarPath = "/stakings/activities/claim";
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call createClaimActivityValidateBeforeCall(CreateClaimActivityRequest createClaimActivityRequest, final ApiCallback _callback) throws ApiException {
-        return createClaimActivityCall(createClaimActivityRequest, _callback);
-
-    }
-
-    /**
-     * Create claim activity
-     * This operation creates a claim request.  For some protocols, you can use the &#x60;fee&#x60; property in the request body to specify the maximum fee you are willing to pay. The transaction will fail if the actual fee exceeds the specified maximum fee.   &lt;Note&gt;Currently, only the EthBeacon protocol supports this operation.&lt;/Note&gt; 
-     * @param createClaimActivityRequest The request body to create a staking request. (optional)
-     * @return CreateStakeActivity201Response
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
-     </table>
-     */
-    public CreateStakeActivity201Response createClaimActivity(CreateClaimActivityRequest createClaimActivityRequest) throws ApiException {
-        ApiResponse<CreateStakeActivity201Response> localVarResp = createClaimActivityWithHttpInfo(createClaimActivityRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Create claim activity
-     * This operation creates a claim request.  For some protocols, you can use the &#x60;fee&#x60; property in the request body to specify the maximum fee you are willing to pay. The transaction will fail if the actual fee exceeds the specified maximum fee.   &lt;Note&gt;Currently, only the EthBeacon protocol supports this operation.&lt;/Note&gt; 
-     * @param createClaimActivityRequest The request body to create a staking request. (optional)
-     * @return ApiResponse&lt;CreateStakeActivity201Response&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<CreateStakeActivity201Response> createClaimActivityWithHttpInfo(CreateClaimActivityRequest createClaimActivityRequest) throws ApiException {
-        okhttp3.Call localVarCall = createClaimActivityValidateBeforeCall(createClaimActivityRequest, null);
-        Type localVarReturnType = new TypeToken<CreateStakeActivity201Response>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Create claim activity (asynchronously)
-     * This operation creates a claim request.  For some protocols, you can use the &#x60;fee&#x60; property in the request body to specify the maximum fee you are willing to pay. The transaction will fail if the actual fee exceeds the specified maximum fee.   &lt;Note&gt;Currently, only the EthBeacon protocol supports this operation.&lt;/Note&gt; 
-     * @param createClaimActivityRequest The request body to create a staking request. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Successfully created a staking activity. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized. Please provide valid credentials. </td><td>  -  </td></tr>
-        <tr><td> 403 </td><td> Forbidden. You do not have the permission to access the requested resource. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call createClaimActivityAsync(CreateClaimActivityRequest createClaimActivityRequest, final ApiCallback<CreateStakeActivity201Response> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = createClaimActivityValidateBeforeCall(createClaimActivityRequest, _callback);
-        Type localVarReturnType = new TypeToken<CreateStakeActivity201Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
     /**
      * Build call for createStakeActivity
      * @param createStakeActivityRequest The request body to create a staking request. (optional)
@@ -895,115 +776,6 @@ public class StakingsApi {
 
         okhttp3.Call localVarCall = getStakingEstimationFeeValidateBeforeCall(getStakingEstimationFeeRequest, _callback);
         Type localVarReturnType = new TypeToken<GetStakingEstimationFee201Response>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for getStakingEstimationFeeV2
-     * @param getStakingEstimationFeeRequest The request body to get the estimated fee of a staking activity. (optional)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getStakingEstimationFeeV2Call(GetStakingEstimationFeeRequest getStakingEstimationFeeRequest, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = getStakingEstimationFeeRequest;
-
-        // create path and map variables
-        String localVarPath = "/stakings/estimate_fee_v2";
-
-        List<Pair> localVarQueryParams = new ArrayList<>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
-        Map<String, String> localVarHeaderParams = new HashMap<>();
-        Map<String, String> localVarCookieParams = new HashMap<>();
-        Map<String, Object> localVarFormParams = new HashMap<>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {};
-        return localVarApiClient.buildCall(null, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getStakingEstimationFeeV2ValidateBeforeCall(GetStakingEstimationFeeRequest getStakingEstimationFeeRequest, final ApiCallback _callback) throws ApiException {
-        return getStakingEstimationFeeV2Call(getStakingEstimationFeeRequest, _callback);
-
-    }
-
-    /**
-     * Estimate staking fees
-     * This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  &lt;Note&gt;For the Babylon protocol, you can only select UTXO as the fee model.&lt;/Note&gt; 
-     * @param getStakingEstimationFeeRequest The request body to get the estimated fee of a staking activity. (optional)
-     * @return EthStakeEstimatedFee
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-     </table>
-     */
-    public EthStakeEstimatedFee getStakingEstimationFeeV2(GetStakingEstimationFeeRequest getStakingEstimationFeeRequest) throws ApiException {
-        ApiResponse<EthStakeEstimatedFee> localVarResp = getStakingEstimationFeeV2WithHttpInfo(getStakingEstimationFeeRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Estimate staking fees
-     * This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  &lt;Note&gt;For the Babylon protocol, you can only select UTXO as the fee model.&lt;/Note&gt; 
-     * @param getStakingEstimationFeeRequest The request body to get the estimated fee of a staking activity. (optional)
-     * @return ApiResponse&lt;EthStakeEstimatedFee&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<EthStakeEstimatedFee> getStakingEstimationFeeV2WithHttpInfo(GetStakingEstimationFeeRequest getStakingEstimationFeeRequest) throws ApiException {
-        okhttp3.Call localVarCall = getStakingEstimationFeeV2ValidateBeforeCall(getStakingEstimationFeeRequest, null);
-        Type localVarReturnType = new TypeToken<EthStakeEstimatedFee>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Estimate staking fees (asynchronously)
-     * This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  &lt;Note&gt;For the Babylon protocol, you can only select UTXO as the fee model.&lt;/Note&gt; 
-     * @param getStakingEstimationFeeRequest The request body to get the estimated fee of a staking activity. (optional)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> The request was successful. </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call getStakingEstimationFeeV2Async(GetStakingEstimationFeeRequest getStakingEstimationFeeRequest, final ApiCallback<EthStakeEstimatedFee> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = getStakingEstimationFeeV2ValidateBeforeCall(getStakingEstimationFeeRequest, _callback);
-        Type localVarReturnType = new TypeToken<EthStakeEstimatedFee>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

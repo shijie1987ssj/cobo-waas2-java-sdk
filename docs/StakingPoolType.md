@@ -9,7 +9,5 @@
 
 * `ETHBEACON` (value: `"ETHBeacon"`)
 
-* `COREBTC` (value: `"CoreBTC"`)
-
 
 

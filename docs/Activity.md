@@ -14,7 +14,7 @@ The staking activity.
 |**type** | **ActivityType** |  |  [optional] |
 |**walletId** | **String** | The staker&#39;s wallet ID. |  [optional] |
 |**address** | **String** | The staker&#39;s wallet address. |  [optional] |
-|**poolId** | **StakingPoolId** |  |  |
+|**poolId** | **String** | The ID of the staking pool. |  |
 |**tokenId** | **String** | The token ID. |  |
 |**stakingId** | **String** | The ID of the corresponding staking position. |  [optional] |
 |**amount** | **String** | The staking amount. |  |
