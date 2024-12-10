@@ -11,5 +11,7 @@
 
 * `WITHDRAW` (value: `"Withdraw"`)
 
+* `CLAIM` (value: `"Claim"`)
+
 
 
