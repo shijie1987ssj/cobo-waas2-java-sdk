@@ -12,8 +12,9 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.AmountDetailsInner;
+import com.cobo.waas2.model.BabylonValidator;
+import com.cobo.waas2.model.StakingPoolId;
 import com.cobo.waas2.model.StakingsExtra;
-import com.cobo.waas2.model.StakingsValidatorInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;

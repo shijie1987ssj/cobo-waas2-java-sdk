@@ -250,7 +250,9 @@ public class EthStakeExtra {
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
+                 if (entry.getValue() == null)
+                   obj.addProperty(entry.getKey(), (String) null);
+                 else if (entry.getValue() instanceof String)
                    obj.addProperty(entry.getKey(), (String) entry.getValue());
                  else if (entry.getValue() instanceof Number)
                    obj.addProperty(entry.getKey(), (Number) entry.getValue());

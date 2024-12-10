@@ -65,10 +65,6 @@ public class CreateWithdrawActivity {
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private String amount;
 
-  public static final String SERIALIZED_NAME_ADDRESS = "address";
-  @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private String address;
-
   public static final String SERIALIZED_NAME_FEE = "fee";
   @SerializedName(SERIALIZED_NAME_FEE)
   private TransactionRequestFee fee;
@@ -130,25 +126,6 @@ public class CreateWithdrawActivity {
 
   public void setAmount(String amount) {
     this.amount = amount;
-  }
-
-
-  public CreateWithdrawActivity address(String address) {
-    this.address = address;
-    return this;
-  }
-
-   /**
-   * The withdrawal address.
-   * @return address
-  **/
-  @javax.annotation.Nullable
-  public String getAddress() {
-    return address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
   }
 
 
@@ -228,14 +205,13 @@ public class CreateWithdrawActivity {
     return Objects.equals(this.requestId, createWithdrawActivity.requestId) &&
         Objects.equals(this.stakingId, createWithdrawActivity.stakingId) &&
         Objects.equals(this.amount, createWithdrawActivity.amount) &&
-        Objects.equals(this.address, createWithdrawActivity.address) &&
         Objects.equals(this.fee, createWithdrawActivity.fee)&&
         Objects.equals(this.additionalProperties, createWithdrawActivity.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, stakingId, amount, address, fee, additionalProperties);
+    return Objects.hash(requestId, stakingId, amount, fee, additionalProperties);
   }
 
   @Override
@@ -245,7 +221,6 @@ public class CreateWithdrawActivity {
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    stakingId: ").append(toIndentedString(stakingId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -273,7 +248,6 @@ public class CreateWithdrawActivity {
     openapiFields.add("request_id");
     openapiFields.add("staking_id");
     openapiFields.add("amount");
-    openapiFields.add("address");
     openapiFields.add("fee");
 
     // a set of required properties/fields (JSON key names)
@@ -311,9 +285,6 @@ public class CreateWithdrawActivity {
       if ((jsonObj.get("amount") != null && !jsonObj.get("amount").isJsonNull()) && !jsonObj.get("amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
       }
-      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
-      }
       // validate the required field `fee`
       TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
   }
@@ -337,7 +308,9 @@ public class CreateWithdrawActivity {
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
+                 if (entry.getValue() == null)
+                   obj.addProperty(entry.getKey(), (String) null);
+                 else if (entry.getValue() instanceof String)
                    obj.addProperty(entry.getKey(), (String) entry.getValue());
                  else if (entry.getValue() instanceof Number)
                    obj.addProperty(entry.getKey(), (Number) entry.getValue());

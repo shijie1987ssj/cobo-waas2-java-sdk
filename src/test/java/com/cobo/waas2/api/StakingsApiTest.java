@@ -17,11 +17,13 @@ import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.Activity;
 import com.cobo.waas2.model.ActivityStatus;
 import com.cobo.waas2.model.ActivityType;
+import com.cobo.waas2.model.CreateClaimActivityRequest;
 import com.cobo.waas2.model.CreateStakeActivity201Response;
 import com.cobo.waas2.model.CreateStakeActivityRequest;
 import com.cobo.waas2.model.CreateUnstakeActivityRequest;
 import com.cobo.waas2.model.CreateWithdrawActivityRequest;
 import com.cobo.waas2.model.ErrorResponse;
+import com.cobo.waas2.model.EthStakeEstimatedFee;
 import com.cobo.waas2.model.GetStakingEstimationFee201Response;
 import com.cobo.waas2.model.GetStakingEstimationFeeRequest;
 import com.cobo.waas2.model.ListStakingActivities200Response;
@@ -50,6 +52,20 @@ public class StakingsApiTest {
         defaultClient.setPrivKey("<YOUR_API_PRIVATE_KEY_IN_HEX>");
     }
     private final StakingsApi api = new StakingsApi();
+
+    /**
+     * Create claim activity
+     *
+     * This operation creates a claim request.  For some protocols, you can use the &#x60;fee&#x60; property in the request body to specify the maximum fee you are willing to pay. The transaction will fail if the actual fee exceeds the specified maximum fee.   &lt;Note&gt;Currently, only the EthBeacon protocol supports this operation.&lt;/Note&gt; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createClaimActivityTest() throws ApiException {
+        CreateClaimActivityRequest createClaimActivityRequest = null;
+        CreateStakeActivity201Response response = api.createClaimActivity(createClaimActivityRequest);
+        // TODO: test validations
+    }
 
     /**
      * Create stake activity
@@ -132,6 +148,20 @@ public class StakingsApiTest {
     public void getStakingEstimationFeeTest() throws ApiException {
         GetStakingEstimationFeeRequest getStakingEstimationFeeRequest = null;
         GetStakingEstimationFee201Response response = api.getStakingEstimationFee(getStakingEstimationFeeRequest);
+        // TODO: test validations
+    }
+
+    /**
+     * Estimate staking fees
+     *
+     * This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  &lt;Note&gt;For the Babylon protocol, you can only select UTXO as the fee model.&lt;/Note&gt; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getStakingEstimationFeeV2Test() throws ApiException {
+        GetStakingEstimationFeeRequest getStakingEstimationFeeRequest = null;
+        EthStakeEstimatedFee response = api.getStakingEstimationFeeV2(getStakingEstimationFeeRequest);
         // TODO: test validations
     }
 

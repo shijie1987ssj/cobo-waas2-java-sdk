@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.ActivityType;
 import com.cobo.waas2.model.CreateStakeActivityExtra;
+import com.cobo.waas2.model.StakingPoolId;
 import com.cobo.waas2.model.StakingSource;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;

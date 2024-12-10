@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -45,128 +46,105 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the validator.
+ * CreateClaimActivityRequest
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class StakingsValidatorInfo {
-  public static final String SERIALIZED_NAME_ICON_URL = "icon_url";
-  @SerializedName(SERIALIZED_NAME_ICON_URL)
-  private String iconUrl;
+public class CreateClaimActivityRequest {
+  public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
+  @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+  private String requestId;
 
-  public static final String SERIALIZED_NAME_PUBLIC_KEY = "public_key";
-  @SerializedName(SERIALIZED_NAME_PUBLIC_KEY)
-  private String publicKey;
+  public static final String SERIALIZED_NAME_STAKING_ID = "staking_id";
+  @SerializedName(SERIALIZED_NAME_STAKING_ID)
+  private String stakingId;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String SERIALIZED_NAME_FEE = "fee";
+  @SerializedName(SERIALIZED_NAME_FEE)
+  private TransactionRequestFee fee;
 
-  public static final String SERIALIZED_NAME_ADDRESS = "address";
-  @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private String address;
+  public static final String SERIALIZED_NAME_APP_INITIATOR = "app_initiator";
+  @SerializedName(SERIALIZED_NAME_APP_INITIATOR)
+  private String appInitiator;
 
-  public static final String SERIALIZED_NAME_COMMISSION_RATE = "commission_rate";
-  @SerializedName(SERIALIZED_NAME_COMMISSION_RATE)
-  private String commissionRate;
-
-  public StakingsValidatorInfo() {
+  public CreateClaimActivityRequest() {
   }
 
-  public StakingsValidatorInfo iconUrl(String iconUrl) {
-    this.iconUrl = iconUrl;
+  public CreateClaimActivityRequest requestId(String requestId) {
+    this.requestId = requestId;
     return this;
   }
 
    /**
-   * The URL of the validator&#39;s icon.
-   * @return iconUrl
+   * The request ID that is used to track a request. The request ID is provided by you and must be unique within your organization.
+   * @return requestId
   **/
   @javax.annotation.Nullable
-  public String getIconUrl() {
-    return iconUrl;
+  public String getRequestId() {
+    return requestId;
   }
 
-  public void setIconUrl(String iconUrl) {
-    this.iconUrl = iconUrl;
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
   }
 
 
-  public StakingsValidatorInfo publicKey(String publicKey) {
-    this.publicKey = publicKey;
+  public CreateClaimActivityRequest stakingId(String stakingId) {
+    this.stakingId = stakingId;
     return this;
   }
 
    /**
-   * The validator&#39;s public key.
-   * @return publicKey
+   * The staking ID of the staking.
+   * @return stakingId
   **/
-  @javax.annotation.Nullable
-  public String getPublicKey() {
-    return publicKey;
+  @javax.annotation.Nonnull
+  public String getStakingId() {
+    return stakingId;
   }
 
-  public void setPublicKey(String publicKey) {
-    this.publicKey = publicKey;
+  public void setStakingId(String stakingId) {
+    this.stakingId = stakingId;
   }
 
 
-  public StakingsValidatorInfo name(String name) {
-    this.name = name;
+  public CreateClaimActivityRequest fee(TransactionRequestFee fee) {
+    this.fee = fee;
     return this;
   }
 
    /**
-   * The validator&#39;s name.
-   * @return name
+   * Get fee
+   * @return fee
   **/
   @javax.annotation.Nullable
-  public String getName() {
-    return name;
+  public TransactionRequestFee getFee() {
+    return fee;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setFee(TransactionRequestFee fee) {
+    this.fee = fee;
   }
 
 
-  public StakingsValidatorInfo address(String address) {
-    this.address = address;
+  public CreateClaimActivityRequest appInitiator(String appInitiator) {
+    this.appInitiator = appInitiator;
     return this;
   }
 
    /**
-   * The wallet address of the validator.
-   * @return address
+   * The initiator of the staking activity. If you do not specify this property, the WaaS service will automatically designate the API key as the initiator.
+   * @return appInitiator
   **/
   @javax.annotation.Nullable
-  public String getAddress() {
-    return address;
+  public String getAppInitiator() {
+    return appInitiator;
   }
 
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-
-  public StakingsValidatorInfo commissionRate(String commissionRate) {
-    this.commissionRate = commissionRate;
-    return this;
-  }
-
-   /**
-   * The commission rate of the validator.
-   * @return commissionRate
-  **/
-  @javax.annotation.Nullable
-  public String getCommissionRate() {
-    return commissionRate;
-  }
-
-  public void setCommissionRate(String commissionRate) {
-    this.commissionRate = commissionRate;
+  public void setAppInitiator(String appInitiator) {
+    this.appInitiator = appInitiator;
   }
 
   /**
@@ -182,9 +160,9 @@ public class StakingsValidatorInfo {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the StakingsValidatorInfo instance itself
+   * @return the CreateClaimActivityRequest instance itself
    */
-  public StakingsValidatorInfo putAdditionalProperty(String key, Object value) {
+  public CreateClaimActivityRequest putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -223,29 +201,27 @@ public class StakingsValidatorInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StakingsValidatorInfo stakingsValidatorInfo = (StakingsValidatorInfo) o;
-    return Objects.equals(this.iconUrl, stakingsValidatorInfo.iconUrl) &&
-        Objects.equals(this.publicKey, stakingsValidatorInfo.publicKey) &&
-        Objects.equals(this.name, stakingsValidatorInfo.name) &&
-        Objects.equals(this.address, stakingsValidatorInfo.address) &&
-        Objects.equals(this.commissionRate, stakingsValidatorInfo.commissionRate)&&
-        Objects.equals(this.additionalProperties, stakingsValidatorInfo.additionalProperties);
+    CreateClaimActivityRequest createClaimActivityRequest = (CreateClaimActivityRequest) o;
+    return Objects.equals(this.requestId, createClaimActivityRequest.requestId) &&
+        Objects.equals(this.stakingId, createClaimActivityRequest.stakingId) &&
+        Objects.equals(this.fee, createClaimActivityRequest.fee) &&
+        Objects.equals(this.appInitiator, createClaimActivityRequest.appInitiator)&&
+        Objects.equals(this.additionalProperties, createClaimActivityRequest.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(iconUrl, publicKey, name, address, commissionRate, additionalProperties);
+    return Objects.hash(requestId, stakingId, fee, appInitiator, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StakingsValidatorInfo {\n");
-    sb.append("    iconUrl: ").append(toIndentedString(iconUrl)).append("\n");
-    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    commissionRate: ").append(toIndentedString(commissionRate)).append("\n");
+    sb.append("class CreateClaimActivityRequest {\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    stakingId: ").append(toIndentedString(stakingId)).append("\n");
+    sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    appInitiator: ").append(toIndentedString(appInitiator)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -269,43 +245,48 @@ public class StakingsValidatorInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("icon_url");
-    openapiFields.add("public_key");
-    openapiFields.add("name");
-    openapiFields.add("address");
-    openapiFields.add("commission_rate");
+    openapiFields.add("request_id");
+    openapiFields.add("staking_id");
+    openapiFields.add("fee");
+    openapiFields.add("app_initiator");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("staking_id");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to StakingsValidatorInfo
+  * @throws IOException if the JSON Element is invalid with respect to CreateClaimActivityRequest
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!StakingsValidatorInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StakingsValidatorInfo is not found in the empty JSON string", StakingsValidatorInfo.openapiRequiredFields.toString()));
+        if (!CreateClaimActivityRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateClaimActivityRequest is not found in the empty JSON string", CreateClaimActivityRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : CreateClaimActivityRequest.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("icon_url") != null && !jsonObj.get("icon_url").isJsonNull()) && !jsonObj.get("icon_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `icon_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("icon_url").toString()));
+      if ((jsonObj.get("request_id") != null && !jsonObj.get("request_id").isJsonNull()) && !jsonObj.get("request_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("request_id").toString()));
       }
-      if ((jsonObj.get("public_key") != null && !jsonObj.get("public_key").isJsonNull()) && !jsonObj.get("public_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `public_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("public_key").toString()));
+      if (!jsonObj.get("staking_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `staking_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("staking_id").toString()));
       }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      // validate the optional field `fee`
+      if (jsonObj.get("fee") != null && !jsonObj.get("fee").isJsonNull()) {
+        TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
       }
-      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
-      }
-      if ((jsonObj.get("commission_rate") != null && !jsonObj.get("commission_rate").isJsonNull()) && !jsonObj.get("commission_rate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `commission_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commission_rate").toString()));
+      if ((jsonObj.get("app_initiator") != null && !jsonObj.get("app_initiator").isJsonNull()) && !jsonObj.get("app_initiator").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `app_initiator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("app_initiator").toString()));
       }
   }
 
@@ -313,22 +294,24 @@ public class StakingsValidatorInfo {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!StakingsValidatorInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'StakingsValidatorInfo' and its subtypes
+       if (!CreateClaimActivityRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateClaimActivityRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<StakingsValidatorInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(StakingsValidatorInfo.class));
+       final TypeAdapter<CreateClaimActivityRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateClaimActivityRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<StakingsValidatorInfo>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateClaimActivityRequest>() {
            @Override
-           public void write(JsonWriter out, StakingsValidatorInfo value) throws IOException {
+           public void write(JsonWriter out, CreateClaimActivityRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
+                 if (entry.getValue() == null)
+                   obj.addProperty(entry.getKey(), (String) null);
+                 else if (entry.getValue() instanceof String)
                    obj.addProperty(entry.getKey(), (String) entry.getValue());
                  else if (entry.getValue() instanceof Number)
                    obj.addProperty(entry.getKey(), (Number) entry.getValue());
@@ -350,12 +333,12 @@ public class StakingsValidatorInfo {
            }
 
            @Override
-           public StakingsValidatorInfo read(JsonReader in) throws IOException {
+           public CreateClaimActivityRequest read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             StakingsValidatorInfo instance = thisAdapter.fromJsonTree(jsonObj);
+             CreateClaimActivityRequest instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -382,18 +365,18 @@ public class StakingsValidatorInfo {
   }
 
  /**
-  * Create an instance of StakingsValidatorInfo given an JSON string
+  * Create an instance of CreateClaimActivityRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of StakingsValidatorInfo
-  * @throws IOException if the JSON string is invalid with respect to StakingsValidatorInfo
+  * @return An instance of CreateClaimActivityRequest
+  * @throws IOException if the JSON string is invalid with respect to CreateClaimActivityRequest
   */
-  public static StakingsValidatorInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, StakingsValidatorInfo.class);
+  public static CreateClaimActivityRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateClaimActivityRequest.class);
   }
 
  /**
-  * Convert an instance of StakingsValidatorInfo to an JSON string
+  * Convert an instance of CreateClaimActivityRequest to an JSON string
   *
   * @return JSON string
   */
