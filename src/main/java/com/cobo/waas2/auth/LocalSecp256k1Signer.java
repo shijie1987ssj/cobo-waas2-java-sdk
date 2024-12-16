@@ -14,6 +14,8 @@ import org.bouncycastle.util.encoders.Hex;
 import java.math.BigInteger;
 import java.security.Security;
 
+import static com.cobo.waas2.CryptoUtils.hashTwice;
+
 public class LocalSecp256k1Signer implements Signer {
     private final BigInteger privateKey;
     private final ECPoint publicKeyPoint;
@@ -30,18 +32,17 @@ public class LocalSecp256k1Signer implements Signer {
     }
 
     @Override
-    public String sign(byte[] message) {
+    public String sign(String message) {
         ECDSASigner signer = new ECDSASigner();
         ECPrivateKeyParameters privKeyParams = new ECPrivateKeyParameters(privateKey, ecParams);
         signer.init(true, privKeyParams);
-        
-        BigInteger[] signature = signer.generateSignature(message);
-        
+
         try {
+            BigInteger[] signature = signer.generateSignature(hashTwice(message));
             ASN1Integer r = new ASN1Integer(signature[0]);
             ASN1Integer s = new ASN1Integer(signature[1]);
             DERSequence derSignature = new DERSequence(new ASN1Integer[]{r, s});
-            
+
             byte[] derEncodedSignature = derSignature.getEncoded();
             return Hex.toHexString(derEncodedSignature);
         } catch (Exception e) {

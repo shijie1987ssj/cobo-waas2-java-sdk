@@ -7,7 +7,10 @@ import net.i2p.crypto.eddsa.spec.EdDSANamedCurveTable;
 import net.i2p.crypto.eddsa.spec.EdDSAParameterSpec;
 import net.i2p.crypto.eddsa.spec.EdDSAPrivateKeySpec;
 
+import java.io.UnsupportedEncodingException;
 import java.security.*;
+
+import static com.cobo.waas2.CryptoUtils.hashTwice;
 
 public class LocalEd25519Signer implements Signer{
 
@@ -16,17 +19,20 @@ public class LocalEd25519Signer implements Signer{
     public LocalEd25519Signer(String privateKey) {
         this.privateKey = privateKey;
     }
+
     @Override
-    public String sign(byte[] message) {
+    public String sign(String message) {
+
         try {
+            byte[] hashedMessage = hashTwice(message);
             EdDSAParameterSpec spec = EdDSANamedCurveTable.getByName(EdDSANamedCurveTable.ED_25519);
             Signature signature = new EdDSAEngine(MessageDigest.getInstance(spec.getHashAlgorithm()));
             EdDSAPrivateKeySpec privKey = new EdDSAPrivateKeySpec(Utils.hexToBytes(privateKey), spec);
             PrivateKey sKey = new EdDSAPrivateKey(privKey);
             signature.initSign(sKey);
-            signature.update(message);
+            signature.update(hashedMessage);
             return Utils.bytesToHex(signature.sign());
-        } catch (InvalidKeyException | SignatureException | NoSuchAlgorithmException e) {
+        } catch (InvalidKeyException | SignatureException | NoSuchAlgorithmException | UnsupportedEncodingException e) {
             throw new RuntimeException(e);
         }
     }
