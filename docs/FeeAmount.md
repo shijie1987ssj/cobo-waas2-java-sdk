@@ -8,7 +8,7 @@ The transaction fee.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**feeAmount** | **String** | The fee that you need to pay for the transaction. |  [optional] |
+|**feeAmount** | **String** | The transaction fee that you need to pay for the transaction. |  [optional] |
 
 
 

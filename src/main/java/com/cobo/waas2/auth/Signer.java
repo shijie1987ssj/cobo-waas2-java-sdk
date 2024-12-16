@@ -6,7 +6,7 @@ public interface Signer {
      * @param message hashed message
      * @return signature in hex format
      */
-    String sign(byte[] message);
+    String sign(String message);
 
     /***
      *
