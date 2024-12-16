@@ -960,7 +960,7 @@ public class TransactionsApi {
 
     /**
      * Estimate transaction fee
-     * This operation estimates the transaction fee rates of a token transfer or a contract call based on three different transaction speeds (slow, recommended, and fast), considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, and token ID of the transaction fee.  The response can contain different properties based on the transaction fee model used by the chain, including EIP-1559 fee model, legacy fee model, UTXO fee model, and fixed fee model. 
+     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](/v2/guides/transactions/estimate-fees). 
      * @param estimateFeeParams The request body to estimate the transaction fee of a token transfer or a contract call. (optional)
      * @return EstimatedFee
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -979,7 +979,7 @@ public class TransactionsApi {
 
     /**
      * Estimate transaction fee
-     * This operation estimates the transaction fee rates of a token transfer or a contract call based on three different transaction speeds (slow, recommended, and fast), considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, and token ID of the transaction fee.  The response can contain different properties based on the transaction fee model used by the chain, including EIP-1559 fee model, legacy fee model, UTXO fee model, and fixed fee model. 
+     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](/v2/guides/transactions/estimate-fees). 
      * @param estimateFeeParams The request body to estimate the transaction fee of a token transfer or a contract call. (optional)
      * @return ApiResponse&lt;EstimatedFee&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -999,7 +999,7 @@ public class TransactionsApi {
 
     /**
      * Estimate transaction fee (asynchronously)
-     * This operation estimates the transaction fee rates of a token transfer or a contract call based on three different transaction speeds (slow, recommended, and fast), considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, and token ID of the transaction fee.  The response can contain different properties based on the transaction fee model used by the chain, including EIP-1559 fee model, legacy fee model, UTXO fee model, and fixed fee model. 
+     * This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.  You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).  The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](/v2/guides/transactions/estimate-fees). 
      * @param estimateFeeParams The request body to estimate the transaction fee of a token transfer or a contract call. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

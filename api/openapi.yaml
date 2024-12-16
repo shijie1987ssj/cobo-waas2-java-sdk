@@ -3280,11 +3280,11 @@ paths:
   /transactions/estimate_fee:
     post:
       description: |
-        This operation estimates the transaction fee rates of a token transfer or a contract call based on three different transaction speeds (slow, recommended, and fast), considering factors such as network congestion and transaction complexity.
+        This operation estimates the transaction fee of a token transfer or a contract call based on the fee model that the chain uses, considering factors such as network congestion and transaction complexity.
 
-        You need to specify the transaction information, including the request ID, request type, source address, destination address, and token ID of the transaction fee.
+        You need to specify the transaction information, including the request ID, request type, source address, destination address, token ID (only applicable to token transfers), and chain ID (only applicable to contract calls).
 
-        The response can contain different properties based on the transaction fee model used by the chain, including EIP-1559 fee model, legacy fee model, UTXO fee model, and fixed fee model.
+        The response can contain different properties based on the transaction fee model used by the chain. For the legacy, EIP-1559, and UTXO fee models, Cobo also supports three different transaction speed levels: slow, recommended, and fast. For more information about estimating transaction fees, refer to [Estimate transaction fee](/v2/guides/transactions/estimate-fees).
       operationId: estimate_fee
       requestBody:
         $ref: '#/components/requestBodies/estimateFeeBody'
@@ -8815,7 +8815,8 @@ components:
         \ fee model. \n- `EVM_EIP_1559`: The EIP-1559 fee model.\n- `EVM_Legacy`:\
         \ The legacy fee model.\n- `UTXO`: The fee model used in UTXO-based blockchains,\
         \ such as Bitcoin.\n\nEach fee model requires a different set of properties.\
-        \ Switch between the above tabs for details.\n"
+        \ Switch between the above tabs for details.\n\nTo learn more about the fee\
+        \ models, refer to [Fee models](/v2/guides/transactions/estimate-fees#fee-models).\n"
       enum:
       - Fixed
       - EVM_EIP_1559
@@ -8827,7 +8828,7 @@ components:
       description: The transaction fee.
       properties:
         fee_amount:
-          description: The fee that you need to pay for the transaction.
+          description: The transaction fee that you need to pay for the transaction.
           example: "0.1"
           type: string
       type: object
@@ -9025,9 +9026,7 @@ components:
             type: boolean
         type: object
       - $ref: '#/components/schemas/FeeAmount'
-      description: "In the fixed fee model, the transaction fee is a fixed amount\
-        \ within a certain amount of period regardless of the transaction size or\
-        \ network congestion, which can vary between different chains."
+      description: The estimated transaction fee based on the fixed fee model.
       example:
         is_loop: false
         fee_amount: "0.1"
@@ -9129,7 +9128,7 @@ components:
       description: |
         The preset properties to limit transaction fee.
 
-        In the fixed fee model, the transaction fee is a fixed amount within a certain amount of period regardless of the transaction size or network congestion, which can vary between different chains.
+        In the fixed fee model, the transaction fee is a fixed amount within a certain amount of period regardless of the transaction size or network congestion, which can vary between different chains. For more information about the fixed fee model, refer to [Fee models](/v2/guides/transactions/estimate-fees#fee-models).
 
         You can specify the maximum fee amount to limit the transaction fee. The transaction will fail if the transaction fee exceeds the specified maximum fee amount.
 
@@ -9164,11 +9163,12 @@ components:
       description: "The preset properties to limit transaction fee.\n\nIn the EIP-1559\
         \ fee model, the transaction fee is calculated by multiplying the gas price\
         \ and the gas units used by the transaction. This can be expressed as: Transaction\
-        \ fee = gas price * gas units used. \n\nYou can specify the maximum gas fee\
-        \ per gas unit, maximum priority fee per gas unit, and the gas limit to limit\
-        \ the gas price, priority fee per gas unit, gas units used in the transaction.\
-        \ \n\nSwitch between the tabs to display the properties for different transaction\
-        \ fee models.\n"
+        \ fee = gas price * gas units used. For more information about the EIP-1559\
+        \ fee model, refer to [Fee models](/v2/guides/transactions/estimate-fees#fee-models).\n\
+        \nYou can specify the maximum gas fee per gas unit, maximum priority fee per\
+        \ gas unit, and the gas limit to limit the gas price, priority fee per gas\
+        \ unit, gas units used in the transaction. \n\nSwitch between the tabs to\
+        \ display the properties for different transaction fee models.\n"
       required:
       - fee_type
       - max_fee_per_gas
@@ -9194,12 +9194,14 @@ components:
             type: string
         type: object
       - $ref: '#/components/schemas/EvmLegacyFeeBasePrice'
-      description: "The preset properties to limit transaction fee.\n\nIn the legacy\
-        \ fee model, the transaction fee is calculated by multiplying the gas price\
-        \ by the gas units used by the transaction. This can be expressed as: Transaction\
-        \ fee =  (gas price * gas units used). \n\nYou can specify the gas limit to\
-        \ limit the gas units used in the transaction.\n\nSwitch between the tabs\
-        \ to display the properties for different transaction fee models.\n"
+      description: |
+        The preset properties to limit transaction fee.
+
+        In the legacy fee model, the transaction fee is calculated by multiplying the gas price by the gas units used by the transaction. This can be expressed as: Transaction fee =  (gas price * gas units used). For more information about the legacy fee model, refer to [Fee models](/v2/guides/transactions/estimate-fees#fee-models).
+
+        You can specify the gas limit to limit the gas units used in the transaction.
+
+        Switch between the tabs to display the properties for different transaction fee models.
       required:
       - fee_type
       - gas_price
@@ -9223,13 +9225,14 @@ components:
             type: string
         type: object
       - $ref: '#/components/schemas/UtxoFeeBasePrice'
-      description: "The preset properties to limit transaction fee.\n\nIn the UTXO\
-        \ fee model, the transaction fee is calculated by multiplying the fee rate\
-        \ by the transaction size. This can be expressed as: Transaction fee = fee\
-        \ rate * transaction size. \n\nYou can specify the maximum fee amount to limit\
-        \ the transaction fee. The transaction will fail if the transaction fee exceeds\
-        \ the specified maximum fee amount.\n\nSwitch between the tabs to display\
-        \ the properties for different transaction fee models.\n"
+      description: |
+        The preset properties to limit transaction fee.
+
+        In the UTXO fee model, the transaction fee is calculated by multiplying the fee rate by the transaction size. This can be expressed as: Transaction fee = fee rate * transaction size. For more information about the UTXO fee model, see [Fee models](/v2/guides/transactions/estimate-fees#fee-models).
+
+        You can specify the maximum fee amount to limit the transaction fee. The transaction will fail if the transaction fee exceeds the specified maximum fee amount.
+
+        Switch between the tabs to display the properties for different transaction fee models.
       required:
       - fee_rate
       - fee_type
@@ -11139,7 +11142,7 @@ components:
         request_type:
           $ref: '#/components/schemas/EstimateFeeRequestType'
         chain_id:
-          description: "The chain ID, which is the unique identifier of a blockchain.\
+          description: "The chain ID of the chain on which the smart contract is deployed.\
             \ You can retrieve the IDs of all the chains you can use by calling [List\
             \ enabled chains](/v2/api-references/wallets/list-enabled-chains)."
           example: ETH
@@ -15282,7 +15285,7 @@ components:
       description: |
         The API key. For more details, refer to [API key](/v2/guides/overview/cobo-auth#api-key).
 
-        In the API playground, enter your API secret, and your API key will be accordingly calculated.
+        In the API playground, enter your [API secret](/v2/guides/overview/cobo-auth#api-secret), and your API key will be accordingly calculated.
       in: header
       name: BIZ-API-KEY
       type: apiKey

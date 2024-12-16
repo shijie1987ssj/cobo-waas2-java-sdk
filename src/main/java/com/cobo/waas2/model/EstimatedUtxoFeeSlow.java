@@ -88,7 +88,7 @@ public class EstimatedUtxoFeeSlow {
   }
 
    /**
-   * The fee that you need to pay for the transaction.
+   * The transaction fee that you need to pay for the transaction.
    * @return feeAmount
   **/
   @javax.annotation.Nonnull
