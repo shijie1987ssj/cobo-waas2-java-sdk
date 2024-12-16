@@ -111,7 +111,7 @@ public class Pagination {
   }
 
    /**
-   * The total number of records that match the query, across all pages.
+   * The total number of records that match the query criteria, unaffected by the pagination parameters (&#x60;before&#x60; , &#x60;after&#x60;, and &#x60;limit&#x60;).
    * @return totalCount
   **/
   @javax.annotation.Nonnull
@@ -277,7 +277,9 @@ public class Pagination {
              // serialize additional properties
              if (value.getAdditionalProperties() != null) {
                for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
-                 if (entry.getValue() instanceof String)
+                 if (entry.getValue() == null)
+                   obj.addProperty(entry.getKey(), (String) null);
+                 else if (entry.getValue() instanceof String)
                    obj.addProperty(entry.getKey(), (String) entry.getValue());
                  else if (entry.getValue() instanceof Number)
                    obj.addProperty(entry.getKey(), (Number) entry.getValue());
