@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.AutoFuelType;
 import com.cobo.waas2.model.ContractCallDestination;
 import com.cobo.waas2.model.ContractCallSource;
 import com.cobo.waas2.model.TransactionRequestFee;
@@ -94,6 +95,14 @@ public class ContractCallParamsTest {
     @Test
     public void feeTest() {
         // TODO: test fee
+    }
+
+    /**
+     * Test the property 'autoFuel'
+     */
+    @Test
+    public void autoFuelTest() {
+        // TODO: test autoFuel
     }
 
 }

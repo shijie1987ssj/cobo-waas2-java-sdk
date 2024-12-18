@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.EthStakingExtraAllOfBeaconValidators;
 import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -18,7 +19,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -50,6 +53,14 @@ public class EthStakingExtraTest {
     @Test
     public void posChainTest() {
         // TODO: test posChain
+    }
+
+    /**
+     * Test the property 'beaconValidators'
+     */
+    @Test
+    public void beaconValidatorsTest() {
+        // TODO: test beaconValidators
     }
 
 }

@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.BabylonStakeExtra;
+import com.cobo.waas2.model.CoreStakeExtra;
 import com.cobo.waas2.model.EthStakeExtra;
 import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
@@ -76,6 +77,38 @@ public class CreateStakeActivityExtraTest {
     @Test
     public void providerNameTest() {
         // TODO: test providerName
+    }
+
+    /**
+     * Test the property 'timelock'
+     */
+    @Test
+    public void timelockTest() {
+        // TODO: test timelock
+    }
+
+    /**
+     * Test the property 'changeAddress'
+     */
+    @Test
+    public void changeAddressTest() {
+        // TODO: test changeAddress
+    }
+
+    /**
+     * Test the property 'validatorAddress'
+     */
+    @Test
+    public void validatorAddressTest() {
+        // TODO: test validatorAddress
+    }
+
+    /**
+     * Test the property 'rewardAddress'
+     */
+    @Test
+    public void rewardAddressTest() {
+        // TODO: test rewardAddress
     }
 
 }

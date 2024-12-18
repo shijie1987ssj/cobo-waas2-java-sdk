@@ -72,9 +72,9 @@ public class MPCProject {
   @SerializedName(SERIALIZED_NAME_THRESHOLD)
   private Integer threshold;
 
-  public static final String SERIALIZED_NAME_CREATE_TIMESTAMP = "create_timestamp";
-  @SerializedName(SERIALIZED_NAME_CREATE_TIMESTAMP)
-  private Long createTimestamp;
+  public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
+  @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
+  private Long createdTimestamp;
 
   public MPCProject() {
   }
@@ -174,22 +174,22 @@ public class MPCProject {
   }
 
 
-  public MPCProject createTimestamp(Long createTimestamp) {
-    this.createTimestamp = createTimestamp;
+  public MPCProject createdTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
     return this;
   }
 
    /**
    * The project&#39;s creation time in Unix timestamp format, measured in milliseconds.
-   * @return createTimestamp
+   * @return createdTimestamp
   **/
   @javax.annotation.Nullable
-  public Long getCreateTimestamp() {
-    return createTimestamp;
+  public Long getCreatedTimestamp() {
+    return createdTimestamp;
   }
 
-  public void setCreateTimestamp(Long createTimestamp) {
-    this.createTimestamp = createTimestamp;
+  public void setCreatedTimestamp(Long createdTimestamp) {
+    this.createdTimestamp = createdTimestamp;
   }
 
   /**
@@ -252,13 +252,13 @@ public class MPCProject {
         Objects.equals(this.name, mpCProject.name) &&
         Objects.equals(this.participants, mpCProject.participants) &&
         Objects.equals(this.threshold, mpCProject.threshold) &&
-        Objects.equals(this.createTimestamp, mpCProject.createTimestamp)&&
+        Objects.equals(this.createdTimestamp, mpCProject.createdTimestamp)&&
         Objects.equals(this.additionalProperties, mpCProject.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(projectId, orgId, name, participants, threshold, createTimestamp, additionalProperties);
+    return Objects.hash(projectId, orgId, name, participants, threshold, createdTimestamp, additionalProperties);
   }
 
   @Override
@@ -270,7 +270,7 @@ public class MPCProject {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    participants: ").append(toIndentedString(participants)).append("\n");
     sb.append("    threshold: ").append(toIndentedString(threshold)).append("\n");
-    sb.append("    createTimestamp: ").append(toIndentedString(createTimestamp)).append("\n");
+    sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -299,7 +299,7 @@ public class MPCProject {
     openapiFields.add("name");
     openapiFields.add("participants");
     openapiFields.add("threshold");
-    openapiFields.add("create_timestamp");
+    openapiFields.add("created_timestamp");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

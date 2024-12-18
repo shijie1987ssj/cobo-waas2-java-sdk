@@ -15,6 +15,7 @@ The information about a transaction that interacts with a smart contract
 |**description** | **String** | The description of the contract call transaction. |  [optional] |
 |**categoryNames** | **List&lt;String&gt;** | The custom category for you to identify your transactions. |  [optional] |
 |**fee** | [**TransactionRequestFee**](TransactionRequestFee.md) |  |  [optional] |
+|**autoFuel** | **AutoFuelType** |  |  [optional] |
 
 
 

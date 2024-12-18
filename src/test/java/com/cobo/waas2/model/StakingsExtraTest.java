@@ -12,7 +12,9 @@
 package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.BabylonStakingExtra;
+import com.cobo.waas2.model.CoreStakingExtra;
 import com.cobo.waas2.model.EthStakingExtra;
+import com.cobo.waas2.model.EthStakingExtraAllOfBeaconValidators;
 import com.cobo.waas2.model.StakingPoolType;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -20,7 +22,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -84,6 +88,46 @@ public class StakingsExtraTest {
     @Test
     public void unbondAddressTest() {
         // TODO: test unbondAddress
+    }
+
+    /**
+     * Test the property 'beaconValidators'
+     */
+    @Test
+    public void beaconValidatorsTest() {
+        // TODO: test beaconValidators
+    }
+
+    /**
+     * Test the property 'stakerAddress'
+     */
+    @Test
+    public void stakerAddressTest() {
+        // TODO: test stakerAddress
+    }
+
+    /**
+     * Test the property 'validatorAddress'
+     */
+    @Test
+    public void validatorAddressTest() {
+        // TODO: test validatorAddress
+    }
+
+    /**
+     * Test the property 'rewardAddress'
+     */
+    @Test
+    public void rewardAddressTest() {
+        // TODO: test rewardAddress
+    }
+
+    /**
+     * Test the property 'timelock'
+     */
+    @Test
+    public void timelockTest() {
+        // TODO: test timelock
     }
 
 }
