@@ -11,5 +11,13 @@
 
 * `BABYLONCONFIRMATION` (value: `"BabylonConfirmation"`)
 
+* `DEPOSITETH` (value: `"DepositETH"`)
+
+* `CLAIMREWARDS` (value: `"ClaimRewards"`)
+
+* `ACTIVATEVALIDATOR` (value: `"ActivateValidator"`)
+
+* `UNSTAKEETH` (value: `"UnstakeETH"`)
+
 
 

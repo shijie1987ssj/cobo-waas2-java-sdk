@@ -13,8 +13,9 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.AmountDetailsInner;
+import com.cobo.waas2.model.BabylonValidator;
+import com.cobo.waas2.model.StakingPoolId;
 import com.cobo.waas2.model.StakingsExtra;
-import com.cobo.waas2.model.StakingsValidatorInfo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -75,7 +76,7 @@ public class Stakings {
 
   public static final String SERIALIZED_NAME_POOL_ID = "pool_id";
   @SerializedName(SERIALIZED_NAME_POOL_ID)
-  private String poolId;
+  private StakingPoolId poolId;
 
   public static final String SERIALIZED_NAME_TOKEN_ID = "token_id";
   @SerializedName(SERIALIZED_NAME_TOKEN_ID)
@@ -95,7 +96,7 @@ public class Stakings {
 
   public static final String SERIALIZED_NAME_VALIDATOR_INFO = "validator_info";
   @SerializedName(SERIALIZED_NAME_VALIDATOR_INFO)
-  private StakingsValidatorInfo validatorInfo;
+  private BabylonValidator validatorInfo;
 
   public static final String SERIALIZED_NAME_EXTRA = "extra";
   @SerializedName(SERIALIZED_NAME_EXTRA)
@@ -188,21 +189,21 @@ public class Stakings {
   }
 
 
-  public Stakings poolId(String poolId) {
+  public Stakings poolId(StakingPoolId poolId) {
     this.poolId = poolId;
     return this;
   }
 
    /**
-   * The ID of the staking pool.
+   * Get poolId
    * @return poolId
   **/
   @javax.annotation.Nonnull
-  public String getPoolId() {
+  public StakingPoolId getPoolId() {
     return poolId;
   }
 
-  public void setPoolId(String poolId) {
+  public void setPoolId(StakingPoolId poolId) {
     this.poolId = poolId;
   }
 
@@ -283,7 +284,7 @@ public class Stakings {
   }
 
 
-  public Stakings validatorInfo(StakingsValidatorInfo validatorInfo) {
+  public Stakings validatorInfo(BabylonValidator validatorInfo) {
     this.validatorInfo = validatorInfo;
     return this;
   }
@@ -293,11 +294,11 @@ public class Stakings {
    * @return validatorInfo
   **/
   @javax.annotation.Nonnull
-  public StakingsValidatorInfo getValidatorInfo() {
+  public BabylonValidator getValidatorInfo() {
     return validatorInfo;
   }
 
-  public void setValidatorInfo(StakingsValidatorInfo validatorInfo) {
+  public void setValidatorInfo(BabylonValidator validatorInfo) {
     this.validatorInfo = validatorInfo;
   }
 
@@ -496,14 +497,13 @@ public class Stakings {
       for (int i = 0; i < jsonArrayamounts.size(); i++) {
         AmountDetailsInner.validateJsonElement(jsonArrayamounts.get(i));
       };
-      if (!jsonObj.get("pool_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pool_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pool_id").toString()));
-      }
+      // validate the required field `pool_id`
+      StakingPoolId.validateJsonElement(jsonObj.get("pool_id"));
       if (!jsonObj.get("token_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
       }
       // validate the required field `validator_info`
-      StakingsValidatorInfo.validateJsonElement(jsonObj.get("validator_info"));
+      BabylonValidator.validateJsonElement(jsonObj.get("validator_info"));
       // validate the optional field `extra`
       if (jsonObj.get("extra") != null && !jsonObj.get("extra").isJsonNull()) {
         StakingsExtra.validateJsonElement(jsonObj.get("extra"));

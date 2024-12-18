@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.AutoFuelType;
 import com.cobo.waas2.model.TransactionRbfSource;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
@@ -77,6 +78,14 @@ public class TransactionRbfTest {
     @Test
     public void descriptionTest() {
         // TODO: test description
+    }
+
+    /**
+     * Test the property 'autoFuel'
+     */
+    @Test
+    public void autoFuelTest() {
+        // TODO: test autoFuel
     }
 
 }

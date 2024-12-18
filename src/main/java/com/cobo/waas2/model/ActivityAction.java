@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The specific action taken within an activity. Possible values include: - &#x60;Submitted&#x60;: Submit the staking, unstaking, or withdrawal request. - &#x60;BTCConfirmation&#x60;: The Bitcoin chain confirms the request. - &#x60;BabylonConfirmation&#x60;: The Babylon protocol confirms the request. 
+ * The specific action taken within an activity. Possible values include: - &#x60;Submitted&#x60;: Submit the staking, unstaking, or withdrawal request. - &#x60;BTCConfirmation&#x60;: The Bitcoin chain confirms the request. - &#x60;BabylonConfirmation&#x60;: The Babylon protocol confirms the request. - &#x60;DepositETH&#x60;: Deposit ETH to the validator to start staking. - &#x60;ClaimRewards&#x60;: Claim the rewards from the validator. - &#x60;ActivateValidator&#x60;: Activate the validator to start staking. - &#x60;UnstakeETH&#x60;: Unstake ETH from the validator. 
  */
 @JsonAdapter(ActivityAction.Adapter.class)
 public enum ActivityAction {
@@ -32,7 +32,15 @@ public enum ActivityAction {
   
   BTCCONFIRMATION("BTCConfirmation"),
   
-  BABYLONCONFIRMATION("BabylonConfirmation");
+  BABYLONCONFIRMATION("BabylonConfirmation"),
+  
+  DEPOSITETH("DepositETH"),
+  
+  CLAIMREWARDS("ClaimRewards"),
+  
+  ACTIVATEVALIDATOR("ActivateValidator"),
+  
+  UNSTAKEETH("UnstakeETH");
 
   private String value;
 

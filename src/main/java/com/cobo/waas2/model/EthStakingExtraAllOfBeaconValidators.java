@@ -12,12 +12,14 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.AmountStatus;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -45,128 +47,151 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information about the validator.
+ * EthStakingExtraAllOfBeaconValidators
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class StakingsValidatorInfo {
-  public static final String SERIALIZED_NAME_ICON_URL = "icon_url";
-  @SerializedName(SERIALIZED_NAME_ICON_URL)
-  private String iconUrl;
+public class EthStakingExtraAllOfBeaconValidators {
+  public static final String SERIALIZED_NAME_PUBKEY = "pubkey";
+  @SerializedName(SERIALIZED_NAME_PUBKEY)
+  private String pubkey;
 
-  public static final String SERIALIZED_NAME_PUBLIC_KEY = "public_key";
-  @SerializedName(SERIALIZED_NAME_PUBLIC_KEY)
-  private String publicKey;
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private AmountStatus status;
 
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name;
+  public static final String SERIALIZED_NAME_APY = "apy";
+  @SerializedName(SERIALIZED_NAME_APY)
+  private BigDecimal apy;
 
-  public static final String SERIALIZED_NAME_ADDRESS = "address";
-  @SerializedName(SERIALIZED_NAME_ADDRESS)
-  private String address;
+  public static final String SERIALIZED_NAME_STAKED_AMOUNT = "staked_amount";
+  @SerializedName(SERIALIZED_NAME_STAKED_AMOUNT)
+  private String stakedAmount;
 
-  public static final String SERIALIZED_NAME_COMMISSION_RATE = "commission_rate";
-  @SerializedName(SERIALIZED_NAME_COMMISSION_RATE)
-  private String commissionRate;
+  public static final String SERIALIZED_NAME_REWARDS_RECEIVED = "rewards_received";
+  @SerializedName(SERIALIZED_NAME_REWARDS_RECEIVED)
+  private String rewardsReceived;
 
-  public StakingsValidatorInfo() {
+  public static final String SERIALIZED_NAME_UPDATED_TIMESTAMP = "updated_timestamp";
+  @SerializedName(SERIALIZED_NAME_UPDATED_TIMESTAMP)
+  private Long updatedTimestamp;
+
+  public EthStakingExtraAllOfBeaconValidators() {
   }
 
-  public StakingsValidatorInfo iconUrl(String iconUrl) {
-    this.iconUrl = iconUrl;
+  public EthStakingExtraAllOfBeaconValidators pubkey(String pubkey) {
+    this.pubkey = pubkey;
     return this;
   }
 
    /**
-   * The URL of the validator&#39;s icon.
-   * @return iconUrl
+   * The public key of the validator.
+   * @return pubkey
   **/
   @javax.annotation.Nullable
-  public String getIconUrl() {
-    return iconUrl;
+  public String getPubkey() {
+    return pubkey;
   }
 
-  public void setIconUrl(String iconUrl) {
-    this.iconUrl = iconUrl;
+  public void setPubkey(String pubkey) {
+    this.pubkey = pubkey;
   }
 
 
-  public StakingsValidatorInfo publicKey(String publicKey) {
-    this.publicKey = publicKey;
+  public EthStakingExtraAllOfBeaconValidators status(AmountStatus status) {
+    this.status = status;
     return this;
   }
 
    /**
-   * The validator&#39;s public key.
-   * @return publicKey
+   * Get status
+   * @return status
   **/
   @javax.annotation.Nullable
-  public String getPublicKey() {
-    return publicKey;
+  public AmountStatus getStatus() {
+    return status;
   }
 
-  public void setPublicKey(String publicKey) {
-    this.publicKey = publicKey;
+  public void setStatus(AmountStatus status) {
+    this.status = status;
   }
 
 
-  public StakingsValidatorInfo name(String name) {
-    this.name = name;
+  public EthStakingExtraAllOfBeaconValidators apy(BigDecimal apy) {
+    this.apy = apy;
     return this;
   }
 
    /**
-   * The validator&#39;s name.
-   * @return name
+   * The annual percentage yield (APY) of the validator.
+   * @return apy
   **/
   @javax.annotation.Nullable
-  public String getName() {
-    return name;
+  public BigDecimal getApy() {
+    return apy;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setApy(BigDecimal apy) {
+    this.apy = apy;
   }
 
 
-  public StakingsValidatorInfo address(String address) {
-    this.address = address;
+  public EthStakingExtraAllOfBeaconValidators stakedAmount(String stakedAmount) {
+    this.stakedAmount = stakedAmount;
     return this;
   }
 
    /**
-   * The wallet address of the validator.
-   * @return address
+   * The staked amount.
+   * @return stakedAmount
   **/
   @javax.annotation.Nullable
-  public String getAddress() {
-    return address;
+  public String getStakedAmount() {
+    return stakedAmount;
   }
 
-  public void setAddress(String address) {
-    this.address = address;
+  public void setStakedAmount(String stakedAmount) {
+    this.stakedAmount = stakedAmount;
   }
 
 
-  public StakingsValidatorInfo commissionRate(String commissionRate) {
-    this.commissionRate = commissionRate;
+  public EthStakingExtraAllOfBeaconValidators rewardsReceived(String rewardsReceived) {
+    this.rewardsReceived = rewardsReceived;
     return this;
   }
 
    /**
-   * The commission rate of the validator.
-   * @return commissionRate
+   * The rewards received.
+   * @return rewardsReceived
   **/
   @javax.annotation.Nullable
-  public String getCommissionRate() {
-    return commissionRate;
+  public String getRewardsReceived() {
+    return rewardsReceived;
   }
 
-  public void setCommissionRate(String commissionRate) {
-    this.commissionRate = commissionRate;
+  public void setRewardsReceived(String rewardsReceived) {
+    this.rewardsReceived = rewardsReceived;
+  }
+
+
+  public EthStakingExtraAllOfBeaconValidators updatedTimestamp(Long updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
+    return this;
+  }
+
+   /**
+   * The time when the validator&#39;s status was last updated, in Unix timestamp format and measured in milliseconds.
+   * @return updatedTimestamp
+  **/
+  @javax.annotation.Nullable
+  public Long getUpdatedTimestamp() {
+    return updatedTimestamp;
+  }
+
+  public void setUpdatedTimestamp(Long updatedTimestamp) {
+    this.updatedTimestamp = updatedTimestamp;
   }
 
   /**
@@ -182,9 +207,9 @@ public class StakingsValidatorInfo {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the StakingsValidatorInfo instance itself
+   * @return the EthStakingExtraAllOfBeaconValidators instance itself
    */
-  public StakingsValidatorInfo putAdditionalProperty(String key, Object value) {
+  public EthStakingExtraAllOfBeaconValidators putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -223,29 +248,31 @@ public class StakingsValidatorInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    StakingsValidatorInfo stakingsValidatorInfo = (StakingsValidatorInfo) o;
-    return Objects.equals(this.iconUrl, stakingsValidatorInfo.iconUrl) &&
-        Objects.equals(this.publicKey, stakingsValidatorInfo.publicKey) &&
-        Objects.equals(this.name, stakingsValidatorInfo.name) &&
-        Objects.equals(this.address, stakingsValidatorInfo.address) &&
-        Objects.equals(this.commissionRate, stakingsValidatorInfo.commissionRate)&&
-        Objects.equals(this.additionalProperties, stakingsValidatorInfo.additionalProperties);
+    EthStakingExtraAllOfBeaconValidators ethStakingExtraAllOfBeaconValidators = (EthStakingExtraAllOfBeaconValidators) o;
+    return Objects.equals(this.pubkey, ethStakingExtraAllOfBeaconValidators.pubkey) &&
+        Objects.equals(this.status, ethStakingExtraAllOfBeaconValidators.status) &&
+        Objects.equals(this.apy, ethStakingExtraAllOfBeaconValidators.apy) &&
+        Objects.equals(this.stakedAmount, ethStakingExtraAllOfBeaconValidators.stakedAmount) &&
+        Objects.equals(this.rewardsReceived, ethStakingExtraAllOfBeaconValidators.rewardsReceived) &&
+        Objects.equals(this.updatedTimestamp, ethStakingExtraAllOfBeaconValidators.updatedTimestamp)&&
+        Objects.equals(this.additionalProperties, ethStakingExtraAllOfBeaconValidators.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(iconUrl, publicKey, name, address, commissionRate, additionalProperties);
+    return Objects.hash(pubkey, status, apy, stakedAmount, rewardsReceived, updatedTimestamp, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class StakingsValidatorInfo {\n");
-    sb.append("    iconUrl: ").append(toIndentedString(iconUrl)).append("\n");
-    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    address: ").append(toIndentedString(address)).append("\n");
-    sb.append("    commissionRate: ").append(toIndentedString(commissionRate)).append("\n");
+    sb.append("class EthStakingExtraAllOfBeaconValidators {\n");
+    sb.append("    pubkey: ").append(toIndentedString(pubkey)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    apy: ").append(toIndentedString(apy)).append("\n");
+    sb.append("    stakedAmount: ").append(toIndentedString(stakedAmount)).append("\n");
+    sb.append("    rewardsReceived: ").append(toIndentedString(rewardsReceived)).append("\n");
+    sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -269,11 +296,12 @@ public class StakingsValidatorInfo {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("icon_url");
-    openapiFields.add("public_key");
-    openapiFields.add("name");
-    openapiFields.add("address");
-    openapiFields.add("commission_rate");
+    openapiFields.add("pubkey");
+    openapiFields.add("status");
+    openapiFields.add("apy");
+    openapiFields.add("staked_amount");
+    openapiFields.add("rewards_received");
+    openapiFields.add("updated_timestamp");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -283,29 +311,27 @@ public class StakingsValidatorInfo {
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to StakingsValidatorInfo
+  * @throws IOException if the JSON Element is invalid with respect to EthStakingExtraAllOfBeaconValidators
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!StakingsValidatorInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in StakingsValidatorInfo is not found in the empty JSON string", StakingsValidatorInfo.openapiRequiredFields.toString()));
+        if (!EthStakingExtraAllOfBeaconValidators.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in EthStakingExtraAllOfBeaconValidators is not found in the empty JSON string", EthStakingExtraAllOfBeaconValidators.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("icon_url") != null && !jsonObj.get("icon_url").isJsonNull()) && !jsonObj.get("icon_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `icon_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("icon_url").toString()));
+      if ((jsonObj.get("pubkey") != null && !jsonObj.get("pubkey").isJsonNull()) && !jsonObj.get("pubkey").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pubkey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pubkey").toString()));
       }
-      if ((jsonObj.get("public_key") != null && !jsonObj.get("public_key").isJsonNull()) && !jsonObj.get("public_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `public_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("public_key").toString()));
+      // validate the optional field `status`
+      if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+        AmountStatus.validateJsonElement(jsonObj.get("status"));
       }
-      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      if ((jsonObj.get("staked_amount") != null && !jsonObj.get("staked_amount").isJsonNull()) && !jsonObj.get("staked_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `staked_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("staked_amount").toString()));
       }
-      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
-      }
-      if ((jsonObj.get("commission_rate") != null && !jsonObj.get("commission_rate").isJsonNull()) && !jsonObj.get("commission_rate").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `commission_rate` to be a primitive type in the JSON string but got `%s`", jsonObj.get("commission_rate").toString()));
+      if ((jsonObj.get("rewards_received") != null && !jsonObj.get("rewards_received").isJsonNull()) && !jsonObj.get("rewards_received").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `rewards_received` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rewards_received").toString()));
       }
   }
 
@@ -313,16 +339,16 @@ public class StakingsValidatorInfo {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!StakingsValidatorInfo.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'StakingsValidatorInfo' and its subtypes
+       if (!EthStakingExtraAllOfBeaconValidators.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'EthStakingExtraAllOfBeaconValidators' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<StakingsValidatorInfo> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(StakingsValidatorInfo.class));
+       final TypeAdapter<EthStakingExtraAllOfBeaconValidators> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(EthStakingExtraAllOfBeaconValidators.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<StakingsValidatorInfo>() {
+       return (TypeAdapter<T>) new TypeAdapter<EthStakingExtraAllOfBeaconValidators>() {
            @Override
-           public void write(JsonWriter out, StakingsValidatorInfo value) throws IOException {
+           public void write(JsonWriter out, EthStakingExtraAllOfBeaconValidators value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -352,12 +378,12 @@ public class StakingsValidatorInfo {
            }
 
            @Override
-           public StakingsValidatorInfo read(JsonReader in) throws IOException {
+           public EthStakingExtraAllOfBeaconValidators read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             StakingsValidatorInfo instance = thisAdapter.fromJsonTree(jsonObj);
+             EthStakingExtraAllOfBeaconValidators instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -384,18 +410,18 @@ public class StakingsValidatorInfo {
   }
 
  /**
-  * Create an instance of StakingsValidatorInfo given an JSON string
+  * Create an instance of EthStakingExtraAllOfBeaconValidators given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of StakingsValidatorInfo
-  * @throws IOException if the JSON string is invalid with respect to StakingsValidatorInfo
+  * @return An instance of EthStakingExtraAllOfBeaconValidators
+  * @throws IOException if the JSON string is invalid with respect to EthStakingExtraAllOfBeaconValidators
   */
-  public static StakingsValidatorInfo fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, StakingsValidatorInfo.class);
+  public static EthStakingExtraAllOfBeaconValidators fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, EthStakingExtraAllOfBeaconValidators.class);
   }
 
  /**
-  * Convert an instance of StakingsValidatorInfo to an JSON string
+  * Convert an instance of EthStakingExtraAllOfBeaconValidators to an JSON string
   *
   * @return JSON string
   */

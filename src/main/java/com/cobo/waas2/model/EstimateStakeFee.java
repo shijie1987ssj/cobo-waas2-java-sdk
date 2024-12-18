@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.ActivityType;
 import com.cobo.waas2.model.CreateStakeActivityExtra;
+import com.cobo.waas2.model.StakingPoolId;
 import com.cobo.waas2.model.StakingSource;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
@@ -70,7 +71,7 @@ public class EstimateStakeFee {
 
   public static final String SERIALIZED_NAME_POOL_ID = "pool_id";
   @SerializedName(SERIALIZED_NAME_POOL_ID)
-  private String poolId;
+  private StakingPoolId poolId;
 
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
@@ -144,21 +145,21 @@ public class EstimateStakeFee {
   }
 
 
-  public EstimateStakeFee poolId(String poolId) {
+  public EstimateStakeFee poolId(StakingPoolId poolId) {
     this.poolId = poolId;
     return this;
   }
 
    /**
-   * The ID of the staking pool.
+   * Get poolId
    * @return poolId
   **/
   @javax.annotation.Nonnull
-  public String getPoolId() {
+  public StakingPoolId getPoolId() {
     return poolId;
   }
 
-  public void setPoolId(String poolId) {
+  public void setPoolId(StakingPoolId poolId) {
     this.poolId = poolId;
   }
 
@@ -369,9 +370,8 @@ public class EstimateStakeFee {
       if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) {
         StakingSource.validateJsonElement(jsonObj.get("source"));
       }
-      if (!jsonObj.get("pool_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pool_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pool_id").toString()));
-      }
+      // validate the required field `pool_id`
+      StakingPoolId.validateJsonElement(jsonObj.get("pool_id"));
       if (!jsonObj.get("amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
       }
