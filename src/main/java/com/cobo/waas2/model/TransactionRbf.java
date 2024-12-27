@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.AutoFuelType;
 import com.cobo.waas2.model.TransactionRbfSource;
 import com.cobo.waas2.model.TransactionRequestFee;
 import com.google.gson.TypeAdapter;
@@ -75,6 +76,10 @@ public class TransactionRbf {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+
+  public static final String SERIALIZED_NAME_AUTO_FUEL = "auto_fuel";
+  @SerializedName(SERIALIZED_NAME_AUTO_FUEL)
+  private AutoFuelType autoFuel;
 
   public TransactionRbf() {
   }
@@ -181,6 +186,25 @@ public class TransactionRbf {
     this.description = description;
   }
 
+
+  public TransactionRbf autoFuel(AutoFuelType autoFuel) {
+    this.autoFuel = autoFuel;
+    return this;
+  }
+
+   /**
+   * Get autoFuel
+   * @return autoFuel
+  **/
+  @javax.annotation.Nullable
+  public AutoFuelType getAutoFuel() {
+    return autoFuel;
+  }
+
+  public void setAutoFuel(AutoFuelType autoFuel) {
+    this.autoFuel = autoFuel;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -240,13 +264,14 @@ public class TransactionRbf {
         Objects.equals(this.fee, transactionRbf.fee) &&
         Objects.equals(this.source, transactionRbf.source) &&
         Objects.equals(this.categoryNames, transactionRbf.categoryNames) &&
-        Objects.equals(this.description, transactionRbf.description)&&
+        Objects.equals(this.description, transactionRbf.description) &&
+        Objects.equals(this.autoFuel, transactionRbf.autoFuel)&&
         Objects.equals(this.additionalProperties, transactionRbf.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, fee, source, categoryNames, description, additionalProperties);
+    return Objects.hash(requestId, fee, source, categoryNames, description, autoFuel, additionalProperties);
   }
 
   @Override
@@ -258,6 +283,7 @@ public class TransactionRbf {
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    categoryNames: ").append(toIndentedString(categoryNames)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    autoFuel: ").append(toIndentedString(autoFuel)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -286,6 +312,7 @@ public class TransactionRbf {
     openapiFields.add("source");
     openapiFields.add("category_names");
     openapiFields.add("description");
+    openapiFields.add("auto_fuel");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -328,6 +355,10 @@ public class TransactionRbf {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // validate the optional field `auto_fuel`
+      if (jsonObj.get("auto_fuel") != null && !jsonObj.get("auto_fuel").isJsonNull()) {
+        AutoFuelType.validateJsonElement(jsonObj.get("auto_fuel"));
       }
   }
 

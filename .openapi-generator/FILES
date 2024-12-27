@@ -27,6 +27,7 @@ docs/ApiLogDetails.md
 docs/ApiLogSummary.md
 docs/AssetBalance.md
 docs/AssetInfo.md
+docs/AutoFuelType.md
 docs/BabylonStakeEstimatedFee.md
 docs/BabylonStakeExtra.md
 docs/BabylonStakingExtra.md
@@ -49,7 +50,11 @@ docs/ContractCallDestinationType.md
 docs/ContractCallParams.md
 docs/ContractCallSource.md
 docs/ContractCallSourceType.md
+docs/CoreStakeExtra.md
+docs/CoreStakingExtra.md
 docs/CreateAddressRequest.md
+docs/CreateClaimActivity.md
+docs/CreateClaimActivityRequest.md
 docs/CreateCustodialWalletParams.md
 docs/CreateExchangeWalletParams.md
 docs/CreateKeyShareHolder.md
@@ -84,6 +89,7 @@ docs/EigenLayerLstStakeExtra.md
 docs/EigenLayerNativeStakeExtra.md
 docs/EigenlayerValidator.md
 docs/ErrorResponse.md
+docs/EstimateClaimFee.md
 docs/EstimateContractCallFeeParams.md
 docs/EstimateFeeParams.md
 docs/EstimateFeeRequestType.md
@@ -102,6 +108,7 @@ docs/EstimatedUtxoFeeSlow.md
 docs/EthStakeEstimatedFee.md
 docs/EthStakeExtra.md
 docs/EthStakingExtra.md
+docs/EthStakingExtraAllOfBeaconValidators.md
 docs/EthUnstakeExtra.md
 docs/EvmContractCallDestination.md
 docs/EvmEIP191MessageSignDestination.md
@@ -198,12 +205,12 @@ docs/SmartContractWalletOperationType.md
 docs/SmartContractWalletType.md
 docs/SourceGroup.md
 docs/StakeSourceType.md
+docs/StakingPoolId.md
 docs/StakingPoolType.md
 docs/StakingSource.md
 docs/Stakings.md
 docs/StakingsApi.md
 docs/StakingsExtra.md
-docs/StakingsValidatorInfo.md
 docs/SubWalletAssetBalance.md
 docs/TSSGroups.md
 docs/TSSRequest.md
@@ -374,6 +381,7 @@ src/main/java/com/cobo/waas2/model/ApiLogDetails.java
 src/main/java/com/cobo/waas2/model/ApiLogSummary.java
 src/main/java/com/cobo/waas2/model/AssetBalance.java
 src/main/java/com/cobo/waas2/model/AssetInfo.java
+src/main/java/com/cobo/waas2/model/AutoFuelType.java
 src/main/java/com/cobo/waas2/model/BabylonStakeEstimatedFee.java
 src/main/java/com/cobo/waas2/model/BabylonStakeExtra.java
 src/main/java/com/cobo/waas2/model/BabylonStakingExtra.java
@@ -396,7 +404,11 @@ src/main/java/com/cobo/waas2/model/ContractCallDestinationType.java
 src/main/java/com/cobo/waas2/model/ContractCallParams.java
 src/main/java/com/cobo/waas2/model/ContractCallSource.java
 src/main/java/com/cobo/waas2/model/ContractCallSourceType.java
+src/main/java/com/cobo/waas2/model/CoreStakeExtra.java
+src/main/java/com/cobo/waas2/model/CoreStakingExtra.java
 src/main/java/com/cobo/waas2/model/CreateAddressRequest.java
+src/main/java/com/cobo/waas2/model/CreateClaimActivity.java
+src/main/java/com/cobo/waas2/model/CreateClaimActivityRequest.java
 src/main/java/com/cobo/waas2/model/CreateCustodialWalletParams.java
 src/main/java/com/cobo/waas2/model/CreateExchangeWalletParams.java
 src/main/java/com/cobo/waas2/model/CreateKeyShareHolder.java
@@ -429,6 +441,7 @@ src/main/java/com/cobo/waas2/model/EigenLayerLstStakeExtra.java
 src/main/java/com/cobo/waas2/model/EigenLayerNativeStakeExtra.java
 src/main/java/com/cobo/waas2/model/EigenlayerValidator.java
 src/main/java/com/cobo/waas2/model/ErrorResponse.java
+src/main/java/com/cobo/waas2/model/EstimateClaimFee.java
 src/main/java/com/cobo/waas2/model/EstimateContractCallFeeParams.java
 src/main/java/com/cobo/waas2/model/EstimateFeeParams.java
 src/main/java/com/cobo/waas2/model/EstimateFeeRequestType.java
@@ -447,6 +460,7 @@ src/main/java/com/cobo/waas2/model/EstimatedUtxoFeeSlow.java
 src/main/java/com/cobo/waas2/model/EthStakeEstimatedFee.java
 src/main/java/com/cobo/waas2/model/EthStakeExtra.java
 src/main/java/com/cobo/waas2/model/EthStakingExtra.java
+src/main/java/com/cobo/waas2/model/EthStakingExtraAllOfBeaconValidators.java
 src/main/java/com/cobo/waas2/model/EthUnstakeExtra.java
 src/main/java/com/cobo/waas2/model/EvmContractCallDestination.java
 src/main/java/com/cobo/waas2/model/EvmEIP191MessageSignDestination.java
@@ -542,11 +556,11 @@ src/main/java/com/cobo/waas2/model/SmartContractWalletOperationType.java
 src/main/java/com/cobo/waas2/model/SmartContractWalletType.java
 src/main/java/com/cobo/waas2/model/SourceGroup.java
 src/main/java/com/cobo/waas2/model/StakeSourceType.java
+src/main/java/com/cobo/waas2/model/StakingPoolId.java
 src/main/java/com/cobo/waas2/model/StakingPoolType.java
 src/main/java/com/cobo/waas2/model/StakingSource.java
 src/main/java/com/cobo/waas2/model/Stakings.java
 src/main/java/com/cobo/waas2/model/StakingsExtra.java
-src/main/java/com/cobo/waas2/model/StakingsValidatorInfo.java
 src/main/java/com/cobo/waas2/model/SubWalletAssetBalance.java
 src/main/java/com/cobo/waas2/model/TSSGroups.java
 src/main/java/com/cobo/waas2/model/TSSRequest.java
@@ -672,6 +686,7 @@ src/test/java/com/cobo/waas2/model/ApiLogDetailsTest.java
 src/test/java/com/cobo/waas2/model/ApiLogSummaryTest.java
 src/test/java/com/cobo/waas2/model/AssetBalanceTest.java
 src/test/java/com/cobo/waas2/model/AssetInfoTest.java
+src/test/java/com/cobo/waas2/model/AutoFuelTypeTest.java
 src/test/java/com/cobo/waas2/model/BabylonStakeEstimatedFeeTest.java
 src/test/java/com/cobo/waas2/model/BabylonStakeExtraTest.java
 src/test/java/com/cobo/waas2/model/BabylonStakingExtraTest.java
@@ -694,7 +709,11 @@ src/test/java/com/cobo/waas2/model/ContractCallDestinationTypeTest.java
 src/test/java/com/cobo/waas2/model/ContractCallParamsTest.java
 src/test/java/com/cobo/waas2/model/ContractCallSourceTest.java
 src/test/java/com/cobo/waas2/model/ContractCallSourceTypeTest.java
+src/test/java/com/cobo/waas2/model/CoreStakeExtraTest.java
+src/test/java/com/cobo/waas2/model/CoreStakingExtraTest.java
 src/test/java/com/cobo/waas2/model/CreateAddressRequestTest.java
+src/test/java/com/cobo/waas2/model/CreateClaimActivityRequestTest.java
+src/test/java/com/cobo/waas2/model/CreateClaimActivityTest.java
 src/test/java/com/cobo/waas2/model/CreateCustodialWalletParamsTest.java
 src/test/java/com/cobo/waas2/model/CreateExchangeWalletParamsTest.java
 src/test/java/com/cobo/waas2/model/CreateKeyShareHolderGroupRequestTest.java
@@ -727,6 +746,7 @@ src/test/java/com/cobo/waas2/model/EigenLayerLstStakeExtraTest.java
 src/test/java/com/cobo/waas2/model/EigenLayerNativeStakeExtraTest.java
 src/test/java/com/cobo/waas2/model/EigenlayerValidatorTest.java
 src/test/java/com/cobo/waas2/model/ErrorResponseTest.java
+src/test/java/com/cobo/waas2/model/EstimateClaimFeeTest.java
 src/test/java/com/cobo/waas2/model/EstimateContractCallFeeParamsTest.java
 src/test/java/com/cobo/waas2/model/EstimateFeeParamsTest.java
 src/test/java/com/cobo/waas2/model/EstimateFeeRequestTypeTest.java
@@ -744,6 +764,7 @@ src/test/java/com/cobo/waas2/model/EstimatedUtxoFeeSlowTest.java
 src/test/java/com/cobo/waas2/model/EstimatedUtxoFeeTest.java
 src/test/java/com/cobo/waas2/model/EthStakeEstimatedFeeTest.java
 src/test/java/com/cobo/waas2/model/EthStakeExtraTest.java
+src/test/java/com/cobo/waas2/model/EthStakingExtraAllOfBeaconValidatorsTest.java
 src/test/java/com/cobo/waas2/model/EthStakingExtraTest.java
 src/test/java/com/cobo/waas2/model/EthUnstakeExtraTest.java
 src/test/java/com/cobo/waas2/model/EvmContractCallDestinationTest.java
@@ -840,11 +861,11 @@ src/test/java/com/cobo/waas2/model/SmartContractWalletOperationTypeTest.java
 src/test/java/com/cobo/waas2/model/SmartContractWalletTypeTest.java
 src/test/java/com/cobo/waas2/model/SourceGroupTest.java
 src/test/java/com/cobo/waas2/model/StakeSourceTypeTest.java
+src/test/java/com/cobo/waas2/model/StakingPoolIdTest.java
 src/test/java/com/cobo/waas2/model/StakingPoolTypeTest.java
 src/test/java/com/cobo/waas2/model/StakingSourceTest.java
 src/test/java/com/cobo/waas2/model/StakingsExtraTest.java
 src/test/java/com/cobo/waas2/model/StakingsTest.java
-src/test/java/com/cobo/waas2/model/StakingsValidatorInfoTest.java
 src/test/java/com/cobo/waas2/model/SubWalletAssetBalanceTest.java
 src/test/java/com/cobo/waas2/model/TSSGroupsTest.java
 src/test/java/com/cobo/waas2/model/TSSRequestStatusTest.java

@@ -76,11 +76,11 @@ public class MPCProjectTest {
     }
 
     /**
-     * Test the property 'createTimestamp'
+     * Test the property 'createdTimestamp'
      */
     @Test
-    public void createTimestampTest() {
-        // TODO: test createTimestamp
+    public void createdTimestampTest() {
+        // TODO: test createdTimestamp
     }
 
 }
