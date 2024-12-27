@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.AutoFuelType;
 import com.cobo.waas2.model.ContractCallDestination;
 import com.cobo.waas2.model.ContractCallSource;
 import com.cobo.waas2.model.TransactionRequestFee;
@@ -84,6 +85,10 @@ public class ContractCallParams {
   public static final String SERIALIZED_NAME_FEE = "fee";
   @SerializedName(SERIALIZED_NAME_FEE)
   private TransactionRequestFee fee;
+
+  public static final String SERIALIZED_NAME_AUTO_FUEL = "auto_fuel";
+  @SerializedName(SERIALIZED_NAME_AUTO_FUEL)
+  private AutoFuelType autoFuel;
 
   public ContractCallParams() {
   }
@@ -228,6 +233,25 @@ public class ContractCallParams {
     this.fee = fee;
   }
 
+
+  public ContractCallParams autoFuel(AutoFuelType autoFuel) {
+    this.autoFuel = autoFuel;
+    return this;
+  }
+
+   /**
+   * Get autoFuel
+   * @return autoFuel
+  **/
+  @javax.annotation.Nullable
+  public AutoFuelType getAutoFuel() {
+    return autoFuel;
+  }
+
+  public void setAutoFuel(AutoFuelType autoFuel) {
+    this.autoFuel = autoFuel;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -289,13 +313,14 @@ public class ContractCallParams {
         Objects.equals(this.destination, contractCallParams.destination) &&
         Objects.equals(this.description, contractCallParams.description) &&
         Objects.equals(this.categoryNames, contractCallParams.categoryNames) &&
-        Objects.equals(this.fee, contractCallParams.fee)&&
+        Objects.equals(this.fee, contractCallParams.fee) &&
+        Objects.equals(this.autoFuel, contractCallParams.autoFuel)&&
         Objects.equals(this.additionalProperties, contractCallParams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, chainId, source, destination, description, categoryNames, fee, additionalProperties);
+    return Objects.hash(requestId, chainId, source, destination, description, categoryNames, fee, autoFuel, additionalProperties);
   }
 
   @Override
@@ -309,6 +334,7 @@ public class ContractCallParams {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    categoryNames: ").append(toIndentedString(categoryNames)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    autoFuel: ").append(toIndentedString(autoFuel)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -339,6 +365,7 @@ public class ContractCallParams {
     openapiFields.add("description");
     openapiFields.add("category_names");
     openapiFields.add("fee");
+    openapiFields.add("auto_fuel");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -388,6 +415,10 @@ public class ContractCallParams {
       // validate the optional field `fee`
       if (jsonObj.get("fee") != null && !jsonObj.get("fee").isJsonNull()) {
         TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
+      }
+      // validate the optional field `auto_fuel`
+      if (jsonObj.get("auto_fuel") != null && !jsonObj.get("auto_fuel").isJsonNull()) {
+        AutoFuelType.validateJsonElement(jsonObj.get("auto_fuel"));
       }
   }
 

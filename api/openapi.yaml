@@ -4858,14 +4858,13 @@ paths:
       - application/json
   /stakings/estimate_fee:
     post:
-      description: |
-        This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.
-
-        For some protocols, you can use the `fee.fee_rate` property in the request body to specify the fee rate you are willing to pay.
-
-        The `fee.max_fee_amount` property in the request body will be ignored.
-
-        <Note>For the Babylon protocol, you can only select UTXO as the fee model.</Note>
+      description: "<Note>This operation is deprecated. Please use the [updated version](/v2/api-references/stakings/estimate-staking-fees-1)\
+        \ instead.</Note> \nThis operation calculates the fee required for a staking\
+        \ activity based on factors such as network congestion and transaction complexity.\n\
+        \nFor some protocols, you can use the `fee.fee_rate` property in the request\
+        \ body to specify the fee rate you are willing to pay.\n\nThe `fee.max_fee_amount`\
+        \ property in the request body will be ignored.\n\n<Note>For the Babylon protocol,\
+        \ you can only select UTXO as the fee model.</Note>\n"
       operationId: get_staking_estimation_fee
       requestBody:
         $ref: '#/components/requestBodies/estimateStakeActivityFeeBody'
@@ -4875,6 +4874,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/get_staking_estimation_fee_201_response'
+          description: The request was successful.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request. Your request contains malformed syntax or invalid
+            parameters.
+      summary: Estimate staking fees
+      tags:
+      - Stakings
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /stakings/estimate_fee_v2:
+    post:
+      description: |
+        This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.
+
+        <Note>For the Babylon protocol, you can only select UTXO as the fee model.</Note>
+      operationId: get_staking_estimation_fee_v2
+      requestBody:
+        $ref: '#/components/requestBodies/estimateStakeActivityFeeBody'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EthStakeEstimatedFee'
           description: The request was successful.
         "400":
           content:
@@ -5071,7 +5099,7 @@ paths:
       operationId: get_staking_by_id
       parameters:
       - description: "The ID of the staking position. You can retrieve a list of staking\
-          \ positions by calling [List staking positions](/v2/api-references/stakings/list-all-stakings)."
+          \ positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions)."
         example: f47ac10b-58cc-4372-a567-0e02b2c3d479
         explode: false
         in: path
@@ -5201,6 +5229,49 @@ paths:
           description: Forbidden. You do not have the permission to access the requested
             resource.
       summary: Create withdraw activity
+      tags:
+      - Stakings
+      x-content-type: application/json
+      x-accepts:
+      - application/json
+  /stakings/activities/claim:
+    post:
+      description: "This operation creates a claim request.\n\n<Note>Currently, only\
+        \ the Ethereum Beacon protocol supports this operation.</Note>\n\nFor some\
+        \ protocols, you can use the `fee` property in the request body to specify\
+        \ the maximum fee you are willing to pay. The transaction will fail if the\
+        \ actual fee exceeds the specified maximum fee. \n"
+      operationId: create_claim_activity
+      requestBody:
+        $ref: '#/components/requestBodies/createClaimActivityBody'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/create_stake_activity_201_response'
+          description: Successfully created a staking activity.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request. Your request contains malformed syntax or invalid
+            parameters.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Unauthorized. Please provide valid credentials.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Forbidden. You do not have the permission to access the requested
+            resource.
+      summary: Create claim activity
       tags:
       - Stakings
       x-content-type: application/json
@@ -6456,7 +6527,7 @@ components:
       style: form
     stakingIdRequiredParam:
       description: "The ID of the staking position. You can retrieve a list of staking\
-        \ positions by calling [List staking positions](/v2/api-references/stakings/list-all-stakings)."
+        \ positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions)."
       example: f47ac10b-58cc-4372-a567-0e02b2c3d479
       explode: false
       in: path
@@ -6829,6 +6900,12 @@ components:
           schema:
             $ref: '#/components/schemas/create_unstake_activity_request'
       description: The request body to create a unstaking request.
+    createClaimActivityBody:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/create_claim_activity_request'
+      description: The request body to create a staking request.
     estimateStakeActivityFeeBody:
       content:
         application/json:
@@ -7323,6 +7400,12 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/get_staking_estimation_fee_201_response'
+      description: The request was successful.
+    estimateStakingFeeV2Response:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EthStakeEstimatedFee'
       description: The request was successful.
     getTokenResponse:
       content:
@@ -8614,11 +8697,11 @@ components:
     MPCProject:
       description: The data for project information.
       example:
-        create_timestamp: 1718619403933
         project_id: 0111039d-27fb-49ba-b172-6e0aa80e37ec
         org_id: f3b4a616-9c43-462e-8cb4-343e304fee64
         name: Project name
         threshold: 2
+        created_timestamp: 1718619403933
         participants: 3
       properties:
         project_id:
@@ -8643,7 +8726,7 @@ components:
             in the project.
           example: 2
           type: integer
-        create_timestamp:
+        created_timestamp:
           description: "The project's creation time in Unix timestamp format, measured\
             \ in milliseconds."
           example: 1718619403933
@@ -10634,6 +10717,7 @@ components:
           token_id: TRON
           fee_type: EVM_EIP_1559
         description: Speedup transaction
+        auto_fuel: PassiveAutoFuel
         source:
           wallet_id: f47ac10b-58cc-4372-a567-0e02b2c3d479
           included_utxos:
@@ -10672,6 +10756,8 @@ components:
           description: The description of the RBF transaction.
           example: Speedup transaction
           type: string
+        auto_fuel:
+          $ref: '#/components/schemas/AutoFuelType'
       required:
       - fee
       - request_id
@@ -10700,6 +10786,18 @@ components:
       - Resend
       - SpeedUp
       example: Resend
+      type: string
+    AutoFuelType:
+      description: |
+        The mode of transaction fee payment using Fee Station. Currently, Fee Station supports EVM-compatible and TRON transactions initiated from MPC Wallets (Organization-Controlled). For more details, refer to [Fee Station](https://manuals.cobo.com/en/portal/fee-station/introduction).
+        - `ProActiveAutoFuel`: Always use Fee Station to pay transaction fees.
+        - `PassiveAutoFuel`: Use Fee Station only when the source address balance is insufficient to cover the transaction fees.
+
+        Please note that the TRON chain does not support `PassiveAutoFuel` due to its fee delegation mechanism.
+      enum:
+      - PassiveAutoFuel
+      - ProActiveAutoFuel
+      example: PassiveAutoFuel
       type: string
     CustodialTransferSource:
       description: |
@@ -11015,6 +11113,7 @@ components:
           force_internal: false
           force_external: false
         description: Transfer from wallet
+        auto_fuel: PassiveAutoFuel
         source:
           wallet_id: f47ac10b-58cc-4372-a567-0e02b2c3d479
           source_type: Asset
@@ -11051,6 +11150,8 @@ components:
           type: string
         fee:
           $ref: '#/components/schemas/TransactionRequestFee'
+        auto_fuel:
+          $ref: '#/components/schemas/AutoFuelType'
       required:
       - destination
       - request_id
@@ -11287,6 +11388,7 @@ components:
           calldata: 0xa22cb4650000000000000000000000001e0049783f008a0085193e00003d00cd54003c71000000000000000000000000000000000000000000000000000000000000DEMO
           value: "1.5"
         description: Transaction to call a smart contract initiated from a wallet
+        auto_fuel: PassiveAutoFuel
         source:
           wallet_id: f47ac10b-58cc-4372-a567-0e02b2c3d479
           address: 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
@@ -11323,6 +11425,8 @@ components:
           type: array
         fee:
           $ref: '#/components/schemas/TransactionRequestFee'
+        auto_fuel:
+          $ref: '#/components/schemas/AutoFuelType'
       required:
       - chain_id
       - destination
@@ -12049,6 +12153,35 @@ components:
           type: string
       title: Babylon Staking Fee
       type: object
+    CoreStakeExtra:
+      allOf:
+      - $ref: '#/components/schemas/BaseStakeExtra'
+      - description: The staking information specific to the CORE staking protocol.
+        properties:
+          timelock:
+            description: The Unix timestamp (in seconds) when the staking position
+              will be unlocked and available for withdrawal.
+            example: 1704067200
+            type: integer
+          change_address:
+            description: "The change address on the Bitcoin chain. If not provided,\
+              \ the source wallet's address will be used as the change address."
+            example: bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh
+            type: string
+          validator_address:
+            description: The validator's EVM address.
+            example: 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
+            type: string
+          reward_address:
+            description: The EVM address to receive staking rewards.
+            example: 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
+            type: string
+        required:
+        - reward_address
+        - timelock
+        - validator_address
+        type: object
+      title: CORE
     EthStakeEstimatedFee:
       example:
         validator_pubkeys:
@@ -12153,8 +12286,46 @@ components:
             description: The Proof-of-Stake (PoS) chain.
             example: Ethereum
             type: string
+          beacon_validators:
+            description: The list of validator information.
+            items:
+              $ref: '#/components/schemas/EthStakingExtra_allOf_beacon_validators'
+            type: array
         required:
         - pos_chain
+        type: object
+    CoreStakingExtra:
+      allOf:
+      - $ref: '#/components/schemas/BaseStakeExtra'
+      - description: The information about staking in the CORE staking protocol.
+        properties:
+          pos_chain:
+            description: The Proof-of-Stake (PoS) chain.
+            example: Ethereum
+            type: string
+          staker_address:
+            description: The staker's Bitcoin address.
+            example: bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh
+            type: string
+          validator_address:
+            description: The validator's EVM address.
+            example: 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
+            type: string
+          reward_address:
+            description: The EVM address to receive staking rewards.
+            example: 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045
+            type: string
+          timelock:
+            description: The Unix timestamp (in seconds) when the staking position
+              will be unlocked and available for withdrawal.
+            example: 1704067200
+            type: integer
+        required:
+        - pos_chain
+        - reward_address
+        - staker_address
+        - timelock
+        - validator_address
         type: object
     EigenLayerLstStakeExtra:
       allOf:
@@ -12192,7 +12363,7 @@ components:
           fee_type: EVM_EIP_1559
         created_timestamp: 1640995200000
         type: Stake
-        pool_id: babylon_btc
+        pool_id: babylon_btc_signet
         initiator_type: API
         wallet_id: 0111039d-27fb-49ba-b172-6e0aa80e37ec
         token_id: BTC
@@ -12234,9 +12405,7 @@ components:
           example: 0xAbCdE123456789aBcDeF123456789aBcDeF12345
           type: string
         pool_id:
-          description: The ID of the staking pool.
-          example: babylon_btc
-          type: string
+          $ref: '#/components/schemas/StakingPoolId'
         token_id:
           description: The token ID.
           example: BTC
@@ -12289,10 +12458,18 @@ components:
         - `Submitted`: Submit the staking, unstaking, or withdrawal request.
         - `BTCConfirmation`: The Bitcoin chain confirms the request.
         - `BabylonConfirmation`: The Babylon protocol confirms the request.
+        - `DepositETH`: Deposit ETH to the validator to start staking.
+        - `ClaimRewards`: Claim the rewards from the validator.
+        - `ActivateValidator`: Activate the validator to start staking.
+        - `UnstakeETH`: Unstake ETH from the validator.
       enum:
       - Submitted
       - BTCConfirmation
       - BabylonConfirmation
+      - DepositETH
+      - ClaimRewards
+      - ActivateValidator
+      - UnstakeETH
       example: Submitted
       type: string
     ActivityTimeline:
@@ -12351,9 +12528,7 @@ components:
         source:
           $ref: '#/components/schemas/StakingSource'
         pool_id:
-          description: The ID of the staking pool.
-          example: babylon_btc
-          type: string
+          $ref: '#/components/schemas/StakingPoolId'
         amount:
           description: The amount to stake.
           example: "100.00"
@@ -12385,10 +12560,6 @@ components:
           description: The amount to withdraw.
           example: "100.00"
           type: string
-        address:
-          description: The withdrawal address.
-          example: 0xdAC17F958D2ee523a2206206994597C13D831ec7
-          type: string
         fee:
           $ref: '#/components/schemas/TransactionRequestFee'
       required:
@@ -12418,6 +12589,23 @@ components:
       required:
       - staking_id
       type: object
+    CreateClaimActivity:
+      properties:
+        request_id:
+          description: The request ID that is used to track a request. The request
+            ID is provided by you and must be unique within your organization.
+          example: f47ac10b-58cc-4372-a567-0e02b2c3d479
+          type: string
+        staking_id:
+          description: "The ID of the staking position. You can retrieve a list of\
+            \ staking positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions)."
+          example: f47ac10b-58cc-4372-a567-0e02b2c3d479
+          type: string
+        fee:
+          $ref: '#/components/schemas/TransactionRequestFee'
+      required:
+      - staking_id
+      type: object
     ActivityStatus:
       description: |
         The status of the staking activity. Possible values include:
@@ -12436,10 +12624,12 @@ components:
         - `Stake`: Stake tokens.
         - `Unstake`: Unstake tokens. Unstaked tokens are still in the staking protocol.
         - `Withdraw`: Withdraw tokens from the staking protocol to your wallet.
+        - `Claim`: Claim rewards from the staking protocol.
       enum:
       - Stake
       - Unstake
       - Withdraw
+      - Claim
       example: Stake
       type: string
     AmountStatus:
@@ -12513,11 +12703,7 @@ components:
               type: string
             type: array
         required:
-        - commission_rate
-        - icon_url
         - name
-        - public_key
-        - supported_pos_chains
         type: object
       example:
         icon_url: https://example.com/icon.png
@@ -12741,11 +12927,16 @@ components:
         token_id: BTC
         updated_timestamp: 1640995200000
         validator_info:
-          icon_url: https://example.com/logo.png
+          icon_url: https://example.com/icon.png
           public_key: eca1b104dce16c30705f4147a9c4a373ac88646c5d1bcda6a89c018940cb96a0
-          address: 0xAbCdE123456789aBcDeF123456789aBcDeF12345
+          supported_pos_chains:
+          - Babylon
+          - Cosmos
+          - Ethereum
           name: Cobo
-          commission_rate: "0.1"
+          commission_rate: 0.1
+          priority: 0
+          pool_type: Babylon
         extra:
           unlock_block_height: 871234
           stake_address: tb1pgmpawe2rkrzuuflu8yw564lerfalhw8td36dha49yz4l99xvm3psteh393
@@ -12755,7 +12946,7 @@ components:
           pool_type: Babylon
         created_timestamp: 1640995200000
         id: 0011039d-27fb-49ba-b172-6e0aa80e37ec
-        pool_id: babylon_btc
+        pool_id: babylon_btc_signet
         rewards_info: {}
       properties:
         id:
@@ -12776,9 +12967,7 @@ components:
             $ref: '#/components/schemas/AmountDetails_inner'
           type: array
         pool_id:
-          description: The ID of the staking pool.
-          example: babylon_btc
-          type: string
+          $ref: '#/components/schemas/StakingPoolId'
         token_id:
           description: The token ID.
           example: BTC
@@ -12798,7 +12987,7 @@ components:
           format: int64
           type: integer
         validator_info:
-          $ref: '#/components/schemas/Stakings_validator_info'
+          $ref: '#/components/schemas/BabylonValidator'
         extra:
           $ref: '#/components/schemas/Stakings_extra'
       required:
@@ -12817,7 +13006,21 @@ components:
       enum:
       - Babylon
       - ETHBeacon
+      - CoreBTC
       example: Babylon
+      type: string
+    StakingPoolId:
+      description: "The ID of the staking pool. A staking pool is a pairing of a staking\
+        \ protocol and a specific type of token. Currently, only `babylon_btc_signet`\
+        \ and `babylon_btc` are supported."
+      enum:
+      - babylon_btc_signet
+      - babylon_btc
+      - beacon_eth
+      - beacon_eth_holesky
+      - core_btc
+      - core_xtn
+      example: babylon_btc_signet
       type: string
     BaseEstimateStakingFee:
       properties:
@@ -12841,6 +13044,19 @@ components:
       - $ref: '#/components/schemas/BaseEstimateStakingFee'
       - $ref: '#/components/schemas/CreateWithdrawActivity'
       title: Withdrawal fee
+    EstimateClaimFee:
+      allOf:
+      - $ref: '#/components/schemas/BaseEstimateStakingFee'
+      - properties:
+          staking_id:
+            description: "The ID of the staking position. You can retrieve a list\
+              \ of staking positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions)."
+            example: f47ac10b-58cc-4372-a567-0e02b2c3d479
+            type: string
+          fee:
+            $ref: '#/components/schemas/TransactionRequestFee'
+        type: object
+      title: Claim fee
     AddressBook:
       description: The information of an address book entry.
       example:
@@ -13408,17 +13624,17 @@ components:
           total_count: 10000
           after: RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk
         data:
-        - create_timestamp: 1718619403933
-          project_id: 0111039d-27fb-49ba-b172-6e0aa80e37ec
+        - project_id: 0111039d-27fb-49ba-b172-6e0aa80e37ec
           org_id: f3b4a616-9c43-462e-8cb4-343e304fee64
           name: Project name
           threshold: 2
+          created_timestamp: 1718619403933
           participants: 3
-        - create_timestamp: 1718619403933
-          project_id: 0111039d-27fb-49ba-b172-6e0aa80e37ec
+        - project_id: 0111039d-27fb-49ba-b172-6e0aa80e37ec
           org_id: f3b4a616-9c43-462e-8cb4-343e304fee64
           name: Project name
           threshold: 2
+          created_timestamp: 1718619403933
           participants: 3
       properties:
         data:
@@ -14643,11 +14859,13 @@ components:
           Stake: '#/components/schemas/EstimateStakeFee'
           Unstake: '#/components/schemas/EstimateUnstakeFee'
           Withdraw: '#/components/schemas/EstimateWithdrawFee'
+          Claim: '#/components/schemas/EstimateClaimFee'
         propertyName: activity_type
       oneOf:
       - $ref: '#/components/schemas/EstimateStakeFee'
       - $ref: '#/components/schemas/EstimateUnstakeFee'
       - $ref: '#/components/schemas/EstimateWithdrawFee'
+      - $ref: '#/components/schemas/EstimateClaimFee'
     get_staking_estimation_fee_201_response:
       discriminator:
         mapping:
@@ -14694,11 +14912,16 @@ components:
           token_id: BTC
           updated_timestamp: 1640995200000
           validator_info:
-            icon_url: https://example.com/logo.png
+            icon_url: https://example.com/icon.png
             public_key: eca1b104dce16c30705f4147a9c4a373ac88646c5d1bcda6a89c018940cb96a0
-            address: 0xAbCdE123456789aBcDeF123456789aBcDeF12345
+            supported_pos_chains:
+            - Babylon
+            - Cosmos
+            - Ethereum
             name: Cobo
-            commission_rate: "0.1"
+            commission_rate: 0.1
+            priority: 0
+            pool_type: Babylon
           extra:
             unlock_block_height: 871234
             stake_address: tb1pgmpawe2rkrzuuflu8yw564lerfalhw8td36dha49yz4l99xvm3psteh393
@@ -14708,7 +14931,7 @@ components:
             pool_type: Babylon
           created_timestamp: 1640995200000
           id: 0011039d-27fb-49ba-b172-6e0aa80e37ec
-          pool_id: babylon_btc
+          pool_id: babylon_btc_signet
           rewards_info: {}
         - wallet_id: 0111039d-27fb-49ba-b172-6e0aa80e37ec
           address: 0xAbCdE123456789aBcDeF123456789aBcDeF12345
@@ -14720,11 +14943,16 @@ components:
           token_id: BTC
           updated_timestamp: 1640995200000
           validator_info:
-            icon_url: https://example.com/logo.png
+            icon_url: https://example.com/icon.png
             public_key: eca1b104dce16c30705f4147a9c4a373ac88646c5d1bcda6a89c018940cb96a0
-            address: 0xAbCdE123456789aBcDeF123456789aBcDeF12345
+            supported_pos_chains:
+            - Babylon
+            - Cosmos
+            - Ethereum
             name: Cobo
-            commission_rate: "0.1"
+            commission_rate: 0.1
+            priority: 0
+            pool_type: Babylon
           extra:
             unlock_block_height: 871234
             stake_address: tb1pgmpawe2rkrzuuflu8yw564lerfalhw8td36dha49yz4l99xvm3psteh393
@@ -14734,7 +14962,7 @@ components:
             pool_type: Babylon
           created_timestamp: 1640995200000
           id: 0011039d-27fb-49ba-b172-6e0aa80e37ec
-          pool_id: babylon_btc
+          pool_id: babylon_btc_signet
           rewards_info: {}
       properties:
         data:
@@ -14752,6 +14980,10 @@ components:
       allOf:
       - $ref: '#/components/schemas/CreateWithdrawActivity'
       - $ref: '#/components/schemas/ActivityInitiator'
+    create_claim_activity_request:
+      allOf:
+      - $ref: '#/components/schemas/CreateClaimActivity'
+      - $ref: '#/components/schemas/ActivityInitiator'
     list_staking_activities_200_response:
       example:
         pagination:
@@ -14768,7 +15000,7 @@ components:
             fee_type: EVM_EIP_1559
           created_timestamp: 1640995200000
           type: Stake
-          pool_id: babylon_btc
+          pool_id: babylon_btc_signet
           initiator_type: API
           wallet_id: 0111039d-27fb-49ba-b172-6e0aa80e37ec
           token_id: BTC
@@ -14797,7 +15029,7 @@ components:
             fee_type: EVM_EIP_1559
           created_timestamp: 1640995200000
           type: Stake
-          pool_id: babylon_btc
+          pool_id: babylon_btc_signet
           initiator_type: API
           wallet_id: 0111039d-27fb-49ba-b172-6e0aa80e37ec
           token_id: BTC
@@ -15201,15 +15433,44 @@ components:
       - address
       - amount
       type: object
+    EthStakingExtra_allOf_beacon_validators:
+      properties:
+        pubkey:
+          description: The public key of the validator.
+          example: 0x123456789abcdef
+          type: string
+        status:
+          $ref: '#/components/schemas/AmountStatus'
+        apy:
+          description: The annual percentage yield (APY) of the validator.
+          example: 0.02
+          type: number
+        staked_amount:
+          description: The staked amount.
+          example: "100.00"
+          type: string
+        rewards_received:
+          description: The rewards received.
+          example: "10.00"
+          type: string
+        updated_timestamp:
+          description: "The time when the validator's status was last updated, in\
+            \ Unix timestamp format and measured in milliseconds."
+          example: 1640995200000
+          format: int64
+          type: integer
+      type: object
     CreateStakeActivity_extra:
       discriminator:
         mapping:
           Babylon: '#/components/schemas/BabylonStakeExtra'
           ETHBeacon: '#/components/schemas/EthStakeExtra'
+          CoreBTC: '#/components/schemas/CoreStakeExtra'
         propertyName: pool_type
       oneOf:
       - $ref: '#/components/schemas/BabylonStakeExtra'
       - $ref: '#/components/schemas/EthStakeExtra'
+      - $ref: '#/components/schemas/CoreStakeExtra'
     CreateUnstakeActivity_extra:
       description: Additional protocol-specific information required for the unstaking
         operation. The required fields vary depending on the staking protocol.
@@ -15241,45 +15502,17 @@ components:
         propertyName: pool_type
       oneOf:
       - $ref: '#/components/schemas/BabylonValidator'
-    Stakings_validator_info:
-      description: The information about the validator.
-      example:
-        icon_url: https://example.com/logo.png
-        public_key: eca1b104dce16c30705f4147a9c4a373ac88646c5d1bcda6a89c018940cb96a0
-        address: 0xAbCdE123456789aBcDeF123456789aBcDeF12345
-        name: Cobo
-        commission_rate: "0.1"
-      properties:
-        icon_url:
-          description: The URL of the validator's icon.
-          example: https://example.com/logo.png
-          type: string
-        public_key:
-          description: The validator's public key.
-          example: eca1b104dce16c30705f4147a9c4a373ac88646c5d1bcda6a89c018940cb96a0
-          type: string
-        name:
-          description: The validator's name.
-          example: Cobo
-          type: string
-        address:
-          description: The wallet address of the validator.
-          example: 0xAbCdE123456789aBcDeF123456789aBcDeF12345
-          type: string
-        commission_rate:
-          description: The commission rate of the validator.
-          example: "0.1"
-          type: string
-      type: object
     Stakings_extra:
       discriminator:
         mapping:
           Babylon: '#/components/schemas/BabylonStakingExtra'
           ETHBeacon: '#/components/schemas/EthStakingExtra'
+          CoreBTC: '#/components/schemas/CoreStakingExtra'
         propertyName: pool_type
       oneOf:
       - $ref: '#/components/schemas/BabylonStakingExtra'
       - $ref: '#/components/schemas/EthStakingExtra'
+      - $ref: '#/components/schemas/CoreStakingExtra'
   securitySchemes:
     CoboAuth:
       description: |

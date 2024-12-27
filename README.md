@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.6.2</version>
+  <version>1.7.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.6.2"
+     implementation "com.cobo.waas2:cobo-waas2:1.7.0"
   }
 ```
 
@@ -97,7 +97,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.6.2.jar`
+* `target/cobo-waas2-1.7.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -216,12 +216,14 @@ Class | Method | HTTP request | Description
 *DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
 *OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get Org Access Token
 *OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Org Access Token
+*StakingsApi* | [**createClaimActivity**](docs/StakingsApi.md#createClaimActivity) | **POST** /stakings/activities/claim | Create claim activity
 *StakingsApi* | [**createStakeActivity**](docs/StakingsApi.md#createStakeActivity) | **POST** /stakings/activities/stake | Create stake activity
 *StakingsApi* | [**createUnstakeActivity**](docs/StakingsApi.md#createUnstakeActivity) | **POST** /stakings/activities/unstake | Create unstake activity
 *StakingsApi* | [**createWithdrawActivity**](docs/StakingsApi.md#createWithdrawActivity) | **POST** /stakings/activities/withdraw | Create withdraw activity
 *StakingsApi* | [**getStakingActivityById**](docs/StakingsApi.md#getStakingActivityById) | **GET** /stakings/activities/{activity_id} | Get staking activity details
 *StakingsApi* | [**getStakingById**](docs/StakingsApi.md#getStakingById) | **GET** /stakings/{staking_id} | Get staking position details
 *StakingsApi* | [**getStakingEstimationFee**](docs/StakingsApi.md#getStakingEstimationFee) | **POST** /stakings/estimate_fee | Estimate staking fees
+*StakingsApi* | [**getStakingEstimationFeeV2**](docs/StakingsApi.md#getStakingEstimationFeeV2) | **POST** /stakings/estimate_fee_v2 | Estimate staking fees
 *StakingsApi* | [**getStakingPoolById**](docs/StakingsApi.md#getStakingPoolById) | **GET** /stakings/pools/{pool_id} | Get staking pool details
 *StakingsApi* | [**listStakingActivities**](docs/StakingsApi.md#listStakingActivities) | **GET** /stakings/activities | List staking activities
 *StakingsApi* | [**listStakingPools**](docs/StakingsApi.md#listStakingPools) | **GET** /stakings/pools | List staking pools
@@ -305,6 +307,7 @@ Class | Method | HTTP request | Description
  - [ApiLogSummary](docs/ApiLogSummary.md)
  - [AssetBalance](docs/AssetBalance.md)
  - [AssetInfo](docs/AssetInfo.md)
+ - [AutoFuelType](docs/AutoFuelType.md)
  - [BabylonStakeEstimatedFee](docs/BabylonStakeEstimatedFee.md)
  - [BabylonStakeExtra](docs/BabylonStakeExtra.md)
  - [BabylonStakingExtra](docs/BabylonStakingExtra.md)
@@ -327,7 +330,11 @@ Class | Method | HTTP request | Description
  - [ContractCallParams](docs/ContractCallParams.md)
  - [ContractCallSource](docs/ContractCallSource.md)
  - [ContractCallSourceType](docs/ContractCallSourceType.md)
+ - [CoreStakeExtra](docs/CoreStakeExtra.md)
+ - [CoreStakingExtra](docs/CoreStakingExtra.md)
  - [CreateAddressRequest](docs/CreateAddressRequest.md)
+ - [CreateClaimActivity](docs/CreateClaimActivity.md)
+ - [CreateClaimActivityRequest](docs/CreateClaimActivityRequest.md)
  - [CreateCustodialWalletParams](docs/CreateCustodialWalletParams.md)
  - [CreateExchangeWalletParams](docs/CreateExchangeWalletParams.md)
  - [CreateKeyShareHolder](docs/CreateKeyShareHolder.md)
@@ -360,6 +367,7 @@ Class | Method | HTTP request | Description
  - [EigenLayerNativeStakeExtra](docs/EigenLayerNativeStakeExtra.md)
  - [EigenlayerValidator](docs/EigenlayerValidator.md)
  - [ErrorResponse](docs/ErrorResponse.md)
+ - [EstimateClaimFee](docs/EstimateClaimFee.md)
  - [EstimateContractCallFeeParams](docs/EstimateContractCallFeeParams.md)
  - [EstimateFeeParams](docs/EstimateFeeParams.md)
  - [EstimateFeeRequestType](docs/EstimateFeeRequestType.md)
@@ -378,6 +386,7 @@ Class | Method | HTTP request | Description
  - [EthStakeEstimatedFee](docs/EthStakeEstimatedFee.md)
  - [EthStakeExtra](docs/EthStakeExtra.md)
  - [EthStakingExtra](docs/EthStakingExtra.md)
+ - [EthStakingExtraAllOfBeaconValidators](docs/EthStakingExtraAllOfBeaconValidators.md)
  - [EthUnstakeExtra](docs/EthUnstakeExtra.md)
  - [EvmContractCallDestination](docs/EvmContractCallDestination.md)
  - [EvmEIP191MessageSignDestination](docs/EvmEIP191MessageSignDestination.md)
@@ -473,11 +482,11 @@ Class | Method | HTTP request | Description
  - [SmartContractWalletType](docs/SmartContractWalletType.md)
  - [SourceGroup](docs/SourceGroup.md)
  - [StakeSourceType](docs/StakeSourceType.md)
+ - [StakingPoolId](docs/StakingPoolId.md)
  - [StakingPoolType](docs/StakingPoolType.md)
  - [StakingSource](docs/StakingSource.md)
  - [Stakings](docs/Stakings.md)
  - [StakingsExtra](docs/StakingsExtra.md)
- - [StakingsValidatorInfo](docs/StakingsValidatorInfo.md)
  - [SubWalletAssetBalance](docs/SubWalletAssetBalance.md)
  - [TSSGroups](docs/TSSGroups.md)
  - [TSSRequest](docs/TSSRequest.md)
