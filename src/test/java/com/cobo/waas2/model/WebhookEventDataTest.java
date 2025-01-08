@@ -11,9 +11,13 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.AddressInfo;
+import com.cobo.waas2.model.AddressesEventData;
+import com.cobo.waas2.model.MPCVaultEventData;
+import com.cobo.waas2.model.MPCVaultType;
+import com.cobo.waas2.model.RootPubkey;
 import com.cobo.waas2.model.SourceGroup;
 import com.cobo.waas2.model.TSSRequestStatus;
-import com.cobo.waas2.model.TSSRequestType;
 import com.cobo.waas2.model.TSSRequestWebhookEventData;
 import com.cobo.waas2.model.TransactionBlockInfo;
 import com.cobo.waas2.model.TransactionDestination;
@@ -25,6 +29,8 @@ import com.cobo.waas2.model.TransactionResult;
 import com.cobo.waas2.model.TransactionSource;
 import com.cobo.waas2.model.TransactionSubStatus;
 import com.cobo.waas2.model.TransactionWebhookEventData;
+import com.cobo.waas2.model.WalletInfo;
+import com.cobo.waas2.model.WalletInfoEventData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -306,6 +312,54 @@ public class WebhookEventDataTest {
     @Test
     public void targetKeyShareHolderGroupIdTest() {
         // TODO: test targetKeyShareHolderGroupId
+    }
+
+    /**
+     * Test the property 'addresses'
+     */
+    @Test
+    public void addressesTest() {
+        // TODO: test addresses
+    }
+
+    /**
+     * Test the property 'wallet'
+     */
+    @Test
+    public void walletTest() {
+        // TODO: test wallet
+    }
+
+    /**
+     * Test the property 'vaultId'
+     */
+    @Test
+    public void vaultIdTest() {
+        // TODO: test vaultId
+    }
+
+    /**
+     * Test the property 'projectId'
+     */
+    @Test
+    public void projectIdTest() {
+        // TODO: test projectId
+    }
+
+    /**
+     * Test the property 'name'
+     */
+    @Test
+    public void nameTest() {
+        // TODO: test name
+    }
+
+    /**
+     * Test the property 'rootPubkeys'
+     */
+    @Test
+    public void rootPubkeysTest() {
+        // TODO: test rootPubkeys
     }
 
 }

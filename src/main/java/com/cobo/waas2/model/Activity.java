@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.ActivityExtra;
 import com.cobo.waas2.model.ActivityStatus;
 import com.cobo.waas2.model.ActivityTimeline;
 import com.cobo.waas2.model.ActivityType;
@@ -96,6 +97,10 @@ public class Activity {
   @SerializedName(SERIALIZED_NAME_STAKING_ID)
   private String stakingId;
 
+  public static final String SERIALIZED_NAME_REQUEST_IDS = "request_ids";
+  @SerializedName(SERIALIZED_NAME_REQUEST_IDS)
+  private List<String> requestIds = new ArrayList<>();
+
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private String amount;
@@ -115,6 +120,10 @@ public class Activity {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
   private ActivityStatus status;
+
+  public static final String SERIALIZED_NAME_EXTRA = "extra";
+  @SerializedName(SERIALIZED_NAME_EXTRA)
+  private ActivityExtra extra;
 
   public static final String SERIALIZED_NAME_CREATED_TIMESTAMP = "created_timestamp";
   @SerializedName(SERIALIZED_NAME_CREATED_TIMESTAMP)
@@ -298,6 +307,33 @@ public class Activity {
   }
 
 
+  public Activity requestIds(List<String> requestIds) {
+    this.requestIds = requestIds;
+    return this;
+  }
+
+  public Activity addRequestIdsItem(String requestIdsItem) {
+    if (this.requestIds == null) {
+      this.requestIds = new ArrayList<>();
+    }
+    this.requestIds.add(requestIdsItem);
+    return this;
+  }
+
+   /**
+   * The request IDs of the corresponding transactions of the activity.
+   * @return requestIds
+  **/
+  @javax.annotation.Nullable
+  public List<String> getRequestIds() {
+    return requestIds;
+  }
+
+  public void setRequestIds(List<String> requestIds) {
+    this.requestIds = requestIds;
+  }
+
+
   public Activity amount(String amount) {
     this.amount = amount;
     return this;
@@ -409,6 +445,25 @@ public class Activity {
   }
 
 
+  public Activity extra(ActivityExtra extra) {
+    this.extra = extra;
+    return this;
+  }
+
+   /**
+   * Get extra
+   * @return extra
+  **/
+  @javax.annotation.Nullable
+  public ActivityExtra getExtra() {
+    return extra;
+  }
+
+  public void setExtra(ActivityExtra extra) {
+    this.extra = extra;
+  }
+
+
   public Activity createdTimestamp(Long createdTimestamp) {
     this.createdTimestamp = createdTimestamp;
     return this;
@@ -510,11 +565,13 @@ public class Activity {
         Objects.equals(this.poolId, activity.poolId) &&
         Objects.equals(this.tokenId, activity.tokenId) &&
         Objects.equals(this.stakingId, activity.stakingId) &&
+        Objects.equals(this.requestIds, activity.requestIds) &&
         Objects.equals(this.amount, activity.amount) &&
         Objects.equals(this.transactionIds, activity.transactionIds) &&
         Objects.equals(this.timeline, activity.timeline) &&
         Objects.equals(this.fee, activity.fee) &&
         Objects.equals(this.status, activity.status) &&
+        Objects.equals(this.extra, activity.extra) &&
         Objects.equals(this.createdTimestamp, activity.createdTimestamp) &&
         Objects.equals(this.updatedTimestamp, activity.updatedTimestamp)&&
         Objects.equals(this.additionalProperties, activity.additionalProperties);
@@ -522,7 +579,7 @@ public class Activity {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, initiator, initiatorType, type, walletId, address, poolId, tokenId, stakingId, amount, transactionIds, timeline, fee, status, createdTimestamp, updatedTimestamp, additionalProperties);
+    return Objects.hash(id, initiator, initiatorType, type, walletId, address, poolId, tokenId, stakingId, requestIds, amount, transactionIds, timeline, fee, status, extra, createdTimestamp, updatedTimestamp, additionalProperties);
   }
 
   @Override
@@ -538,11 +595,13 @@ public class Activity {
     sb.append("    poolId: ").append(toIndentedString(poolId)).append("\n");
     sb.append("    tokenId: ").append(toIndentedString(tokenId)).append("\n");
     sb.append("    stakingId: ").append(toIndentedString(stakingId)).append("\n");
+    sb.append("    requestIds: ").append(toIndentedString(requestIds)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    transactionIds: ").append(toIndentedString(transactionIds)).append("\n");
     sb.append("    timeline: ").append(toIndentedString(timeline)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    extra: ").append(toIndentedString(extra)).append("\n");
     sb.append("    createdTimestamp: ").append(toIndentedString(createdTimestamp)).append("\n");
     sb.append("    updatedTimestamp: ").append(toIndentedString(updatedTimestamp)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -577,11 +636,13 @@ public class Activity {
     openapiFields.add("pool_id");
     openapiFields.add("token_id");
     openapiFields.add("staking_id");
+    openapiFields.add("request_ids");
     openapiFields.add("amount");
     openapiFields.add("transaction_ids");
     openapiFields.add("timeline");
     openapiFields.add("fee");
     openapiFields.add("status");
+    openapiFields.add("extra");
     openapiFields.add("created_timestamp");
     openapiFields.add("updated_timestamp");
 
@@ -641,6 +702,10 @@ public class Activity {
       if ((jsonObj.get("staking_id") != null && !jsonObj.get("staking_id").isJsonNull()) && !jsonObj.get("staking_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `staking_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("staking_id").toString()));
       }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("request_ids") != null && !jsonObj.get("request_ids").isJsonNull() && !jsonObj.get("request_ids").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `request_ids` to be an array in the JSON string but got `%s`", jsonObj.get("request_ids").toString()));
+      }
       if (!jsonObj.get("amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
       }
@@ -668,6 +733,10 @@ public class Activity {
       }
       // validate the required field `status`
       ActivityStatus.validateJsonElement(jsonObj.get("status"));
+      // validate the optional field `extra`
+      if (jsonObj.get("extra") != null && !jsonObj.get("extra").isJsonNull()) {
+        ActivityExtra.validateJsonElement(jsonObj.get("extra"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

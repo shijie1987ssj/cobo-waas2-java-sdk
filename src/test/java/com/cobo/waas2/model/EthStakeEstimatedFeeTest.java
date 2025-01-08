@@ -63,4 +63,12 @@ public class EthStakeEstimatedFeeTest {
         // TODO: test validatorPubkeys
     }
 
+    /**
+     * Test the property 'coreBtcStakingAddress'
+     */
+    @Test
+    public void coreBtcStakingAddressTest() {
+        // TODO: test coreBtcStakingAddress
+    }
+
 }
