@@ -81,6 +81,10 @@ public class AddressInfo {
   @SerializedName(SERIALIZED_NAME_X_ONLY_PUBKEY)
   private String xOnlyPubkey;
 
+  public static final String SERIALIZED_NAME_ROOT_PUBKEY = "root_pubkey";
+  @SerializedName(SERIALIZED_NAME_ROOT_PUBKEY)
+  private String rootPubkey;
+
   public static final String SERIALIZED_NAME_TAPROOT_SCRIPT_TREE_HASH = "taproot_script_tree_hash";
   @SerializedName(SERIALIZED_NAME_TAPROOT_SCRIPT_TREE_HASH)
   private String taprootScriptTreeHash;
@@ -117,7 +121,7 @@ public class AddressInfo {
   }
 
    /**
-   * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](/v2/api-references/wallets/list-enabled-chains).
+   * The chain ID, which is the unique identifier of a blockchain. You can retrieve the IDs of all the chains you can use by calling [List enabled chains](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-chains).
    * @return chainId
   **/
   @javax.annotation.Nonnull
@@ -225,6 +229,25 @@ public class AddressInfo {
   }
 
 
+  public AddressInfo rootPubkey(String rootPubkey) {
+    this.rootPubkey = rootPubkey;
+    return this;
+  }
+
+   /**
+   * The root public key of the address. This property applies to MPC Wallets only.
+   * @return rootPubkey
+  **/
+  @javax.annotation.Nullable
+  public String getRootPubkey() {
+    return rootPubkey;
+  }
+
+  public void setRootPubkey(String rootPubkey) {
+    this.rootPubkey = rootPubkey;
+  }
+
+
   public AddressInfo taprootScriptTreeHash(String taprootScriptTreeHash) {
     this.taprootScriptTreeHash = taprootScriptTreeHash;
     return this;
@@ -324,6 +347,7 @@ public class AddressInfo {
         Objects.equals(this.encoding, addressInfo.encoding) &&
         Objects.equals(this.pubkey, addressInfo.pubkey) &&
         Objects.equals(this.xOnlyPubkey, addressInfo.xOnlyPubkey) &&
+        Objects.equals(this.rootPubkey, addressInfo.rootPubkey) &&
         Objects.equals(this.taprootScriptTreeHash, addressInfo.taprootScriptTreeHash) &&
         Objects.equals(this.taprootInternalAddress, addressInfo.taprootInternalAddress)&&
         Objects.equals(this.additionalProperties, addressInfo.additionalProperties);
@@ -331,7 +355,7 @@ public class AddressInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(address, chainId, memo, path, encoding, pubkey, xOnlyPubkey, taprootScriptTreeHash, taprootInternalAddress, additionalProperties);
+    return Objects.hash(address, chainId, memo, path, encoding, pubkey, xOnlyPubkey, rootPubkey, taprootScriptTreeHash, taprootInternalAddress, additionalProperties);
   }
 
   @Override
@@ -345,6 +369,7 @@ public class AddressInfo {
     sb.append("    encoding: ").append(toIndentedString(encoding)).append("\n");
     sb.append("    pubkey: ").append(toIndentedString(pubkey)).append("\n");
     sb.append("    xOnlyPubkey: ").append(toIndentedString(xOnlyPubkey)).append("\n");
+    sb.append("    rootPubkey: ").append(toIndentedString(rootPubkey)).append("\n");
     sb.append("    taprootScriptTreeHash: ").append(toIndentedString(taprootScriptTreeHash)).append("\n");
     sb.append("    taprootInternalAddress: ").append(toIndentedString(taprootInternalAddress)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -377,6 +402,7 @@ public class AddressInfo {
     openapiFields.add("encoding");
     openapiFields.add("pubkey");
     openapiFields.add("x_only_pubkey");
+    openapiFields.add("root_pubkey");
     openapiFields.add("taproot_script_tree_hash");
     openapiFields.add("taproot_internal_address");
 
@@ -427,6 +453,9 @@ public class AddressInfo {
       }
       if ((jsonObj.get("x_only_pubkey") != null && !jsonObj.get("x_only_pubkey").isJsonNull()) && !jsonObj.get("x_only_pubkey").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `x_only_pubkey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("x_only_pubkey").toString()));
+      }
+      if ((jsonObj.get("root_pubkey") != null && !jsonObj.get("root_pubkey").isJsonNull()) && !jsonObj.get("root_pubkey").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `root_pubkey` to be a primitive type in the JSON string but got `%s`", jsonObj.get("root_pubkey").toString()));
       }
       if ((jsonObj.get("taproot_script_tree_hash") != null && !jsonObj.get("taproot_script_tree_hash").isJsonNull()) && !jsonObj.get("taproot_script_tree_hash").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `taproot_script_tree_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("taproot_script_tree_hash").toString()));

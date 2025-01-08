@@ -13,7 +13,7 @@
 |**poolId** | **StakingPoolId** |  |  |
 |**amount** | **String** | The amount to stake. |  |
 |**fee** | [**TransactionRequestFee**](TransactionRequestFee.md) |  |  |
-|**extra** | [**CreateStakeActivityExtra**](CreateStakeActivityExtra.md) |  |  |
+|**extra** | [**CreateStakeActivityExtra**](CreateStakeActivityExtra.md) |  |  [optional] |
 
 
 

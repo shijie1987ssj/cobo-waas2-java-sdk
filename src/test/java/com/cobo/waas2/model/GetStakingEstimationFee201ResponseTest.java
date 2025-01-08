@@ -67,6 +67,14 @@ public class GetStakingEstimationFee201ResponseTest {
     }
 
     /**
+     * Test the property 'coreBtcStakingAddress'
+     */
+    @Test
+    public void coreBtcStakingAddressTest() {
+        // TODO: test coreBtcStakingAddress
+    }
+
+    /**
      * Test the property 'feeType'
      */
     @Test

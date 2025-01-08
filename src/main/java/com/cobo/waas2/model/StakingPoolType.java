@@ -32,7 +32,9 @@ public enum StakingPoolType {
   
   ETHBEACON("ETHBeacon"),
   
-  COREBTC("CoreBTC");
+  COREBTC("CoreBTC"),
+  
+  SKYFARM("SkyFarm");
 
   private String value;
 

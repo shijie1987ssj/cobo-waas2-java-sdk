@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.ActivityExtra;
 import com.cobo.waas2.model.ActivityStatus;
 import com.cobo.waas2.model.ActivityTimeline;
 import com.cobo.waas2.model.ActivityType;
@@ -116,6 +117,14 @@ public class ActivityTest {
     }
 
     /**
+     * Test the property 'requestIds'
+     */
+    @Test
+    public void requestIdsTest() {
+        // TODO: test requestIds
+    }
+
+    /**
      * Test the property 'amount'
      */
     @Test
@@ -153,6 +162,14 @@ public class ActivityTest {
     @Test
     public void statusTest() {
         // TODO: test status
+    }
+
+    /**
+     * Test the property 'extra'
+     */
+    @Test
+    public void extraTest() {
+        // TODO: test extra
     }
 
     /**

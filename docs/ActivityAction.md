@@ -19,5 +19,17 @@
 
 * `UNSTAKEETH` (value: `"UnstakeETH"`)
 
+* `APPROVEUSDC` (value: `"ApproveUSDC"`)
+
+* `CONVERTTOUSDS` (value: `"ConvertToUSDS"`)
+
+* `APPROVEUSDS` (value: `"ApproveUSDS"`)
+
+* `DEPOSITUSDS` (value: `"DepositUSDS"`)
+
+* `WITHDRAWUSDS` (value: `"WithdrawUSDS"`)
+
+* `CONVERTTOUSDC` (value: `"ConvertToUSDC"`)
+
 
 
