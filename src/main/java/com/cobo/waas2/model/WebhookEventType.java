@@ -22,27 +22,33 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The event type. To learn the trigger condition of each event type, refer to [Webhook event types and event data](/v2/guides/webhooks-callbacks/webhook-event-type).
+ * The event type. To learn the trigger condition of each event type, refer to [Webhook event types and event data](https://www.cobo.com/developers/v2/guides/webhooks-callbacks/webhook-event-type).
  */
 @JsonAdapter(WebhookEventType.Adapter.class)
 public enum WebhookEventType {
   UNKNOWN(null),
   
-  TRANSACTION_CREATED("wallets.transaction.created"),
+  WALLETS_TRANSACTION_CREATED("wallets.transaction.created"),
   
-  TRANSACTION_UPDATED("wallets.transaction.updated"),
+  WALLETS_TRANSACTION_UPDATED("wallets.transaction.updated"),
   
-  TRANSACTION_FAILED("wallets.transaction.failed"),
+  WALLETS_TRANSACTION_FAILED("wallets.transaction.failed"),
   
-  TRANSACTION_SUCCEEDED("wallets.transaction.succeeded"),
+  WALLETS_TRANSACTION_SUCCEEDED("wallets.transaction.succeeded"),
   
-  MPC_TSS_REQUEST_CREATED("wallets.mpc.tss_request.created"),
+  WALLETS_MPC_TSS_REQUEST_CREATED("wallets.mpc.tss_request.created"),
   
-  MPC_TSS_REQUEST_UPDATED("wallets.mpc.tss_request.updated"),
+  WALLETS_MPC_TSS_REQUEST_UPDATED("wallets.mpc.tss_request.updated"),
   
-  MPC_TSS_REQUEST_FAILED("wallets.mpc.tss_request.failed"),
+  WALLETS_MPC_TSS_REQUEST_FAILED("wallets.mpc.tss_request.failed"),
   
-  MPC_TSS_REQUEST_SUCCEEDED("wallets.mpc.tss_request.succeeded");
+  WALLETS_MPC_TSS_REQUEST_SUCCEEDED("wallets.mpc.tss_request.succeeded"),
+  
+  WALLETS_ADDRESSES_CREATED("wallets.addresses.created"),
+  
+  WALLETS_CREATED("wallets.created"),
+  
+  MPC_VAULTS_CREATED("mpc_vaults.created");
 
   private String value;
 

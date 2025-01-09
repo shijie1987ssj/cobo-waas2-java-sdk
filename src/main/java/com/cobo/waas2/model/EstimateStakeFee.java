@@ -211,7 +211,7 @@ public class EstimateStakeFee {
    * Get extra
    * @return extra
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CreateStakeActivityExtra getExtra() {
     return extra;
   }
@@ -338,7 +338,6 @@ public class EstimateStakeFee {
     openapiRequiredFields.add("pool_id");
     openapiRequiredFields.add("amount");
     openapiRequiredFields.add("fee");
-    openapiRequiredFields.add("extra");
   }
 
  /**
@@ -377,8 +376,10 @@ public class EstimateStakeFee {
       }
       // validate the required field `fee`
       TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
-      // validate the required field `extra`
-      CreateStakeActivityExtra.validateJsonElement(jsonObj.get("extra"));
+      // validate the optional field `extra`
+      if (jsonObj.get("extra") != null && !jsonObj.get("extra").isJsonNull()) {
+        CreateStakeActivityExtra.validateJsonElement(jsonObj.get("extra"));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

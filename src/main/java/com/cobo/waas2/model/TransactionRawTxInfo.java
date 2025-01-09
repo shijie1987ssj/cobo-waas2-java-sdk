@@ -12,7 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.TransactionUtxo;
+import com.cobo.waas2.model.TransactionSelectedUtxo;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -61,7 +61,7 @@ public class TransactionRawTxInfo {
 
   public static final String SERIALIZED_NAME_SELECTED_UTXOS = "selected_utxos";
   @SerializedName(SERIALIZED_NAME_SELECTED_UTXOS)
-  private List<TransactionUtxo> selectedUtxos = new ArrayList<>();
+  private List<TransactionSelectedUtxo> selectedUtxos = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_RAW_TX = "raw_tx";
   @SerializedName(SERIALIZED_NAME_RAW_TX)
@@ -89,12 +89,12 @@ public class TransactionRawTxInfo {
   }
 
 
-  public TransactionRawTxInfo selectedUtxos(List<TransactionUtxo> selectedUtxos) {
+  public TransactionRawTxInfo selectedUtxos(List<TransactionSelectedUtxo> selectedUtxos) {
     this.selectedUtxos = selectedUtxos;
     return this;
   }
 
-  public TransactionRawTxInfo addSelectedUtxosItem(TransactionUtxo selectedUtxosItem) {
+  public TransactionRawTxInfo addSelectedUtxosItem(TransactionSelectedUtxo selectedUtxosItem) {
     if (this.selectedUtxos == null) {
       this.selectedUtxos = new ArrayList<>();
     }
@@ -107,11 +107,11 @@ public class TransactionRawTxInfo {
    * @return selectedUtxos
   **/
   @javax.annotation.Nullable
-  public List<TransactionUtxo> getSelectedUtxos() {
+  public List<TransactionSelectedUtxo> getSelectedUtxos() {
     return selectedUtxos;
   }
 
-  public void setSelectedUtxos(List<TransactionUtxo> selectedUtxos) {
+  public void setSelectedUtxos(List<TransactionSelectedUtxo> selectedUtxos) {
     this.selectedUtxos = selectedUtxos;
   }
 
@@ -261,7 +261,7 @@ public class TransactionRawTxInfo {
 
           // validate the optional field `selected_utxos` (array)
           for (int i = 0; i < jsonArrayselectedUtxos.size(); i++) {
-            TransactionUtxo.validateJsonElement(jsonArrayselectedUtxos.get(i));
+            TransactionSelectedUtxo.validateJsonElement(jsonArrayselectedUtxos.get(i));
           };
         }
       }

@@ -11,5 +11,7 @@
 
 * `COREBTC` (value: `"CoreBTC"`)
 
+* `SKYFARM` (value: `"SkyFarm"`)
+
 
 

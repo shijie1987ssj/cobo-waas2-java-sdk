@@ -93,6 +93,14 @@ public class AddressInfoTest {
     }
 
     /**
+     * Test the property 'rootPubkey'
+     */
+    @Test
+    public void rootPubkeyTest() {
+        // TODO: test rootPubkey
+    }
+
+    /**
      * Test the property 'taprootScriptTreeHash'
      */
     @Test

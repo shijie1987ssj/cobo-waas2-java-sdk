@@ -15,7 +15,7 @@ The Cobo Wallet-as-a-Service (WaaS) 2.0 API is the latest version of Cobo’s Wa
 - Programmatic control of smart contract wallets such as Safe{Wallet} with fine-grained access controls
 - Seamlessly transfer funds across multiple exchanges, including Binance, OKX, Bybit, Deribit, and more
 
-For more information about the WaaS 2.0 API, see [Introduction to WaaS 2.0](/v2/guides/overview/introduction).
+For more information about the WaaS 2.0 API, see [Introduction to WaaS 2.0](https://www.cobo.com/developers/v2/guides/overview/introduction).
 
 
   For more information, please visit [https://www.cobo.com/waas](https://www.cobo.com/waas)
@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.7.0</version>
+  <version>1.8.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.7.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.8.0"
   }
 ```
 
@@ -97,7 +97,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.7.0.jar`
+* `target/cobo-waas2-1.8.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -204,6 +204,8 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AddressBooksApi* | [**listAddressBooks**](docs/AddressBooksApi.md#listAddressBooks) | **GET** /address_books | List address book entries
 *DevelopersApi* | [**getApiKeyInfo**](docs/DevelopersApi.md#getApiKeyInfo) | **GET** /developers/api_key_info | Get API key information
+*DevelopersApi* | [**listCallbackMessages**](docs/DevelopersApi.md#listCallbackMessages) | **GET** /developers/callback_messages | List all callback messages
+*DevelopersApi* | [**retryCallbackMessage**](docs/DevelopersApi.md#retryCallbackMessage) | **POST** /developers/callback_messages/{message_id}/retry | Retry callback message
 *DevelopersWebhooksApi* | [**createWebhookEndpoint**](docs/DevelopersWebhooksApi.md#createWebhookEndpoint) | **POST** /webhooks/endpoints | Register webhook endpoint
 *DevelopersWebhooksApi* | [**getWebhookEndpointById**](docs/DevelopersWebhooksApi.md#getWebhookEndpointById) | **GET** /webhooks/endpoints/{endpoint_id} | Get webhook endpoint information
 *DevelopersWebhooksApi* | [**getWebhookEventById**](docs/DevelopersWebhooksApi.md#getWebhookEventById) | **GET** /webhooks/endpoints/{endpoint_id}/events/{event_id} | Retrieve event information
@@ -223,7 +225,7 @@ Class | Method | HTTP request | Description
 *StakingsApi* | [**getStakingActivityById**](docs/StakingsApi.md#getStakingActivityById) | **GET** /stakings/activities/{activity_id} | Get staking activity details
 *StakingsApi* | [**getStakingById**](docs/StakingsApi.md#getStakingById) | **GET** /stakings/{staking_id} | Get staking position details
 *StakingsApi* | [**getStakingEstimationFee**](docs/StakingsApi.md#getStakingEstimationFee) | **POST** /stakings/estimate_fee | Estimate staking fees
-*StakingsApi* | [**getStakingEstimationFeeV2**](docs/StakingsApi.md#getStakingEstimationFeeV2) | **POST** /stakings/estimate_fee_v2 | Estimate staking fees
+*StakingsApi* | [**getStakingEstimationFeeV2**](docs/StakingsApi.md#getStakingEstimationFeeV2) | **POST** /stakings/estimate_fee_v2 | Estimate staking fees v2
 *StakingsApi* | [**getStakingPoolById**](docs/StakingsApi.md#getStakingPoolById) | **GET** /stakings/pools/{pool_id} | Get staking pool details
 *StakingsApi* | [**listStakingActivities**](docs/StakingsApi.md#listStakingActivities) | **GET** /stakings/activities | List staking activities
 *StakingsApi* | [**listStakingPools**](docs/StakingsApi.md#listStakingPools) | **GET** /stakings/pools | List staking pools
@@ -236,10 +238,15 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**createTransferTransaction**](docs/TransactionsApi.md#createTransferTransaction) | **POST** /transactions/transfer | Transfer token
 *TransactionsApi* | [**dropTransactionById**](docs/TransactionsApi.md#dropTransactionById) | **POST** /transactions/{transaction_id}/drop | Drop transaction
 *TransactionsApi* | [**estimateFee**](docs/TransactionsApi.md#estimateFee) | **POST** /transactions/estimate_fee | Estimate transaction fee
+*TransactionsApi* | [**getTransactionApprovalDetail**](docs/TransactionsApi.md#getTransactionApprovalDetail) | **GET** /transactions/{transaction_id}/approval_detail | Get transaction approval information
 *TransactionsApi* | [**getTransactionById**](docs/TransactionsApi.md#getTransactionById) | **GET** /transactions/{transaction_id} | Get transaction information
 *TransactionsApi* | [**listTransactions**](docs/TransactionsApi.md#listTransactions) | **GET** /transactions | List all transactions
 *TransactionsApi* | [**resendTransactionById**](docs/TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction
 *TransactionsApi* | [**speedupTransactionById**](docs/TransactionsApi.md#speedupTransactionById) | **POST** /transactions/{transaction_id}/speedup | Speed up transaction
+*TravelRuleApi* | [**getTransactionLimitation**](docs/TravelRuleApi.md#getTransactionLimitation) | **GET** /travel_rule/transaction/limitation | Retrieve transaction limitations
+*TravelRuleApi* | [**listSupportedCountries**](docs/TravelRuleApi.md#listSupportedCountries) | **GET** /travel_rule/transaction/countries | List supported countries
+*TravelRuleApi* | [**submitDepositTravelRuleInfo**](docs/TravelRuleApi.md#submitDepositTravelRuleInfo) | **POST** /travel_rule/transaction/deposit/travel_rule_info | Submit Deposit Transaction Travel Rule information
+*TravelRuleApi* | [**submitWithdrawTravelRuleInfo**](docs/TravelRuleApi.md#submitWithdrawTravelRuleInfo) | **POST** /travel_rule/transaction/withdraw/travel_rule_info | Submit Withdraw Transaction Travel Rule information
 *WalletsApi* | [**checkAddressChainsValidity**](docs/WalletsApi.md#checkAddressChainsValidity) | **GET** /wallets/check_address_chains_validity | Check address validity across chains
 *WalletsApi* | [**checkAddressValidity**](docs/WalletsApi.md#checkAddressValidity) | **GET** /wallets/check_address_validity | Check address validity
 *WalletsApi* | [**checkAddressesValidity**](docs/WalletsApi.md#checkAddressesValidity) | **GET** /wallets/check_addresses_validity | Check addresses validity
@@ -291,6 +298,7 @@ Class | Method | HTTP request | Description
 
  - [Activity](docs/Activity.md)
  - [ActivityAction](docs/ActivityAction.md)
+ - [ActivityExtra](docs/ActivityExtra.md)
  - [ActivityInitiator](docs/ActivityInitiator.md)
  - [ActivityStatus](docs/ActivityStatus.md)
  - [ActivityTimeline](docs/ActivityTimeline.md)
@@ -301,6 +309,7 @@ Class | Method | HTTP request | Description
  - [AddressTransferDestination](docs/AddressTransferDestination.md)
  - [AddressTransferDestinationAccountOutput](docs/AddressTransferDestinationAccountOutput.md)
  - [AddressTransferDestinationUtxoOutputsInner](docs/AddressTransferDestinationUtxoOutputsInner.md)
+ - [AddressesEventData](docs/AddressesEventData.md)
  - [AmountDetailsInner](docs/AmountDetailsInner.md)
  - [AmountStatus](docs/AmountStatus.md)
  - [ApiLogDetails](docs/ApiLogDetails.md)
@@ -310,6 +319,7 @@ Class | Method | HTTP request | Description
  - [AutoFuelType](docs/AutoFuelType.md)
  - [BabylonStakeEstimatedFee](docs/BabylonStakeEstimatedFee.md)
  - [BabylonStakeExtra](docs/BabylonStakeExtra.md)
+ - [BabylonStakingActivityDetailExtra](docs/BabylonStakingActivityDetailExtra.md)
  - [BabylonStakingExtra](docs/BabylonStakingExtra.md)
  - [BabylonValidator](docs/BabylonValidator.md)
  - [BaseContractCallSource](docs/BaseContractCallSource.md)
@@ -318,6 +328,7 @@ Class | Method | HTTP request | Description
  - [BaseStakeSource](docs/BaseStakeSource.md)
  - [BroadcastSignedTransactions201ResponseInner](docs/BroadcastSignedTransactions201ResponseInner.md)
  - [BroadcastSignedTransactionsRequest](docs/BroadcastSignedTransactionsRequest.md)
+ - [CallbackMessage](docs/CallbackMessage.md)
  - [ChainInfo](docs/ChainInfo.md)
  - [CheckAddressChainsValidity200ResponseInner](docs/CheckAddressChainsValidity200ResponseInner.md)
  - [CheckAddressValidity200Response](docs/CheckAddressValidity200Response.md)
@@ -331,6 +342,7 @@ Class | Method | HTTP request | Description
  - [ContractCallSource](docs/ContractCallSource.md)
  - [ContractCallSourceType](docs/ContractCallSourceType.md)
  - [CoreStakeExtra](docs/CoreStakeExtra.md)
+ - [CoreStakingActivityDetailExtra](docs/CoreStakingActivityDetailExtra.md)
  - [CoreStakingExtra](docs/CoreStakingExtra.md)
  - [CreateAddressRequest](docs/CreateAddressRequest.md)
  - [CreateClaimActivity](docs/CreateClaimActivity.md)
@@ -363,6 +375,7 @@ Class | Method | HTTP request | Description
  - [CustodialWalletInfo](docs/CustodialWalletInfo.md)
  - [DeleteKeyShareHolderGroupById201Response](docs/DeleteKeyShareHolderGroupById201Response.md)
  - [DeleteWalletById201Response](docs/DeleteWalletById201Response.md)
+ - [DestinationWalletType](docs/DestinationWalletType.md)
  - [EigenLayerLstStakeExtra](docs/EigenLayerLstStakeExtra.md)
  - [EigenLayerNativeStakeExtra](docs/EigenLayerNativeStakeExtra.md)
  - [EigenlayerValidator](docs/EigenlayerValidator.md)
@@ -385,6 +398,7 @@ Class | Method | HTTP request | Description
  - [EstimatedUtxoFeeSlow](docs/EstimatedUtxoFeeSlow.md)
  - [EthStakeEstimatedFee](docs/EthStakeEstimatedFee.md)
  - [EthStakeExtra](docs/EthStakeExtra.md)
+ - [EthStakingActivityDetailExtra](docs/EthStakingActivityDetailExtra.md)
  - [EthStakingExtra](docs/EthStakingExtra.md)
  - [EthStakingExtraAllOfBeaconValidators](docs/EthStakingExtraAllOfBeaconValidators.md)
  - [EthUnstakeExtra](docs/EthUnstakeExtra.md)
@@ -410,6 +424,7 @@ Class | Method | HTTP request | Description
  - [GetStakingEstimationFeeRequest](docs/GetStakingEstimationFeeRequest.md)
  - [GetToken2XXResponse](docs/GetToken2XXResponse.md)
  - [GetToken4XXResponse](docs/GetToken4XXResponse.md)
+ - [GetTransactionLimitation200Response](docs/GetTransactionLimitation200Response.md)
  - [KeyShareHolder](docs/KeyShareHolder.md)
  - [KeyShareHolderGroup](docs/KeyShareHolderGroup.md)
  - [KeyShareHolderGroupStatus](docs/KeyShareHolderGroupStatus.md)
@@ -419,6 +434,7 @@ Class | Method | HTTP request | Description
  - [ListAddressBooks200Response](docs/ListAddressBooks200Response.md)
  - [ListAddresses200Response](docs/ListAddresses200Response.md)
  - [ListAssetBalancesForExchangeWallet200Response](docs/ListAssetBalancesForExchangeWallet200Response.md)
+ - [ListCallbackMessages200Response](docs/ListCallbackMessages200Response.md)
  - [ListExchanges200ResponseInner](docs/ListExchanges200ResponseInner.md)
  - [ListKeyShareHolderGroups200Response](docs/ListKeyShareHolderGroups200Response.md)
  - [ListMpcProjects200Response](docs/ListMpcProjects200Response.md)
@@ -428,6 +444,7 @@ Class | Method | HTTP request | Description
  - [ListStakings200Response](docs/ListStakings200Response.md)
  - [ListSupportedAssetsForExchange200Response](docs/ListSupportedAssetsForExchange200Response.md)
  - [ListSupportedChains200Response](docs/ListSupportedChains200Response.md)
+ - [ListSupportedCountries200ResponseInner](docs/ListSupportedCountries200ResponseInner.md)
  - [ListSupportedTokens200Response](docs/ListSupportedTokens200Response.md)
  - [ListTokenBalancesForAddress200Response](docs/ListTokenBalancesForAddress200Response.md)
  - [ListTransactions200Response](docs/ListTransactions200Response.md)
@@ -444,6 +461,7 @@ Class | Method | HTTP request | Description
  - [MPCDelegate](docs/MPCDelegate.md)
  - [MPCProject](docs/MPCProject.md)
  - [MPCVault](docs/MPCVault.md)
+ - [MPCVaultEventData](docs/MPCVaultEventData.md)
  - [MPCVaultType](docs/MPCVaultType.md)
  - [MPCWalletInfo](docs/MPCWalletInfo.md)
  - [MaxFeeAmount](docs/MaxFeeAmount.md)
@@ -458,6 +476,7 @@ Class | Method | HTTP request | Description
  - [MpcSigningGroup](docs/MpcSigningGroup.md)
  - [MpcStakeSource](docs/MpcStakeSource.md)
  - [MpcTransferSource](docs/MpcTransferSource.md)
+ - [OrgInfo](docs/OrgInfo.md)
  - [Pagination](docs/Pagination.md)
  - [PoolDetails](docs/PoolDetails.md)
  - [PoolDetailsAllOfValidatorsInfo](docs/PoolDetailsAllOfValidatorsInfo.md)
@@ -466,6 +485,7 @@ Class | Method | HTTP request | Description
  - [RefreshToken2XXResponse](docs/RefreshToken2XXResponse.md)
  - [RefreshTokenRequest](docs/RefreshTokenRequest.md)
  - [ReplaceType](docs/ReplaceType.md)
+ - [RetryCallbackMessage201Response](docs/RetryCallbackMessage201Response.md)
  - [RetryWebhookEventById201Response](docs/RetryWebhookEventById201Response.md)
  - [RoleScopes](docs/RoleScopes.md)
  - [RootPubkey](docs/RootPubkey.md)
@@ -476,6 +496,8 @@ Class | Method | HTTP request | Description
  - [SafeWalletDelegatesContractCall](docs/SafeWalletDelegatesContractCall.md)
  - [SafeWalletDelegatesTransfer](docs/SafeWalletDelegatesTransfer.md)
  - [Scopes](docs/Scopes.md)
+ - [SelectedEntityType](docs/SelectedEntityType.md)
+ - [SelfCustodyWallet](docs/SelfCustodyWallet.md)
  - [SmartContractInitiator](docs/SmartContractInitiator.md)
  - [SmartContractWalletInfo](docs/SmartContractWalletInfo.md)
  - [SmartContractWalletOperationType](docs/SmartContractWalletOperationType.md)
@@ -488,6 +510,10 @@ Class | Method | HTTP request | Description
  - [Stakings](docs/Stakings.md)
  - [StakingsExtra](docs/StakingsExtra.md)
  - [SubWalletAssetBalance](docs/SubWalletAssetBalance.md)
+ - [SubmitDepositTravelRuleInfo201Response](docs/SubmitDepositTravelRuleInfo201Response.md)
+ - [SwapActivity](docs/SwapActivity.md)
+ - [SwapSummary](docs/SwapSummary.md)
+ - [SwapTokenPair](docs/SwapTokenPair.md)
  - [TSSGroups](docs/TSSGroups.md)
  - [TSSRequest](docs/TSSRequest.md)
  - [TSSRequestStatus](docs/TSSRequestStatus.md)
@@ -498,6 +524,8 @@ Class | Method | HTTP request | Description
  - [TokenBalanceBalance](docs/TokenBalanceBalance.md)
  - [TokenInfo](docs/TokenInfo.md)
  - [Transaction](docs/Transaction.md)
+ - [TransactionApprovalDetail](docs/TransactionApprovalDetail.md)
+ - [TransactionApprovalResult](docs/TransactionApprovalResult.md)
  - [TransactionApprover](docs/TransactionApprover.md)
  - [TransactionBlockInfo](docs/TransactionBlockInfo.md)
  - [TransactionCustodialAssetWalletSource](docs/TransactionCustodialAssetWalletSource.md)
@@ -536,6 +564,8 @@ Class | Method | HTTP request | Description
  - [TransactionResend](docs/TransactionResend.md)
  - [TransactionResult](docs/TransactionResult.md)
  - [TransactionResultType](docs/TransactionResultType.md)
+ - [TransactionRoleApprovalDetail](docs/TransactionRoleApprovalDetail.md)
+ - [TransactionSelectedUtxo](docs/TransactionSelectedUtxo.md)
  - [TransactionSignatureResult](docs/TransactionSignatureResult.md)
  - [TransactionSigner](docs/TransactionSigner.md)
  - [TransactionSmartContractSafeWalletSource](docs/TransactionSmartContractSafeWalletSource.md)
@@ -551,6 +581,7 @@ Class | Method | HTTP request | Description
  - [TransactionTransferToAddressDestinationUtxoOutputsInner](docs/TransactionTransferToAddressDestinationUtxoOutputsInner.md)
  - [TransactionTransferToWalletDestination](docs/TransactionTransferToWalletDestination.md)
  - [TransactionType](docs/TransactionType.md)
+ - [TransactionUserApprovalDetail](docs/TransactionUserApprovalDetail.md)
  - [TransactionUtxo](docs/TransactionUtxo.md)
  - [TransactionUtxoFee](docs/TransactionUtxoFee.md)
  - [TransactionWebhookEventData](docs/TransactionWebhookEventData.md)
@@ -558,6 +589,18 @@ Class | Method | HTTP request | Description
  - [TransferDestinationType](docs/TransferDestinationType.md)
  - [TransferParams](docs/TransferParams.md)
  - [TransferSource](docs/TransferSource.md)
+ - [TravelRuleDepositExchangesOrVASP](docs/TravelRuleDepositExchangesOrVASP.md)
+ - [TravelRuleDepositExchangesOrVASPEntityInfo](docs/TravelRuleDepositExchangesOrVASPEntityInfo.md)
+ - [TravelRuleDepositLegalEntity](docs/TravelRuleDepositLegalEntity.md)
+ - [TravelRuleDepositNaturalEntity](docs/TravelRuleDepositNaturalEntity.md)
+ - [TravelRuleDepositRequest](docs/TravelRuleDepositRequest.md)
+ - [TravelRuleDepositRequestTravelRuleInfo](docs/TravelRuleDepositRequestTravelRuleInfo.md)
+ - [TravelRuleWithdrawExchangesOrVASP](docs/TravelRuleWithdrawExchangesOrVASP.md)
+ - [TravelRuleWithdrawExchangesOrVASPEntityInfo](docs/TravelRuleWithdrawExchangesOrVASPEntityInfo.md)
+ - [TravelRuleWithdrawLegalEntity](docs/TravelRuleWithdrawLegalEntity.md)
+ - [TravelRuleWithdrawNaturalEntity](docs/TravelRuleWithdrawNaturalEntity.md)
+ - [TravelRuleWithdrawRequest](docs/TravelRuleWithdrawRequest.md)
+ - [TravelRuleWithdrawRequestTravelRuleInfo](docs/TravelRuleWithdrawRequestTravelRuleInfo.md)
  - [TriggerTestWebhookEvent201Response](docs/TriggerTestWebhookEvent201Response.md)
  - [TriggerTestWebhookEventRequest](docs/TriggerTestWebhookEventRequest.md)
  - [UTXO](docs/UTXO.md)
@@ -573,7 +616,9 @@ Class | Method | HTTP request | Description
  - [UpdateWebhookEndpointByIdRequest](docs/UpdateWebhookEndpointByIdRequest.md)
  - [UtxoFeeBasePrice](docs/UtxoFeeBasePrice.md)
  - [UtxoFeeRate](docs/UtxoFeeRate.md)
+ - [Vasp](docs/Vasp.md)
  - [WalletInfo](docs/WalletInfo.md)
+ - [WalletInfoEventData](docs/WalletInfoEventData.md)
  - [WalletSubtype](docs/WalletSubtype.md)
  - [WalletType](docs/WalletType.md)
  - [WebhookEndpoint](docs/WebhookEndpoint.md)

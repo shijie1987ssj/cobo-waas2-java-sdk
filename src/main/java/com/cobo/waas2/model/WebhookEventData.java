@@ -12,9 +12,13 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.AddressInfo;
+import com.cobo.waas2.model.AddressesEventData;
+import com.cobo.waas2.model.MPCVaultEventData;
+import com.cobo.waas2.model.MPCVaultType;
+import com.cobo.waas2.model.RootPubkey;
 import com.cobo.waas2.model.SourceGroup;
 import com.cobo.waas2.model.TSSRequestStatus;
-import com.cobo.waas2.model.TSSRequestType;
 import com.cobo.waas2.model.TSSRequestWebhookEventData;
 import com.cobo.waas2.model.TransactionBlockInfo;
 import com.cobo.waas2.model.TransactionDestination;
@@ -26,6 +30,8 @@ import com.cobo.waas2.model.TransactionResult;
 import com.cobo.waas2.model.TransactionSource;
 import com.cobo.waas2.model.TransactionSubStatus;
 import com.cobo.waas2.model.TransactionWebhookEventData;
+import com.cobo.waas2.model.WalletInfo;
+import com.cobo.waas2.model.WalletInfoEventData;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -89,6 +95,9 @@ public class WebhookEventData extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<TransactionWebhookEventData> adapterTransactionWebhookEventData = gson.getDelegateAdapter(this, TypeToken.get(TransactionWebhookEventData.class));
             final TypeAdapter<TSSRequestWebhookEventData> adapterTSSRequestWebhookEventData = gson.getDelegateAdapter(this, TypeToken.get(TSSRequestWebhookEventData.class));
+            final TypeAdapter<AddressesEventData> adapterAddressesEventData = gson.getDelegateAdapter(this, TypeToken.get(AddressesEventData.class));
+            final TypeAdapter<WalletInfoEventData> adapterWalletInfoEventData = gson.getDelegateAdapter(this, TypeToken.get(WalletInfoEventData.class));
+            final TypeAdapter<MPCVaultEventData> adapterMPCVaultEventData = gson.getDelegateAdapter(this, TypeToken.get(MPCVaultEventData.class));
 
             return (TypeAdapter<T>) new TypeAdapter<WebhookEventData>() {
                 @Override
@@ -110,7 +119,25 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                         elementAdapter.write(out, element);
                         return;
                     }
-                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: TSSRequestWebhookEventData, TransactionWebhookEventData");
+                    // check if the actual instance is of the type `AddressesEventData`
+                    if (value.getActualInstance() instanceof AddressesEventData) {
+                        JsonElement element = adapterAddressesEventData.toJsonTree((AddressesEventData)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `WalletInfoEventData`
+                    if (value.getActualInstance() instanceof WalletInfoEventData) {
+                        JsonElement element = adapterWalletInfoEventData.toJsonTree((WalletInfoEventData)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    // check if the actual instance is of the type `MPCVaultEventData`
+                    if (value.getActualInstance() instanceof MPCVaultEventData) {
+                        JsonElement element = adapterMPCVaultEventData.toJsonTree((MPCVaultEventData)value.getActualInstance());
+                        elementAdapter.write(out, element);
+                        return;
+                    }
+                    throw new IOException("Failed to serialize as the type doesn't match oneOf schemas: AddressesEventData, MPCVaultEventData, TSSRequestWebhookEventData, TransactionWebhookEventData, WalletInfoEventData");
                 }
 
                 @Override
@@ -127,12 +154,32 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                     } else  {
                         // look up the discriminator value in the field `data_type`
                         switch (jsonObject.get("data_type").getAsString()) {
+                            case "Addresses":
+                                deserialized = adapterAddressesEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "MPCVault":
+                                deserialized = adapterMPCVaultEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
                             case "TSSRequest":
                                 deserialized = adapterTSSRequestWebhookEventData.fromJsonTree(jsonObject);
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
                             case "Transaction":
                                 deserialized = adapterTransactionWebhookEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "WalletInfo":
+                                deserialized = adapterWalletInfoEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "AddressesEventData":
+                                deserialized = adapterAddressesEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
+                            case "MPCVaultEventData":
+                                deserialized = adapterMPCVaultEventData.fromJsonTree(jsonObject);
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
                             case "TSSRequestWebhookEventData":
@@ -143,8 +190,12 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                                 deserialized = adapterTransactionWebhookEventData.fromJsonTree(jsonObject);
                                 newWebhookEventData.setActualInstance(deserialized);
                                 return newWebhookEventData;
+                            case "WalletInfoEventData":
+                                deserialized = adapterWalletInfoEventData.fromJsonTree(jsonObject);
+                                newWebhookEventData.setActualInstance(deserialized);
+                                return newWebhookEventData;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for WebhookEventData. Possible values: TSSRequest Transaction TSSRequestWebhookEventData TransactionWebhookEventData", jsonObject.get("data_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for WebhookEventData. Possible values: Addresses MPCVault TSSRequest Transaction WalletInfo AddressesEventData MPCVaultEventData TSSRequestWebhookEventData TransactionWebhookEventData WalletInfoEventData", jsonObject.get("data_type").getAsString()));
                         }
                     }
 
@@ -176,6 +227,42 @@ public class WebhookEventData extends AbstractOpenApiSchema {
                         errorMessages.add(String.format("Deserialization for TSSRequestWebhookEventData failed with `%s`.", e.getMessage()));
                         log.log(Level.FINER, "Input data does not match schema 'TSSRequestWebhookEventData'", e);
                     }
+                    // deserialize AddressesEventData
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        AddressesEventData.validateJsonElement(jsonElement);
+                        actualAdapter = adapterAddressesEventData;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'AddressesEventData'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for AddressesEventData failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'AddressesEventData'", e);
+                    }
+                    // deserialize WalletInfoEventData
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        WalletInfoEventData.validateJsonElement(jsonElement);
+                        actualAdapter = adapterWalletInfoEventData;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'WalletInfoEventData'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for WalletInfoEventData failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'WalletInfoEventData'", e);
+                    }
+                    // deserialize MPCVaultEventData
+                    try {
+                        // validate the JSON object to see if any exception is thrown
+                        MPCVaultEventData.validateJsonElement(jsonElement);
+                        actualAdapter = adapterMPCVaultEventData;
+                        match++;
+                        log.log(Level.FINER, "Input data matches schema 'MPCVaultEventData'");
+                    } catch (Exception e) {
+                        // deserialization failed, continue
+                        errorMessages.add(String.format("Deserialization for MPCVaultEventData failed with `%s`.", e.getMessage()));
+                        log.log(Level.FINER, "Input data does not match schema 'MPCVaultEventData'", e);
+                    }
 
                     if (match == 1) {
                         WebhookEventData ret = new WebhookEventData();
@@ -196,6 +283,16 @@ public class WebhookEventData extends AbstractOpenApiSchema {
         super("oneOf", Boolean.FALSE);
     }
 
+    public WebhookEventData(AddressesEventData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    public WebhookEventData(MPCVaultEventData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     public WebhookEventData(TSSRequestWebhookEventData o) {
         super("oneOf", Boolean.FALSE);
         setActualInstance(o);
@@ -206,9 +303,17 @@ public class WebhookEventData extends AbstractOpenApiSchema {
         setActualInstance(o);
     }
 
+    public WebhookEventData(WalletInfoEventData o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
     static {
         schemas.put("TransactionWebhookEventData", TransactionWebhookEventData.class);
         schemas.put("TSSRequestWebhookEventData", TSSRequestWebhookEventData.class);
+        schemas.put("AddressesEventData", AddressesEventData.class);
+        schemas.put("WalletInfoEventData", WalletInfoEventData.class);
+        schemas.put("MPCVaultEventData", MPCVaultEventData.class);
     }
 
     @Override
@@ -219,7 +324,7 @@ public class WebhookEventData extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * TSSRequestWebhookEventData, TransactionWebhookEventData
+     * AddressesEventData, MPCVaultEventData, TSSRequestWebhookEventData, TransactionWebhookEventData, WalletInfoEventData
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -235,14 +340,29 @@ public class WebhookEventData extends AbstractOpenApiSchema {
             return;
         }
 
-        throw new RuntimeException("Invalid instance type. Must be TSSRequestWebhookEventData, TransactionWebhookEventData");
+        if (instance instanceof AddressesEventData) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof WalletInfoEventData) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof MPCVaultEventData) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be AddressesEventData, MPCVaultEventData, TSSRequestWebhookEventData, TransactionWebhookEventData, WalletInfoEventData");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * TSSRequestWebhookEventData, TransactionWebhookEventData
+     * AddressesEventData, MPCVaultEventData, TSSRequestWebhookEventData, TransactionWebhookEventData, WalletInfoEventData
      *
-     * @return The actual instance (TSSRequestWebhookEventData, TransactionWebhookEventData)
+     * @return The actual instance (AddressesEventData, MPCVaultEventData, TSSRequestWebhookEventData, TransactionWebhookEventData, WalletInfoEventData)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -269,6 +389,36 @@ public class WebhookEventData extends AbstractOpenApiSchema {
      */
     public TSSRequestWebhookEventData getTSSRequestWebhookEventData() throws ClassCastException {
         return (TSSRequestWebhookEventData)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `AddressesEventData`. If the actual instance is not `AddressesEventData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AddressesEventData`
+     * @throws ClassCastException if the instance is not `AddressesEventData`
+     */
+    public AddressesEventData getAddressesEventData() throws ClassCastException {
+        return (AddressesEventData)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `WalletInfoEventData`. If the actual instance is not `WalletInfoEventData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `WalletInfoEventData`
+     * @throws ClassCastException if the instance is not `WalletInfoEventData`
+     */
+    public WalletInfoEventData getWalletInfoEventData() throws ClassCastException {
+        return (WalletInfoEventData)super.getActualInstance();
+    }
+    /**
+     * Get the actual instance of `MPCVaultEventData`. If the actual instance is not `MPCVaultEventData`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `MPCVaultEventData`
+     * @throws ClassCastException if the instance is not `MPCVaultEventData`
+     */
+    public MPCVaultEventData getMPCVaultEventData() throws ClassCastException {
+        return (MPCVaultEventData)super.getActualInstance();
     }
 
     /**
@@ -297,8 +447,32 @@ public class WebhookEventData extends AbstractOpenApiSchema {
             errorMessages.add(String.format("Deserialization for TSSRequestWebhookEventData failed with `%s`.", e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with AddressesEventData
+        try {
+            AddressesEventData.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for AddressesEventData failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with WalletInfoEventData
+        try {
+            WalletInfoEventData.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for WalletInfoEventData failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with MPCVaultEventData
+        try {
+            MPCVaultEventData.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(String.format("Deserialization for MPCVaultEventData failed with `%s`.", e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
-            // throw new IOException(String.format("The JSON string is invalid for WebhookEventData with oneOf schemas: TSSRequestWebhookEventData, TransactionWebhookEventData. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
+            // throw new IOException(String.format("The JSON string is invalid for WebhookEventData with oneOf schemas: AddressesEventData, MPCVaultEventData, TSSRequestWebhookEventData, TransactionWebhookEventData, WalletInfoEventData. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
         }
     }
 

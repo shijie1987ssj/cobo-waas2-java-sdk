@@ -140,7 +140,7 @@ public class StakingsApiTest {
     /**
      * Estimate staking fees
      *
-     * &lt;Note&gt;This operation is deprecated. Please use the [updated version](/v2/api-references/stakings/estimate-staking-fees-1) instead.&lt;/Note&gt;  This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  For some protocols, you can use the &#x60;fee.fee_rate&#x60; property in the request body to specify the fee rate you are willing to pay.  The &#x60;fee.max_fee_amount&#x60; property in the request body will be ignored.  &lt;Note&gt;For the Babylon protocol, you can only select UTXO as the fee model.&lt;/Note&gt; 
+     * &lt;Note&gt;This operation is deprecated. Please use the [updated version](https://www.cobo.com/developers/v2/api-references/stakings/estimate-staking-fees-v2) instead.&lt;/Note&gt;  This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  For some protocols, you can use the &#x60;fee.fee_rate&#x60; property in the request body to specify the fee rate you are willing to pay.  The &#x60;fee.max_fee_amount&#x60; property in the request body will be ignored.  &lt;Note&gt;For the Babylon protocol, you can only select UTXO as the fee model.&lt;/Note&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -152,7 +152,7 @@ public class StakingsApiTest {
     }
 
     /**
-     * Estimate staking fees
+     * Estimate staking fees v2
      *
      * This operation calculates the fee required for a staking activity based on factors such as network congestion and transaction complexity.  &lt;Note&gt;For the Babylon protocol, you can only select UTXO as the fee model.&lt;/Note&gt; 
      *
@@ -195,10 +195,11 @@ public class StakingsApiTest {
         Long minModifiedTimestamp = null;
         Long maxModifiedTimestamp = null;
         String initiator = null;
+        String requestId = null;
         Integer limit = null;
         String before = null;
         String after = null;
-        ListStakingActivities200Response response = api.listStakingActivities(poolId, stakingId, activityType, activityStatus, minModifiedTimestamp, maxModifiedTimestamp, initiator, limit, before, after);
+        ListStakingActivities200Response response = api.listStakingActivities(poolId, stakingId, activityType, activityStatus, minModifiedTimestamp, maxModifiedTimestamp, initiator, requestId, limit, before, after);
         // TODO: test validations
     }
 

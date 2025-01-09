@@ -17,5 +17,7 @@
 
 * `CORE_XTN` (value: `"core_xtn"`)
 
+* `SKY_FARM_ETH_USDC` (value: `"sky_farm_eth_usdc"`)
+
 
 

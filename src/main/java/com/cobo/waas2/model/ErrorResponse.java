@@ -73,7 +73,7 @@ public class ErrorResponse {
   }
 
    /**
-   * The error code. Refer to [Error codes and status codes](/v2/api-references/error-codes) for more details.
+   * The error code. Refer to [Error codes and status codes](https://www.cobo.com/developers/v2/api-references/error-codes) for more details.
    * @return errorCode
   **/
   @javax.annotation.Nonnull
