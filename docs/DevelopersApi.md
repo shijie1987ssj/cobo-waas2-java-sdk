@@ -79,7 +79,7 @@ This endpoint does not need any parameter.
 
 List all callback messages
 
-This operation retrieves all the callback messages in your organization.  For more details about how to respond to callback messages, refer to [Callback messages](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
+This operation retrieves all the callback messages. 
 
 ### Example
 ```java
@@ -103,7 +103,7 @@ public class Example {
     String callbackMessageIds = "f47ac10b-58cc-4372-a567-0e02b2c3d479,f47ac10b-58cc-4372-a567-0e02b2c3d479";
     String requestIds = "f47ac10b-58cc-4372-a567-0e02b2c3d479,f47ac10b-58cc-4372-a567-0e02b2c3d479";
     String transactionIds = "f47ac10b-58cc-4372-a567-0e02b2c3d479,f47ac10b-58cc-4372-a567-0e02b2c3d479";
-    String walletIds = "f47ac10b-58cc-4372-a567-0e02b2c3d479,f47ac10b-58cc-4372-a567-0e02b2c3d479";
+    String walletIds = "f47ac10b-58cc-4372-a567-0e02b2c3d479, f47ac10b-58cc-4372-a567-0e02b2c3d479";
     String status = "Denied";
     Integer limit = 10;
     String before = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1";
@@ -126,14 +126,14 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **callbackMessageIds** | **String**| A list of callback message IDs, separated by commas. | [optional] |
-| **requestIds** | **String**| A list of request IDs, separated by commas. The request ID is provided by you and must be unique within your organization. | [optional] |
-| **transactionIds** | **String**| A list of transaction IDs, separated by commas. | [optional] |
-| **walletIds** | **String**| A list of wallet IDs, separated by commas. | [optional] |
-| **status** | **String**| The callback message status. Possible values include &#x60;Approved&#x60;, &#x60;Denied&#x60;, and &#x60;Failed&#x60;. | [optional] [enum: Denied, Approved, Failed] |
+| **callbackMessageIds** | **String**| The IDs of the callback messages. Comma separated. | [optional] |
+| **requestIds** | **String**| The request_ids. Comma separated. | [optional] |
+| **transactionIds** | **String**| The IDs of the transactions. Comma separated. | [optional] |
+| **walletIds** | **String**| The wallet ids of the transactions. Comma separated. | [optional] |
+| **status** | **String**| The callback status. Possible values are &#x60;Approved&#x60;, &#x60;Denied&#x60; and &#x60;Failed&#x60;. | [optional] [enum: Denied, Approved, Failed] |
 | **limit** | **Integer**| The maximum number of objects to return. For most operations, the value range is [1, 50]. | [optional] [default to 10] |
-| **before** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
-| **after** | **String**| This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
+| **before** | **String**| An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify &#x60;before&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;, the request will retrieve a list of data objects that end before the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;. You can set this parameter to the value of &#x60;pagination.before&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  - If you set &#x60;before&#x60; to &#x60;infinity&#x60;, the last page of data is returned.  | [optional] |
+| **after** | **String**| An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify &#x60;after&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;, the request will retrieve a list of data objects that start after the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;. You can set this parameter to the value of &#x60;pagination.after&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  | [optional] |
 
 ### Return type
 
@@ -157,11 +157,11 @@ public class Example {
 
 <a id="retryCallbackMessage"></a>
 # **retryCallbackMessage**
-> RetryCallbackMessage201Response retryCallbackMessage(messageId)
+> RetryWebhookEventById201Response retryCallbackMessage(messageId)
 
 Retry callback message
 
-This operation resends a callback message that failed previously.  If your callback endpoint doesn&#39;t respond as expected, the WaaS service will retry sending the callback message up to 30 times. After that, the callback message status will be &#x60;Failed&#x60;. Use this operation to resend the message. For more details, refer to [Webhooks and Callbacks](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
+This operation retry a failed callback message. 
 
 ### Example
 ```java
@@ -184,7 +184,7 @@ public class Example {
     DevelopersApi apiInstance = new DevelopersApi();
     String messageId = "f47ac10b-58cc-4372-a567-0e02b2c3d479";
     try {
-      RetryCallbackMessage201Response result = apiInstance.retryCallbackMessage(messageId);
+      RetryWebhookEventById201Response result = apiInstance.retryCallbackMessage(messageId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling DevelopersApi#retryCallbackMessage");
@@ -201,11 +201,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **messageId** | **String**| The callback message ID. | |
+| **messageId** | **String**| The ID of the callback message. | |
 
 ### Return type
 
-[**RetryCallbackMessage201Response**](RetryCallbackMessage201Response.md)
+[**RetryWebhookEventById201Response**](RetryWebhookEventById201Response.md)
 
 ### Authorization
 

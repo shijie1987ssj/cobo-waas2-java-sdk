@@ -22,25 +22,25 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for RetryCallbackMessage201Response
+ * Model tests for ChangeGuardPubkey200Response
  */
-public class RetryCallbackMessage201ResponseTest {
-    private final RetryCallbackMessage201Response model = new RetryCallbackMessage201Response();
+public class ChangeGuardPubkey200ResponseTest {
+    private final ChangeGuardPubkey200Response model = new ChangeGuardPubkey200Response();
 
     /**
-     * Model tests for RetryCallbackMessage201Response
+     * Model tests for ChangeGuardPubkey200Response
      */
     @Test
-    public void testRetryCallbackMessage201Response() {
-        // TODO: test RetryCallbackMessage201Response
+    public void testChangeGuardPubkey200Response() {
+        // TODO: test ChangeGuardPubkey200Response
     }
 
     /**
-     * Test the property 'retried'
+     * Test the property 'binderId'
      */
     @Test
-    public void retriedTest() {
-        // TODO: test retried
+    public void binderIdTest() {
+        // TODO: test binderId
     }
 
 }

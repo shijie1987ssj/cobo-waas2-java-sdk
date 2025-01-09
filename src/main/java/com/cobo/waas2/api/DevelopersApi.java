@@ -28,7 +28,7 @@ import java.io.IOException;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.GetApiKeyInfo200Response;
 import com.cobo.waas2.model.ListCallbackMessages200Response;
-import com.cobo.waas2.model.RetryCallbackMessage201Response;
+import com.cobo.waas2.model.RetryWebhookEventById201Response;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -165,14 +165,14 @@ public class DevelopersApi {
     }
     /**
      * Build call for listCallbackMessages
-     * @param callbackMessageIds A list of callback message IDs, separated by commas. (optional)
-     * @param requestIds A list of request IDs, separated by commas. The request ID is provided by you and must be unique within your organization. (optional)
-     * @param transactionIds A list of transaction IDs, separated by commas. (optional)
-     * @param walletIds A list of wallet IDs, separated by commas. (optional)
-     * @param status The callback message status. Possible values include &#x60;Approved&#x60;, &#x60;Denied&#x60;, and &#x60;Failed&#x60;. (optional)
+     * @param callbackMessageIds The IDs of the callback messages. Comma separated. (optional)
+     * @param requestIds The request_ids. Comma separated. (optional)
+     * @param transactionIds The IDs of the transactions. Comma separated. (optional)
+     * @param walletIds The wallet ids of the transactions. Comma separated. (optional)
+     * @param status The callback status. Possible values are &#x60;Approved&#x60;, &#x60;Denied&#x60; and &#x60;Failed&#x60;. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param before An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify &#x60;before&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;, the request will retrieve a list of data objects that end before the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;. You can set this parameter to the value of &#x60;pagination.before&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  - If you set &#x60;before&#x60; to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify &#x60;after&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;, the request will retrieve a list of data objects that start after the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;. You can set this parameter to the value of &#x60;pagination.after&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -255,15 +255,15 @@ public class DevelopersApi {
 
     /**
      * List all callback messages
-     * This operation retrieves all the callback messages in your organization.  For more details about how to respond to callback messages, refer to [Callback messages](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
-     * @param callbackMessageIds A list of callback message IDs, separated by commas. (optional)
-     * @param requestIds A list of request IDs, separated by commas. The request ID is provided by you and must be unique within your organization. (optional)
-     * @param transactionIds A list of transaction IDs, separated by commas. (optional)
-     * @param walletIds A list of wallet IDs, separated by commas. (optional)
-     * @param status The callback message status. Possible values include &#x60;Approved&#x60;, &#x60;Denied&#x60;, and &#x60;Failed&#x60;. (optional)
+     * This operation retrieves all the callback messages. 
+     * @param callbackMessageIds The IDs of the callback messages. Comma separated. (optional)
+     * @param requestIds The request_ids. Comma separated. (optional)
+     * @param transactionIds The IDs of the transactions. Comma separated. (optional)
+     * @param walletIds The wallet ids of the transactions. Comma separated. (optional)
+     * @param status The callback status. Possible values are &#x60;Approved&#x60;, &#x60;Denied&#x60; and &#x60;Failed&#x60;. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param before An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify &#x60;before&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;, the request will retrieve a list of data objects that end before the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;. You can set this parameter to the value of &#x60;pagination.before&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  - If you set &#x60;before&#x60; to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify &#x60;after&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;, the request will retrieve a list of data objects that start after the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;. You can set this parameter to the value of &#x60;pagination.after&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @return ListCallbackMessages200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -281,15 +281,15 @@ public class DevelopersApi {
 
     /**
      * List all callback messages
-     * This operation retrieves all the callback messages in your organization.  For more details about how to respond to callback messages, refer to [Callback messages](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
-     * @param callbackMessageIds A list of callback message IDs, separated by commas. (optional)
-     * @param requestIds A list of request IDs, separated by commas. The request ID is provided by you and must be unique within your organization. (optional)
-     * @param transactionIds A list of transaction IDs, separated by commas. (optional)
-     * @param walletIds A list of wallet IDs, separated by commas. (optional)
-     * @param status The callback message status. Possible values include &#x60;Approved&#x60;, &#x60;Denied&#x60;, and &#x60;Failed&#x60;. (optional)
+     * This operation retrieves all the callback messages. 
+     * @param callbackMessageIds The IDs of the callback messages. Comma separated. (optional)
+     * @param requestIds The request_ids. Comma separated. (optional)
+     * @param transactionIds The IDs of the transactions. Comma separated. (optional)
+     * @param walletIds The wallet ids of the transactions. Comma separated. (optional)
+     * @param status The callback status. Possible values are &#x60;Approved&#x60;, &#x60;Denied&#x60; and &#x60;Failed&#x60;. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param before An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify &#x60;before&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;, the request will retrieve a list of data objects that end before the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;. You can set this parameter to the value of &#x60;pagination.before&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  - If you set &#x60;before&#x60; to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify &#x60;after&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;, the request will retrieve a list of data objects that start after the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;. You can set this parameter to the value of &#x60;pagination.after&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @return ApiResponse&lt;ListCallbackMessages200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -308,15 +308,15 @@ public class DevelopersApi {
 
     /**
      * List all callback messages (asynchronously)
-     * This operation retrieves all the callback messages in your organization.  For more details about how to respond to callback messages, refer to [Callback messages](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
-     * @param callbackMessageIds A list of callback message IDs, separated by commas. (optional)
-     * @param requestIds A list of request IDs, separated by commas. The request ID is provided by you and must be unique within your organization. (optional)
-     * @param transactionIds A list of transaction IDs, separated by commas. (optional)
-     * @param walletIds A list of wallet IDs, separated by commas. (optional)
-     * @param status The callback message status. Possible values include &#x60;Approved&#x60;, &#x60;Denied&#x60;, and &#x60;Failed&#x60;. (optional)
+     * This operation retrieves all the callback messages. 
+     * @param callbackMessageIds The IDs of the callback messages. Comma separated. (optional)
+     * @param requestIds The request_ids. Comma separated. (optional)
+     * @param transactionIds The IDs of the transactions. Comma separated. (optional)
+     * @param walletIds The wallet ids of the transactions. Comma separated. (optional)
+     * @param status The callback status. Possible values are &#x60;Approved&#x60;, &#x60;Denied&#x60; and &#x60;Failed&#x60;. (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
-     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
-     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param before An object ID that serves as a starting point for retrieving data in reverse chronological order. For example, if you specify &#x60;before&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;, the request will retrieve a list of data objects that end before the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1&#x60;. You can set this parameter to the value of &#x60;pagination.before&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  - If you set &#x60;before&#x60; to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after An object ID that acts as a starting point for retrieving data in chronological order. For example, if you specify &#x60;after&#x60; as &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;, the request will retrieve a list of data objects that start after the object with the object ID &#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;. You can set this parameter to the value of &#x60;pagination.after&#x60; in the response of the previous request.  - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur.  - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -337,7 +337,7 @@ public class DevelopersApi {
     }
     /**
      * Build call for retryCallbackMessage
-     * @param messageId The callback message ID. (required)
+     * @param messageId The ID of the callback message. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -394,9 +394,9 @@ public class DevelopersApi {
 
     /**
      * Retry callback message
-     * This operation resends a callback message that failed previously.  If your callback endpoint doesn&#39;t respond as expected, the WaaS service will retry sending the callback message up to 30 times. After that, the callback message status will be &#x60;Failed&#x60;. Use this operation to resend the message. For more details, refer to [Webhooks and Callbacks](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
-     * @param messageId The callback message ID. (required)
-     * @return RetryCallbackMessage201Response
+     * This operation retry a failed callback message. 
+     * @param messageId The ID of the callback message. (required)
+     * @return RetryWebhookEventById201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -406,16 +406,16 @@ public class DevelopersApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public RetryCallbackMessage201Response retryCallbackMessage(String messageId) throws ApiException {
-        ApiResponse<RetryCallbackMessage201Response> localVarResp = retryCallbackMessageWithHttpInfo(messageId);
+    public RetryWebhookEventById201Response retryCallbackMessage(String messageId) throws ApiException {
+        ApiResponse<RetryWebhookEventById201Response> localVarResp = retryCallbackMessageWithHttpInfo(messageId);
         return localVarResp.getData();
     }
 
     /**
      * Retry callback message
-     * This operation resends a callback message that failed previously.  If your callback endpoint doesn&#39;t respond as expected, the WaaS service will retry sending the callback message up to 30 times. After that, the callback message status will be &#x60;Failed&#x60;. Use this operation to resend the message. For more details, refer to [Webhooks and Callbacks](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
-     * @param messageId The callback message ID. (required)
-     * @return ApiResponse&lt;RetryCallbackMessage201Response&gt;
+     * This operation retry a failed callback message. 
+     * @param messageId The ID of the callback message. (required)
+     * @return ApiResponse&lt;RetryWebhookEventById201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -425,16 +425,16 @@ public class DevelopersApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<RetryCallbackMessage201Response> retryCallbackMessageWithHttpInfo(String messageId) throws ApiException {
+    public ApiResponse<RetryWebhookEventById201Response> retryCallbackMessageWithHttpInfo(String messageId) throws ApiException {
         okhttp3.Call localVarCall = retryCallbackMessageValidateBeforeCall(messageId, null);
-        Type localVarReturnType = new TypeToken<RetryCallbackMessage201Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<RetryWebhookEventById201Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Retry callback message (asynchronously)
-     * This operation resends a callback message that failed previously.  If your callback endpoint doesn&#39;t respond as expected, the WaaS service will retry sending the callback message up to 30 times. After that, the callback message status will be &#x60;Failed&#x60;. Use this operation to resend the message. For more details, refer to [Webhooks and Callbacks](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
-     * @param messageId The callback message ID. (required)
+     * This operation retry a failed callback message. 
+     * @param messageId The ID of the callback message. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -446,10 +446,10 @@ public class DevelopersApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call retryCallbackMessageAsync(String messageId, final ApiCallback<RetryCallbackMessage201Response> _callback) throws ApiException {
+    public okhttp3.Call retryCallbackMessageAsync(String messageId, final ApiCallback<RetryWebhookEventById201Response> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = retryCallbackMessageValidateBeforeCall(messageId, _callback);
-        Type localVarReturnType = new TypeToken<RetryCallbackMessage201Response>(){}.getType();
+        Type localVarReturnType = new TypeToken<RetryWebhookEventById201Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -27,6 +27,7 @@ docs/AmountDetailsInner.md
 docs/AmountStatus.md
 docs/ApiLogDetails.md
 docs/ApiLogSummary.md
+docs/ApprovalStatementStatus.md
 docs/AssetBalance.md
 docs/AssetInfo.md
 docs/AutoFuelType.md
@@ -43,6 +44,7 @@ docs/BroadcastSignedTransactions201ResponseInner.md
 docs/BroadcastSignedTransactionsRequest.md
 docs/CallbackMessage.md
 docs/ChainInfo.md
+docs/ChangeGuardPubkey200Response.md
 docs/CheckAddressChainsValidity200ResponseInner.md
 docs/CheckAddressValidity200Response.md
 docs/CheckAddressesValidity200ResponseInner.md
@@ -67,6 +69,8 @@ docs/CreateKeyShareHolderGroupRequest.md
 docs/CreateMpcProjectRequest.md
 docs/CreateMpcVaultRequest.md
 docs/CreateMpcWalletParams.md
+docs/CreatePrimeBrokerAddress201Response.md
+docs/CreatePrimeBrokerAddressRequest.md
 docs/CreateSafeWalletParams.md
 docs/CreateSmartContractWalletParams.md
 docs/CreateStakeActivity.md
@@ -86,6 +90,7 @@ docs/CreatedWalletInfo.md
 docs/CurveType.md
 docs/CustodialTransferSource.md
 docs/CustodialWalletInfo.md
+docs/DeleteGuardPubkey201Response.md
 docs/DeleteKeyShareHolderGroupById201Response.md
 docs/DeleteWalletById201Response.md
 docs/DestinationWalletType.md
@@ -140,6 +145,7 @@ docs/GetStakingEstimationFeeRequest.md
 docs/GetToken2XXResponse.md
 docs/GetToken4XXResponse.md
 docs/GetTransactionLimitation200Response.md
+docs/GuardPubkeyStatus.md
 docs/KeyShareHolder.md
 docs/KeyShareHolderGroup.md
 docs/KeyShareHolderGroupStatus.md
@@ -197,11 +203,14 @@ docs/Pagination.md
 docs/PoolDetails.md
 docs/PoolDetailsAllOfValidatorsInfo.md
 docs/PoolSummary.md
+docs/PrimeBrokerApi.md
+docs/QueryApprovalStatement200Response.md
+docs/QueryGuardPubkey200Response.md
+docs/QueryGuardPubkey200ResponseAddressesInner.md
 docs/RawMessageSignDestination.md
 docs/RefreshToken2XXResponse.md
 docs/RefreshTokenRequest.md
 docs/ReplaceType.md
-docs/RetryCallbackMessage201Response.md
 docs/RetryWebhookEventById201Response.md
 docs/RoleScopes.md
 docs/RootPubkey.md
@@ -381,6 +390,7 @@ src/main/java/com/cobo/waas2/api/AddressBooksApi.java
 src/main/java/com/cobo/waas2/api/DevelopersApi.java
 src/main/java/com/cobo/waas2/api/DevelopersWebhooksApi.java
 src/main/java/com/cobo/waas2/api/OAuthApi.java
+src/main/java/com/cobo/waas2/api/PrimeBrokerApi.java
 src/main/java/com/cobo/waas2/api/StakingsApi.java
 src/main/java/com/cobo/waas2/api/TransactionsApi.java
 src/main/java/com/cobo/waas2/api/TravelRuleApi.java
@@ -421,6 +431,7 @@ src/main/java/com/cobo/waas2/model/AmountDetailsInner.java
 src/main/java/com/cobo/waas2/model/AmountStatus.java
 src/main/java/com/cobo/waas2/model/ApiLogDetails.java
 src/main/java/com/cobo/waas2/model/ApiLogSummary.java
+src/main/java/com/cobo/waas2/model/ApprovalStatementStatus.java
 src/main/java/com/cobo/waas2/model/AssetBalance.java
 src/main/java/com/cobo/waas2/model/AssetInfo.java
 src/main/java/com/cobo/waas2/model/AutoFuelType.java
@@ -437,6 +448,7 @@ src/main/java/com/cobo/waas2/model/BroadcastSignedTransactions201ResponseInner.j
 src/main/java/com/cobo/waas2/model/BroadcastSignedTransactionsRequest.java
 src/main/java/com/cobo/waas2/model/CallbackMessage.java
 src/main/java/com/cobo/waas2/model/ChainInfo.java
+src/main/java/com/cobo/waas2/model/ChangeGuardPubkey200Response.java
 src/main/java/com/cobo/waas2/model/CheckAddressChainsValidity200ResponseInner.java
 src/main/java/com/cobo/waas2/model/CheckAddressValidity200Response.java
 src/main/java/com/cobo/waas2/model/CheckAddressesValidity200ResponseInner.java
@@ -461,6 +473,8 @@ src/main/java/com/cobo/waas2/model/CreateKeyShareHolderGroupRequest.java
 src/main/java/com/cobo/waas2/model/CreateMpcProjectRequest.java
 src/main/java/com/cobo/waas2/model/CreateMpcVaultRequest.java
 src/main/java/com/cobo/waas2/model/CreateMpcWalletParams.java
+src/main/java/com/cobo/waas2/model/CreatePrimeBrokerAddress201Response.java
+src/main/java/com/cobo/waas2/model/CreatePrimeBrokerAddressRequest.java
 src/main/java/com/cobo/waas2/model/CreateSafeWalletParams.java
 src/main/java/com/cobo/waas2/model/CreateSmartContractWalletParams.java
 src/main/java/com/cobo/waas2/model/CreateStakeActivity.java
@@ -480,6 +494,7 @@ src/main/java/com/cobo/waas2/model/CreatedWalletInfo.java
 src/main/java/com/cobo/waas2/model/CurveType.java
 src/main/java/com/cobo/waas2/model/CustodialTransferSource.java
 src/main/java/com/cobo/waas2/model/CustodialWalletInfo.java
+src/main/java/com/cobo/waas2/model/DeleteGuardPubkey201Response.java
 src/main/java/com/cobo/waas2/model/DeleteKeyShareHolderGroupById201Response.java
 src/main/java/com/cobo/waas2/model/DeleteWalletById201Response.java
 src/main/java/com/cobo/waas2/model/DestinationWalletType.java
@@ -532,6 +547,7 @@ src/main/java/com/cobo/waas2/model/GetStakingEstimationFeeRequest.java
 src/main/java/com/cobo/waas2/model/GetToken2XXResponse.java
 src/main/java/com/cobo/waas2/model/GetToken4XXResponse.java
 src/main/java/com/cobo/waas2/model/GetTransactionLimitation200Response.java
+src/main/java/com/cobo/waas2/model/GuardPubkeyStatus.java
 src/main/java/com/cobo/waas2/model/KeyShareHolder.java
 src/main/java/com/cobo/waas2/model/KeyShareHolderGroup.java
 src/main/java/com/cobo/waas2/model/KeyShareHolderGroupStatus.java
@@ -588,11 +604,13 @@ src/main/java/com/cobo/waas2/model/Pagination.java
 src/main/java/com/cobo/waas2/model/PoolDetails.java
 src/main/java/com/cobo/waas2/model/PoolDetailsAllOfValidatorsInfo.java
 src/main/java/com/cobo/waas2/model/PoolSummary.java
+src/main/java/com/cobo/waas2/model/QueryApprovalStatement200Response.java
+src/main/java/com/cobo/waas2/model/QueryGuardPubkey200Response.java
+src/main/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseAddressesInner.java
 src/main/java/com/cobo/waas2/model/RawMessageSignDestination.java
 src/main/java/com/cobo/waas2/model/RefreshToken2XXResponse.java
 src/main/java/com/cobo/waas2/model/RefreshTokenRequest.java
 src/main/java/com/cobo/waas2/model/ReplaceType.java
-src/main/java/com/cobo/waas2/model/RetryCallbackMessage201Response.java
 src/main/java/com/cobo/waas2/model/RetryWebhookEventById201Response.java
 src/main/java/com/cobo/waas2/model/RoleScopes.java
 src/main/java/com/cobo/waas2/model/RootPubkey.java
@@ -740,6 +758,7 @@ src/test/java/com/cobo/waas2/api/AddressBooksApiTest.java
 src/test/java/com/cobo/waas2/api/DevelopersApiTest.java
 src/test/java/com/cobo/waas2/api/DevelopersWebhooksApiTest.java
 src/test/java/com/cobo/waas2/api/OAuthApiTest.java
+src/test/java/com/cobo/waas2/api/PrimeBrokerApiTest.java
 src/test/java/com/cobo/waas2/api/StakingsApiTest.java
 src/test/java/com/cobo/waas2/api/TransactionsApiTest.java
 src/test/java/com/cobo/waas2/api/TravelRuleApiTest.java
@@ -765,6 +784,7 @@ src/test/java/com/cobo/waas2/model/AmountDetailsInnerTest.java
 src/test/java/com/cobo/waas2/model/AmountStatusTest.java
 src/test/java/com/cobo/waas2/model/ApiLogDetailsTest.java
 src/test/java/com/cobo/waas2/model/ApiLogSummaryTest.java
+src/test/java/com/cobo/waas2/model/ApprovalStatementStatusTest.java
 src/test/java/com/cobo/waas2/model/AssetBalanceTest.java
 src/test/java/com/cobo/waas2/model/AssetInfoTest.java
 src/test/java/com/cobo/waas2/model/AutoFuelTypeTest.java
@@ -781,6 +801,7 @@ src/test/java/com/cobo/waas2/model/BroadcastSignedTransactions201ResponseInnerTe
 src/test/java/com/cobo/waas2/model/BroadcastSignedTransactionsRequestTest.java
 src/test/java/com/cobo/waas2/model/CallbackMessageTest.java
 src/test/java/com/cobo/waas2/model/ChainInfoTest.java
+src/test/java/com/cobo/waas2/model/ChangeGuardPubkey200ResponseTest.java
 src/test/java/com/cobo/waas2/model/CheckAddressChainsValidity200ResponseInnerTest.java
 src/test/java/com/cobo/waas2/model/CheckAddressValidity200ResponseTest.java
 src/test/java/com/cobo/waas2/model/CheckAddressesValidity200ResponseInnerTest.java
@@ -805,6 +826,8 @@ src/test/java/com/cobo/waas2/model/CreateKeyShareHolderTest.java
 src/test/java/com/cobo/waas2/model/CreateMpcProjectRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateMpcVaultRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateMpcWalletParamsTest.java
+src/test/java/com/cobo/waas2/model/CreatePrimeBrokerAddress201ResponseTest.java
+src/test/java/com/cobo/waas2/model/CreatePrimeBrokerAddressRequestTest.java
 src/test/java/com/cobo/waas2/model/CreateSafeWalletParamsTest.java
 src/test/java/com/cobo/waas2/model/CreateSmartContractWalletParamsTest.java
 src/test/java/com/cobo/waas2/model/CreateStakeActivity201ResponseTest.java
@@ -824,6 +847,7 @@ src/test/java/com/cobo/waas2/model/CreatedWalletInfoTest.java
 src/test/java/com/cobo/waas2/model/CurveTypeTest.java
 src/test/java/com/cobo/waas2/model/CustodialTransferSourceTest.java
 src/test/java/com/cobo/waas2/model/CustodialWalletInfoTest.java
+src/test/java/com/cobo/waas2/model/DeleteGuardPubkey201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DeleteKeyShareHolderGroupById201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DeleteWalletById201ResponseTest.java
 src/test/java/com/cobo/waas2/model/DestinationWalletTypeTest.java
@@ -876,6 +900,7 @@ src/test/java/com/cobo/waas2/model/GetStakingEstimationFeeRequestTest.java
 src/test/java/com/cobo/waas2/model/GetToken2XXResponseTest.java
 src/test/java/com/cobo/waas2/model/GetToken4XXResponseTest.java
 src/test/java/com/cobo/waas2/model/GetTransactionLimitation200ResponseTest.java
+src/test/java/com/cobo/waas2/model/GuardPubkeyStatusTest.java
 src/test/java/com/cobo/waas2/model/KeyShareHolderGroupStatusTest.java
 src/test/java/com/cobo/waas2/model/KeyShareHolderGroupTest.java
 src/test/java/com/cobo/waas2/model/KeyShareHolderGroupTypeTest.java
@@ -932,11 +957,13 @@ src/test/java/com/cobo/waas2/model/PaginationTest.java
 src/test/java/com/cobo/waas2/model/PoolDetailsAllOfValidatorsInfoTest.java
 src/test/java/com/cobo/waas2/model/PoolDetailsTest.java
 src/test/java/com/cobo/waas2/model/PoolSummaryTest.java
+src/test/java/com/cobo/waas2/model/QueryApprovalStatement200ResponseTest.java
+src/test/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseAddressesInnerTest.java
+src/test/java/com/cobo/waas2/model/QueryGuardPubkey200ResponseTest.java
 src/test/java/com/cobo/waas2/model/RawMessageSignDestinationTest.java
 src/test/java/com/cobo/waas2/model/RefreshToken2XXResponseTest.java
 src/test/java/com/cobo/waas2/model/RefreshTokenRequestTest.java
 src/test/java/com/cobo/waas2/model/ReplaceTypeTest.java
-src/test/java/com/cobo/waas2/model/RetryCallbackMessage201ResponseTest.java
 src/test/java/com/cobo/waas2/model/RetryWebhookEventById201ResponseTest.java
 src/test/java/com/cobo/waas2/model/RoleScopesTest.java
 src/test/java/com/cobo/waas2/model/RootPubkeyTest.java

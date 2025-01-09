@@ -87,7 +87,7 @@ public class CallbackMessage {
   private Transaction data;
 
   /**
-   * The callback message status. Possible values include &#x60;Denied&#x60;, &#x60;Approved&#x60;, and &#x60;Failed&#x60;. 
+   * The callback message status.
    */
   @JsonAdapter(StatusEnum.Adapter.class)
   public enum StatusEnum {
@@ -145,7 +145,7 @@ public class CallbackMessage {
   private StatusEnum status;
 
   /**
-   * The callback message result. Possible values include &#x60;ok&#x60; and &#x60;deny&#x60;. 
+   * The callback message result.
    */
   @JsonAdapter(ResultEnum.Adapter.class)
   public enum ResultEnum {
@@ -361,7 +361,7 @@ public class CallbackMessage {
   }
 
    /**
-   * The callback message status. Possible values include &#x60;Denied&#x60;, &#x60;Approved&#x60;, and &#x60;Failed&#x60;. 
+   * The callback message status.
    * @return status
   **/
   @javax.annotation.Nonnull
@@ -380,7 +380,7 @@ public class CallbackMessage {
   }
 
    /**
-   * The callback message result. Possible values include &#x60;ok&#x60; and &#x60;deny&#x60;. 
+   * The callback message result.
    * @return result
   **/
   @javax.annotation.Nullable
