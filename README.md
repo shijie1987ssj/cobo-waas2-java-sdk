@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/shijie1987ssj/cobo-waas2-java-sdk.svg)](https://jitpack.io/#shijie1987ssj/cobo-waas2-java-sdk)
+
 # cobo-waas2-java-sdk
 
 Cobo Wallet as a Service 2.0
