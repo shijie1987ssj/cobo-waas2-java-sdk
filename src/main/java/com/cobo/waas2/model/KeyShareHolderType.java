@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The key share holder&#39;s TSS Node type. Possible values include:  - &#x60;Cobo&#x60;: The TSS Node is generated and held by Cobo.  - &#x60;Mobile&#x60;: The TSS Node is generated and held by a [mobile co-signer](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#create-a-main-group) using [Cobo Guard](https://manuals.cobo.com/en/guard/introduction).  - &#x60;API&#x60;: The TSS Node is generated and held by a [server co-signer](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#create-a-main-group) using the [TSS Node software package](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/tss-node-deployment). 
+ * The key share holder&#39;s TSS Node type. Possible values include:  - &#x60;Cobo&#x60;: The TSS Node is generated and held by Cobo.  - &#x60;Mobile&#x60;: The TSS Node is generated and held by a [mobile co-signer](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#create-a-main-group) using [Cobo Guard](https://manuals.cobo.com/en/guard/introduction).  - &#x60;API&#x60;: The TSS Node is generated and held by an [API co-signer](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#create-a-main-group) using the [TSS Node software package](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/tss-node-deployment). 
  */
 @JsonAdapter(KeyShareHolderType.Adapter.class)
 public enum KeyShareHolderType {

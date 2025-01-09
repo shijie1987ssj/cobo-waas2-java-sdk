@@ -17,7 +17,7 @@ import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.GetApiKeyInfo200Response;
 import com.cobo.waas2.model.ListCallbackMessages200Response;
-import com.cobo.waas2.model.RetryCallbackMessage201Response;
+import com.cobo.waas2.model.RetryWebhookEventById201Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -55,7 +55,7 @@ public class DevelopersApiTest {
     /**
      * List all callback messages
      *
-     * This operation retrieves all the callback messages in your organization.  For more details about how to respond to callback messages, refer to [Callback messages](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
+     * This operation retrieves all the callback messages. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -76,14 +76,14 @@ public class DevelopersApiTest {
     /**
      * Retry callback message
      *
-     * This operation resends a callback message that failed previously.  If your callback endpoint doesn&#39;t respond as expected, the WaaS service will retry sending the callback message up to 30 times. After that, the callback message status will be &#x60;Failed&#x60;. Use this operation to resend the message. For more details, refer to [Webhooks and Callbacks](/v2/guides/webhooks-callbacks/set-up-endpoint#callback-messages). 
+     * This operation retry a failed callback message. 
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void retryCallbackMessageTest() throws ApiException {
         String messageId = null;
-        RetryCallbackMessage201Response response = api.retryCallbackMessage(messageId);
+        RetryWebhookEventById201Response response = api.retryCallbackMessage(messageId);
         // TODO: test validations
     }
 

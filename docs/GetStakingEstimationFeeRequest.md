@@ -14,7 +14,7 @@
 |**amount** | **String** | The amount to withdraw. |  |
 |**fee** | [**TransactionRequestFee**](TransactionRequestFee.md) |  |  |
 |**extra** | [**CreateUnstakeActivityExtra**](CreateUnstakeActivityExtra.md) |  |  [optional] |
-|**stakingId** | **String** | The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-positions). |  |
+|**stakingId** | **String** | The ID of the staking position. You can retrieve a list of staking positions by calling [List staking positions](/v2/api-references/stakings/list-staking-positions). |  |
 
 
 

@@ -45,36 +45,36 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * RetryCallbackMessage201Response
+ * DeleteGuardPubkey201Response
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class RetryCallbackMessage201Response {
-  public static final String SERIALIZED_NAME_RETRIED = "retried";
-  @SerializedName(SERIALIZED_NAME_RETRIED)
-  private Boolean retried;
+public class DeleteGuardPubkey201Response {
+  public static final String SERIALIZED_NAME_STATEMENT_ID = "statement_id";
+  @SerializedName(SERIALIZED_NAME_STATEMENT_ID)
+  private String statementId;
 
-  public RetryCallbackMessage201Response() {
+  public DeleteGuardPubkey201Response() {
   }
 
-  public RetryCallbackMessage201Response retried(Boolean retried) {
-    this.retried = retried;
+  public DeleteGuardPubkey201Response statementId(String statementId) {
+    this.statementId = statementId;
     return this;
   }
 
    /**
-   * Whether the callback message has been successfully resent: - &#x60;true&#x60;: The callback message has been successfully resent. - &#x60;false&#x60;: The callback message has not been successfully resent. 
-   * @return retried
+   * The delete guard binding statement ID.
+   * @return statementId
   **/
-  @javax.annotation.Nullable
-  public Boolean getRetried() {
-    return retried;
+  @javax.annotation.Nonnull
+  public String getStatementId() {
+    return statementId;
   }
 
-  public void setRetried(Boolean retried) {
-    this.retried = retried;
+  public void setStatementId(String statementId) {
+    this.statementId = statementId;
   }
 
   /**
@@ -90,9 +90,9 @@ public class RetryCallbackMessage201Response {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the RetryCallbackMessage201Response instance itself
+   * @return the DeleteGuardPubkey201Response instance itself
    */
-  public RetryCallbackMessage201Response putAdditionalProperty(String key, Object value) {
+  public DeleteGuardPubkey201Response putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -131,21 +131,21 @@ public class RetryCallbackMessage201Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    RetryCallbackMessage201Response retryCallbackMessage201Response = (RetryCallbackMessage201Response) o;
-    return Objects.equals(this.retried, retryCallbackMessage201Response.retried)&&
-        Objects.equals(this.additionalProperties, retryCallbackMessage201Response.additionalProperties);
+    DeleteGuardPubkey201Response deleteGuardPubkey201Response = (DeleteGuardPubkey201Response) o;
+    return Objects.equals(this.statementId, deleteGuardPubkey201Response.statementId)&&
+        Objects.equals(this.additionalProperties, deleteGuardPubkey201Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(retried, additionalProperties);
+    return Objects.hash(statementId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class RetryCallbackMessage201Response {\n");
-    sb.append("    retried: ").append(toIndentedString(retried)).append("\n");
+    sb.append("class DeleteGuardPubkey201Response {\n");
+    sb.append("    statementId: ").append(toIndentedString(statementId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -169,41 +169,52 @@ public class RetryCallbackMessage201Response {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("retried");
+    openapiFields.add("statement_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("statement_id");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to RetryCallbackMessage201Response
+  * @throws IOException if the JSON Element is invalid with respect to DeleteGuardPubkey201Response
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!RetryCallbackMessage201Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in RetryCallbackMessage201Response is not found in the empty JSON string", RetryCallbackMessage201Response.openapiRequiredFields.toString()));
+        if (!DeleteGuardPubkey201Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in DeleteGuardPubkey201Response is not found in the empty JSON string", DeleteGuardPubkey201Response.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : DeleteGuardPubkey201Response.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("statement_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `statement_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statement_id").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!RetryCallbackMessage201Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'RetryCallbackMessage201Response' and its subtypes
+       if (!DeleteGuardPubkey201Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DeleteGuardPubkey201Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<RetryCallbackMessage201Response> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(RetryCallbackMessage201Response.class));
+       final TypeAdapter<DeleteGuardPubkey201Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DeleteGuardPubkey201Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<RetryCallbackMessage201Response>() {
+       return (TypeAdapter<T>) new TypeAdapter<DeleteGuardPubkey201Response>() {
            @Override
-           public void write(JsonWriter out, RetryCallbackMessage201Response value) throws IOException {
+           public void write(JsonWriter out, DeleteGuardPubkey201Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -233,12 +244,12 @@ public class RetryCallbackMessage201Response {
            }
 
            @Override
-           public RetryCallbackMessage201Response read(JsonReader in) throws IOException {
+           public DeleteGuardPubkey201Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             RetryCallbackMessage201Response instance = thisAdapter.fromJsonTree(jsonObj);
+             DeleteGuardPubkey201Response instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -265,18 +276,18 @@ public class RetryCallbackMessage201Response {
   }
 
  /**
-  * Create an instance of RetryCallbackMessage201Response given an JSON string
+  * Create an instance of DeleteGuardPubkey201Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of RetryCallbackMessage201Response
-  * @throws IOException if the JSON string is invalid with respect to RetryCallbackMessage201Response
+  * @return An instance of DeleteGuardPubkey201Response
+  * @throws IOException if the JSON string is invalid with respect to DeleteGuardPubkey201Response
   */
-  public static RetryCallbackMessage201Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, RetryCallbackMessage201Response.class);
+  public static DeleteGuardPubkey201Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DeleteGuardPubkey201Response.class);
   }
 
  /**
-  * Convert an instance of RetryCallbackMessage201Response to an JSON string
+  * Convert an instance of DeleteGuardPubkey201Response to an JSON string
   *
   * @return JSON string
   */

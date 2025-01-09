@@ -16,8 +16,8 @@ The information about a callback message.
 |**walletId** | **String** | The wallet ID. |  [optional] |
 |**url** | **String** | The callback endpoint URL. |  |
 |**data** | [**Transaction**](Transaction.md) |  |  |
-|**status** | [**StatusEnum**](#StatusEnum) | The callback message status. Possible values include &#x60;Denied&#x60;, &#x60;Approved&#x60;, and &#x60;Failed&#x60;.  |  |
-|**result** | [**ResultEnum**](#ResultEnum) | The callback message result. Possible values include &#x60;ok&#x60; and &#x60;deny&#x60;.  |  [optional] |
+|**status** | [**StatusEnum**](#StatusEnum) | The callback message status. |  |
+|**result** | [**ResultEnum**](#ResultEnum) | The callback message result. |  [optional] |
 
 
 
