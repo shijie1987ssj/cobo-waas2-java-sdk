@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The specific action taken within an activity. Possible values include: - &#x60;Submitted&#x60;: Submit the staking, unstaking, or withdrawal request. - &#x60;BTCConfirmation&#x60;: The Bitcoin chain confirms the request. - &#x60;BabylonConfirmation&#x60;: The Babylon protocol confirms the request. - &#x60;DepositETH&#x60;: Deposit ETH to the validator to start staking. - &#x60;ClaimRewards&#x60;: Claim the rewards from the validator. - &#x60;ActivateValidator&#x60;: Activate the validator to start staking. - &#x60;UnstakeETH&#x60;: Unstake ETH from the validator. 
+ * The specific action taken within an activity. Possible values include: - &#x60;Submitted&#x60;: Submit the staking, unstaking, or withdrawal request. - &#x60;BTCConfirmation&#x60;: The Bitcoin chain confirms the request. - &#x60;BabylonConfirmation&#x60;: The Babylon protocol confirms the request. - &#x60;DepositETH&#x60;: Deposit ETH to the validator to start staking. - &#x60;ClaimRewards&#x60;: Claim the rewards from the validator. - &#x60;ActivateValidator&#x60;: Activate the validator to start staking. - &#x60;UnstakeETH&#x60;: Unstake ETH from the validator. - &#x60;ApproveUSDC&#x60;: Approve the USDC token to be used for staking. - &#x60;ConvertToUSDS&#x60;: Convert the USDC token to the USDS token. - &#x60;ApproveUSDS&#x60;: Approve the USDS token to be used for staking. - &#x60;DepositUSDS&#x60;: Deposit the USDS token to the validator. - &#x60;WithdrawUSDS&#x60;: Withdraw the USDS token from the validator. - &#x60;ConvertToUSDC&#x60;: Convert the USDS token to the USDC token. 
  */
 @JsonAdapter(ActivityAction.Adapter.class)
 public enum ActivityAction {
@@ -40,7 +40,19 @@ public enum ActivityAction {
   
   ACTIVATEVALIDATOR("ActivateValidator"),
   
-  UNSTAKEETH("UnstakeETH");
+  UNSTAKEETH("UnstakeETH"),
+  
+  APPROVEUSDC("ApproveUSDC"),
+  
+  CONVERTTOUSDS("ConvertToUSDS"),
+  
+  APPROVEUSDS("ApproveUSDS"),
+  
+  DEPOSITUSDS("DepositUSDS"),
+  
+  WITHDRAWUSDS("WithdrawUSDS"),
+  
+  CONVERTTOUSDC("ConvertToUSDC");
 
   private String value;
 

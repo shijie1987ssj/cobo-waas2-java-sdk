@@ -191,7 +191,7 @@ public class CreateStakeActivityRequest {
    * Get extra
    * @return extra
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public CreateStakeActivityExtra getExtra() {
     return extra;
   }
@@ -336,7 +336,6 @@ public class CreateStakeActivityRequest {
     openapiRequiredFields.add("pool_id");
     openapiRequiredFields.add("amount");
     openapiRequiredFields.add("fee");
-    openapiRequiredFields.add("extra");
   }
 
  /**
@@ -373,8 +372,10 @@ public class CreateStakeActivityRequest {
       }
       // validate the required field `fee`
       TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
-      // validate the required field `extra`
-      CreateStakeActivityExtra.validateJsonElement(jsonObj.get("extra"));
+      // validate the optional field `extra`
+      if (jsonObj.get("extra") != null && !jsonObj.get("extra").isJsonNull()) {
+        CreateStakeActivityExtra.validateJsonElement(jsonObj.get("extra"));
+      }
       if ((jsonObj.get("app_initiator") != null && !jsonObj.get("app_initiator").isJsonNull()) && !jsonObj.get("app_initiator").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `app_initiator` to be a primitive type in the JSON string but got `%s`", jsonObj.get("app_initiator").toString()));
       }

@@ -77,7 +77,7 @@ public class TokenBalanceBalance {
   }
 
    /**
-   * The current amount of tokens in an address, which is retrieved directly from the network. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
+   * The current amount of tokens in an address, which is retrieved directly from the network. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
    * @return total
   **/
   @javax.annotation.Nonnull
@@ -96,7 +96,7 @@ public class TokenBalanceBalance {
   }
 
    /**
-   * The amount of tokens ready to be spent. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
+   * The amount of tokens ready to be spent. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
    * @return available
   **/
   @javax.annotation.Nonnull
@@ -115,7 +115,7 @@ public class TokenBalanceBalance {
   }
 
    /**
-   * The total amount being sent in a transaction, which is calculated as the withdrawal amount plus the transaction fee. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
+   * The total amount being sent in a transaction, which is calculated as the withdrawal amount plus the transaction fee. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
    * @return pending
   **/
   @javax.annotation.Nullable
@@ -134,7 +134,7 @@ public class TokenBalanceBalance {
   }
 
    /**
-   * For UTXO chains, this is the combined value of the selected UTXOs for the transaction. For other chains, it is equal to the Pending amount. To learn more, see [Balances and transaction amounts for MPC Wallets](/v2/guides/mpc-wallets/balance-amounts) for more details.
+   * For UTXO chains, this is the combined value of the selected UTXOs for the transaction. For other chains, it is equal to the Pending amount. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
    * @return locked
   **/
   @javax.annotation.Nullable

@@ -17,11 +17,13 @@ The staking activity.
 |**poolId** | **StakingPoolId** |  |  |
 |**tokenId** | **String** | The token ID. |  |
 |**stakingId** | **String** | The ID of the corresponding staking position. |  [optional] |
+|**requestIds** | **List&lt;String&gt;** | The request IDs of the corresponding transactions of the activity. |  [optional] |
 |**amount** | **String** | The staking amount. |  |
 |**transactionIds** | **List&lt;String&gt;** | The IDs of the corresponding transactions of the activity. |  [optional] |
 |**timeline** | [**List&lt;ActivityTimeline&gt;**](ActivityTimeline.md) | The timeline of the activity. |  [optional] |
 |**fee** | [**TransactionRequestFee**](TransactionRequestFee.md) |  |  [optional] |
 |**status** | **ActivityStatus** |  |  |
+|**extra** | [**ActivityExtra**](ActivityExtra.md) |  |  [optional] |
 |**createdTimestamp** | **Long** | The time when the activity was created. |  [optional] |
 |**updatedTimestamp** | **Long** | The time when the activity was last updated. |  [optional] |
 

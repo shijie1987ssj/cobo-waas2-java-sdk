@@ -215,7 +215,7 @@ public class ApiLogDetails {
   }
 
    /**
-   * The API key used to call the API. For more details, refer to [API key](/v2/guides/overview/cobo-auth#api-key).
+   * The API key used to call the API. For more details, refer to [API key](https://www.cobo.com/developers/v2/guides/overview/cobo-auth#api-key).
    * @return apiKey
   **/
   @javax.annotation.Nonnull

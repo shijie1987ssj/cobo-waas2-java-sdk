@@ -68,6 +68,10 @@ public class EthStakeEstimatedFee {
   @SerializedName(SERIALIZED_NAME_VALIDATOR_PUBKEYS)
   private List<String> validatorPubkeys = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_CORE_BTC_STAKING_ADDRESS = "core_btc_staking_address";
+  @SerializedName(SERIALIZED_NAME_CORE_BTC_STAKING_ADDRESS)
+  private String coreBtcStakingAddress;
+
   public EthStakeEstimatedFee() {
   }
 
@@ -135,6 +139,25 @@ public class EthStakeEstimatedFee {
     this.validatorPubkeys = validatorPubkeys;
   }
 
+
+  public EthStakeEstimatedFee coreBtcStakingAddress(String coreBtcStakingAddress) {
+    this.coreBtcStakingAddress = coreBtcStakingAddress;
+    return this;
+  }
+
+   /**
+   * P2WSH address generated for this staking operation(If the estimated fee is for core BTC staking).
+   * @return coreBtcStakingAddress
+  **/
+  @javax.annotation.Nullable
+  public String getCoreBtcStakingAddress() {
+    return coreBtcStakingAddress;
+  }
+
+  public void setCoreBtcStakingAddress(String coreBtcStakingAddress) {
+    this.coreBtcStakingAddress = coreBtcStakingAddress;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -192,13 +215,14 @@ public class EthStakeEstimatedFee {
     EthStakeEstimatedFee ethStakeEstimatedFee = (EthStakeEstimatedFee) o;
     return Objects.equals(this.poolType, ethStakeEstimatedFee.poolType) &&
         Objects.equals(this.fee, ethStakeEstimatedFee.fee) &&
-        Objects.equals(this.validatorPubkeys, ethStakeEstimatedFee.validatorPubkeys)&&
+        Objects.equals(this.validatorPubkeys, ethStakeEstimatedFee.validatorPubkeys) &&
+        Objects.equals(this.coreBtcStakingAddress, ethStakeEstimatedFee.coreBtcStakingAddress)&&
         Objects.equals(this.additionalProperties, ethStakeEstimatedFee.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(poolType, fee, validatorPubkeys, additionalProperties);
+    return Objects.hash(poolType, fee, validatorPubkeys, coreBtcStakingAddress, additionalProperties);
   }
 
   @Override
@@ -208,6 +232,7 @@ public class EthStakeEstimatedFee {
     sb.append("    poolType: ").append(toIndentedString(poolType)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
     sb.append("    validatorPubkeys: ").append(toIndentedString(validatorPubkeys)).append("\n");
+    sb.append("    coreBtcStakingAddress: ").append(toIndentedString(coreBtcStakingAddress)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -234,6 +259,7 @@ public class EthStakeEstimatedFee {
     openapiFields.add("pool_type");
     openapiFields.add("fee");
     openapiFields.add("validator_pubkeys");
+    openapiFields.add("core_btc_staking_address");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -263,6 +289,9 @@ public class EthStakeEstimatedFee {
       // ensure the optional json data is an array if present
       if (jsonObj.get("validator_pubkeys") != null && !jsonObj.get("validator_pubkeys").isJsonNull() && !jsonObj.get("validator_pubkeys").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `validator_pubkeys` to be an array in the JSON string but got `%s`", jsonObj.get("validator_pubkeys").toString()));
+      }
+      if ((jsonObj.get("core_btc_staking_address") != null && !jsonObj.get("core_btc_staking_address").isJsonNull()) && !jsonObj.get("core_btc_staking_address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `core_btc_staking_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("core_btc_staking_address").toString()));
       }
   }
 
