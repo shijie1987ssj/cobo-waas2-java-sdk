@@ -120,7 +120,7 @@ public class CoreStakingActivityDetailExtra {
   }
 
    /**
-   * The change bitcoin address. If not provided, the source wallet&#39;s address will be used as the change address.
+   * The change address on the Bitcoin chain. If not provided, the source wallet&#39;s address will be used as the change address.
    * @return changeAddress
   **/
   @javax.annotation.Nullable
@@ -139,7 +139,7 @@ public class CoreStakingActivityDetailExtra {
   }
 
    /**
-   * The validator evm address.
+   * The validator&#39;s EVM address.
    * @return validatorAddress
   **/
   @javax.annotation.Nullable
@@ -158,7 +158,7 @@ public class CoreStakingActivityDetailExtra {
   }
 
    /**
-   * The reward evm address.
+   * The EVM address to receive staking rewards.
    * @return rewardAddress
   **/
   @javax.annotation.Nullable

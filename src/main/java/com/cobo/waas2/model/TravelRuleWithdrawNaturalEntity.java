@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Required fields for NATURAL entities.
+ * The required information of a natural person.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -102,7 +102,7 @@ public class TravelRuleWithdrawNaturalEntity {
   }
 
    /**
-   * The first name of the user.
+   * The first name of the natural person.
    * @return firstName
   **/
   @javax.annotation.Nonnull
@@ -121,7 +121,7 @@ public class TravelRuleWithdrawNaturalEntity {
   }
 
    /**
-   * The last name of the user.
+   * The last name of the natural person.
    * @return lastName
   **/
   @javax.annotation.Nonnull
@@ -140,7 +140,7 @@ public class TravelRuleWithdrawNaturalEntity {
   }
 
    /**
-   * The date of birth of the user.
+   * The date of birth of the natural person.
    * @return dateOfBirth
   **/
   @javax.annotation.Nullable
@@ -159,7 +159,7 @@ public class TravelRuleWithdrawNaturalEntity {
   }
 
    /**
-   * The place of birth of the user.
+   * The place of birth of the natural person.
    * @return placeOfBirth
   **/
   @javax.annotation.Nullable
