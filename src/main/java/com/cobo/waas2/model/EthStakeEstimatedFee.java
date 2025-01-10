@@ -146,7 +146,7 @@ public class EthStakeEstimatedFee {
   }
 
    /**
-   * P2WSH address generated for this staking operation(If the estimated fee is for core BTC staking).
+   * The P2WSH address generated for this staking operation (only applicable if the estimated fee is for CORE staking).
    * @return coreBtcStakingAddress
   **/
   @javax.annotation.Nullable

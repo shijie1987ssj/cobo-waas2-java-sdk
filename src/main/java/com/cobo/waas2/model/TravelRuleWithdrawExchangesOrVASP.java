@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Required fields for &#x60;EXCHANGES_OR_VASP&#x60;.
+ * Required information when withdrawing tokens to an exchange or other virtual asset service providers (VASP).
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -98,7 +98,7 @@ public class TravelRuleWithdrawExchangesOrVASP {
   }
 
    /**
-   * The vendor code for exchanges or VASPs.
+   * The vendor code of the exchange or virtual asset service provider (VASP).
    * @return vendorCode
   **/
   @javax.annotation.Nonnull

@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The type of the destination wallet.
+ * The wallet type. Possible values include:   - &#x60;EXCHANGES_OR_VASP&#x60;: Exchanges or other virtual asset service providers (VASP)   - &#x60;SELF_CUSTODY_WALLET&#x60;: Self-custody wallets 
  */
 @JsonAdapter(DestinationWalletType.Adapter.class)
 public enum DestinationWalletType {
