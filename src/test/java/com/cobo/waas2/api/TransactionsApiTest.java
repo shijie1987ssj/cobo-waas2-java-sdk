@@ -24,7 +24,6 @@ import com.cobo.waas2.model.EstimateFeeParams;
 import com.cobo.waas2.model.EstimatedFee;
 import com.cobo.waas2.model.ListTransactions200Response;
 import com.cobo.waas2.model.MessageSignParams;
-import com.cobo.waas2.model.TransactionApprovalDetail;
 import com.cobo.waas2.model.TransactionDetail;
 import com.cobo.waas2.model.TransactionRbf;
 import com.cobo.waas2.model.TransactionResend;
@@ -163,20 +162,6 @@ public class TransactionsApiTest {
     public void estimateFeeTest() throws ApiException {
         EstimateFeeParams estimateFeeParams = null;
         EstimatedFee response = api.estimateFee(estimateFeeParams);
-        // TODO: test validations
-    }
-
-    /**
-     * Get transaction approval information
-     *
-     * This operation retrieves approval detailed information about a specified transaction. 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getTransactionApprovalDetailTest() throws ApiException {
-        UUID transactionId = null;
-        TransactionApprovalDetail response = api.getTransactionApprovalDetail(transactionId);
         // TODO: test validations
     }
 

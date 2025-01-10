@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Required fields for LEGAL entities.
+ * The required information of a legal entity.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -117,7 +117,7 @@ public class TravelRuleWithdrawLegalEntity {
   }
 
    /**
-   * The incorporation date of the entity.
+   * The date of incorporation of the entity.
    * @return dateOfIncorporation
   **/
   @javax.annotation.Nullable

@@ -47,7 +47,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Required fields for &#x60;EXCHANGES_OR_VASP&#x60;.
+ * Required information when depositing from an exchange or other virtual asset service providers (VASP).
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -102,7 +102,7 @@ public class TravelRuleDepositExchangesOrVASP {
   }
 
    /**
-   * The vendor code for exchanges or VASPs.
+   * The vendor code of the VASP.
    * @return vendorCode
   **/
   @javax.annotation.Nonnull
@@ -140,7 +140,7 @@ public class TravelRuleDepositExchangesOrVASP {
   }
 
    /**
-   * The vendor name to be provided when selecting \&quot;Others\&quot; as the VASP case. This field allows customers to specify the name of a vendor not listed.
+   * The vendor name. Use this field to specify the name of a vendor not listed.
    * @return vendorVaspName
   **/
   @javax.annotation.Nullable
