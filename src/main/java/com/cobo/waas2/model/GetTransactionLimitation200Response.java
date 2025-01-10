@@ -88,7 +88,7 @@ public class GetTransactionLimitation200Response {
   }
 
    /**
-   * A list of VASPs (Virtual Asset Service Providers) associated with the token.
+   * A list of virtual asset service providers (VASP) you can select as the transaction source or destination.
    * @return vaspList
   **/
   @javax.annotation.Nullable
@@ -107,7 +107,7 @@ public class GetTransactionLimitation200Response {
   }
 
    /**
-   * Indicates whether the transaction amount exceeds a predefined threshold. - **If &#x60;true&#x60;**: Additional information is required when filling Travel Rule details:   - For deposits: &#x60;date_of_incorporation&#x60; and &#x60;place_of_incorporation&#x60;. - **If &#x60;false&#x60;**: No extra fields are required. 
+   * Indicates whether the transaction amount exceeds a predefined threshold. If exceeded, additional information is required when filling Travel Rule details. - &#x60;true&#x60;: Threshold exceeded. - &#x60;false&#x60;: Threshold not exceeded. 
    * @return isThresholdReached
   **/
   @javax.annotation.Nullable
@@ -126,7 +126,7 @@ public class GetTransactionLimitation200Response {
   }
 
    /**
-   * A human-readable, time-sensitive message to be signed by the wallet owner.  The message contains key details including the wallet address, a unique nonce, and a timestamp. Signing this message confirms ownership of the wallet and allows the operation to proceed. 
+   * A human-readable, time-sensitive message to be signed by the wallet owner. The message contains key information including the wallet address, a unique nonce, and a timestamp. Signing this message confirms ownership of the wallet and allows the operation to proceed. 
    * @return selfCustodyWalletChallenge
   **/
   @javax.annotation.Nullable
@@ -153,7 +153,7 @@ public class GetTransactionLimitation200Response {
   }
 
    /**
-   * A list of wallets connected to the system for transactions.
+   * A list of self-custody wallet providers you can select as the transaction source or destination.
    * @return connectWalletList
   **/
   @javax.annotation.Nullable

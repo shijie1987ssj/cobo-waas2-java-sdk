@@ -45,7 +45,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * [organization](https://manuals.cobo.com/en/portal/organization/introduction). 
+ * The information of an organization. To learn more about organizations, see [Introduction to Organization](https://manuals.cobo.com/en/portal/organization/introduction). 
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -73,7 +73,7 @@ public class OrgInfo {
   }
 
    /**
-   * The ID of the owning organization.
+   * The organization ID.
    * @return orgId
   **/
   @javax.annotation.Nonnull

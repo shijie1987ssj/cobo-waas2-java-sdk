@@ -46,7 +46,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * Required fields for &#x60;SELF_CUSTODY_WALLET&#x60;.
+ * Required information when depositing from or withdrawing to a self-custody wallet.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -97,7 +97,7 @@ public class SelfCustodyWallet {
   }
 
    /**
-   * The challenge obtained from a previous operation.
+   * The message obtained from the &#x60;Retrieve transaction limitations&#x60; operation. This message is used to verify wallet ownership through signing.
    * @return selfCustodyWalletChallenge
   **/
   @javax.annotation.Nonnull
@@ -116,7 +116,7 @@ public class SelfCustodyWallet {
   }
 
    /**
-   * The address of the self-custodial wallet.
+   * The address of the self-custody wallet.
    * @return selfCustodyWalletAddress
   **/
   @javax.annotation.Nonnull
@@ -135,7 +135,7 @@ public class SelfCustodyWallet {
   }
 
    /**
-   * The signed message from the self-custodial wallet.
+   * The signature created by signing the challenge message with the wallet&#39;s private key.
    * @return selfCustodyWalletSign
   **/
   @javax.annotation.Nonnull

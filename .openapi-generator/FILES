@@ -250,8 +250,6 @@ docs/TokenBalance.md
 docs/TokenBalanceBalance.md
 docs/TokenInfo.md
 docs/Transaction.md
-docs/TransactionApprovalDetail.md
-docs/TransactionApprovalResult.md
 docs/TransactionApprover.md
 docs/TransactionBlockInfo.md
 docs/TransactionCustodialAssetWalletSource.md
@@ -290,7 +288,6 @@ docs/TransactionRequestUtxoFee.md
 docs/TransactionResend.md
 docs/TransactionResult.md
 docs/TransactionResultType.md
-docs/TransactionRoleApprovalDetail.md
 docs/TransactionSelectedUtxo.md
 docs/TransactionSignatureResult.md
 docs/TransactionSigner.md
@@ -307,7 +304,6 @@ docs/TransactionTransferToAddressDestinationAccountOutput.md
 docs/TransactionTransferToAddressDestinationUtxoOutputsInner.md
 docs/TransactionTransferToWalletDestination.md
 docs/TransactionType.md
-docs/TransactionUserApprovalDetail.md
 docs/TransactionUtxo.md
 docs/TransactionUtxoFee.md
 docs/TransactionWebhookEventData.md
@@ -649,8 +645,6 @@ src/main/java/com/cobo/waas2/model/TokenBalance.java
 src/main/java/com/cobo/waas2/model/TokenBalanceBalance.java
 src/main/java/com/cobo/waas2/model/TokenInfo.java
 src/main/java/com/cobo/waas2/model/Transaction.java
-src/main/java/com/cobo/waas2/model/TransactionApprovalDetail.java
-src/main/java/com/cobo/waas2/model/TransactionApprovalResult.java
 src/main/java/com/cobo/waas2/model/TransactionApprover.java
 src/main/java/com/cobo/waas2/model/TransactionBlockInfo.java
 src/main/java/com/cobo/waas2/model/TransactionCustodialAssetWalletSource.java
@@ -689,7 +683,6 @@ src/main/java/com/cobo/waas2/model/TransactionRequestUtxoFee.java
 src/main/java/com/cobo/waas2/model/TransactionResend.java
 src/main/java/com/cobo/waas2/model/TransactionResult.java
 src/main/java/com/cobo/waas2/model/TransactionResultType.java
-src/main/java/com/cobo/waas2/model/TransactionRoleApprovalDetail.java
 src/main/java/com/cobo/waas2/model/TransactionSelectedUtxo.java
 src/main/java/com/cobo/waas2/model/TransactionSignatureResult.java
 src/main/java/com/cobo/waas2/model/TransactionSigner.java
@@ -706,7 +699,6 @@ src/main/java/com/cobo/waas2/model/TransactionTransferToAddressDestinationAccoun
 src/main/java/com/cobo/waas2/model/TransactionTransferToAddressDestinationUtxoOutputsInner.java
 src/main/java/com/cobo/waas2/model/TransactionTransferToWalletDestination.java
 src/main/java/com/cobo/waas2/model/TransactionType.java
-src/main/java/com/cobo/waas2/model/TransactionUserApprovalDetail.java
 src/main/java/com/cobo/waas2/model/TransactionUtxo.java
 src/main/java/com/cobo/waas2/model/TransactionUtxoFee.java
 src/main/java/com/cobo/waas2/model/TransactionWebhookEventData.java
@@ -1001,8 +993,6 @@ src/test/java/com/cobo/waas2/model/TokenAssetModelTypeTest.java
 src/test/java/com/cobo/waas2/model/TokenBalanceBalanceTest.java
 src/test/java/com/cobo/waas2/model/TokenBalanceTest.java
 src/test/java/com/cobo/waas2/model/TokenInfoTest.java
-src/test/java/com/cobo/waas2/model/TransactionApprovalDetailTest.java
-src/test/java/com/cobo/waas2/model/TransactionApprovalResultTest.java
 src/test/java/com/cobo/waas2/model/TransactionApproverTest.java
 src/test/java/com/cobo/waas2/model/TransactionBlockInfoTest.java
 src/test/java/com/cobo/waas2/model/TransactionCustodialAssetWalletSourceTest.java
@@ -1041,7 +1031,6 @@ src/test/java/com/cobo/waas2/model/TransactionRequestUtxoFeeTest.java
 src/test/java/com/cobo/waas2/model/TransactionResendTest.java
 src/test/java/com/cobo/waas2/model/TransactionResultTest.java
 src/test/java/com/cobo/waas2/model/TransactionResultTypeTest.java
-src/test/java/com/cobo/waas2/model/TransactionRoleApprovalDetailTest.java
 src/test/java/com/cobo/waas2/model/TransactionSelectedUtxoTest.java
 src/test/java/com/cobo/waas2/model/TransactionSignatureResultTest.java
 src/test/java/com/cobo/waas2/model/TransactionSignerTest.java
@@ -1059,7 +1048,6 @@ src/test/java/com/cobo/waas2/model/TransactionTransferToAddressDestinationTest.j
 src/test/java/com/cobo/waas2/model/TransactionTransferToAddressDestinationUtxoOutputsInnerTest.java
 src/test/java/com/cobo/waas2/model/TransactionTransferToWalletDestinationTest.java
 src/test/java/com/cobo/waas2/model/TransactionTypeTest.java
-src/test/java/com/cobo/waas2/model/TransactionUserApprovalDetailTest.java
 src/test/java/com/cobo/waas2/model/TransactionUtxoFeeTest.java
 src/test/java/com/cobo/waas2/model/TransactionUtxoTest.java
 src/test/java/com/cobo/waas2/model/TransactionWebhookEventDataTest.java
