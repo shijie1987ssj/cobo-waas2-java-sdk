@@ -11,6 +11,7 @@
 
 package com.cobo.waas2.model;
 
+import com.cobo.waas2.model.TransactionDepositToAddressDestinationTxInfo;
 import com.cobo.waas2.model.TransactionDestinationType;
 import com.cobo.waas2.model.WalletSubtype;
 import com.cobo.waas2.model.WalletType;
@@ -93,6 +94,14 @@ public class TransactionDepositToAddressDestinationTest {
     @Test
     public void amountTest() {
         // TODO: test amount
+    }
+
+    /**
+     * Test the property 'txInfo'
+     */
+    @Test
+    public void txInfoTest() {
+        // TODO: test txInfo
     }
 
 }

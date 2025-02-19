@@ -24,6 +24,7 @@ import com.cobo.waas2.model.EstimateFeeParams;
 import com.cobo.waas2.model.EstimatedFee;
 import com.cobo.waas2.model.ListTransactions200Response;
 import com.cobo.waas2.model.MessageSignParams;
+import com.cobo.waas2.model.TransactionApprovalDetail;
 import com.cobo.waas2.model.TransactionDetail;
 import com.cobo.waas2.model.TransactionRbf;
 import com.cobo.waas2.model.TransactionResend;
@@ -125,7 +126,7 @@ public class TransactionsApiTest {
     /**
      * Transfer token
      *
-     * The operation transfers your assets from a wallet created on Cobo Portal to another address.  You need to specify details such as the sender address and recipient address, token ID, and the amount to transfer. You can specify the fee-related properties to limit the transaction fee. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;If you make transfers from Custodial Wallets, do not set the fee-related properties. Otherwise, the transaction will fail.&lt;/Note&gt;  &lt;Note&gt;You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. You should use the &lt;code&gt;utxo_outputs&lt;/code&gt; property to specify the destination addresses.&lt;/Note&gt;  &lt;Info&gt;If you initiate a transaction from a Smart Contract Wallet, a relevant transaction will be triggered from the Delegate to the Cobo Safe&#39;s address of the Smart Contract Wallet, with a transfer amount of &lt;code&gt;0&lt;/code&gt;.&lt;/Info&gt; 
+     * The operation transfers your assets from a wallet created on Cobo Portal to another address.  You need to specify details such as the sender address and recipient address, token ID, and the amount to transfer. You can specify the fee-related properties to limit the transaction fee. A transaction request for tracking is returned upon successful operation.  &lt;Note&gt;If you make transfers from Custodial Wallets (Asset Wallets) and Exchange Wallets, do not set the fee-related properties, as they will not take effects.&lt;/Note&gt;  &lt;Note&gt;You can transfer tokens to multiple addresses only if you use MPC Wallets as the transaction source. You should use the &lt;code&gt;utxo_outputs&lt;/code&gt; property to specify the destination addresses.&lt;/Note&gt;  &lt;Info&gt;If you initiate a transaction from a Smart Contract Wallet, a relevant transaction will be triggered from the Delegate to the Cobo Safe&#39;s address of the Smart Contract Wallet, with a transfer amount of &lt;code&gt;0&lt;/code&gt;.&lt;/Info&gt; 
      *
      * @throws ApiException if the Api call fails
      */
@@ -162,6 +163,20 @@ public class TransactionsApiTest {
     public void estimateFeeTest() throws ApiException {
         EstimateFeeParams estimateFeeParams = null;
         EstimatedFee response = api.estimateFee(estimateFeeParams);
+        // TODO: test validations
+    }
+
+    /**
+     * Get transaction approval information
+     *
+     * This operation retrieves approval detailed information about a specified transaction. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getTransactionApprovalDetailTest() throws ApiException {
+        UUID transactionId = null;
+        TransactionApprovalDetail response = api.getTransactionApprovalDetail(transactionId);
         // TODO: test validations
     }
 
@@ -221,6 +236,20 @@ public class TransactionsApiTest {
         UUID transactionId = null;
         TransactionResend transactionResend = null;
         CreateTransferTransaction201Response response = api.resendTransactionById(transactionId, transactionResend);
+        // TODO: test validations
+    }
+
+    /**
+     * Sign and broadcast transaction
+     *
+     * This operation sign and broadcast a specified transaction. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void signAndBroadcastTransactionByIdTest() throws ApiException {
+        UUID transactionId = null;
+        CreateTransferTransaction201Response response = api.signAndBroadcastTransactionById(transactionId);
         // TODO: test validations
     }
 

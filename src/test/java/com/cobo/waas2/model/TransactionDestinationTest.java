@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.ExchangeId;
 import com.cobo.waas2.model.TransactionDepositToAddressDestination;
+import com.cobo.waas2.model.TransactionDepositToAddressDestinationTxInfo;
 import com.cobo.waas2.model.TransactionDepositToWalletDestination;
 import com.cobo.waas2.model.TransactionDestinationType;
 import com.cobo.waas2.model.TransactionEvmCalldataInfo;
@@ -213,6 +214,14 @@ public class TransactionDestinationTest {
     @Test
     public void memoTest() {
         // TODO: test memo
+    }
+
+    /**
+     * Test the property 'txInfo'
+     */
+    @Test
+    public void txInfoTest() {
+        // TODO: test txInfo
     }
 
 }

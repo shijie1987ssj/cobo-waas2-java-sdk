@@ -62,4 +62,12 @@ public class TransactionRawTxInfoTest {
         // TODO: test rawTx
     }
 
+    /**
+     * Test the property 'unsignedRawTx'
+     */
+    @Test
+    public void unsignedRawTxTest() {
+        // TODO: test unsignedRawTx
+    }
+
 }

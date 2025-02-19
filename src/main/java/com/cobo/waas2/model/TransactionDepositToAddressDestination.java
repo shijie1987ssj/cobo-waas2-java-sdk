@@ -12,6 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.TransactionDepositToAddressDestinationTxInfo;
 import com.cobo.waas2.model.TransactionDestinationType;
 import com.cobo.waas2.model.WalletSubtype;
 import com.cobo.waas2.model.WalletType;
@@ -83,6 +84,10 @@ public class TransactionDepositToAddressDestination {
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private String amount;
+
+  public static final String SERIALIZED_NAME_TX_INFO = "tx_info";
+  @SerializedName(SERIALIZED_NAME_TX_INFO)
+  private TransactionDepositToAddressDestinationTxInfo txInfo;
 
   public TransactionDepositToAddressDestination() {
   }
@@ -219,6 +224,25 @@ public class TransactionDepositToAddressDestination {
     this.amount = amount;
   }
 
+
+  public TransactionDepositToAddressDestination txInfo(TransactionDepositToAddressDestinationTxInfo txInfo) {
+    this.txInfo = txInfo;
+    return this;
+  }
+
+   /**
+   * Get txInfo
+   * @return txInfo
+  **/
+  @javax.annotation.Nullable
+  public TransactionDepositToAddressDestinationTxInfo getTxInfo() {
+    return txInfo;
+  }
+
+  public void setTxInfo(TransactionDepositToAddressDestinationTxInfo txInfo) {
+    this.txInfo = txInfo;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -280,13 +304,14 @@ public class TransactionDepositToAddressDestination {
         Objects.equals(this.walletSubtype, transactionDepositToAddressDestination.walletSubtype) &&
         Objects.equals(this.address, transactionDepositToAddressDestination.address) &&
         Objects.equals(this.memo, transactionDepositToAddressDestination.memo) &&
-        Objects.equals(this.amount, transactionDepositToAddressDestination.amount)&&
+        Objects.equals(this.amount, transactionDepositToAddressDestination.amount) &&
+        Objects.equals(this.txInfo, transactionDepositToAddressDestination.txInfo)&&
         Objects.equals(this.additionalProperties, transactionDepositToAddressDestination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationType, walletId, walletType, walletSubtype, address, memo, amount, additionalProperties);
+    return Objects.hash(destinationType, walletId, walletType, walletSubtype, address, memo, amount, txInfo, additionalProperties);
   }
 
   @Override
@@ -300,6 +325,7 @@ public class TransactionDepositToAddressDestination {
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
     sb.append("    memo: ").append(toIndentedString(memo)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
+    sb.append("    txInfo: ").append(toIndentedString(txInfo)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -330,6 +356,7 @@ public class TransactionDepositToAddressDestination {
     openapiFields.add("address");
     openapiFields.add("memo");
     openapiFields.add("amount");
+    openapiFields.add("tx_info");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -379,6 +406,10 @@ public class TransactionDepositToAddressDestination {
       }
       if (!jsonObj.get("amount").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
+      }
+      // validate the optional field `tx_info`
+      if (jsonObj.get("tx_info") != null && !jsonObj.get("tx_info").isJsonNull()) {
+        TransactionDepositToAddressDestinationTxInfo.validateJsonElement(jsonObj.get("tx_info"));
       }
   }
 

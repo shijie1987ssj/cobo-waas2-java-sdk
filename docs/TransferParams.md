@@ -15,7 +15,17 @@ The information about a token transfer.
 |**categoryNames** | **List&lt;String&gt;** | The custom category for you to identify your transactions. |  [optional] |
 |**description** | **String** | The description of the transfer. |  [optional] |
 |**fee** | [**TransactionRequestFee**](TransactionRequestFee.md) |  |  [optional] |
+|**transactionProcessType** | [**TransactionProcessTypeEnum**](#TransactionProcessTypeEnum) | Transaction processing type: **AutoProcess** means that after the transaction is constructed, it will be automatically signed and broadcasted. **AutoProcess** is the default vault. **BuildOnly** means that after the transaction is constructed, you need to manually call an interface to sign and broadcast it.  |  [optional] |
 |**autoFuel** | **AutoFuelType** |  |  [optional] |
+
+
+
+## Enum: TransactionProcessTypeEnum
+
+| Name | Value |
+|---- | -----|
+| AUTOPROCESS | &quot;AutoProcess&quot; |
+| BUILDONLY | &quot;BuildOnly&quot; |
 
 
 

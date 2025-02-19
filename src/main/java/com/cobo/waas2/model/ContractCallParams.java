@@ -86,6 +86,62 @@ public class ContractCallParams {
   @SerializedName(SERIALIZED_NAME_FEE)
   private TransactionRequestFee fee;
 
+  /**
+   * Transaction processing type: **AutoProcess** means that after the transaction is constructed, it will be automatically signed and broadcasted. **AutoProcess** is the default vault. **BuildOnly** means that after the transaction is constructed, you need to manually call an interface to sign and broadcast it. 
+   */
+  @JsonAdapter(TransactionProcessTypeEnum.Adapter.class)
+  public enum TransactionProcessTypeEnum {
+    AUTOPROCESS("AutoProcess"),
+    
+    BUILDONLY("BuildOnly");
+
+    private String value;
+
+    TransactionProcessTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TransactionProcessTypeEnum fromValue(String value) {
+      for (TransactionProcessTypeEnum b : TransactionProcessTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<TransactionProcessTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TransactionProcessTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TransactionProcessTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TransactionProcessTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TransactionProcessTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_TRANSACTION_PROCESS_TYPE = "transaction_process_type";
+  @SerializedName(SERIALIZED_NAME_TRANSACTION_PROCESS_TYPE)
+  private TransactionProcessTypeEnum transactionProcessType;
+
   public static final String SERIALIZED_NAME_AUTO_FUEL = "auto_fuel";
   @SerializedName(SERIALIZED_NAME_AUTO_FUEL)
   private AutoFuelType autoFuel;
@@ -234,6 +290,25 @@ public class ContractCallParams {
   }
 
 
+  public ContractCallParams transactionProcessType(TransactionProcessTypeEnum transactionProcessType) {
+    this.transactionProcessType = transactionProcessType;
+    return this;
+  }
+
+   /**
+   * Transaction processing type: **AutoProcess** means that after the transaction is constructed, it will be automatically signed and broadcasted. **AutoProcess** is the default vault. **BuildOnly** means that after the transaction is constructed, you need to manually call an interface to sign and broadcast it. 
+   * @return transactionProcessType
+  **/
+  @javax.annotation.Nullable
+  public TransactionProcessTypeEnum getTransactionProcessType() {
+    return transactionProcessType;
+  }
+
+  public void setTransactionProcessType(TransactionProcessTypeEnum transactionProcessType) {
+    this.transactionProcessType = transactionProcessType;
+  }
+
+
   public ContractCallParams autoFuel(AutoFuelType autoFuel) {
     this.autoFuel = autoFuel;
     return this;
@@ -314,13 +389,14 @@ public class ContractCallParams {
         Objects.equals(this.description, contractCallParams.description) &&
         Objects.equals(this.categoryNames, contractCallParams.categoryNames) &&
         Objects.equals(this.fee, contractCallParams.fee) &&
+        Objects.equals(this.transactionProcessType, contractCallParams.transactionProcessType) &&
         Objects.equals(this.autoFuel, contractCallParams.autoFuel)&&
         Objects.equals(this.additionalProperties, contractCallParams.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(requestId, chainId, source, destination, description, categoryNames, fee, autoFuel, additionalProperties);
+    return Objects.hash(requestId, chainId, source, destination, description, categoryNames, fee, transactionProcessType, autoFuel, additionalProperties);
   }
 
   @Override
@@ -334,6 +410,7 @@ public class ContractCallParams {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    categoryNames: ").append(toIndentedString(categoryNames)).append("\n");
     sb.append("    fee: ").append(toIndentedString(fee)).append("\n");
+    sb.append("    transactionProcessType: ").append(toIndentedString(transactionProcessType)).append("\n");
     sb.append("    autoFuel: ").append(toIndentedString(autoFuel)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -365,6 +442,7 @@ public class ContractCallParams {
     openapiFields.add("description");
     openapiFields.add("category_names");
     openapiFields.add("fee");
+    openapiFields.add("transaction_process_type");
     openapiFields.add("auto_fuel");
 
     // a set of required properties/fields (JSON key names)
@@ -415,6 +493,13 @@ public class ContractCallParams {
       // validate the optional field `fee`
       if (jsonObj.get("fee") != null && !jsonObj.get("fee").isJsonNull()) {
         TransactionRequestFee.validateJsonElement(jsonObj.get("fee"));
+      }
+      if ((jsonObj.get("transaction_process_type") != null && !jsonObj.get("transaction_process_type").isJsonNull()) && !jsonObj.get("transaction_process_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `transaction_process_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transaction_process_type").toString()));
+      }
+      // validate the optional field `transaction_process_type`
+      if (jsonObj.get("transaction_process_type") != null && !jsonObj.get("transaction_process_type").isJsonNull()) {
+        TransactionProcessTypeEnum.validateJsonElement(jsonObj.get("transaction_process_type"));
       }
       // validate the optional field `auto_fuel`
       if (jsonObj.get("auto_fuel") != null && !jsonObj.get("auto_fuel").isJsonNull()) {

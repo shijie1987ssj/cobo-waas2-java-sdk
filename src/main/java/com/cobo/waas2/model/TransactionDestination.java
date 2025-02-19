@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import java.util.Objects;
 import com.cobo.waas2.model.ExchangeId;
 import com.cobo.waas2.model.TransactionDepositToAddressDestination;
+import com.cobo.waas2.model.TransactionDepositToAddressDestinationTxInfo;
 import com.cobo.waas2.model.TransactionDepositToWalletDestination;
 import com.cobo.waas2.model.TransactionDestinationType;
 import com.cobo.waas2.model.TransactionEvmCalldataInfo;

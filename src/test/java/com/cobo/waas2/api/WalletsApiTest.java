@@ -25,6 +25,7 @@ import com.cobo.waas2.model.CreatedWalletInfo;
 import com.cobo.waas2.model.DeleteWalletById201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ExtendedTokenInfo;
+import com.cobo.waas2.model.ListAddressBalancesForToken200Response;
 import com.cobo.waas2.model.ListAddresses200Response;
 import com.cobo.waas2.model.ListSupportedChains200Response;
 import com.cobo.waas2.model.ListSupportedTokens200Response;
@@ -209,6 +210,25 @@ public class WalletsApiTest {
     }
 
     /**
+     * List address balances for token
+     *
+     * The operation retrieves a list of address balances for a specified token within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listAddressBalancesForTokenTest() throws ApiException {
+        UUID walletId = null;
+        String tokenId = null;
+        String addresses = null;
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        ListAddressBalancesForToken200Response response = api.listAddressBalancesForToken(walletId, tokenId, addresses, limit, before, after);
+        // TODO: test validations
+    }
+
+    /**
      * List wallet addresses
      *
      * This operation retrieves a list of addresses within a specified wallet. 
@@ -352,10 +372,11 @@ public class WalletsApiTest {
         UUID walletId = null;
         String tokenId = null;
         String address = null;
+        String txHash = null;
         Integer limit = null;
         String before = null;
         String after = null;
-        ListUtxos200Response response = api.listUtxos(walletId, tokenId, address, limit, before, after);
+        ListUtxos200Response response = api.listUtxos(walletId, tokenId, address, txHash, limit, before, after);
         // TODO: test validations
     }
 

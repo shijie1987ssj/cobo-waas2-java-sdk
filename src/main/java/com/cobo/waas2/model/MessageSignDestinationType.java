@@ -28,9 +28,11 @@ import com.google.gson.stream.JsonWriter;
 public enum MessageSignDestinationType {
   UNKNOWN(null),
   
-  _191_SIGNATURE("EVM_EIP_191_Signature"),
+  EVM_EIP_191_SIGNATURE("EVM_EIP_191_Signature"),
   
-  _712_SIGNATURE("EVM_EIP_712_Signature");
+  EVM_EIP_712_SIGNATURE("EVM_EIP_712_Signature"),
+  
+  BTC_EIP_191_SIGNATURE("BTC_EIP_191_Signature");
 
   private String value;
 

@@ -45,105 +45,36 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The balance details.
+ * DeleteGuardPubkey201Response
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class TokenBalanceBalance {
-  public static final String SERIALIZED_NAME_TOTAL = "total";
-  @SerializedName(SERIALIZED_NAME_TOTAL)
-  private String total;
+public class DeleteGuardPubkey201Response {
+  public static final String SERIALIZED_NAME_STATEMENT_ID = "statement_id";
+  @SerializedName(SERIALIZED_NAME_STATEMENT_ID)
+  private String statementId;
 
-  public static final String SERIALIZED_NAME_AVAILABLE = "available";
-  @SerializedName(SERIALIZED_NAME_AVAILABLE)
-  private String available;
-
-  public static final String SERIALIZED_NAME_PENDING = "pending";
-  @SerializedName(SERIALIZED_NAME_PENDING)
-  private String pending = "0";
-
-  public static final String SERIALIZED_NAME_LOCKED = "locked";
-  @SerializedName(SERIALIZED_NAME_LOCKED)
-  private String locked = "0";
-
-  public TokenBalanceBalance() {
+  public DeleteGuardPubkey201Response() {
   }
 
-  public TokenBalanceBalance total(String total) {
-    this.total = total;
+  public DeleteGuardPubkey201Response statementId(String statementId) {
+    this.statementId = statementId;
     return this;
   }
 
    /**
-   * The current amount of tokens in an address, which is retrieved directly from the network. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
-   * @return total
+   * The delete guard binding statement ID.
+   * @return statementId
   **/
   @javax.annotation.Nonnull
-  public String getTotal() {
-    return total;
+  public String getStatementId() {
+    return statementId;
   }
 
-  public void setTotal(String total) {
-    this.total = total;
-  }
-
-
-  public TokenBalanceBalance available(String available) {
-    this.available = available;
-    return this;
-  }
-
-   /**
-   * The amount of tokens ready to be spent. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
-   * @return available
-  **/
-  @javax.annotation.Nonnull
-  public String getAvailable() {
-    return available;
-  }
-
-  public void setAvailable(String available) {
-    this.available = available;
-  }
-
-
-  public TokenBalanceBalance pending(String pending) {
-    this.pending = pending;
-    return this;
-  }
-
-   /**
-   * The total amount being sent in a transaction, which is calculated as the withdrawal amount plus the transaction fee. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
-   * @return pending
-  **/
-  @javax.annotation.Nullable
-  public String getPending() {
-    return pending;
-  }
-
-  public void setPending(String pending) {
-    this.pending = pending;
-  }
-
-
-  public TokenBalanceBalance locked(String locked) {
-    this.locked = locked;
-    return this;
-  }
-
-   /**
-   * For UTXO chains, this is the combined value of the selected UTXOs for the transaction. For other chains, it is equal to the Pending amount. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
-   * @return locked
-  **/
-  @javax.annotation.Nullable
-  public String getLocked() {
-    return locked;
-  }
-
-  public void setLocked(String locked) {
-    this.locked = locked;
+  public void setStatementId(String statementId) {
+    this.statementId = statementId;
   }
 
   /**
@@ -159,9 +90,9 @@ public class TokenBalanceBalance {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the TokenBalanceBalance instance itself
+   * @return the DeleteGuardPubkey201Response instance itself
    */
-  public TokenBalanceBalance putAdditionalProperty(String key, Object value) {
+  public DeleteGuardPubkey201Response putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -200,27 +131,21 @@ public class TokenBalanceBalance {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TokenBalanceBalance tokenBalanceBalance = (TokenBalanceBalance) o;
-    return Objects.equals(this.total, tokenBalanceBalance.total) &&
-        Objects.equals(this.available, tokenBalanceBalance.available) &&
-        Objects.equals(this.pending, tokenBalanceBalance.pending) &&
-        Objects.equals(this.locked, tokenBalanceBalance.locked)&&
-        Objects.equals(this.additionalProperties, tokenBalanceBalance.additionalProperties);
+    DeleteGuardPubkey201Response deleteGuardPubkey201Response = (DeleteGuardPubkey201Response) o;
+    return Objects.equals(this.statementId, deleteGuardPubkey201Response.statementId)&&
+        Objects.equals(this.additionalProperties, deleteGuardPubkey201Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(total, available, pending, locked, additionalProperties);
+    return Objects.hash(statementId, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TokenBalanceBalance {\n");
-    sb.append("    total: ").append(toIndentedString(total)).append("\n");
-    sb.append("    available: ").append(toIndentedString(available)).append("\n");
-    sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
-    sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
+    sb.append("class DeleteGuardPubkey201Response {\n");
+    sb.append("    statementId: ").append(toIndentedString(statementId)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -244,48 +169,35 @@ public class TokenBalanceBalance {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("total");
-    openapiFields.add("available");
-    openapiFields.add("pending");
-    openapiFields.add("locked");
+    openapiFields.add("statement_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("total");
-    openapiRequiredFields.add("available");
+    openapiRequiredFields.add("statement_id");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TokenBalanceBalance
+  * @throws IOException if the JSON Element is invalid with respect to DeleteGuardPubkey201Response
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!TokenBalanceBalance.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TokenBalanceBalance is not found in the empty JSON string", TokenBalanceBalance.openapiRequiredFields.toString()));
+        if (!DeleteGuardPubkey201Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in DeleteGuardPubkey201Response is not found in the empty JSON string", DeleteGuardPubkey201Response.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TokenBalanceBalance.openapiRequiredFields) {
+      for (String requiredField : DeleteGuardPubkey201Response.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("total").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `total` to be a primitive type in the JSON string but got `%s`", jsonObj.get("total").toString()));
-      }
-      if (!jsonObj.get("available").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `available` to be a primitive type in the JSON string but got `%s`", jsonObj.get("available").toString()));
-      }
-      if ((jsonObj.get("pending") != null && !jsonObj.get("pending").isJsonNull()) && !jsonObj.get("pending").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pending` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pending").toString()));
-      }
-      if ((jsonObj.get("locked") != null && !jsonObj.get("locked").isJsonNull()) && !jsonObj.get("locked").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `locked` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locked").toString()));
+      if (!jsonObj.get("statement_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `statement_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statement_id").toString()));
       }
   }
 
@@ -293,16 +205,16 @@ public class TokenBalanceBalance {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TokenBalanceBalance.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TokenBalanceBalance' and its subtypes
+       if (!DeleteGuardPubkey201Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DeleteGuardPubkey201Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TokenBalanceBalance> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TokenBalanceBalance.class));
+       final TypeAdapter<DeleteGuardPubkey201Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DeleteGuardPubkey201Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TokenBalanceBalance>() {
+       return (TypeAdapter<T>) new TypeAdapter<DeleteGuardPubkey201Response>() {
            @Override
-           public void write(JsonWriter out, TokenBalanceBalance value) throws IOException {
+           public void write(JsonWriter out, DeleteGuardPubkey201Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -332,12 +244,12 @@ public class TokenBalanceBalance {
            }
 
            @Override
-           public TokenBalanceBalance read(JsonReader in) throws IOException {
+           public DeleteGuardPubkey201Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             TokenBalanceBalance instance = thisAdapter.fromJsonTree(jsonObj);
+             DeleteGuardPubkey201Response instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -364,18 +276,18 @@ public class TokenBalanceBalance {
   }
 
  /**
-  * Create an instance of TokenBalanceBalance given an JSON string
+  * Create an instance of DeleteGuardPubkey201Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of TokenBalanceBalance
-  * @throws IOException if the JSON string is invalid with respect to TokenBalanceBalance
+  * @return An instance of DeleteGuardPubkey201Response
+  * @throws IOException if the JSON string is invalid with respect to DeleteGuardPubkey201Response
   */
-  public static TokenBalanceBalance fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TokenBalanceBalance.class);
+  public static DeleteGuardPubkey201Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DeleteGuardPubkey201Response.class);
   }
 
  /**
-  * Convert an instance of TokenBalanceBalance to an JSON string
+  * Convert an instance of DeleteGuardPubkey201Response to an JSON string
   *
   * @return JSON string
   */
