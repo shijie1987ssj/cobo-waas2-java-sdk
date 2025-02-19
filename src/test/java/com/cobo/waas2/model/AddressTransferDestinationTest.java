@@ -73,6 +73,14 @@ public class AddressTransferDestinationTest {
     }
 
     /**
+     * Test the property 'changeOutputType'
+     */
+    @Test
+    public void changeOutputTypeTest() {
+        // TODO: test changeOutputType
+    }
+
+    /**
      * Test the property 'forceInternal'
      */
     @Test

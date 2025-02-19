@@ -22,17 +22,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for TokenBalanceBalance
+ * Model tests for Balance
  */
-public class TokenBalanceBalanceTest {
-    private final TokenBalanceBalance model = new TokenBalanceBalance();
+public class BalanceTest {
+    private final Balance model = new Balance();
 
     /**
-     * Model tests for TokenBalanceBalance
+     * Model tests for Balance
      */
     @Test
-    public void testTokenBalanceBalance() {
-        // TODO: test TokenBalanceBalance
+    public void testBalance() {
+        // TODO: test Balance
     }
 
     /**

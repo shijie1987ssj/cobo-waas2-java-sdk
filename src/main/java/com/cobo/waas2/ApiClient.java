@@ -170,6 +170,8 @@ public class ApiClient {
         initHttpClient(Collections.<Interceptor>singletonList(retryingOAuth));
         // Setup authentications (key: authentication name, value: authentication).
         //authentications.put("CoboAuth", new ApiKeyAuth("header", "BIZ-API-KEY"));
+        //authentications.put("CoboSignature", new ApiKeyAuth("header", "BIZ-API-SIGNATURE"));
+        //authentications.put("CoboNonce", new ApiKeyAuth("header", "BIZ-API-NONCE"));
 
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
@@ -195,7 +197,7 @@ public class ApiClient {
         json = new JSON();
 
         // Set default User-Agent.
-        setUserAgent("cobo-waas2-java-sdk/1.8.1");
+        setUserAgent("cobo-waas2-java-sdk/1.9.0");
 
         authentications = new HashMap<String, Authentication>();
     }

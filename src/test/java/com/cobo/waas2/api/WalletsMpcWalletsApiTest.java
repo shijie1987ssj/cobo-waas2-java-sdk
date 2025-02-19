@@ -24,6 +24,7 @@ import com.cobo.waas2.model.KeyShareHolder;
 import com.cobo.waas2.model.KeyShareHolderGroup;
 import com.cobo.waas2.model.KeyShareHolderGroupType;
 import com.cobo.waas2.model.ListKeyShareHolderGroups200Response;
+import com.cobo.waas2.model.ListKeyShareHolders200Response;
 import com.cobo.waas2.model.ListMpcProjects200Response;
 import com.cobo.waas2.model.ListMpcVaults200Response;
 import com.cobo.waas2.model.ListTssRequests200Response;
@@ -145,6 +146,21 @@ public class WalletsMpcWalletsApiTest {
     }
 
     /**
+     * Get key share holder information
+     *
+     * This operation retrieves detailed information about a specified key share holder. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getKeyShareHolderByTssNodeIdTest() throws ApiException {
+        UUID vaultId = null;
+        String tssNodeId = null;
+        KeyShareHolder response = api.getKeyShareHolderByTssNodeId(vaultId, tssNodeId);
+        // TODO: test validations
+    }
+
+    /**
      * Get key share holder group information
      *
      * This operation retrieves detailed information about a specified key share holder group. 
@@ -230,6 +246,24 @@ public class WalletsMpcWalletsApiTest {
         String before = null;
         String after = null;
         ListKeyShareHolderGroups200Response response = api.listKeyShareHolderGroups(vaultId, keyShareHolderGroupType, limit, before, after);
+        // TODO: test validations
+    }
+
+    /**
+     * List all key share holders
+     *
+     * This operation retrieves a list of all key share holders under a specified vault. You can filter the result by key share holder group ID. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listKeyShareHoldersTest() throws ApiException {
+        UUID vaultId = null;
+        String keyShareHolderGroupIds = null;
+        Integer limit = null;
+        String before = null;
+        String after = null;
+        ListKeyShareHolders200Response response = api.listKeyShareHolders(vaultId, keyShareHolderGroupIds, limit, before, after);
         // TODO: test validations
     }
 

@@ -98,6 +98,14 @@ public class TransferParamsTest {
     }
 
     /**
+     * Test the property 'transactionProcessType'
+     */
+    @Test
+    public void transactionProcessTypeTest() {
+        // TODO: test transactionProcessType
+    }
+
+    /**
      * Test the property 'autoFuel'
      */
     @Test
