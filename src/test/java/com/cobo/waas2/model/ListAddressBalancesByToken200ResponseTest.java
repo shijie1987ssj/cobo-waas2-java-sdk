@@ -26,17 +26,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for ListAddressBalancesForToken200Response
+ * Model tests for ListAddressBalancesByToken200Response
  */
-public class ListAddressBalancesForToken200ResponseTest {
-    private final ListAddressBalancesForToken200Response model = new ListAddressBalancesForToken200Response();
+public class ListAddressBalancesByToken200ResponseTest {
+    private final ListAddressBalancesByToken200Response model = new ListAddressBalancesByToken200Response();
 
     /**
-     * Model tests for ListAddressBalancesForToken200Response
+     * Model tests for ListAddressBalancesByToken200Response
      */
     @Test
-    public void testListAddressBalancesForToken200Response() {
-        // TODO: test ListAddressBalancesForToken200Response
+    public void testListAddressBalancesByToken200Response() {
+        // TODO: test ListAddressBalancesByToken200Response
     }
 
     /**

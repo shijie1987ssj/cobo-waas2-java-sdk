@@ -14,7 +14,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 | [**getMaxTransferableValue**](WalletsApi.md#getMaxTransferableValue) | **GET** /wallets/{wallet_id}/max_transferable_value | Get maximum transferable value |
 | [**getTokenById**](WalletsApi.md#getTokenById) | **GET** /wallets/tokens/{token_id} | Get token information |
 | [**getWalletById**](WalletsApi.md#getWalletById) | **GET** /wallets/{wallet_id} | Get wallet information |
-| [**listAddressBalancesForToken**](WalletsApi.md#listAddressBalancesForToken) | **GET** /wallets/{wallet_id}/tokens/{token_id} | List address balances for token |
+| [**listAddressBalancesByToken**](WalletsApi.md#listAddressBalancesByToken) | **GET** /wallets/{wallet_id}/tokens/{token_id} | List address balances by token |
 | [**listAddresses**](WalletsApi.md#listAddresses) | **GET** /wallets/{wallet_id}/addresses | List wallet addresses |
 | [**listEnabledChains**](WalletsApi.md#listEnabledChains) | **GET** /wallets/enabled_chains | List enabled chains |
 | [**listEnabledTokens**](WalletsApi.md#listEnabledTokens) | **GET** /wallets/enabled_tokens | List enabled tokens |
@@ -725,13 +725,13 @@ public class Example {
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
-<a id="listAddressBalancesForToken"></a>
-# **listAddressBalancesForToken**
-> ListAddressBalancesForToken200Response listAddressBalancesForToken(walletId, tokenId, addresses, limit, before, after)
+<a id="listAddressBalancesByToken"></a>
+# **listAddressBalancesByToken**
+> ListAddressBalancesByToken200Response listAddressBalancesByToken(walletId, tokenId, addresses, limit, before, after)
 
-List address balances for token
+List address balances by token
 
-The operation retrieves a list of address balances for a specified token within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+This operation retrieves a list of address balances for a specified token within a wallet.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
 
 ### Example
 ```java
@@ -759,10 +759,10 @@ public class Example {
     String before = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGmk1";
     String after = "RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk";
     try {
-      ListAddressBalancesForToken200Response result = apiInstance.listAddressBalancesForToken(walletId, tokenId, addresses, limit, before, after);
+      ListAddressBalancesByToken200Response result = apiInstance.listAddressBalancesByToken(walletId, tokenId, addresses, limit, before, after);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling WalletsApi#listAddressBalancesForToken");
+      System.err.println("Exception when calling WalletsApi#listAddressBalancesByToken");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -785,7 +785,7 @@ public class Example {
 
 ### Return type
 
-[**ListAddressBalancesForToken200Response**](ListAddressBalancesForToken200Response.md)
+[**ListAddressBalancesByToken200Response**](ListAddressBalancesByToken200Response.md)
 
 ### Authorization
 

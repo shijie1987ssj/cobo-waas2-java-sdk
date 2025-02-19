@@ -32,7 +32,9 @@ public enum MessageSignDestinationType {
   
   EVM_EIP_712_SIGNATURE("EVM_EIP_712_Signature"),
   
-  BTC_EIP_191_SIGNATURE("BTC_EIP_191_Signature");
+  BTC_EIP_191_SIGNATURE("BTC_EIP_191_Signature"),
+  
+  RAW_MESSAGE_SIGNATURE("Raw_Message_Signature");
 
   private String value;
 

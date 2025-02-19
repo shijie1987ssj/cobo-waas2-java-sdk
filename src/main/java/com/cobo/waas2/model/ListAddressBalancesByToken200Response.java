@@ -49,13 +49,13 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * ListAddressBalancesForToken200Response
+ * ListAddressBalancesByToken200Response
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class ListAddressBalancesForToken200Response {
+public class ListAddressBalancesByToken200Response {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)
   private List<AddressBalance> data = new ArrayList<>();
@@ -64,15 +64,15 @@ public class ListAddressBalancesForToken200Response {
   @SerializedName(SERIALIZED_NAME_PAGINATION)
   private Pagination pagination;
 
-  public ListAddressBalancesForToken200Response() {
+  public ListAddressBalancesByToken200Response() {
   }
 
-  public ListAddressBalancesForToken200Response data(List<AddressBalance> data) {
+  public ListAddressBalancesByToken200Response data(List<AddressBalance> data) {
     this.data = data;
     return this;
   }
 
-  public ListAddressBalancesForToken200Response addDataItem(AddressBalance dataItem) {
+  public ListAddressBalancesByToken200Response addDataItem(AddressBalance dataItem) {
     if (this.data == null) {
       this.data = new ArrayList<>();
     }
@@ -94,7 +94,7 @@ public class ListAddressBalancesForToken200Response {
   }
 
 
-  public ListAddressBalancesForToken200Response pagination(Pagination pagination) {
+  public ListAddressBalancesByToken200Response pagination(Pagination pagination) {
     this.pagination = pagination;
     return this;
   }
@@ -125,9 +125,9 @@ public class ListAddressBalancesForToken200Response {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ListAddressBalancesForToken200Response instance itself
+   * @return the ListAddressBalancesByToken200Response instance itself
    */
-  public ListAddressBalancesForToken200Response putAdditionalProperty(String key, Object value) {
+  public ListAddressBalancesByToken200Response putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -166,10 +166,10 @@ public class ListAddressBalancesForToken200Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListAddressBalancesForToken200Response listAddressBalancesForToken200Response = (ListAddressBalancesForToken200Response) o;
-    return Objects.equals(this.data, listAddressBalancesForToken200Response.data) &&
-        Objects.equals(this.pagination, listAddressBalancesForToken200Response.pagination)&&
-        Objects.equals(this.additionalProperties, listAddressBalancesForToken200Response.additionalProperties);
+    ListAddressBalancesByToken200Response listAddressBalancesByToken200Response = (ListAddressBalancesByToken200Response) o;
+    return Objects.equals(this.data, listAddressBalancesByToken200Response.data) &&
+        Objects.equals(this.pagination, listAddressBalancesByToken200Response.pagination)&&
+        Objects.equals(this.additionalProperties, listAddressBalancesByToken200Response.additionalProperties);
   }
 
   @Override
@@ -180,7 +180,7 @@ public class ListAddressBalancesForToken200Response {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListAddressBalancesForToken200Response {\n");
+    sb.append("class ListAddressBalancesByToken200Response {\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -217,12 +217,12 @@ public class ListAddressBalancesForToken200Response {
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ListAddressBalancesForToken200Response
+  * @throws IOException if the JSON Element is invalid with respect to ListAddressBalancesByToken200Response
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ListAddressBalancesForToken200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ListAddressBalancesForToken200Response is not found in the empty JSON string", ListAddressBalancesForToken200Response.openapiRequiredFields.toString()));
+        if (!ListAddressBalancesByToken200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ListAddressBalancesByToken200Response is not found in the empty JSON string", ListAddressBalancesByToken200Response.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -250,16 +250,16 @@ public class ListAddressBalancesForToken200Response {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ListAddressBalancesForToken200Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ListAddressBalancesForToken200Response' and its subtypes
+       if (!ListAddressBalancesByToken200Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ListAddressBalancesByToken200Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ListAddressBalancesForToken200Response> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ListAddressBalancesForToken200Response.class));
+       final TypeAdapter<ListAddressBalancesByToken200Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ListAddressBalancesByToken200Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ListAddressBalancesForToken200Response>() {
+       return (TypeAdapter<T>) new TypeAdapter<ListAddressBalancesByToken200Response>() {
            @Override
-           public void write(JsonWriter out, ListAddressBalancesForToken200Response value) throws IOException {
+           public void write(JsonWriter out, ListAddressBalancesByToken200Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -289,12 +289,12 @@ public class ListAddressBalancesForToken200Response {
            }
 
            @Override
-           public ListAddressBalancesForToken200Response read(JsonReader in) throws IOException {
+           public ListAddressBalancesByToken200Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ListAddressBalancesForToken200Response instance = thisAdapter.fromJsonTree(jsonObj);
+             ListAddressBalancesByToken200Response instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -321,18 +321,18 @@ public class ListAddressBalancesForToken200Response {
   }
 
  /**
-  * Create an instance of ListAddressBalancesForToken200Response given an JSON string
+  * Create an instance of ListAddressBalancesByToken200Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ListAddressBalancesForToken200Response
-  * @throws IOException if the JSON string is invalid with respect to ListAddressBalancesForToken200Response
+  * @return An instance of ListAddressBalancesByToken200Response
+  * @throws IOException if the JSON string is invalid with respect to ListAddressBalancesByToken200Response
   */
-  public static ListAddressBalancesForToken200Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ListAddressBalancesForToken200Response.class);
+  public static ListAddressBalancesByToken200Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ListAddressBalancesByToken200Response.class);
   }
 
  /**
-  * Convert an instance of ListAddressBalancesForToken200Response to an JSON string
+  * Convert an instance of ListAddressBalancesByToken200Response to an JSON string
   *
   * @return JSON string
   */

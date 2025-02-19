@@ -155,7 +155,7 @@ docs/KeyShareHolderGroupStatus.md
 docs/KeyShareHolderGroupType.md
 docs/KeyShareHolderStatus.md
 docs/KeyShareHolderType.md
-docs/ListAddressBalancesForToken200Response.md
+docs/ListAddressBalancesByToken200Response.md
 docs/ListAddressBooks200Response.md
 docs/ListAddresses200Response.md
 docs/ListAssetBalancesForExchangeWallet200Response.md
@@ -563,7 +563,7 @@ src/main/java/com/cobo/waas2/model/KeyShareHolderGroupStatus.java
 src/main/java/com/cobo/waas2/model/KeyShareHolderGroupType.java
 src/main/java/com/cobo/waas2/model/KeyShareHolderStatus.java
 src/main/java/com/cobo/waas2/model/KeyShareHolderType.java
-src/main/java/com/cobo/waas2/model/ListAddressBalancesForToken200Response.java
+src/main/java/com/cobo/waas2/model/ListAddressBalancesByToken200Response.java
 src/main/java/com/cobo/waas2/model/ListAddressBooks200Response.java
 src/main/java/com/cobo/waas2/model/ListAddresses200Response.java
 src/main/java/com/cobo/waas2/model/ListAssetBalancesForExchangeWallet200Response.java
@@ -922,7 +922,7 @@ src/test/java/com/cobo/waas2/model/KeyShareHolderGroupTypeTest.java
 src/test/java/com/cobo/waas2/model/KeyShareHolderStatusTest.java
 src/test/java/com/cobo/waas2/model/KeyShareHolderTest.java
 src/test/java/com/cobo/waas2/model/KeyShareHolderTypeTest.java
-src/test/java/com/cobo/waas2/model/ListAddressBalancesForToken200ResponseTest.java
+src/test/java/com/cobo/waas2/model/ListAddressBalancesByToken200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListAddressBooks200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListAddresses200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListAssetBalancesForExchangeWallet200ResponseTest.java

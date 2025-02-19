@@ -1,6 +1,6 @@
 
 
-# ListAddressBalancesForToken200Response
+# ListAddressBalancesByToken200Response
 
 
 ## Properties

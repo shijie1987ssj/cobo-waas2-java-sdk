@@ -36,7 +36,7 @@ import com.cobo.waas2.model.CreatedWalletInfo;
 import com.cobo.waas2.model.DeleteWalletById201Response;
 import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.ExtendedTokenInfo;
-import com.cobo.waas2.model.ListAddressBalancesForToken200Response;
+import com.cobo.waas2.model.ListAddressBalancesByToken200Response;
 import com.cobo.waas2.model.ListAddresses200Response;
 import com.cobo.waas2.model.ListSupportedChains200Response;
 import com.cobo.waas2.model.ListSupportedTokens200Response;
@@ -1353,7 +1353,7 @@ public class WalletsApi {
         return localVarCall;
     }
     /**
-     * Build call for listAddressBalancesForToken
+     * Build call for listAddressBalancesByToken
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). (optional)
@@ -1371,7 +1371,7 @@ public class WalletsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAddressBalancesForTokenCall(UUID walletId, String tokenId, String addresses, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listAddressBalancesByTokenCall(UUID walletId, String tokenId, String addresses, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1421,31 +1421,31 @@ public class WalletsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listAddressBalancesForTokenValidateBeforeCall(UUID walletId, String tokenId, String addresses, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listAddressBalancesByTokenValidateBeforeCall(UUID walletId, String tokenId, String addresses, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'walletId' is set
         if (walletId == null) {
-            throw new ApiException("Missing the required parameter 'walletId' when calling listAddressBalancesForToken(Async)");
+            throw new ApiException("Missing the required parameter 'walletId' when calling listAddressBalancesByToken(Async)");
         }
 
         // verify the required parameter 'tokenId' is set
         if (tokenId == null) {
-            throw new ApiException("Missing the required parameter 'tokenId' when calling listAddressBalancesForToken(Async)");
+            throw new ApiException("Missing the required parameter 'tokenId' when calling listAddressBalancesByToken(Async)");
         }
 
-        return listAddressBalancesForTokenCall(walletId, tokenId, addresses, limit, before, after, _callback);
+        return listAddressBalancesByTokenCall(walletId, tokenId, addresses, limit, before, after, _callback);
 
     }
 
     /**
-     * List address balances for token
-     * The operation retrieves a list of address balances for a specified token within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * List address balances by token
+     * This operation retrieves a list of address balances for a specified token within a wallet.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @return ListAddressBalancesForToken200Response
+     * @return ListAddressBalancesByToken200Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1455,21 +1455,21 @@ public class WalletsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ListAddressBalancesForToken200Response listAddressBalancesForToken(UUID walletId, String tokenId, String addresses, Integer limit, String before, String after) throws ApiException {
-        ApiResponse<ListAddressBalancesForToken200Response> localVarResp = listAddressBalancesForTokenWithHttpInfo(walletId, tokenId, addresses, limit, before, after);
+    public ListAddressBalancesByToken200Response listAddressBalancesByToken(UUID walletId, String tokenId, String addresses, Integer limit, String before, String after) throws ApiException {
+        ApiResponse<ListAddressBalancesByToken200Response> localVarResp = listAddressBalancesByTokenWithHttpInfo(walletId, tokenId, addresses, limit, before, after);
         return localVarResp.getData();
     }
 
     /**
-     * List address balances for token
-     * The operation retrieves a list of address balances for a specified token within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * List address balances by token
+     * This operation retrieves a list of address balances for a specified token within a wallet.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
      * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
-     * @return ApiResponse&lt;ListAddressBalancesForToken200Response&gt;
+     * @return ApiResponse&lt;ListAddressBalancesByToken200Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1479,15 +1479,15 @@ public class WalletsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ListAddressBalancesForToken200Response> listAddressBalancesForTokenWithHttpInfo(UUID walletId, String tokenId, String addresses, Integer limit, String before, String after) throws ApiException {
-        okhttp3.Call localVarCall = listAddressBalancesForTokenValidateBeforeCall(walletId, tokenId, addresses, limit, before, after, null);
-        Type localVarReturnType = new TypeToken<ListAddressBalancesForToken200Response>(){}.getType();
+    public ApiResponse<ListAddressBalancesByToken200Response> listAddressBalancesByTokenWithHttpInfo(UUID walletId, String tokenId, String addresses, Integer limit, String before, String after) throws ApiException {
+        okhttp3.Call localVarCall = listAddressBalancesByTokenValidateBeforeCall(walletId, tokenId, addresses, limit, before, after, null);
+        Type localVarReturnType = new TypeToken<ListAddressBalancesByToken200Response>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * List address balances for token (asynchronously)
-     * The operation retrieves a list of address balances for a specified token within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+     * List address balances by token (asynchronously)
+     * This operation retrieves a list of address balances for a specified token within a wallet.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
      * @param walletId The wallet ID. (required)
      * @param tokenId The token ID, which is the unique identifier of a token. You can retrieve the IDs of all the tokens you can use by calling [List enabled tokens](https://www.cobo.com/developers/v2/api-references/wallets/list-enabled-tokens). (required)
      * @param addresses A list of wallet addresses, separated by comma. For addresses requiring a memo, append the memo after the address using the &#39;|&#39; separator (e.g., \&quot;address|memo\&quot;). (optional)
@@ -1505,10 +1505,10 @@ public class WalletsApi {
         <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listAddressBalancesForTokenAsync(UUID walletId, String tokenId, String addresses, Integer limit, String before, String after, final ApiCallback<ListAddressBalancesForToken200Response> _callback) throws ApiException {
+    public okhttp3.Call listAddressBalancesByTokenAsync(UUID walletId, String tokenId, String addresses, Integer limit, String before, String after, final ApiCallback<ListAddressBalancesByToken200Response> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listAddressBalancesForTokenValidateBeforeCall(walletId, tokenId, addresses, limit, before, after, _callback);
-        Type localVarReturnType = new TypeToken<ListAddressBalancesForToken200Response>(){}.getType();
+        okhttp3.Call localVarCall = listAddressBalancesByTokenValidateBeforeCall(walletId, tokenId, addresses, limit, before, after, _callback);
+        Type localVarReturnType = new TypeToken<ListAddressBalancesByToken200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
