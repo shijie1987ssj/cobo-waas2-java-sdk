@@ -67,6 +67,10 @@ public class TransactionRawTxInfo {
   @SerializedName(SERIALIZED_NAME_RAW_TX)
   private String rawTx;
 
+  public static final String SERIALIZED_NAME_UNSIGNED_RAW_TX = "unsigned_raw_tx";
+  @SerializedName(SERIALIZED_NAME_UNSIGNED_RAW_TX)
+  private String unsignedRawTx;
+
   public TransactionRawTxInfo() {
   }
 
@@ -134,6 +138,25 @@ public class TransactionRawTxInfo {
     this.rawTx = rawTx;
   }
 
+
+  public TransactionRawTxInfo unsignedRawTx(String unsignedRawTx) {
+    this.unsignedRawTx = unsignedRawTx;
+    return this;
+  }
+
+   /**
+   * The unsigned raw transaction data.
+   * @return unsignedRawTx
+  **/
+  @javax.annotation.Nullable
+  public String getUnsignedRawTx() {
+    return unsignedRawTx;
+  }
+
+  public void setUnsignedRawTx(String unsignedRawTx) {
+    this.unsignedRawTx = unsignedRawTx;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -191,13 +214,14 @@ public class TransactionRawTxInfo {
     TransactionRawTxInfo transactionRawTxInfo = (TransactionRawTxInfo) o;
     return Objects.equals(this.usedNonce, transactionRawTxInfo.usedNonce) &&
         Objects.equals(this.selectedUtxos, transactionRawTxInfo.selectedUtxos) &&
-        Objects.equals(this.rawTx, transactionRawTxInfo.rawTx)&&
+        Objects.equals(this.rawTx, transactionRawTxInfo.rawTx) &&
+        Objects.equals(this.unsignedRawTx, transactionRawTxInfo.unsignedRawTx)&&
         Objects.equals(this.additionalProperties, transactionRawTxInfo.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(usedNonce, selectedUtxos, rawTx, additionalProperties);
+    return Objects.hash(usedNonce, selectedUtxos, rawTx, unsignedRawTx, additionalProperties);
   }
 
   @Override
@@ -207,6 +231,7 @@ public class TransactionRawTxInfo {
     sb.append("    usedNonce: ").append(toIndentedString(usedNonce)).append("\n");
     sb.append("    selectedUtxos: ").append(toIndentedString(selectedUtxos)).append("\n");
     sb.append("    rawTx: ").append(toIndentedString(rawTx)).append("\n");
+    sb.append("    unsignedRawTx: ").append(toIndentedString(unsignedRawTx)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -233,6 +258,7 @@ public class TransactionRawTxInfo {
     openapiFields.add("used_nonce");
     openapiFields.add("selected_utxos");
     openapiFields.add("raw_tx");
+    openapiFields.add("unsigned_raw_tx");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -267,6 +293,9 @@ public class TransactionRawTxInfo {
       }
       if ((jsonObj.get("raw_tx") != null && !jsonObj.get("raw_tx").isJsonNull()) && !jsonObj.get("raw_tx").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `raw_tx` to be a primitive type in the JSON string but got `%s`", jsonObj.get("raw_tx").toString()));
+      }
+      if ((jsonObj.get("unsigned_raw_tx") != null && !jsonObj.get("unsigned_raw_tx").isJsonNull()) && !jsonObj.get("unsigned_raw_tx").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `unsigned_raw_tx` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unsigned_raw_tx").toString()));
       }
   }
 

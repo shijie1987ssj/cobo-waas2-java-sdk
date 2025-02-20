@@ -10,7 +10,7 @@ The information about the asset balance of a trading account.
 |------------ | ------------- | ------------- | -------------|
 |**tradingAccountType** | **String** | The trading account type. |  [optional] |
 |**assetId** | **String** | The asset ID. An asset ID is the unique identifier of the asset held within your linked exchange account. |  |
-|**balance** | [**TokenBalanceBalance**](TokenBalanceBalance.md) |  |  |
+|**balance** | [**Balance**](Balance.md) |  |  |
 
 
 

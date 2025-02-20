@@ -29,6 +29,8 @@
 
 * `REJECTEDBYMOBILECOSIGNER` (value: `"RejectedbyMobileCosigner"`)
 
+* `BUILT` (value: `"Built"`)
+
 * `PENDINGWAITSIGNER` (value: `"PendingWaitSigner"`)
 
 * `PENDINGAPPROVALSTART` (value: `"PendingApprovalStart"`)

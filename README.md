@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.8.1</version>
+  <version>1.9.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.8.1"
+     implementation "com.cobo.waas2:cobo-waas2:1.9.0"
   }
 ```
 
@@ -97,7 +97,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.8.1.jar`
+* `target/cobo-waas2-1.9.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -218,6 +218,12 @@ Class | Method | HTTP request | Description
 *DevelopersWebhooksApi* | [**updateWebhookEndpointById**](docs/DevelopersWebhooksApi.md#updateWebhookEndpointById) | **PUT** /webhooks/endpoints/{endpoint_id} | Update webhook endpoint
 *OAuthApi* | [**getToken**](docs/OAuthApi.md#getToken) | **GET** /oauth/token | Get Org Access Token
 *OAuthApi* | [**refreshToken**](docs/OAuthApi.md#refreshToken) | **POST** /oauth/token | Refresh Org Access Token
+*PrimeBrokerApi* | [**changeGuardPubkey**](docs/PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | Change Guard pubkey binding
+*PrimeBrokerApi* | [**createGuardPubkey**](docs/PrimeBrokerApi.md#createGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey | Create Guard pubkey binding
+*PrimeBrokerApi* | [**createPrimeBrokerAddress**](docs/PrimeBrokerApi.md#createPrimeBrokerAddress) | **POST** /prime_broker/user/{user_id}/addresses | Bind addresses to a broker user
+*PrimeBrokerApi* | [**deleteGuardPubkey**](docs/PrimeBrokerApi.md#deleteGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey/delete | Delete Guard pubkey binding
+*PrimeBrokerApi* | [**queryApprovalStatement**](docs/PrimeBrokerApi.md#queryApprovalStatement) | **GET** /prime_broker/approval_statement/{statement_id} | Query approval statement
+*PrimeBrokerApi* | [**queryGuardPubkey**](docs/PrimeBrokerApi.md#queryGuardPubkey) | **GET** /prime_broker/user/{user_id}/guard_pubkey | Query a Guard pubkey
 *StakingsApi* | [**createClaimActivity**](docs/StakingsApi.md#createClaimActivity) | **POST** /stakings/activities/claim | Create claim activity
 *StakingsApi* | [**createStakeActivity**](docs/StakingsApi.md#createStakeActivity) | **POST** /stakings/activities/stake | Create stake activity
 *StakingsApi* | [**createUnstakeActivity**](docs/StakingsApi.md#createUnstakeActivity) | **POST** /stakings/activities/unstake | Create unstake activity
@@ -238,9 +244,11 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**createTransferTransaction**](docs/TransactionsApi.md#createTransferTransaction) | **POST** /transactions/transfer | Transfer token
 *TransactionsApi* | [**dropTransactionById**](docs/TransactionsApi.md#dropTransactionById) | **POST** /transactions/{transaction_id}/drop | Drop transaction
 *TransactionsApi* | [**estimateFee**](docs/TransactionsApi.md#estimateFee) | **POST** /transactions/estimate_fee | Estimate transaction fee
+*TransactionsApi* | [**getTransactionApprovalDetail**](docs/TransactionsApi.md#getTransactionApprovalDetail) | **GET** /transactions/{transaction_id}/approval_detail | Get transaction approval details
 *TransactionsApi* | [**getTransactionById**](docs/TransactionsApi.md#getTransactionById) | **GET** /transactions/{transaction_id} | Get transaction information
 *TransactionsApi* | [**listTransactions**](docs/TransactionsApi.md#listTransactions) | **GET** /transactions | List all transactions
 *TransactionsApi* | [**resendTransactionById**](docs/TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction
+*TransactionsApi* | [**signAndBroadcastTransactionById**](docs/TransactionsApi.md#signAndBroadcastTransactionById) | **POST** /transactions/{transaction_id}/sign_and_broadcast | Sign and broadcast transaction
 *TransactionsApi* | [**speedupTransactionById**](docs/TransactionsApi.md#speedupTransactionById) | **POST** /transactions/{transaction_id}/speedup | Speed up transaction
 *TravelRuleApi* | [**getTransactionLimitation**](docs/TravelRuleApi.md#getTransactionLimitation) | **GET** /travel_rule/transaction/limitation | Retrieve transaction limitations
 *TravelRuleApi* | [**listSupportedCountries**](docs/TravelRuleApi.md#listSupportedCountries) | **GET** /travel_rule/transaction/countries | List supported countries
@@ -256,6 +264,7 @@ Class | Method | HTTP request | Description
 *WalletsApi* | [**getMaxTransferableValue**](docs/WalletsApi.md#getMaxTransferableValue) | **GET** /wallets/{wallet_id}/max_transferable_value | Get maximum transferable value
 *WalletsApi* | [**getTokenById**](docs/WalletsApi.md#getTokenById) | **GET** /wallets/tokens/{token_id} | Get token information
 *WalletsApi* | [**getWalletById**](docs/WalletsApi.md#getWalletById) | **GET** /wallets/{wallet_id} | Get wallet information
+*WalletsApi* | [**listAddressBalancesByToken**](docs/WalletsApi.md#listAddressBalancesByToken) | **GET** /wallets/{wallet_id}/tokens/{token_id} | List address balances by token
 *WalletsApi* | [**listAddresses**](docs/WalletsApi.md#listAddresses) | **GET** /wallets/{wallet_id}/addresses | List wallet addresses
 *WalletsApi* | [**listEnabledChains**](docs/WalletsApi.md#listEnabledChains) | **GET** /wallets/enabled_chains | List enabled chains
 *WalletsApi* | [**listEnabledTokens**](docs/WalletsApi.md#listEnabledTokens) | **GET** /wallets/enabled_tokens | List enabled tokens
@@ -278,12 +287,14 @@ Class | Method | HTTP request | Description
 *WalletsMpcWalletsApi* | [**createMpcVault**](docs/WalletsMpcWalletsApi.md#createMpcVault) | **POST** /wallets/mpc/vaults | Create vault
 *WalletsMpcWalletsApi* | [**createTssRequest**](docs/WalletsMpcWalletsApi.md#createTssRequest) | **POST** /wallets/mpc/vaults/{vault_id}/tss_requests | Create TSS request
 *WalletsMpcWalletsApi* | [**deleteKeyShareHolderGroupById**](docs/WalletsMpcWalletsApi.md#deleteKeyShareHolderGroupById) | **POST** /wallets/mpc/vaults/{vault_id}/key_share_holder_groups/{key_share_holder_group_id}/delete | Delete key share holder group
+*WalletsMpcWalletsApi* | [**getKeyShareHolderByTssNodeId**](docs/WalletsMpcWalletsApi.md#getKeyShareHolderByTssNodeId) | **GET** /wallets/mpc/vaults/{vault_id}/key_share_holders/{tss_node_id} | Get key share holder information
 *WalletsMpcWalletsApi* | [**getKeyShareHolderGroupById**](docs/WalletsMpcWalletsApi.md#getKeyShareHolderGroupById) | **GET** /wallets/mpc/vaults/{vault_id}/key_share_holder_groups/{key_share_holder_group_id} | Get key share holder group information
 *WalletsMpcWalletsApi* | [**getMpcProjectById**](docs/WalletsMpcWalletsApi.md#getMpcProjectById) | **GET** /wallets/mpc/projects/{project_id} | Get project information
 *WalletsMpcWalletsApi* | [**getMpcVaultById**](docs/WalletsMpcWalletsApi.md#getMpcVaultById) | **GET** /wallets/mpc/vaults/{vault_id} | Get vault information
 *WalletsMpcWalletsApi* | [**getTssRequestById**](docs/WalletsMpcWalletsApi.md#getTssRequestById) | **GET** /wallets/mpc/vaults/{vault_id}/tss_requests/{tss_request_id} | Get TSS request
 *WalletsMpcWalletsApi* | [**listCoboKeyHolders**](docs/WalletsMpcWalletsApi.md#listCoboKeyHolders) | **GET** /wallets/mpc/cobo_key_share_holders | List all Cobo key share holders
 *WalletsMpcWalletsApi* | [**listKeyShareHolderGroups**](docs/WalletsMpcWalletsApi.md#listKeyShareHolderGroups) | **GET** /wallets/mpc/vaults/{vault_id}/key_share_holder_groups | List all key share holder groups
+*WalletsMpcWalletsApi* | [**listKeyShareHolders**](docs/WalletsMpcWalletsApi.md#listKeyShareHolders) | **GET** /wallets/mpc/vaults/{vault_id}/key_share_holders | List all key share holders
 *WalletsMpcWalletsApi* | [**listMpcProjects**](docs/WalletsMpcWalletsApi.md#listMpcProjects) | **GET** /wallets/mpc/projects | List all projects
 *WalletsMpcWalletsApi* | [**listMpcVaults**](docs/WalletsMpcWalletsApi.md#listMpcVaults) | **GET** /wallets/mpc/vaults | List all vaults
 *WalletsMpcWalletsApi* | [**listTssRequests**](docs/WalletsMpcWalletsApi.md#listTssRequests) | **GET** /wallets/mpc/vaults/{vault_id}/tss_requests | List TSS requests
@@ -302,6 +313,7 @@ Class | Method | HTTP request | Description
  - [ActivityStatus](docs/ActivityStatus.md)
  - [ActivityTimeline](docs/ActivityTimeline.md)
  - [ActivityType](docs/ActivityType.md)
+ - [AddressBalance](docs/AddressBalance.md)
  - [AddressBook](docs/AddressBook.md)
  - [AddressEncoding](docs/AddressEncoding.md)
  - [AddressInfo](docs/AddressInfo.md)
@@ -313,14 +325,17 @@ Class | Method | HTTP request | Description
  - [AmountStatus](docs/AmountStatus.md)
  - [ApiLogDetails](docs/ApiLogDetails.md)
  - [ApiLogSummary](docs/ApiLogSummary.md)
+ - [ApprovalStatementStatus](docs/ApprovalStatementStatus.md)
  - [AssetBalance](docs/AssetBalance.md)
  - [AssetInfo](docs/AssetInfo.md)
  - [AutoFuelType](docs/AutoFuelType.md)
+ - [BTCEIP191MessageSignDestination](docs/BTCEIP191MessageSignDestination.md)
  - [BabylonStakeEstimatedFee](docs/BabylonStakeEstimatedFee.md)
  - [BabylonStakeExtra](docs/BabylonStakeExtra.md)
  - [BabylonStakingActivityDetailExtra](docs/BabylonStakingActivityDetailExtra.md)
  - [BabylonStakingExtra](docs/BabylonStakingExtra.md)
  - [BabylonValidator](docs/BabylonValidator.md)
+ - [Balance](docs/Balance.md)
  - [BaseContractCallSource](docs/BaseContractCallSource.md)
  - [BaseEstimateStakingFee](docs/BaseEstimateStakingFee.md)
  - [BaseStakeExtra](docs/BaseStakeExtra.md)
@@ -329,6 +344,7 @@ Class | Method | HTTP request | Description
  - [BroadcastSignedTransactionsRequest](docs/BroadcastSignedTransactionsRequest.md)
  - [CallbackMessage](docs/CallbackMessage.md)
  - [ChainInfo](docs/ChainInfo.md)
+ - [ChangeGuardPubkey200Response](docs/ChangeGuardPubkey200Response.md)
  - [CheckAddressChainsValidity200ResponseInner](docs/CheckAddressChainsValidity200ResponseInner.md)
  - [CheckAddressValidity200Response](docs/CheckAddressValidity200Response.md)
  - [CheckAddressesValidity200ResponseInner](docs/CheckAddressesValidity200ResponseInner.md)
@@ -353,6 +369,8 @@ Class | Method | HTTP request | Description
  - [CreateMpcProjectRequest](docs/CreateMpcProjectRequest.md)
  - [CreateMpcVaultRequest](docs/CreateMpcVaultRequest.md)
  - [CreateMpcWalletParams](docs/CreateMpcWalletParams.md)
+ - [CreatePrimeBrokerAddress201Response](docs/CreatePrimeBrokerAddress201Response.md)
+ - [CreatePrimeBrokerAddressRequest](docs/CreatePrimeBrokerAddressRequest.md)
  - [CreateSafeWalletParams](docs/CreateSafeWalletParams.md)
  - [CreateSmartContractWalletParams](docs/CreateSmartContractWalletParams.md)
  - [CreateStakeActivity](docs/CreateStakeActivity.md)
@@ -372,6 +390,7 @@ Class | Method | HTTP request | Description
  - [CurveType](docs/CurveType.md)
  - [CustodialTransferSource](docs/CustodialTransferSource.md)
  - [CustodialWalletInfo](docs/CustodialWalletInfo.md)
+ - [DeleteGuardPubkey201Response](docs/DeleteGuardPubkey201Response.md)
  - [DeleteKeyShareHolderGroupById201Response](docs/DeleteKeyShareHolderGroupById201Response.md)
  - [DeleteWalletById201Response](docs/DeleteWalletById201Response.md)
  - [DestinationWalletType](docs/DestinationWalletType.md)
@@ -424,18 +443,21 @@ Class | Method | HTTP request | Description
  - [GetToken2XXResponse](docs/GetToken2XXResponse.md)
  - [GetToken4XXResponse](docs/GetToken4XXResponse.md)
  - [GetTransactionLimitation200Response](docs/GetTransactionLimitation200Response.md)
+ - [GuardPubkeyStatus](docs/GuardPubkeyStatus.md)
  - [KeyShareHolder](docs/KeyShareHolder.md)
  - [KeyShareHolderGroup](docs/KeyShareHolderGroup.md)
  - [KeyShareHolderGroupStatus](docs/KeyShareHolderGroupStatus.md)
  - [KeyShareHolderGroupType](docs/KeyShareHolderGroupType.md)
  - [KeyShareHolderStatus](docs/KeyShareHolderStatus.md)
  - [KeyShareHolderType](docs/KeyShareHolderType.md)
+ - [ListAddressBalancesByToken200Response](docs/ListAddressBalancesByToken200Response.md)
  - [ListAddressBooks200Response](docs/ListAddressBooks200Response.md)
  - [ListAddresses200Response](docs/ListAddresses200Response.md)
  - [ListAssetBalancesForExchangeWallet200Response](docs/ListAssetBalancesForExchangeWallet200Response.md)
  - [ListCallbackMessages200Response](docs/ListCallbackMessages200Response.md)
  - [ListExchanges200ResponseInner](docs/ListExchanges200ResponseInner.md)
  - [ListKeyShareHolderGroups200Response](docs/ListKeyShareHolderGroups200Response.md)
+ - [ListKeyShareHolders200Response](docs/ListKeyShareHolders200Response.md)
  - [ListMpcProjects200Response](docs/ListMpcProjects200Response.md)
  - [ListMpcVaults200Response](docs/ListMpcVaults200Response.md)
  - [ListStakingActivities200Response](docs/ListStakingActivities200Response.md)
@@ -480,6 +502,9 @@ Class | Method | HTTP request | Description
  - [PoolDetails](docs/PoolDetails.md)
  - [PoolDetailsAllOfValidatorsInfo](docs/PoolDetailsAllOfValidatorsInfo.md)
  - [PoolSummary](docs/PoolSummary.md)
+ - [QueryApprovalStatement200Response](docs/QueryApprovalStatement200Response.md)
+ - [QueryGuardPubkey200Response](docs/QueryGuardPubkey200Response.md)
+ - [QueryGuardPubkey200ResponseAddressesInner](docs/QueryGuardPubkey200ResponseAddressesInner.md)
  - [RawMessageSignDestination](docs/RawMessageSignDestination.md)
  - [RefreshToken2XXResponse](docs/RefreshToken2XXResponse.md)
  - [RefreshTokenRequest](docs/RefreshTokenRequest.md)
@@ -520,9 +545,10 @@ Class | Method | HTTP request | Description
  - [TSSRequestWebhookEventData](docs/TSSRequestWebhookEventData.md)
  - [TokenAssetModelType](docs/TokenAssetModelType.md)
  - [TokenBalance](docs/TokenBalance.md)
- - [TokenBalanceBalance](docs/TokenBalanceBalance.md)
  - [TokenInfo](docs/TokenInfo.md)
  - [Transaction](docs/Transaction.md)
+ - [TransactionApprovalDetail](docs/TransactionApprovalDetail.md)
+ - [TransactionApprovalResult](docs/TransactionApprovalResult.md)
  - [TransactionApprover](docs/TransactionApprover.md)
  - [TransactionBlockInfo](docs/TransactionBlockInfo.md)
  - [TransactionCustodialAssetWalletSource](docs/TransactionCustodialAssetWalletSource.md)
@@ -530,6 +556,7 @@ Class | Method | HTTP request | Description
  - [TransactionDepositFromLoopSource](docs/TransactionDepositFromLoopSource.md)
  - [TransactionDepositFromWalletSource](docs/TransactionDepositFromWalletSource.md)
  - [TransactionDepositToAddressDestination](docs/TransactionDepositToAddressDestination.md)
+ - [TransactionDepositToAddressDestinationTxInfo](docs/TransactionDepositToAddressDestinationTxInfo.md)
  - [TransactionDepositToWalletDestination](docs/TransactionDepositToWalletDestination.md)
  - [TransactionDestination](docs/TransactionDestination.md)
  - [TransactionDestinationType](docs/TransactionDestinationType.md)
@@ -561,6 +588,7 @@ Class | Method | HTTP request | Description
  - [TransactionResend](docs/TransactionResend.md)
  - [TransactionResult](docs/TransactionResult.md)
  - [TransactionResultType](docs/TransactionResultType.md)
+ - [TransactionRoleApprovalDetail](docs/TransactionRoleApprovalDetail.md)
  - [TransactionSelectedUtxo](docs/TransactionSelectedUtxo.md)
  - [TransactionSignatureResult](docs/TransactionSignatureResult.md)
  - [TransactionSigner](docs/TransactionSigner.md)
@@ -577,6 +605,7 @@ Class | Method | HTTP request | Description
  - [TransactionTransferToAddressDestinationUtxoOutputsInner](docs/TransactionTransferToAddressDestinationUtxoOutputsInner.md)
  - [TransactionTransferToWalletDestination](docs/TransactionTransferToWalletDestination.md)
  - [TransactionType](docs/TransactionType.md)
+ - [TransactionUserApprovalDetail](docs/TransactionUserApprovalDetail.md)
  - [TransactionUtxo](docs/TransactionUtxo.md)
  - [TransactionUtxoFee](docs/TransactionUtxoFee.md)
  - [TransactionWebhookEventData](docs/TransactionWebhookEventData.md)
@@ -638,6 +667,20 @@ Authentication schemes defined for the API:
 - **API key parameter name**: BIZ-API-KEY
 - **Location**: HTTP header
 
+<a id="CoboSignature"></a>
+### CoboSignature
+
+- **Type**: API key
+- **API key parameter name**: BIZ-API-SIGNATURE
+- **Location**: HTTP header
+
+<a id="CoboNonce"></a>
+### CoboNonce
+
+- **Type**: API key
+- **API key parameter name**: BIZ-API-NONCE
+- **Location**: HTTP header
+
 <a id="OAuth2"></a>
 ### OAuth2
 
@@ -645,31 +688,41 @@ Authentication schemes defined for the API:
 - **Flow**: accessCode
 - **Authorization URL**: https://auth.cobo.com/authorize
 - **Scopes**: 
-  - custodial_asset_wallet:create: Create access to custodial asset wallets
-  - custodial_asset_wallet:add: Generate address access to custodial asset wallets
-  - custodial_asset_wallet:edit: Change wallet name access to custodial asset wallets
-  - custodial_asset_wallet:withdraw: Withdraw access to custodial asset wallets
-  - mpc_organization_controlled_wallet:create: Create access to MPC organization-controlled wallets
-  - mpc_organization_controlled_wallet:add: Generate address access to MPC organization-controlled wallets
-  - mpc_organization_controlled_wallet:edit: Change wallet name access to MPC organization-controlled wallets
-  - mpc_organization_controlled_wallet:withdraw: Withdraw access to MPC organization-controlled wallets
-  - mpc_organization_controlled_wallet:contract_call: Contract call access to MPC organization-controlled wallets
-  - mpc_organization_controlled_wallet:message_sign: Message sign access to MPC organization-controlled wallets
-  - mpc_organization_controlled_vault:manage: Create/Edit access to MPC organization-controlled vaults
-  - mpc_organization_controlled_key_group:manage: Create/Edit/Delete access to MPC organization-controlled key groups
-  - mpc_organization_controlled_tss_request:manage: Create/Cancel access to MPC organization-controlled tss requests
-  - mpc_user_controlled_wallet:create: Create access to MPC user-controlled wallets
-  - mpc_user_controlled_wallet:add: Generate address access to MPC user-controlled wallets
-  - mpc_user_controlled_wallet:edit: Change wallet name access to MPC user-controlled wallets
-  - mpc_user_controlled_wallet:withdraw: Withdraw access to MPC user-controlled wallets
-  - mpc_user_controlled_wallet:contract_call: Contract call access to MPC user-controlled wallets
-  - mpc_user_controlled_wallet:message_sign: Message sign access to MPC user-controlled wallets
-  - mpc_user_controlled_project:manage: Create/Edit access to MPC user-controlled projects
-  - mpc_user_controlled_vault:manage: Create/Edit access to MPC user-controlled vaults
-  - mpc_user_controlled_key_group:manage: Create/Edit/Delete access to MPC user-controlled key groups
-  - mpc_user_controlled_tss_request:manage: Create/Cancel access to MPC user-controlled tss requests
-  - webhook:resend: Resend access to webhook events
-  - webhook_url:edit: Create/Edit access to webhook urls
+  - address_book.read: Read address book
+  - api_key.read: Read API key information
+  - callback.read: Read callback message
+  - callback.resend: Resend callback message
+  - wallet.create: Create wallet
+  - wallet.read: Read wallet information
+  - wallet.update: Update wallet information
+  - wallet.delete: Delete wallet information
+  - wallet.create_address: Create wallet address
+  - wallet.manage_utxo: Manage UTXO
+  - mpc_project.create: Create MPC project
+  - mpc_project.read: Read MPC project information
+  - mpc_project.update: Update MPC project information
+  - mpc_vault.create: Create MPC Vault
+  - mpc_vault.read: Read MPC Vault information
+  - mpc_vault.update: Update MPC Vault information
+  - mpc_key_group.create: Create MPC key group
+  - mpc_key_group.read: Read MPC key group information
+  - mpc_key_group.update: Update MPC key group information
+  - mpc_key_group.delete: Delete MPC key group information
+  - transaction.read: Read transaction information
+  - transaction.withdraw: Make withdrawals
+  - transaction.estimate_fee: Estimate transaction fee
+  - transaction.contract_call: Initiate contract calls
+  - transaction.message_sign: Initiate message signings
+  - transaction.stake: Stake assets
+  - transaction.unstake: Unstake assets
+  - transaction.unstake_withdraw: Withdraw unstaked assets
+  - transaction.manage: Manage ongoing transactions
+  - transaction.update: Update transaction notes
+  - travel_rule.read: Read travel rule information
+  - travel_rule.edit: Edit travel rule information
+  - webhook.read: Read webhook URLs/events
+  - webhook.edit: Edit webhook URLs
+  - webhook.resend: Resend webhook events
 
 
 ## Recommendation

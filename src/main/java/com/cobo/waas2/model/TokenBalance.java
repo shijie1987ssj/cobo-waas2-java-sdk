@@ -12,7 +12,7 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.TokenBalanceBalance;
+import com.cobo.waas2.model.Balance;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -59,7 +59,7 @@ public class TokenBalance {
 
   public static final String SERIALIZED_NAME_BALANCE = "balance";
   @SerializedName(SERIALIZED_NAME_BALANCE)
-  private TokenBalanceBalance balance;
+  private Balance balance;
 
   public TokenBalance() {
   }
@@ -83,7 +83,7 @@ public class TokenBalance {
   }
 
 
-  public TokenBalance balance(TokenBalanceBalance balance) {
+  public TokenBalance balance(Balance balance) {
     this.balance = balance;
     return this;
   }
@@ -93,11 +93,11 @@ public class TokenBalance {
    * @return balance
   **/
   @javax.annotation.Nonnull
-  public TokenBalanceBalance getBalance() {
+  public Balance getBalance() {
     return balance;
   }
 
-  public void setBalance(TokenBalanceBalance balance) {
+  public void setBalance(Balance balance) {
     this.balance = balance;
   }
 
@@ -228,7 +228,7 @@ public class TokenBalance {
         throw new IllegalArgumentException(String.format("Expected the field `token_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("token_id").toString()));
       }
       // validate the required field `balance`
-      TokenBalanceBalance.validateJsonElement(jsonObj.get("balance"));
+      Balance.validateJsonElement(jsonObj.get("balance"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

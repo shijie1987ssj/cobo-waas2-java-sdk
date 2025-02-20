@@ -12,13 +12,17 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.AddressBalance;
+import com.cobo.waas2.model.Pagination;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,105 +49,67 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The balance details.
+ * ListAddressBalancesByToken200Response
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class TokenBalanceBalance {
-  public static final String SERIALIZED_NAME_TOTAL = "total";
-  @SerializedName(SERIALIZED_NAME_TOTAL)
-  private String total;
+public class ListAddressBalancesByToken200Response {
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private List<AddressBalance> data = new ArrayList<>();
 
-  public static final String SERIALIZED_NAME_AVAILABLE = "available";
-  @SerializedName(SERIALIZED_NAME_AVAILABLE)
-  private String available;
+  public static final String SERIALIZED_NAME_PAGINATION = "pagination";
+  @SerializedName(SERIALIZED_NAME_PAGINATION)
+  private Pagination pagination;
 
-  public static final String SERIALIZED_NAME_PENDING = "pending";
-  @SerializedName(SERIALIZED_NAME_PENDING)
-  private String pending = "0";
-
-  public static final String SERIALIZED_NAME_LOCKED = "locked";
-  @SerializedName(SERIALIZED_NAME_LOCKED)
-  private String locked = "0";
-
-  public TokenBalanceBalance() {
+  public ListAddressBalancesByToken200Response() {
   }
 
-  public TokenBalanceBalance total(String total) {
-    this.total = total;
+  public ListAddressBalancesByToken200Response data(List<AddressBalance> data) {
+    this.data = data;
+    return this;
+  }
+
+  public ListAddressBalancesByToken200Response addDataItem(AddressBalance dataItem) {
+    if (this.data == null) {
+      this.data = new ArrayList<>();
+    }
+    this.data.add(dataItem);
     return this;
   }
 
    /**
-   * The current amount of tokens in an address, which is retrieved directly from the network. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
-   * @return total
-  **/
-  @javax.annotation.Nonnull
-  public String getTotal() {
-    return total;
-  }
-
-  public void setTotal(String total) {
-    this.total = total;
-  }
-
-
-  public TokenBalanceBalance available(String available) {
-    this.available = available;
-    return this;
-  }
-
-   /**
-   * The amount of tokens ready to be spent. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
-   * @return available
-  **/
-  @javax.annotation.Nonnull
-  public String getAvailable() {
-    return available;
-  }
-
-  public void setAvailable(String available) {
-    this.available = available;
-  }
-
-
-  public TokenBalanceBalance pending(String pending) {
-    this.pending = pending;
-    return this;
-  }
-
-   /**
-   * The total amount being sent in a transaction, which is calculated as the withdrawal amount plus the transaction fee. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
-   * @return pending
+   * Get data
+   * @return data
   **/
   @javax.annotation.Nullable
-  public String getPending() {
-    return pending;
+  public List<AddressBalance> getData() {
+    return data;
   }
 
-  public void setPending(String pending) {
-    this.pending = pending;
+  public void setData(List<AddressBalance> data) {
+    this.data = data;
   }
 
 
-  public TokenBalanceBalance locked(String locked) {
-    this.locked = locked;
+  public ListAddressBalancesByToken200Response pagination(Pagination pagination) {
+    this.pagination = pagination;
     return this;
   }
 
    /**
-   * For UTXO chains, this is the combined value of the selected UTXOs for the transaction. For other chains, it is equal to the Pending amount. To learn more, see [Balances and transaction amounts for MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/balance-amounts) for more details.
-   * @return locked
+   * Get pagination
+   * @return pagination
   **/
   @javax.annotation.Nullable
-  public String getLocked() {
-    return locked;
+  public Pagination getPagination() {
+    return pagination;
   }
 
-  public void setLocked(String locked) {
-    this.locked = locked;
+  public void setPagination(Pagination pagination) {
+    this.pagination = pagination;
   }
 
   /**
@@ -159,9 +125,9 @@ public class TokenBalanceBalance {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the TokenBalanceBalance instance itself
+   * @return the ListAddressBalancesByToken200Response instance itself
    */
-  public TokenBalanceBalance putAdditionalProperty(String key, Object value) {
+  public ListAddressBalancesByToken200Response putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -200,27 +166,23 @@ public class TokenBalanceBalance {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    TokenBalanceBalance tokenBalanceBalance = (TokenBalanceBalance) o;
-    return Objects.equals(this.total, tokenBalanceBalance.total) &&
-        Objects.equals(this.available, tokenBalanceBalance.available) &&
-        Objects.equals(this.pending, tokenBalanceBalance.pending) &&
-        Objects.equals(this.locked, tokenBalanceBalance.locked)&&
-        Objects.equals(this.additionalProperties, tokenBalanceBalance.additionalProperties);
+    ListAddressBalancesByToken200Response listAddressBalancesByToken200Response = (ListAddressBalancesByToken200Response) o;
+    return Objects.equals(this.data, listAddressBalancesByToken200Response.data) &&
+        Objects.equals(this.pagination, listAddressBalancesByToken200Response.pagination)&&
+        Objects.equals(this.additionalProperties, listAddressBalancesByToken200Response.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(total, available, pending, locked, additionalProperties);
+    return Objects.hash(data, pagination, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TokenBalanceBalance {\n");
-    sb.append("    total: ").append(toIndentedString(total)).append("\n");
-    sb.append("    available: ").append(toIndentedString(available)).append("\n");
-    sb.append("    pending: ").append(toIndentedString(pending)).append("\n");
-    sb.append("    locked: ").append(toIndentedString(locked)).append("\n");
+    sb.append("class ListAddressBalancesByToken200Response {\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
+    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -244,48 +206,43 @@ public class TokenBalanceBalance {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("total");
-    openapiFields.add("available");
-    openapiFields.add("pending");
-    openapiFields.add("locked");
+    openapiFields.add("data");
+    openapiFields.add("pagination");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("total");
-    openapiRequiredFields.add("available");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TokenBalanceBalance
+  * @throws IOException if the JSON Element is invalid with respect to ListAddressBalancesByToken200Response
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!TokenBalanceBalance.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TokenBalanceBalance is not found in the empty JSON string", TokenBalanceBalance.openapiRequiredFields.toString()));
-        }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : TokenBalanceBalance.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (!ListAddressBalancesByToken200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ListAddressBalancesByToken200Response is not found in the empty JSON string", ListAddressBalancesByToken200Response.openapiRequiredFields.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("total").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `total` to be a primitive type in the JSON string but got `%s`", jsonObj.get("total").toString()));
+      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
+        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
+        if (jsonArraydata != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("data").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
+          }
+
+          // validate the optional field `data` (array)
+          for (int i = 0; i < jsonArraydata.size(); i++) {
+            AddressBalance.validateJsonElement(jsonArraydata.get(i));
+          };
+        }
       }
-      if (!jsonObj.get("available").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `available` to be a primitive type in the JSON string but got `%s`", jsonObj.get("available").toString()));
-      }
-      if ((jsonObj.get("pending") != null && !jsonObj.get("pending").isJsonNull()) && !jsonObj.get("pending").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `pending` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pending").toString()));
-      }
-      if ((jsonObj.get("locked") != null && !jsonObj.get("locked").isJsonNull()) && !jsonObj.get("locked").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `locked` to be a primitive type in the JSON string but got `%s`", jsonObj.get("locked").toString()));
+      // validate the optional field `pagination`
+      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+        Pagination.validateJsonElement(jsonObj.get("pagination"));
       }
   }
 
@@ -293,16 +250,16 @@ public class TokenBalanceBalance {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TokenBalanceBalance.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TokenBalanceBalance' and its subtypes
+       if (!ListAddressBalancesByToken200Response.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ListAddressBalancesByToken200Response' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TokenBalanceBalance> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TokenBalanceBalance.class));
+       final TypeAdapter<ListAddressBalancesByToken200Response> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ListAddressBalancesByToken200Response.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TokenBalanceBalance>() {
+       return (TypeAdapter<T>) new TypeAdapter<ListAddressBalancesByToken200Response>() {
            @Override
-           public void write(JsonWriter out, TokenBalanceBalance value) throws IOException {
+           public void write(JsonWriter out, ListAddressBalancesByToken200Response value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -332,12 +289,12 @@ public class TokenBalanceBalance {
            }
 
            @Override
-           public TokenBalanceBalance read(JsonReader in) throws IOException {
+           public ListAddressBalancesByToken200Response read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             TokenBalanceBalance instance = thisAdapter.fromJsonTree(jsonObj);
+             ListAddressBalancesByToken200Response instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -364,18 +321,18 @@ public class TokenBalanceBalance {
   }
 
  /**
-  * Create an instance of TokenBalanceBalance given an JSON string
+  * Create an instance of ListAddressBalancesByToken200Response given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of TokenBalanceBalance
-  * @throws IOException if the JSON string is invalid with respect to TokenBalanceBalance
+  * @return An instance of ListAddressBalancesByToken200Response
+  * @throws IOException if the JSON string is invalid with respect to ListAddressBalancesByToken200Response
   */
-  public static TokenBalanceBalance fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, TokenBalanceBalance.class);
+  public static ListAddressBalancesByToken200Response fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ListAddressBalancesByToken200Response.class);
   }
 
  /**
-  * Convert an instance of TokenBalanceBalance to an JSON string
+  * Convert an instance of ListAddressBalancesByToken200Response to an JSON string
   *
   * @return JSON string
   */
