@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * The elliptic curve type of the [root extended public key](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/tss-node-deployment#tss-node-on-cobo-portal-and-mpc-root-extended-public-key). Possible values include:  - &#x60;SECP256K1&#x60;: The secp256k1 elliptic curve.  - &#x60;ED25519&#x60;: The Ed25519 elliptic curve. 
+ * The elliptic curve type of the [root extended public key](https://www.cobo.com/developers/v2/guides/mpc-wallets/get-started-ocw#root-extended-public-keys). Possible values include:  - &#x60;SECP256K1&#x60;: The secp256k1 elliptic curve.  - &#x60;ED25519&#x60;: The Ed25519 elliptic curve. 
  */
 @JsonAdapter(CurveType.Adapter.class)
 public enum CurveType {

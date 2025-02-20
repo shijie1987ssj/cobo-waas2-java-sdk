@@ -22,7 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * Specifies the type of entity. This must be &#x60;LEGAL&#x60;.
+ * Specifies the entity type. This must be &#x60;LEGAL&#x60;.   - &#x60;LEGAL&#x60;: Legal entity.   - &#x60;NATURAL&#x60;: Natural person. 
  */
 @JsonAdapter(SelectedEntityType.Adapter.class)
 public enum SelectedEntityType {

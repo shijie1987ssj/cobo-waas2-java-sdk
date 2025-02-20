@@ -8,13 +8,13 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**destinationWalletType** | **DestinationWalletType** |  |  |
-|**vendorCode** | **String** | The vendor code for exchanges or VASPs. |  |
+|**vendorCode** | **String** | The vendor code of the VASP. |  |
 |**vendorVaspId** | **String** | The unique identifier of the VASP. |  |
-|**vendorVaspName** | **String** | The vendor name to be provided when selecting \&quot;Others\&quot; as the VASP case. This field allows customers to specify the name of a vendor not listed. |  [optional] |
+|**vendorVaspName** | **String** | The vendor name. Use this field to specify the name of a vendor not listed. |  [optional] |
 |**entityInfo** | [**TravelRuleDepositExchangesOrVASPEntityInfo**](TravelRuleDepositExchangesOrVASPEntityInfo.md) |  |  |
-|**selfCustodyWalletChallenge** | **String** | The challenge obtained from a previous operation. |  |
-|**selfCustodyWalletAddress** | **String** | The address of the self-custodial wallet. |  |
-|**selfCustodyWalletSign** | **String** | The signed message from the self-custodial wallet. |  |
+|**selfCustodyWalletChallenge** | **String** | The message obtained from the &#x60;Retrieve transaction limitations&#x60; operation. This message is used to verify wallet ownership through signing. |  |
+|**selfCustodyWalletAddress** | **String** | The address of the self-custody wallet. |  |
+|**selfCustodyWalletSign** | **String** | The signature created by signing the challenge message with the wallet&#39;s private key. |  |
 
 
 

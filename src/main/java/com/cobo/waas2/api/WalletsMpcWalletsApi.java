@@ -35,6 +35,7 @@ import com.cobo.waas2.model.KeyShareHolder;
 import com.cobo.waas2.model.KeyShareHolderGroup;
 import com.cobo.waas2.model.KeyShareHolderGroupType;
 import com.cobo.waas2.model.ListKeyShareHolderGroups200Response;
+import com.cobo.waas2.model.ListKeyShareHolders200Response;
 import com.cobo.waas2.model.ListMpcProjects200Response;
 import com.cobo.waas2.model.ListMpcVaults200Response;
 import com.cobo.waas2.model.ListTssRequests200Response;
@@ -74,7 +75,7 @@ public class WalletsMpcWalletsApi {
 
     /**
      * Build call for cancelTssRequestById
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param tssRequestId The TSS request ID, which you can retrieve by calling [List TSS requests](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-tss-requests). (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -139,7 +140,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Cancel TSS request
      * This operation cancels a TSS request. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param tssRequestId The TSS request ID, which you can retrieve by calling [List TSS requests](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-tss-requests). (required)
      * @return TSSRequest
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -159,7 +160,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Cancel TSS request
      * This operation cancels a TSS request. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param tssRequestId The TSS request ID, which you can retrieve by calling [List TSS requests](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-tss-requests). (required)
      * @return ApiResponse&lt;TSSRequest&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -180,7 +181,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Cancel TSS request (asynchronously)
      * This operation cancels a TSS request. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param tssRequestId The TSS request ID, which you can retrieve by calling [List TSS requests](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-tss-requests). (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -202,7 +203,7 @@ public class WalletsMpcWalletsApi {
     }
     /**
      * Build call for createKeyShareHolderGroup
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param createKeyShareHolderGroupRequest The request body to create a key share holder group. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -262,7 +263,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Create key share holder group
      * This operation creates a key share holder group for a specified vault. &lt;Note&gt;This operation will not return the &#x60;tss_key_share_groups&#x60; property until key shares have been created using the [Create TSS request](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/create-tss-request) operation. Creating a wallet with the [Create wallet](https://www.cobo.com/developers/v2/api-references/wallets/create-wallet) operation is only possible after you&#39;ve completed the previous actions.&lt;/Note&gt; 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param createKeyShareHolderGroupRequest The request body to create a key share holder group. (optional)
      * @return KeyShareHolderGroup
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -282,7 +283,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Create key share holder group
      * This operation creates a key share holder group for a specified vault. &lt;Note&gt;This operation will not return the &#x60;tss_key_share_groups&#x60; property until key shares have been created using the [Create TSS request](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/create-tss-request) operation. Creating a wallet with the [Create wallet](https://www.cobo.com/developers/v2/api-references/wallets/create-wallet) operation is only possible after you&#39;ve completed the previous actions.&lt;/Note&gt; 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param createKeyShareHolderGroupRequest The request body to create a key share holder group. (optional)
      * @return ApiResponse&lt;KeyShareHolderGroup&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -303,7 +304,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Create key share holder group (asynchronously)
      * This operation creates a key share holder group for a specified vault. &lt;Note&gt;This operation will not return the &#x60;tss_key_share_groups&#x60; property until key shares have been created using the [Create TSS request](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/create-tss-request) operation. Creating a wallet with the [Create wallet](https://www.cobo.com/developers/v2/api-references/wallets/create-wallet) operation is only possible after you&#39;ve completed the previous actions.&lt;/Note&gt; 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param createKeyShareHolderGroupRequest The request body to create a key share holder group. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -551,7 +552,7 @@ public class WalletsMpcWalletsApi {
     }
     /**
      * Build call for createTssRequest
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param createTssRequestRequest The request body to create a TSS request. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -611,7 +612,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Create TSS request
      * This operation creates a TSS request under a specified vault. You can use this operation to perform actions such as key generation and recovery. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param createTssRequestRequest The request body to create a TSS request. (optional)
      * @return TSSRequest
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -631,7 +632,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Create TSS request
      * This operation creates a TSS request under a specified vault. You can use this operation to perform actions such as key generation and recovery. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param createTssRequestRequest The request body to create a TSS request. (optional)
      * @return ApiResponse&lt;TSSRequest&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -652,7 +653,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Create TSS request (asynchronously)
      * This operation creates a TSS request under a specified vault. You can use this operation to perform actions such as key generation and recovery. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param createTssRequestRequest The request body to create a TSS request. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -674,7 +675,7 @@ public class WalletsMpcWalletsApi {
     }
     /**
      * Build call for deleteKeyShareHolderGroupById
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -739,7 +740,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Delete key share holder group
      * This operation deletes a specified key share holder group.
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID. (required)
      * @return DeleteKeyShareHolderGroupById201Response
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -759,7 +760,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Delete key share holder group
      * This operation deletes a specified key share holder group.
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID. (required)
      * @return ApiResponse&lt;DeleteKeyShareHolderGroupById201Response&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -780,7 +781,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Delete key share holder group (asynchronously)
      * This operation deletes a specified key share holder group.
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -801,8 +802,136 @@ public class WalletsMpcWalletsApi {
         return localVarCall;
     }
     /**
+     * Build call for getKeyShareHolderByTssNodeId
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
+     * @param tssNodeId The TSS Node ID. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder information </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getKeyShareHolderByTssNodeIdCall(UUID vaultId, String tssNodeId, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallets/mpc/vaults/{vault_id}/key_share_holders/{tss_node_id}"
+            .replace("{" + "vault_id" + "}", localVarApiClient.escapeString(vaultId.toString()))
+            .replace("{" + "tss_node_id" + "}", localVarApiClient.escapeString(tssNodeId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getKeyShareHolderByTssNodeIdValidateBeforeCall(UUID vaultId, String tssNodeId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'vaultId' is set
+        if (vaultId == null) {
+            throw new ApiException("Missing the required parameter 'vaultId' when calling getKeyShareHolderByTssNodeId(Async)");
+        }
+
+        // verify the required parameter 'tssNodeId' is set
+        if (tssNodeId == null) {
+            throw new ApiException("Missing the required parameter 'tssNodeId' when calling getKeyShareHolderByTssNodeId(Async)");
+        }
+
+        return getKeyShareHolderByTssNodeIdCall(vaultId, tssNodeId, _callback);
+
+    }
+
+    /**
+     * Get key share holder information
+     * This operation retrieves detailed information about a specified key share holder. 
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
+     * @param tssNodeId The TSS Node ID. (required)
+     * @return KeyShareHolder
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder information </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public KeyShareHolder getKeyShareHolderByTssNodeId(UUID vaultId, String tssNodeId) throws ApiException {
+        ApiResponse<KeyShareHolder> localVarResp = getKeyShareHolderByTssNodeIdWithHttpInfo(vaultId, tssNodeId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get key share holder information
+     * This operation retrieves detailed information about a specified key share holder. 
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
+     * @param tssNodeId The TSS Node ID. (required)
+     * @return ApiResponse&lt;KeyShareHolder&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder information </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<KeyShareHolder> getKeyShareHolderByTssNodeIdWithHttpInfo(UUID vaultId, String tssNodeId) throws ApiException {
+        okhttp3.Call localVarCall = getKeyShareHolderByTssNodeIdValidateBeforeCall(vaultId, tssNodeId, null);
+        Type localVarReturnType = new TypeToken<KeyShareHolder>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get key share holder information (asynchronously)
+     * This operation retrieves detailed information about a specified key share holder. 
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
+     * @param tssNodeId The TSS Node ID. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder information </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getKeyShareHolderByTssNodeIdAsync(UUID vaultId, String tssNodeId, final ApiCallback<KeyShareHolder> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getKeyShareHolderByTssNodeIdValidateBeforeCall(vaultId, tssNodeId, _callback);
+        Type localVarReturnType = new TypeToken<KeyShareHolder>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getKeyShareHolderGroupById
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -867,7 +996,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Get key share holder group information
      * This operation retrieves detailed information about a specified key share holder group. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID. (required)
      * @return KeyShareHolderGroup
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -887,7 +1016,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Get key share holder group information
      * This operation retrieves detailed information about a specified key share holder group. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID. (required)
      * @return ApiResponse&lt;KeyShareHolderGroup&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -908,7 +1037,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Get key share holder group information (asynchronously)
      * This operation retrieves detailed information about a specified key share holder group. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1048,7 +1177,7 @@ public class WalletsMpcWalletsApi {
     }
     /**
      * Build call for getMpcVaultById
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1106,7 +1235,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Get vault information
      * This operation retrieves detailed information about a vault.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @return MPCVault
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1125,7 +1254,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Get vault information
      * This operation retrieves detailed information about a vault.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @return ApiResponse&lt;MPCVault&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1145,7 +1274,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Get vault information (asynchronously)
      * This operation retrieves detailed information about a vault.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1166,7 +1295,7 @@ public class WalletsMpcWalletsApi {
     }
     /**
      * Build call for getTssRequestById
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param tssRequestId The TSS request ID, which you can retrieve by calling [List TSS requests](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-tss-requests). (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1231,7 +1360,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Get TSS request
      * This operation retrieves detailed information about a TSS request. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param tssRequestId The TSS request ID, which you can retrieve by calling [List TSS requests](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-tss-requests). (required)
      * @return TSSRequest
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1251,7 +1380,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Get TSS request
      * This operation retrieves detailed information about a TSS request. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param tssRequestId The TSS request ID, which you can retrieve by calling [List TSS requests](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-tss-requests). (required)
      * @return ApiResponse&lt;TSSRequest&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1272,7 +1401,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Get TSS request (asynchronously)
      * This operation retrieves detailed information about a TSS request. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param tssRequestId The TSS request ID, which you can retrieve by calling [List TSS requests](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-tss-requests). (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1402,7 +1531,7 @@ public class WalletsMpcWalletsApi {
     }
     /**
      * Build call for listKeyShareHolderGroups
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupType The key share holder group type. Possible values include: - &#x60;MainGroup&#x60;: The [Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#main-group).  - &#x60;SigningGroup&#x60;: The [Signing Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#signing-group).  - &#x60;RecoveryGroup&#x60;: The [Recovery Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#recovery-group).  **Note**: If this parameter is left empty, all key share holder group types will be retrieved.  (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
@@ -1480,7 +1609,7 @@ public class WalletsMpcWalletsApi {
     /**
      * List all key share holder groups
      * This operation retrieves all key share holder groups under a specified vault. You can filter the result by group type. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupType The key share holder group type. Possible values include: - &#x60;MainGroup&#x60;: The [Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#main-group).  - &#x60;SigningGroup&#x60;: The [Signing Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#signing-group).  - &#x60;RecoveryGroup&#x60;: The [Recovery Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#recovery-group).  **Note**: If this parameter is left empty, all key share holder group types will be retrieved.  (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
@@ -1503,7 +1632,7 @@ public class WalletsMpcWalletsApi {
     /**
      * List all key share holder groups
      * This operation retrieves all key share holder groups under a specified vault. You can filter the result by group type. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupType The key share holder group type. Possible values include: - &#x60;MainGroup&#x60;: The [Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#main-group).  - &#x60;SigningGroup&#x60;: The [Signing Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#signing-group).  - &#x60;RecoveryGroup&#x60;: The [Recovery Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#recovery-group).  **Note**: If this parameter is left empty, all key share holder group types will be retrieved.  (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
@@ -1527,7 +1656,7 @@ public class WalletsMpcWalletsApi {
     /**
      * List all key share holder groups (asynchronously)
      * This operation retrieves all key share holder groups under a specified vault. You can filter the result by group type. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupType The key share holder group type. Possible values include: - &#x60;MainGroup&#x60;: The [Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#main-group).  - &#x60;SigningGroup&#x60;: The [Signing Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#signing-group).  - &#x60;RecoveryGroup&#x60;: The [Recovery Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups#recovery-group).  **Note**: If this parameter is left empty, all key share holder group types will be retrieved.  (optional)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
@@ -1547,6 +1676,156 @@ public class WalletsMpcWalletsApi {
 
         okhttp3.Call localVarCall = listKeyShareHolderGroupsValidateBeforeCall(vaultId, keyShareHolderGroupType, limit, before, after, _callback);
         Type localVarReturnType = new TypeToken<ListKeyShareHolderGroups200Response>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listKeyShareHolders
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
+     * @param keyShareHolderGroupIds A list of key share holder group IDs, separated by comma. You can retrieve the IDs of all the key share holder groups by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups). (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder list </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listKeyShareHoldersCall(UUID vaultId, String keyShareHolderGroupIds, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/wallets/mpc/vaults/{vault_id}/key_share_holders"
+            .replace("{" + "vault_id" + "}", localVarApiClient.escapeString(vaultId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<>();
+        Map<String, String> localVarHeaderParams = new HashMap<>();
+        Map<String, String> localVarCookieParams = new HashMap<>();
+        Map<String, Object> localVarFormParams = new HashMap<>();
+
+        if (keyShareHolderGroupIds != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("key_share_holder_group_ids", keyShareHolderGroupIds));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (before != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("before", before));
+        }
+
+        if (after != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("after", after));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {};
+        return localVarApiClient.buildCall(null, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listKeyShareHoldersValidateBeforeCall(UUID vaultId, String keyShareHolderGroupIds, Integer limit, String before, String after, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'vaultId' is set
+        if (vaultId == null) {
+            throw new ApiException("Missing the required parameter 'vaultId' when calling listKeyShareHolders(Async)");
+        }
+
+        return listKeyShareHoldersCall(vaultId, keyShareHolderGroupIds, limit, before, after, _callback);
+
+    }
+
+    /**
+     * List all key share holders
+     * This operation retrieves a list of all key share holders under a specified vault. You can filter the result by key share holder group ID. 
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
+     * @param keyShareHolderGroupIds A list of key share holder group IDs, separated by comma. You can retrieve the IDs of all the key share holder groups by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups). (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @return ListKeyShareHolders200Response
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder list </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ListKeyShareHolders200Response listKeyShareHolders(UUID vaultId, String keyShareHolderGroupIds, Integer limit, String before, String after) throws ApiException {
+        ApiResponse<ListKeyShareHolders200Response> localVarResp = listKeyShareHoldersWithHttpInfo(vaultId, keyShareHolderGroupIds, limit, before, after);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List all key share holders
+     * This operation retrieves a list of all key share holders under a specified vault. You can filter the result by key share holder group ID. 
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
+     * @param keyShareHolderGroupIds A list of key share holder group IDs, separated by comma. You can retrieve the IDs of all the key share holder groups by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups). (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @return ApiResponse&lt;ListKeyShareHolders200Response&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder list </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ListKeyShareHolders200Response> listKeyShareHoldersWithHttpInfo(UUID vaultId, String keyShareHolderGroupIds, Integer limit, String before, String after) throws ApiException {
+        okhttp3.Call localVarCall = listKeyShareHoldersValidateBeforeCall(vaultId, keyShareHolderGroupIds, limit, before, after, null);
+        Type localVarReturnType = new TypeToken<ListKeyShareHolders200Response>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List all key share holders (asynchronously)
+     * This operation retrieves a list of all key share holders under a specified vault. You can filter the result by key share holder group ID. 
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
+     * @param keyShareHolderGroupIds A list of key share holder group IDs, separated by comma. You can retrieve the IDs of all the key share holder groups by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups). (optional)
+     * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
+     * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
+     * @param after This parameter specifies an object ID as a starting point for pagination, retrieving data after the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C. If you set &#x60;after&#x60; to the ID of Object A (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object C.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned.  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved key share holder list </td><td>  -  </td></tr>
+        <tr><td> 4XX </td><td> Bad request. Your request contains malformed syntax or invalid parameters. </td><td>  -  </td></tr>
+        <tr><td> 5XX </td><td> Internal server error. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listKeyShareHoldersAsync(UUID vaultId, String keyShareHolderGroupIds, Integer limit, String before, String after, final ApiCallback<ListKeyShareHolders200Response> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listKeyShareHoldersValidateBeforeCall(vaultId, keyShareHolderGroupIds, limit, before, after, _callback);
+        Type localVarReturnType = new TypeToken<ListKeyShareHolders200Response>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1837,7 +2116,7 @@ public class WalletsMpcWalletsApi {
     }
     /**
      * Build call for listTssRequests
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID of the TSS request, which you can retrieve by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups). (required)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
@@ -1920,7 +2199,7 @@ public class WalletsMpcWalletsApi {
     /**
      * List TSS requests
      * This operation retrieves a list of TSS requests and their details. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID of the TSS request, which you can retrieve by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups). (required)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
@@ -1943,7 +2222,7 @@ public class WalletsMpcWalletsApi {
     /**
      * List TSS requests
      * This operation retrieves a list of TSS requests and their details. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID of the TSS request, which you can retrieve by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups). (required)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
@@ -1967,7 +2246,7 @@ public class WalletsMpcWalletsApi {
     /**
      * List TSS requests (asynchronously)
      * This operation retrieves a list of TSS requests and their details. 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID of the TSS request, which you can retrieve by calling [List all key share holder groups](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-key-share-holder-groups). (required)
      * @param limit The maximum number of objects to return. For most operations, the value range is [1, 50]. (optional, default to 10)
      * @param before This parameter specifies an object ID as a starting point for pagination, retrieving data before the specified object relative to the current dataset.    Suppose the current data is ordered as Object A, Object B, and Object C.  If you set &#x60;before&#x60; to the ID of Object C (&#x60;RqeEoTkgKG5rpzqYzg2Hd3szmPoj2cE7w5jWwShz3C1vyGSAk&#x60;), the response will include Object B and Object A.    **Notes**:   - If you set both &#x60;after&#x60; and &#x60;before&#x60;, an error will occur. - If you leave both &#x60;before&#x60; and &#x60;after&#x60; empty, the first page of data is returned. - If you set it to &#x60;infinity&#x60;, the last page of data is returned.  (optional)
@@ -1992,7 +2271,7 @@ public class WalletsMpcWalletsApi {
     }
     /**
      * Build call for updateKeyShareHolderGroupById
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID. (required)
      * @param updateKeyShareHolderGroupByIdRequest  (optional)
      * @param _callback Callback for upload/download progress
@@ -2059,7 +2338,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Update key share holder group
      * This operation updates a specified active [Signing Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups). For example, you can use this operation to upgrade a Signing Group to the [Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups). 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID. (required)
      * @param updateKeyShareHolderGroupByIdRequest  (optional)
      * @return KeyShareHolderGroup
@@ -2080,7 +2359,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Update key share holder group
      * This operation updates a specified active [Signing Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups). For example, you can use this operation to upgrade a Signing Group to the [Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups). 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID. (required)
      * @param updateKeyShareHolderGroupByIdRequest  (optional)
      * @return ApiResponse&lt;KeyShareHolderGroup&gt;
@@ -2102,7 +2381,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Update key share holder group (asynchronously)
      * This operation updates a specified active [Signing Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups). For example, you can use this operation to upgrade a Signing Group to the [Main Group](https://manuals.cobo.com/en/portal/mpc-wallets/ocw/create-key-share-groups). 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param keyShareHolderGroupId The key share holder group ID. (required)
      * @param updateKeyShareHolderGroupByIdRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2248,7 +2527,7 @@ public class WalletsMpcWalletsApi {
     }
     /**
      * Build call for updateMpcVaultById
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param updateMpcVaultByIdRequest The request body to update a vault&#39;s name. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2308,7 +2587,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Update vault name
      * This operation updates a vault&#39;s name.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param updateMpcVaultByIdRequest The request body to update a vault&#39;s name. (optional)
      * @return MPCVault
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2328,7 +2607,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Update vault name
      * This operation updates a vault&#39;s name.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param updateMpcVaultByIdRequest The request body to update a vault&#39;s name. (optional)
      * @return ApiResponse&lt;MPCVault&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2349,7 +2628,7 @@ public class WalletsMpcWalletsApi {
     /**
      * Update vault name (asynchronously)
      * This operation updates a vault&#39;s name.  &lt;Info&gt;To learn what a vault is and how it relates to MPC Wallets, see [Get started with MPC Wallets](https://www.cobo.com/developers/v2/guides/mpc-wallets/get-started-ocw#technical-architecture).&lt;/Info&gt; 
-     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallet/list-all-mpc-vaults). (required)
+     * @param vaultId The vault ID, which you can retrieve by calling [List all vaults](https://www.cobo.com/developers/v2/api-references/wallets--mpc-wallets/list-all-vaults). (required)
      * @param updateMpcVaultByIdRequest The request body to update a vault&#39;s name. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

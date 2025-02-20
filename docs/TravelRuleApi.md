@@ -6,8 +6,8 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 |------------- | ------------- | -------------|
 | [**getTransactionLimitation**](TravelRuleApi.md#getTransactionLimitation) | **GET** /travel_rule/transaction/limitation | Retrieve transaction limitations |
 | [**listSupportedCountries**](TravelRuleApi.md#listSupportedCountries) | **GET** /travel_rule/transaction/countries | List supported countries |
-| [**submitDepositTravelRuleInfo**](TravelRuleApi.md#submitDepositTravelRuleInfo) | **POST** /travel_rule/transaction/deposit/travel_rule_info | Submit Deposit Transaction Travel Rule information |
-| [**submitWithdrawTravelRuleInfo**](TravelRuleApi.md#submitWithdrawTravelRuleInfo) | **POST** /travel_rule/transaction/withdraw/travel_rule_info | Submit Withdraw Transaction Travel Rule information |
+| [**submitDepositTravelRuleInfo**](TravelRuleApi.md#submitDepositTravelRuleInfo) | **POST** /travel_rule/transaction/deposit/travel_rule_info | Submit Travel Rule information for deposits |
+| [**submitWithdrawTravelRuleInfo**](TravelRuleApi.md#submitWithdrawTravelRuleInfo) | **POST** /travel_rule/transaction/withdraw/travel_rule_info | Submit Travel Rule information for withdrawals |
 
 
 <a id="getTransactionLimitation"></a>
@@ -16,7 +16,7 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 Retrieve transaction limitations
 
-This endpoint retrieves transaction-related limitations based on the provided &#x60;transaction_type&#x60; and &#x60;transaction_id&#x60;.  The response includes the following information: - **&#x60;vasp_list&#x60;**: A list of Virtual Asset Service Providers (VASPs) associated with the transaction token. - **&#x60;is_threshold_reached&#x60;**: Indicates whether the transaction amount has exceeded the predefined threshold.    - If &#x60;true&#x60;: Additional Travel Rule information may be required for processing. - **&#x60;self_custody_wallet_challenge&#x60;**: A challenge string for verifying ownership of self-custody wallets. - **&#x60;connect_wallet_list&#x60;**: A list of supported wallet integrations for the transaction, such as MetaMask or WalletConnect.  Use this endpoint to ensure compliance with Travel Rule requirements and to retrieve supported options for completing the transaction. 
+This operation retrieves Travel Rule requirements and available options for a transaction based on its transaction type and ID.  Use this endpoint before submitting Travel Rule information to understand the requirements and available options for your transaction. 
 
 ### Example
 ```java
@@ -58,7 +58,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **transactionType** | **String**| The transaction type. Possible values include:    - &#x60;DEPOSIT&#x60;: A deposit transaction.   - &#x60;WITHDRAW&#x60;: A withdrawal transaction.  | [enum: DEPOSIT, WITHDRAW] |
-| **transactionId** | **UUID**| The transaction ID | |
+| **transactionId** | **UUID**| The transaction ID. | |
 
 ### Return type
 
@@ -66,7 +66,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -86,7 +86,7 @@ public class Example {
 
 List supported countries
 
-This operation retrieves all countries supported.
+This operation retrieves a list of supported countries that can be used when submitting Travel Rule information.  Use this endpoint to obtain valid country values for:   - Place of incorporation of a legal entity   - Place of birth of a natural person 
 
 ### Example
 ```java
@@ -130,7 +130,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -148,9 +148,9 @@ This endpoint does not need any parameter.
 # **submitDepositTravelRuleInfo**
 > SubmitDepositTravelRuleInfo201Response submitDepositTravelRuleInfo(travelRuleDepositRequest)
 
-Submit Deposit Transaction Travel Rule information
+Submit Travel Rule information for deposits
 
-This operation allows you to submit the required Travel Rule information based on the transaction details. It supports both self-custody wallets and exchanges/VASPs, ensuring compliance with Travel Rule requirements.   - **Destination Wallet Type (&#x60;destination_wallet_type&#x60;)**:   - &#x60;SELF_CUSTODY_WALLET&#x60;: A self-custodial wallet (e.g., plugin wallet). Requires &#x60;self_custody_wallet_sign&#x60;, &#x60;self_custody_wallet_address&#x60;, and &#x60;self_custody_wallet_challenge&#x60;.   - &#x60;EXCHANGES_OR_VASP&#x60;: A wallet associated with an exchange or VASP. Requires &#x60;vendor_vasp_id&#x60; and information depending on &#x60;selected_entity_type&#x60;.  - **Entity Types (&#x60;selected_entity_type&#x60;)**:   - &#x60;LEGAL&#x60;: For legal entities, provide &#x60;legal_name&#x60;, &#x60;date_of_incorporation&#x60;, and &#x60;place_of_incorporation&#x60;.   - &#x60;NATURAL&#x60;: For natural persons, provide &#x60;date_of_birth&#x60;, &#x60;place_of_birth&#x60;, &#x60;first_name&#x60;, and &#x60;last_name&#x60;. 
+This operation submits Travel Rule information for a deposit transaction. 
 
 ### Example
 ```java
@@ -198,7 +198,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -208,7 +208,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Successfully submitted Travel Rule information. |  -  |
+| **201** | Successfully submitted the Travel Rule information. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 
@@ -216,9 +216,9 @@ public class Example {
 # **submitWithdrawTravelRuleInfo**
 > SubmitDepositTravelRuleInfo201Response submitWithdrawTravelRuleInfo(travelRuleWithdrawRequest)
 
-Submit Withdraw Transaction Travel Rule information
+Submit Travel Rule information for withdrawals
 
-This operation allows you to submit the required Travel Rule information based on the transaction details. It supports both self-custody wallets and exchanges/VASPs, ensuring compliance with Travel Rule requirements.   - **Destination Wallet Type (&#x60;destination_wallet_type&#x60;)**:   - &#x60;SELF_CUSTODY_WALLET&#x60;: A self-custodial wallet (e.g., plugin wallet). Requires &#x60;self_custody_wallet_sign&#x60;, &#x60;self_custody_wallet_address&#x60;, and &#x60;self_custody_wallet_challenge&#x60;.   - &#x60;EXCHANGES_OR_VASP&#x60;: A wallet associated with an exchange or VASP. Requires &#x60;vendor_vasp_id&#x60; and information depending on &#x60;selected_entity_type&#x60;.  - **Entity Types (&#x60;selected_entity_type&#x60;)**:   - &#x60;LEGAL&#x60;: For legal entities, provide &#x60;legal_name&#x60;.   - &#x60;NATURAL&#x60;: For natural persons, provide &#x60;date_of_birth&#x60;, &#x60;place_of_birth&#x60;, &#x60;first_name&#x60;, and &#x60;last_name&#x60;. 
+This operation submits Travel Rule information for a withdrawal transaction. 
 
 ### Example
 ```java
@@ -266,7 +266,7 @@ public class Example {
 
 ### Authorization
 
-[OAuth2](../README.md#OAuth2), [CoboAuth](../README.md#CoboAuth)
+[OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -276,7 +276,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Successfully submitted Travel Rule information. |  -  |
+| **201** | Successfully submitted the Travel Rule information. |  -  |
 | **4XX** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **5XX** | Internal server error. |  -  |
 

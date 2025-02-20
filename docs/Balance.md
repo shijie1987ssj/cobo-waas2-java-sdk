@@ -1,6 +1,6 @@
 
 
-# TokenBalanceBalance
+# Balance
 
 The balance details.
 

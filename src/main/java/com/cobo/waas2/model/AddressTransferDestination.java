@@ -73,6 +73,62 @@ public class AddressTransferDestination {
   @SerializedName(SERIALIZED_NAME_CHANGE_ADDRESS)
   private String changeAddress;
 
+  /**
+   * The position of the change output in the transaction&#39;s outputs. Possible values are: - &#x60;Last&#x60;: The change output is placed at the end of the transaction&#39;s outputs.   - &#x60;First&#x60;: The change output is placed at the beginning of the transaction&#39;s outputs. 
+   */
+  @JsonAdapter(ChangeOutputTypeEnum.Adapter.class)
+  public enum ChangeOutputTypeEnum {
+    LAST("Last"),
+    
+    FIRST("First");
+
+    private String value;
+
+    ChangeOutputTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static ChangeOutputTypeEnum fromValue(String value) {
+      for (ChangeOutputTypeEnum b : ChangeOutputTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<ChangeOutputTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final ChangeOutputTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public ChangeOutputTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return ChangeOutputTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      ChangeOutputTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_CHANGE_OUTPUT_TYPE = "change_output_type";
+  @SerializedName(SERIALIZED_NAME_CHANGE_OUTPUT_TYPE)
+  private ChangeOutputTypeEnum changeOutputType;
+
   public static final String SERIALIZED_NAME_FORCE_INTERNAL = "force_internal";
   @SerializedName(SERIALIZED_NAME_FORCE_INTERNAL)
   private Boolean forceInternal;
@@ -165,6 +221,25 @@ public class AddressTransferDestination {
 
   public void setChangeAddress(String changeAddress) {
     this.changeAddress = changeAddress;
+  }
+
+
+  public AddressTransferDestination changeOutputType(ChangeOutputTypeEnum changeOutputType) {
+    this.changeOutputType = changeOutputType;
+    return this;
+  }
+
+   /**
+   * The position of the change output in the transaction&#39;s outputs. Possible values are: - &#x60;Last&#x60;: The change output is placed at the end of the transaction&#39;s outputs.   - &#x60;First&#x60;: The change output is placed at the beginning of the transaction&#39;s outputs. 
+   * @return changeOutputType
+  **/
+  @javax.annotation.Nullable
+  public ChangeOutputTypeEnum getChangeOutputType() {
+    return changeOutputType;
+  }
+
+  public void setChangeOutputType(ChangeOutputTypeEnum changeOutputType) {
+    this.changeOutputType = changeOutputType;
   }
 
 
@@ -264,6 +339,7 @@ public class AddressTransferDestination {
         Objects.equals(this.accountOutput, addressTransferDestination.accountOutput) &&
         Objects.equals(this.utxoOutputs, addressTransferDestination.utxoOutputs) &&
         Objects.equals(this.changeAddress, addressTransferDestination.changeAddress) &&
+        Objects.equals(this.changeOutputType, addressTransferDestination.changeOutputType) &&
         Objects.equals(this.forceInternal, addressTransferDestination.forceInternal) &&
         Objects.equals(this.forceExternal, addressTransferDestination.forceExternal)&&
         Objects.equals(this.additionalProperties, addressTransferDestination.additionalProperties);
@@ -271,7 +347,7 @@ public class AddressTransferDestination {
 
   @Override
   public int hashCode() {
-    return Objects.hash(destinationType, accountOutput, utxoOutputs, changeAddress, forceInternal, forceExternal, additionalProperties);
+    return Objects.hash(destinationType, accountOutput, utxoOutputs, changeAddress, changeOutputType, forceInternal, forceExternal, additionalProperties);
   }
 
   @Override
@@ -282,6 +358,7 @@ public class AddressTransferDestination {
     sb.append("    accountOutput: ").append(toIndentedString(accountOutput)).append("\n");
     sb.append("    utxoOutputs: ").append(toIndentedString(utxoOutputs)).append("\n");
     sb.append("    changeAddress: ").append(toIndentedString(changeAddress)).append("\n");
+    sb.append("    changeOutputType: ").append(toIndentedString(changeOutputType)).append("\n");
     sb.append("    forceInternal: ").append(toIndentedString(forceInternal)).append("\n");
     sb.append("    forceExternal: ").append(toIndentedString(forceExternal)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -311,6 +388,7 @@ public class AddressTransferDestination {
     openapiFields.add("account_output");
     openapiFields.add("utxo_outputs");
     openapiFields.add("change_address");
+    openapiFields.add("change_output_type");
     openapiFields.add("force_internal");
     openapiFields.add("force_external");
 
@@ -361,6 +439,13 @@ public class AddressTransferDestination {
       }
       if ((jsonObj.get("change_address") != null && !jsonObj.get("change_address").isJsonNull()) && !jsonObj.get("change_address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `change_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("change_address").toString()));
+      }
+      if ((jsonObj.get("change_output_type") != null && !jsonObj.get("change_output_type").isJsonNull()) && !jsonObj.get("change_output_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `change_output_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("change_output_type").toString()));
+      }
+      // validate the optional field `change_output_type`
+      if (jsonObj.get("change_output_type") != null && !jsonObj.get("change_output_type").isJsonNull()) {
+        ChangeOutputTypeEnum.validateJsonElement(jsonObj.get("change_output_type"));
       }
   }
 

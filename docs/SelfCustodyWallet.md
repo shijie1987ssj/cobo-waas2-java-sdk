@@ -2,16 +2,16 @@
 
 # SelfCustodyWallet
 
-Required fields for `SELF_CUSTODY_WALLET`.
+Required information when depositing from or withdrawing to a self-custody wallet.
 
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**destinationWalletType** | **DestinationWalletType** |  |  |
-|**selfCustodyWalletChallenge** | **String** | The challenge obtained from a previous operation. |  |
-|**selfCustodyWalletAddress** | **String** | The address of the self-custodial wallet. |  |
-|**selfCustodyWalletSign** | **String** | The signed message from the self-custodial wallet. |  |
+|**selfCustodyWalletChallenge** | **String** | The message obtained from the &#x60;Retrieve transaction limitations&#x60; operation. This message is used to verify wallet ownership through signing. |  |
+|**selfCustodyWalletAddress** | **String** | The address of the self-custody wallet. |  |
+|**selfCustodyWalletSign** | **String** | The signature created by signing the challenge message with the wallet&#39;s private key. |  |
 
 
 

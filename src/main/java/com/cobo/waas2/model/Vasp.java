@@ -45,7 +45,7 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * The information of an vasp.
+ * The information of a virtual asset service provider (VASP).
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
@@ -73,7 +73,7 @@ public class Vasp {
   }
 
    /**
-   * The name of the vasp.
+   * The VASP name.
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -92,7 +92,7 @@ public class Vasp {
   }
 
    /**
-   * The symbol.
+   * The vendor code of the VASP.
    * @return vendorCode
   **/
   @javax.annotation.Nonnull
@@ -111,7 +111,7 @@ public class Vasp {
   }
 
    /**
-   * The vasp str id.
+   * The VASP ID.
    * @return vendorVaspId
   **/
   @javax.annotation.Nonnull

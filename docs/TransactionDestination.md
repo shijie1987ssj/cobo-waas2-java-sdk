@@ -27,6 +27,7 @@
 |**walletType** | **WalletType** |  |  |
 |**walletSubtype** | **WalletSubtype** |  |  |
 |**memo** | **String** | The memo that identifies a transaction in order to credit the correct account. For transfers out of Cobo Portal, it is highly recommended to include a memo for the chains such as XRP, EOS, XLM, IOST, BNB_BNB, ATOM, LUNA, and TON. |  [optional] |
+|**txInfo** | [**TransactionDepositToAddressDestinationTxInfo**](TransactionDepositToAddressDestinationTxInfo.md) |  |  [optional] |
 
 
 
