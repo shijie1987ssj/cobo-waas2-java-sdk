@@ -90,7 +90,7 @@ public class TransactionUserApprovalDetail {
   }
 
    /**
-   * The Cobo Guard public key of the user who audited this message.
+   * The gaurd pubkey of the user who audited the message.
    * @return pubkey
   **/
   @javax.annotation.Nullable
@@ -128,7 +128,7 @@ public class TransactionUserApprovalDetail {
   }
 
    /**
-   * The signature of the audited message.
+   * Signature of the audited message.
    * @return signature
   **/
   @javax.annotation.Nullable
@@ -166,7 +166,7 @@ public class TransactionUserApprovalDetail {
   }
 
    /**
-   * The version of the audited message.
+   * Version of the audited message.
    * @return messageVersion
   **/
   @javax.annotation.Nullable

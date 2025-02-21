@@ -22,33 +22,41 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for SwapSummary
+ * Model tests for SolContractCallAccount
  */
-public class SwapSummaryTest {
-    private final SwapSummary model = new SwapSummary();
+public class SolContractCallAccountTest {
+    private final SolContractCallAccount model = new SolContractCallAccount();
 
     /**
-     * Model tests for SwapSummary
+     * Model tests for SolContractCallAccount
      */
     @Test
-    public void testSwapSummary() {
-        // TODO: test SwapSummary
+    public void testSolContractCallAccount() {
+        // TODO: test SolContractCallAccount
     }
 
     /**
-     * Test the property 'totalUsdValue'
+     * Test the property 'pubkey'
      */
     @Test
-    public void totalUsdValueTest() {
-        // TODO: test totalUsdValue
+    public void pubkeyTest() {
+        // TODO: test pubkey
     }
 
     /**
-     * Test the property 'activityCount'
+     * Test the property 'isSigner'
      */
     @Test
-    public void activityCountTest() {
-        // TODO: test activityCount
+    public void isSignerTest() {
+        // TODO: test isSigner
+    }
+
+    /**
+     * Test the property 'isWritable'
+     */
+    @Test
+    public void isWritableTest() {
+        // TODO: test isWritable
     }
 
 }

@@ -78,7 +78,7 @@ public class QueryApprovalStatement200Response {
   }
 
    /**
-   * The approval statement ID.
+   * approval statement id.
    * @return id
   **/
   @javax.annotation.Nullable
@@ -97,7 +97,7 @@ public class QueryApprovalStatement200Response {
   }
 
    /**
-   * The user ID of the approver.
+   * approver user id.
    * @return userId
   **/
   @javax.annotation.Nullable
@@ -116,7 +116,7 @@ public class QueryApprovalStatement200Response {
   }
 
    /**
-   * The Cobo Guard public key of the approver.
+   * approver user pubkey.
    * @return pubkey
   **/
   @javax.annotation.Nullable

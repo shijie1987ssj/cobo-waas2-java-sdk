@@ -4,21 +4,21 @@ All URIs are relative to *https://api.dev.cobo.com/v2*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**changeGuardPubkey**](PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | Change Guard pubkey binding |
-| [**createGuardPubkey**](PrimeBrokerApi.md#createGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey | Create Guard pubkey binding |
-| [**createPrimeBrokerAddress**](PrimeBrokerApi.md#createPrimeBrokerAddress) | **POST** /prime_broker/user/{user_id}/addresses | Bind addresses to a broker user |
-| [**deleteGuardPubkey**](PrimeBrokerApi.md#deleteGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey/delete | Delete Guard pubkey binding |
-| [**queryApprovalStatement**](PrimeBrokerApi.md#queryApprovalStatement) | **GET** /prime_broker/approval_statement/{statement_id} | Query approval statement |
-| [**queryGuardPubkey**](PrimeBrokerApi.md#queryGuardPubkey) | **GET** /prime_broker/user/{user_id}/guard_pubkey | Query a Guard pubkey |
+| [**changeGuardPubkey**](PrimeBrokerApi.md#changeGuardPubkey) | **PUT** /prime_broker/user/{user_id}/guard_pubkey | change a user guard pubkey |
+| [**createGuardPubkey**](PrimeBrokerApi.md#createGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey | create a guard pubkey binding |
+| [**createPrimeBrokerAddress**](PrimeBrokerApi.md#createPrimeBrokerAddress) | **POST** /prime_broker/user/{user_id}/addresses | bind addresses to a broker user |
+| [**deleteGuardPubkey**](PrimeBrokerApi.md#deleteGuardPubkey) | **POST** /prime_broker/user/{user_id}/guard_pubkey/delete | delete a user guard pubkey |
+| [**queryApprovalStatement**](PrimeBrokerApi.md#queryApprovalStatement) | **GET** /prime_broker/approval_statement/{statement_id} | query a approval statement |
+| [**queryGuardPubkey**](PrimeBrokerApi.md#queryGuardPubkey) | **GET** /prime_broker/user/{user_id}/guard_pubkey | query a user guard pubkey |
 
 
 <a id="changeGuardPubkey"></a>
 # **changeGuardPubkey**
 > ChangeGuardPubkey200Response changeGuardPubkey(userId)
 
-Change Guard pubkey binding
+change a user guard pubkey
 
-This operation updates an existing binding to associate a broker user ID with a new Cobo Guard public key. 
+This operation change a user guard pubkey. 
 
 ### Example
 ```java
@@ -58,7 +58,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| The user ID. | |
+| **userId** | **String**| user id. | |
 
 ### Return type
 
@@ -76,7 +76,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The request was successful. |  -  |
+| **200** | Successfully created a guard binding. |  -  |
 | **400** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **401** | Unauthorized. Please provide valid credentials. |  -  |
 | **403** | Forbidden. You do not have the permission to access the requested resource. |  -  |
@@ -85,9 +85,9 @@ public class Example {
 # **createGuardPubkey**
 > ChangeGuardPubkey200Response createGuardPubkey(userId)
 
-Create Guard pubkey binding
+create a guard pubkey binding
 
-This operation creates a binding between a broker user ID and a Cobo Guard public key.  
+This operation create a guard pubkey binding. 
 
 ### Example
 ```java
@@ -127,7 +127,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| The user ID. | |
+| **userId** | **String**| user id. | |
 
 ### Return type
 
@@ -145,7 +145,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | The request was successful. |  -  |
+| **201** | Successfully created a guard binding. |  -  |
 | **400** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **401** | Unauthorized. Please provide valid credentials. |  -  |
 | **403** | Forbidden. You do not have the permission to access the requested resource. |  -  |
@@ -154,9 +154,9 @@ public class Example {
 # **createPrimeBrokerAddress**
 > CreatePrimeBrokerAddress201Response createPrimeBrokerAddress(userId, createPrimeBrokerAddressRequest)
 
-Bind addresses to a broker user
+bind addresses to a broker user
 
-This operation binds addresses to a broker user. 
+This operation bind addresses to a broker user. 
 
 ### Example
 ```java
@@ -197,8 +197,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| The user ID. | |
-| **createPrimeBrokerAddressRequest** | [**CreatePrimeBrokerAddressRequest**](CreatePrimeBrokerAddressRequest.md)| The request body to bind addresses to a broker user. | [optional] |
+| **userId** | **String**| user id. | |
+| **createPrimeBrokerAddressRequest** | [**CreatePrimeBrokerAddressRequest**](CreatePrimeBrokerAddressRequest.md)| The request body to binding addresses to a broker user. | [optional] |
 
 ### Return type
 
@@ -216,7 +216,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | The request was successful. |  -  |
+| **201** | Successfully created a address binding. |  -  |
 | **400** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **401** | Unauthorized. Please provide valid credentials. |  -  |
 | **403** | Forbidden. You do not have the permission to access the requested resource. |  -  |
@@ -225,9 +225,9 @@ public class Example {
 # **deleteGuardPubkey**
 > DeleteGuardPubkey201Response deleteGuardPubkey(userId)
 
-Delete Guard pubkey binding
+delete a user guard pubkey
 
-This operation deletes a binding between a broker user ID and a Cobo Guard public key. 
+This operation delete a user guard pubkey. 
 
 ### Example
 ```java
@@ -267,7 +267,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| The user ID. | |
+| **userId** | **String**| user id. | |
 
 ### Return type
 
@@ -285,7 +285,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | The request was successful. |  -  |
+| **201** | Successfully created a guard binding. |  -  |
 | **400** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **401** | Unauthorized. Please provide valid credentials. |  -  |
 | **403** | Forbidden. You do not have the permission to access the requested resource. |  -  |
@@ -294,9 +294,9 @@ public class Example {
 # **queryApprovalStatement**
 > QueryApprovalStatement200Response queryApprovalStatement(statementId)
 
-Query approval statement
+query a approval statement
 
-This operation queries an approval statement. 
+This operation query a approval statement. 
 
 ### Example
 ```java
@@ -336,7 +336,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **statementId** | **String**| The approval statement ID. | |
+| **statementId** | **String**| approval statement id. | |
 
 ### Return type
 
@@ -354,7 +354,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The request was successful. |  -  |
+| **200** | The information about a approval statement. |  -  |
 | **400** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **401** | Unauthorized. Please provide valid credentials. |  -  |
 | **403** | Forbidden. You do not have the permission to access the requested resource. |  -  |
@@ -363,9 +363,9 @@ public class Example {
 # **queryGuardPubkey**
 > QueryGuardPubkey200Response queryGuardPubkey(userId)
 
-Query a Guard pubkey
+query a user guard pubkey
 
-This operation retrieves the current Cobo Guard public key binding details for a broker user. 
+This operation query a user guard pubkey 
 
 ### Example
 ```java
@@ -405,7 +405,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| The user ID. | |
+| **userId** | **String**| user id. | |
 
 ### Return type
 
@@ -423,7 +423,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The request was successful. |  -  |
+| **200** | The information about an user guard pubkey. |  -  |
 | **400** | Bad request. Your request contains malformed syntax or invalid parameters. |  -  |
 | **401** | Unauthorized. Please provide valid credentials. |  -  |
 | **403** | Forbidden. You do not have the permission to access the requested resource. |  -  |

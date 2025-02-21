@@ -731,7 +731,7 @@ public class Example {
 
 List address balances by token
 
-This operation retrieves a list of address balances for a specified token within a wallet.  &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
+The operation retrieves a list of address balances for a specified token within a wallet.   &lt;Note&gt;This operation is applicable to MPC Wallets only.&lt;/Note&gt; 
 
 ### Example
 ```java
