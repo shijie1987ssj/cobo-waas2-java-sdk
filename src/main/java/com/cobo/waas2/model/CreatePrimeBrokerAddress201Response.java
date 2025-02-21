@@ -72,7 +72,7 @@ public class CreatePrimeBrokerAddress201Response {
   }
 
    /**
-   * The Cobo Guard&#39;s public key.
+   * guard&#39;s pubkey.
    * @return pubkey
   **/
   @javax.annotation.Nonnull

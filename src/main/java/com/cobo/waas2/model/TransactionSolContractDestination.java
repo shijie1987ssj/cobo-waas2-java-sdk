@@ -12,13 +12,17 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
+import com.cobo.waas2.model.TransactionDestinationType;
+import com.cobo.waas2.model.TransactionSolContractInstruction;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -45,59 +49,67 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * SwapSummary
+ * The information about the transaction destination. Refer to [Transaction sources and destinations](https://www.cobo.com/developers/v2/guides/transactions/sources-and-destinations) for a detailed introduction about the supported sources and destinations for each transaction type.
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class SwapSummary {
-  public static final String SERIALIZED_NAME_TOTAL_USD_VALUE = "total_usd_value";
-  @SerializedName(SERIALIZED_NAME_TOTAL_USD_VALUE)
-  private String totalUsdValue;
+public class TransactionSolContractDestination {
+  public static final String SERIALIZED_NAME_DESTINATION_TYPE = "destination_type";
+  @SerializedName(SERIALIZED_NAME_DESTINATION_TYPE)
+  private TransactionDestinationType destinationType;
 
-  public static final String SERIALIZED_NAME_ACTIVITY_COUNT = "activity_count";
-  @SerializedName(SERIALIZED_NAME_ACTIVITY_COUNT)
-  private Integer activityCount;
+  public static final String SERIALIZED_NAME_INSTRUCTIONS = "instructions";
+  @SerializedName(SERIALIZED_NAME_INSTRUCTIONS)
+  private List<TransactionSolContractInstruction> instructions = new ArrayList<>();
 
-  public SwapSummary() {
+  public TransactionSolContractDestination() {
   }
 
-  public SwapSummary totalUsdValue(String totalUsdValue) {
-    this.totalUsdValue = totalUsdValue;
+  public TransactionSolContractDestination destinationType(TransactionDestinationType destinationType) {
+    this.destinationType = destinationType;
     return this;
   }
 
    /**
-   * The total USD value of the swap activities, represented as a string.
-   * @return totalUsdValue
+   * Get destinationType
+   * @return destinationType
   **/
   @javax.annotation.Nonnull
-  public String getTotalUsdValue() {
-    return totalUsdValue;
+  public TransactionDestinationType getDestinationType() {
+    return destinationType;
   }
 
-  public void setTotalUsdValue(String totalUsdValue) {
-    this.totalUsdValue = totalUsdValue;
+  public void setDestinationType(TransactionDestinationType destinationType) {
+    this.destinationType = destinationType;
   }
 
 
-  public SwapSummary activityCount(Integer activityCount) {
-    this.activityCount = activityCount;
+  public TransactionSolContractDestination instructions(List<TransactionSolContractInstruction> instructions) {
+    this.instructions = instructions;
+    return this;
+  }
+
+  public TransactionSolContractDestination addInstructionsItem(TransactionSolContractInstruction instructionsItem) {
+    if (this.instructions == null) {
+      this.instructions = new ArrayList<>();
+    }
+    this.instructions.add(instructionsItem);
     return this;
   }
 
    /**
-   * The total number of swap activities.
-   * @return activityCount
+   * Get instructions
+   * @return instructions
   **/
-  @javax.annotation.Nonnull
-  public Integer getActivityCount() {
-    return activityCount;
+  @javax.annotation.Nullable
+  public List<TransactionSolContractInstruction> getInstructions() {
+    return instructions;
   }
 
-  public void setActivityCount(Integer activityCount) {
-    this.activityCount = activityCount;
+  public void setInstructions(List<TransactionSolContractInstruction> instructions) {
+    this.instructions = instructions;
   }
 
   /**
@@ -113,9 +125,9 @@ public class SwapSummary {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the SwapSummary instance itself
+   * @return the TransactionSolContractDestination instance itself
    */
-  public SwapSummary putAdditionalProperty(String key, Object value) {
+  public TransactionSolContractDestination putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -154,23 +166,23 @@ public class SwapSummary {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SwapSummary swapSummary = (SwapSummary) o;
-    return Objects.equals(this.totalUsdValue, swapSummary.totalUsdValue) &&
-        Objects.equals(this.activityCount, swapSummary.activityCount)&&
-        Objects.equals(this.additionalProperties, swapSummary.additionalProperties);
+    TransactionSolContractDestination transactionSolContractDestination = (TransactionSolContractDestination) o;
+    return Objects.equals(this.destinationType, transactionSolContractDestination.destinationType) &&
+        Objects.equals(this.instructions, transactionSolContractDestination.instructions)&&
+        Objects.equals(this.additionalProperties, transactionSolContractDestination.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalUsdValue, activityCount, additionalProperties);
+    return Objects.hash(destinationType, instructions, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SwapSummary {\n");
-    sb.append("    totalUsdValue: ").append(toIndentedString(totalUsdValue)).append("\n");
-    sb.append("    activityCount: ").append(toIndentedString(activityCount)).append("\n");
+    sb.append("class TransactionSolContractDestination {\n");
+    sb.append("    destinationType: ").append(toIndentedString(destinationType)).append("\n");
+    sb.append("    instructions: ").append(toIndentedString(instructions)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -194,37 +206,49 @@ public class SwapSummary {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("total_usd_value");
-    openapiFields.add("activity_count");
+    openapiFields.add("destination_type");
+    openapiFields.add("instructions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("total_usd_value");
-    openapiRequiredFields.add("activity_count");
+    openapiRequiredFields.add("destination_type");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SwapSummary
+  * @throws IOException if the JSON Element is invalid with respect to TransactionSolContractDestination
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!SwapSummary.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SwapSummary is not found in the empty JSON string", SwapSummary.openapiRequiredFields.toString()));
+        if (!TransactionSolContractDestination.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionSolContractDestination is not found in the empty JSON string", TransactionSolContractDestination.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SwapSummary.openapiRequiredFields) {
+      for (String requiredField : TransactionSolContractDestination.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("total_usd_value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `total_usd_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("total_usd_value").toString()));
+      // validate the required field `destination_type`
+      TransactionDestinationType.validateJsonElement(jsonObj.get("destination_type"));
+      if (jsonObj.get("instructions") != null && !jsonObj.get("instructions").isJsonNull()) {
+        JsonArray jsonArrayinstructions = jsonObj.getAsJsonArray("instructions");
+        if (jsonArrayinstructions != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("instructions").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `instructions` to be an array in the JSON string but got `%s`", jsonObj.get("instructions").toString()));
+          }
+
+          // validate the optional field `instructions` (array)
+          for (int i = 0; i < jsonArrayinstructions.size(); i++) {
+            TransactionSolContractInstruction.validateJsonElement(jsonArrayinstructions.get(i));
+          };
+        }
       }
   }
 
@@ -232,16 +256,16 @@ public class SwapSummary {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SwapSummary.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SwapSummary' and its subtypes
+       if (!TransactionSolContractDestination.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TransactionSolContractDestination' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SwapSummary> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SwapSummary.class));
+       final TypeAdapter<TransactionSolContractDestination> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TransactionSolContractDestination.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SwapSummary>() {
+       return (TypeAdapter<T>) new TypeAdapter<TransactionSolContractDestination>() {
            @Override
-           public void write(JsonWriter out, SwapSummary value) throws IOException {
+           public void write(JsonWriter out, TransactionSolContractDestination value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -271,12 +295,12 @@ public class SwapSummary {
            }
 
            @Override
-           public SwapSummary read(JsonReader in) throws IOException {
+           public TransactionSolContractDestination read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             SwapSummary instance = thisAdapter.fromJsonTree(jsonObj);
+             TransactionSolContractDestination instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -303,18 +327,18 @@ public class SwapSummary {
   }
 
  /**
-  * Create an instance of SwapSummary given an JSON string
+  * Create an instance of TransactionSolContractDestination given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of SwapSummary
-  * @throws IOException if the JSON string is invalid with respect to SwapSummary
+  * @return An instance of TransactionSolContractDestination
+  * @throws IOException if the JSON string is invalid with respect to TransactionSolContractDestination
   */
-  public static SwapSummary fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SwapSummary.class);
+  public static TransactionSolContractDestination fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TransactionSolContractDestination.class);
   }
 
  /**
-  * Convert an instance of SwapSummary to an JSON string
+  * Convert an instance of TransactionSolContractDestination to an JSON string
   *
   * @return JSON string
   */

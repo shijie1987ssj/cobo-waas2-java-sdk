@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**pubkey** | **String** | The Cobo Guard&#39;s public key. |  |
+|**pubkey** | **String** | guard&#39;s pubkey. |  |
 |**addresses** | [**List&lt;QueryGuardPubkey200ResponseAddressesInner&gt;**](QueryGuardPubkey200ResponseAddressesInner.md) |  |  [optional] |
 
 
