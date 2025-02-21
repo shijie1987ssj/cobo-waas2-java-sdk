@@ -77,7 +77,7 @@ public class QueryGuardPubkey200Response {
   }
 
    /**
-   * The Cobo Guard&#39;s public key.
+   * guard&#39;s pubkey.
    * @return pubkey
   **/
   @javax.annotation.Nullable

@@ -65,7 +65,7 @@ public class DeleteGuardPubkey201Response {
   }
 
    /**
-   * The deleted Cobo Guard binding statement ID.
+   * The delete guard binding statement ID.
    * @return statementId
   **/
   @javax.annotation.Nonnull
