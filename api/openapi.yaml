@@ -13670,7 +13670,7 @@ components:
           addresses:
             description: A list of addresses.
             items:
-              $ref: '#/components/schemas/AddressInfo'
+              $ref: '#/components/schemas/AddressesEventData_allOf_addresses'
             type: array
         type: object
       title: Addresses Event Data
@@ -18501,6 +18501,17 @@ components:
       - address
       - amount
       type: object
+    AddressesEventData_allOf_addresses:
+      allOf:
+      - properties:
+          wallet_id:
+            description: The wallet ID.
+            example: f47ac10b-58cc-4372-a567-0e02b2c3d479
+            type: string
+        required:
+        - wallet_id
+        type: object
+      - $ref: '#/components/schemas/AddressInfo'
     EthStakingExtra_allOf_beacon_validators:
       properties:
         pubkey:
