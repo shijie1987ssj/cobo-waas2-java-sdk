@@ -53,7 +53,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.cobo.waas2</groupId>
   <artifactId>cobo-waas2</artifactId>
-  <version>1.9.0</version>
+  <version>1.9.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -69,7 +69,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.cobo.waas2:cobo-waas2:1.9.0"
+     implementation "com.cobo.waas2:cobo-waas2:1.9.1"
   }
 ```
 
@@ -97,7 +97,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/cobo-waas2-1.9.0.jar`
+* `target/cobo-waas2-1.9.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -335,6 +335,7 @@ Class | Method | HTTP request | Description
  - [AddressTransferDestinationAccountOutput](docs/AddressTransferDestinationAccountOutput.md)
  - [AddressTransferDestinationUtxoOutputsInner](docs/AddressTransferDestinationUtxoOutputsInner.md)
  - [AddressesEventData](docs/AddressesEventData.md)
+ - [AddressesEventDataAllOfAddresses](docs/AddressesEventDataAllOfAddresses.md)
  - [AmountDetailsInner](docs/AmountDetailsInner.md)
  - [AmountStatus](docs/AmountStatus.md)
  - [ApiLogDetails](docs/ApiLogDetails.md)
