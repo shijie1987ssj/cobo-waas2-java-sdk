@@ -24,6 +24,7 @@ docs/AddressTransferDestination.md
 docs/AddressTransferDestinationAccountOutput.md
 docs/AddressTransferDestinationUtxoOutputsInner.md
 docs/AddressesEventData.md
+docs/AddressesEventDataAllOfAddresses.md
 docs/AmountDetailsInner.md
 docs/AmountStatus.md
 docs/ApiLogDetails.md
@@ -434,6 +435,7 @@ src/main/java/com/cobo/waas2/model/AddressTransferDestination.java
 src/main/java/com/cobo/waas2/model/AddressTransferDestinationAccountOutput.java
 src/main/java/com/cobo/waas2/model/AddressTransferDestinationUtxoOutputsInner.java
 src/main/java/com/cobo/waas2/model/AddressesEventData.java
+src/main/java/com/cobo/waas2/model/AddressesEventDataAllOfAddresses.java
 src/main/java/com/cobo/waas2/model/AmountDetailsInner.java
 src/main/java/com/cobo/waas2/model/AmountStatus.java
 src/main/java/com/cobo/waas2/model/ApiLogDetails.java
@@ -792,6 +794,7 @@ src/test/java/com/cobo/waas2/model/AddressInfoTest.java
 src/test/java/com/cobo/waas2/model/AddressTransferDestinationAccountOutputTest.java
 src/test/java/com/cobo/waas2/model/AddressTransferDestinationTest.java
 src/test/java/com/cobo/waas2/model/AddressTransferDestinationUtxoOutputsInnerTest.java
+src/test/java/com/cobo/waas2/model/AddressesEventDataAllOfAddressesTest.java
 src/test/java/com/cobo/waas2/model/AddressesEventDataTest.java
 src/test/java/com/cobo/waas2/model/AmountDetailsInnerTest.java
 src/test/java/com/cobo/waas2/model/AmountStatusTest.java
