@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import com.cobo.waas2.model.MessageSignSourceType;
 import com.cobo.waas2.model.MpcMessageSignSource;
+import com.cobo.waas2.model.MpcSigningGroup;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -60,6 +61,14 @@ public class MessageSignSourceTest {
     @Test
     public void addressTest() {
         // TODO: test address
+    }
+
+    /**
+     * Test the property 'mpcUsedKeyShareHolderGroup'
+     */
+    @Test
+    public void mpcUsedKeyShareHolderGroupTest() {
+        // TODO: test mpcUsedKeyShareHolderGroup
     }
 
 }

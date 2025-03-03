@@ -14,6 +14,7 @@ package com.cobo.waas2.model;
 import com.cobo.waas2.model.CoboSafeDelegate;
 import com.cobo.waas2.model.ContractCallSourceType;
 import com.cobo.waas2.model.MpcContractCallSource;
+import com.cobo.waas2.model.MpcSigningGroup;
 import com.cobo.waas2.model.SafeContractCallSource;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -62,6 +63,14 @@ public class ContractCallSourceTest {
     @Test
     public void addressTest() {
         // TODO: test address
+    }
+
+    /**
+     * Test the property 'mpcUsedKeyShareHolderGroup'
+     */
+    @Test
+    public void mpcUsedKeyShareHolderGroupTest() {
+        // TODO: test mpcUsedKeyShareHolderGroup
     }
 
     /**
