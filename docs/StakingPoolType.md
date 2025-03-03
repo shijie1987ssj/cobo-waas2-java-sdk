@@ -13,5 +13,11 @@
 
 * `SKYFARM` (value: `"SkyFarm"`)
 
+* `BITHIVE` (value: `"BitHive"`)
+
+* `BERABEACON` (value: `"BERABeacon"`)
+
+* `BERACHAINBGT` (value: `"BeraChainBGT"`)
+
 
 
