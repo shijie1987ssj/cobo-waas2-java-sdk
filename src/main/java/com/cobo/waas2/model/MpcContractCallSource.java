@@ -13,6 +13,7 @@ package com.cobo.waas2.model;
 
 import java.util.Objects;
 import com.cobo.waas2.model.ContractCallSourceType;
+import com.cobo.waas2.model.MpcSigningGroup;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -65,6 +66,10 @@ public class MpcContractCallSource {
   public static final String SERIALIZED_NAME_ADDRESS = "address";
   @SerializedName(SERIALIZED_NAME_ADDRESS)
   private String address;
+
+  public static final String SERIALIZED_NAME_MPC_USED_KEY_SHARE_HOLDER_GROUP = "mpc_used_key_share_holder_group";
+  @SerializedName(SERIALIZED_NAME_MPC_USED_KEY_SHARE_HOLDER_GROUP)
+  private MpcSigningGroup mpcUsedKeyShareHolderGroup;
 
   public MpcContractCallSource() {
   }
@@ -125,6 +130,25 @@ public class MpcContractCallSource {
     this.address = address;
   }
 
+
+  public MpcContractCallSource mpcUsedKeyShareHolderGroup(MpcSigningGroup mpcUsedKeyShareHolderGroup) {
+    this.mpcUsedKeyShareHolderGroup = mpcUsedKeyShareHolderGroup;
+    return this;
+  }
+
+   /**
+   * Get mpcUsedKeyShareHolderGroup
+   * @return mpcUsedKeyShareHolderGroup
+  **/
+  @javax.annotation.Nullable
+  public MpcSigningGroup getMpcUsedKeyShareHolderGroup() {
+    return mpcUsedKeyShareHolderGroup;
+  }
+
+  public void setMpcUsedKeyShareHolderGroup(MpcSigningGroup mpcUsedKeyShareHolderGroup) {
+    this.mpcUsedKeyShareHolderGroup = mpcUsedKeyShareHolderGroup;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -182,13 +206,14 @@ public class MpcContractCallSource {
     MpcContractCallSource mpcContractCallSource = (MpcContractCallSource) o;
     return Objects.equals(this.sourceType, mpcContractCallSource.sourceType) &&
         Objects.equals(this.walletId, mpcContractCallSource.walletId) &&
-        Objects.equals(this.address, mpcContractCallSource.address)&&
+        Objects.equals(this.address, mpcContractCallSource.address) &&
+        Objects.equals(this.mpcUsedKeyShareHolderGroup, mpcContractCallSource.mpcUsedKeyShareHolderGroup)&&
         Objects.equals(this.additionalProperties, mpcContractCallSource.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sourceType, walletId, address, additionalProperties);
+    return Objects.hash(sourceType, walletId, address, mpcUsedKeyShareHolderGroup, additionalProperties);
   }
 
   @Override
@@ -198,6 +223,7 @@ public class MpcContractCallSource {
     sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
     sb.append("    walletId: ").append(toIndentedString(walletId)).append("\n");
     sb.append("    address: ").append(toIndentedString(address)).append("\n");
+    sb.append("    mpcUsedKeyShareHolderGroup: ").append(toIndentedString(mpcUsedKeyShareHolderGroup)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -224,6 +250,7 @@ public class MpcContractCallSource {
     openapiFields.add("source_type");
     openapiFields.add("wallet_id");
     openapiFields.add("address");
+    openapiFields.add("mpc_used_key_share_holder_group");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -259,6 +286,10 @@ public class MpcContractCallSource {
       }
       if (!jsonObj.get("address").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
+      }
+      // validate the optional field `mpc_used_key_share_holder_group`
+      if (jsonObj.get("mpc_used_key_share_holder_group") != null && !jsonObj.get("mpc_used_key_share_holder_group").isJsonNull()) {
+        MpcSigningGroup.validateJsonElement(jsonObj.get("mpc_used_key_share_holder_group"));
       }
   }
 

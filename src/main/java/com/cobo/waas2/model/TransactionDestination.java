@@ -197,12 +197,12 @@ public class TransactionDestination extends AbstractOpenApiSchema {
                                 deserialized = adapterTransactionMessageSignEIP712Destination.fromJsonTree(jsonObject);
                                 newTransactionDestination.setActualInstance(deserialized);
                                 return newTransactionDestination;
-                            case "EVM_Raw_Message_Signature":
-                                deserialized = adapterTransactionRawMessageSignDestination.fromJsonTree(jsonObject);
-                                newTransactionDestination.setActualInstance(deserialized);
-                                return newTransactionDestination;
                             case "ExchangeWallet":
                                 deserialized = adapterTransactionTransferToWalletDestination.fromJsonTree(jsonObject);
+                                newTransactionDestination.setActualInstance(deserialized);
+                                return newTransactionDestination;
+                            case "Raw_Message_Signature":
+                                deserialized = adapterTransactionRawMessageSignDestination.fromJsonTree(jsonObject);
                                 newTransactionDestination.setActualInstance(deserialized);
                                 return newTransactionDestination;
                             case "TransactionDepositToAddressDestination":
@@ -238,7 +238,7 @@ public class TransactionDestination extends AbstractOpenApiSchema {
                                 newTransactionDestination.setActualInstance(deserialized);
                                 return newTransactionDestination;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionDestination. Possible values: Address DepositToAddress DepositToWallet EVM_Contract EVM_EIP_191_Signature EVM_EIP_712_Signature EVM_Raw_Message_Signature ExchangeWallet TransactionDepositToAddressDestination TransactionDepositToWalletDestination TransactionEvmContractDestination TransactionMessageSignEIP191Destination TransactionMessageSignEIP712Destination TransactionRawMessageSignDestination TransactionTransferToAddressDestination TransactionTransferToWalletDestination", jsonObject.get("destination_type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for TransactionDestination. Possible values: Address DepositToAddress DepositToWallet EVM_Contract EVM_EIP_191_Signature EVM_EIP_712_Signature ExchangeWallet Raw_Message_Signature TransactionDepositToAddressDestination TransactionDepositToWalletDestination TransactionEvmContractDestination TransactionMessageSignEIP191Destination TransactionMessageSignEIP712Destination TransactionRawMessageSignDestination TransactionTransferToAddressDestination TransactionTransferToWalletDestination", jsonObject.get("destination_type").getAsString()));
                         }
                     }
 
