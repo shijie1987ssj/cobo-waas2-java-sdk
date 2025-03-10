@@ -35,7 +35,15 @@
 
 * `PENDINGAPPROVALSTART` (value: `"PendingApprovalStart"`)
 
+* `PENDINGSIGNERAPPROVAL` (value: `"PendingSignerApproval"`)
+
+* `PENDINGSIGNERPROCESSING` (value: `"PendingSignerProcessing"`)
+
+* `REJECTEDBYSIGNER` (value: `"RejectedBySigner"`)
+
 * `FAILEDBYSIGNER` (value: `"FailedBySigner"`)
+
+* `FAILEDSIGNERTIMEOUT` (value: `"FailedSignerTimeout"`)
 
 * `FAILEDBROADCASTING` (value: `"FailedBroadcasting"`)
 

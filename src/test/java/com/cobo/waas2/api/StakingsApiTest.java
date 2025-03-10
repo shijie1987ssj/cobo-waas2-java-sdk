@@ -17,12 +17,6 @@ import com.cobo.waas2.Configuration;
 import com.cobo.waas2.model.Activity;
 import com.cobo.waas2.model.ActivityStatus;
 import com.cobo.waas2.model.ActivityType;
-import com.cobo.waas2.model.BabylonAirdropRegistration;
-import com.cobo.waas2.model.BabylonStakingRegistration;
-import com.cobo.waas2.model.CreateBabylonAirdropRegistration201Response;
-import com.cobo.waas2.model.CreateBabylonAirdropRegistrationRequest;
-import com.cobo.waas2.model.CreateBabylonStakingRegistration201Response;
-import com.cobo.waas2.model.CreateBabylonStakingRegistrationRequest;
 import com.cobo.waas2.model.CreateClaimActivityRequest;
 import com.cobo.waas2.model.CreateStakeActivity201Response;
 import com.cobo.waas2.model.CreateStakeActivityRequest;
@@ -32,10 +26,6 @@ import com.cobo.waas2.model.ErrorResponse;
 import com.cobo.waas2.model.EthStakeEstimatedFee;
 import com.cobo.waas2.model.GetStakingEstimationFee201Response;
 import com.cobo.waas2.model.GetStakingEstimationFeeRequest;
-import com.cobo.waas2.model.ListBabylonAirdropRegistrations200Response;
-import com.cobo.waas2.model.ListBabylonEligibleAirdrops200Response;
-import com.cobo.waas2.model.ListBabylonEligibleStakings200Response;
-import com.cobo.waas2.model.ListBabylonStakingRegistrations200Response;
 import com.cobo.waas2.model.ListStakingActivities200Response;
 import com.cobo.waas2.model.ListStakingPools200Response;
 import com.cobo.waas2.model.ListStakings200Response;
@@ -64,9 +54,10 @@ public class StakingsApiTest {
     private final StakingsApi api = new StakingsApi();
 
     /**
-     * Create Babylon airdrop registration
+<<<<<<< Updated upstream
+     * Register for Babylon airdrop
      *
-     * Creates a new airdrop registration request.  The registration process involves: 1. Validating the address eligibility 2. Creating a registration record with unique ID 3. Initiating the async registration process 4. Returning the registration ID for status tracking  Important notes: - This is an asynchronous operation - Use the status endpoint to track the registration progress - Each address can only register once 
+     * This operation initiates a Babylon airdrop registration request.   Before calling this operation, please ensure the following: - The Bitcoin (BTC) address is eligible for the Babylon airdrop and has not been registered. You can call the [List wallets eligible for Babylon airdrop](https://www.cobo.com/developers/v2/api-references/stakings/list-wallets-eligible-for-babylon-airdrop) operation to check the registration status. - The Babylon address has enough asset to pay for the registration fee. - The Babylon address must be a Babylon address in an MPC Wallet in your organization.  The system first checks whether the provided address is eligible for the Babylon airdrop. If eligible, it creates a unique registration ID, which can be used to track the status.   The registration is processed asynchronously and may take some time to complete. It is recommended that you regularly call the [Get Babylon airdrop registration details](https://www.cobo.com/developers/v2/api-references/stakings/get-babylon-airdrop-registration-details) operation to check the status and handle registration accordingly.  For more information, refer to [Babylon&#39;s official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -78,9 +69,9 @@ public class StakingsApiTest {
     }
 
     /**
-     * Create Babylon staking registration request
+     * Register for Babylon Phase-2
      *
-     * Creates a new request to register BTC staking for babylon phase 2.  The registration process involves: 1. Validating the staking eligibility 2. Creating a registration record 3. Initiating the async registration process 4. Returning the registration ID for status tracking  Important notes: - This is an asynchronous operation - Use the status endpoint to track the registration progress 
+     * This operation initiates a Babylon Phase-2 registration request.   Before calling this operation, please ensure the following: - The staking position is eligible for the Babylon Phase-2 and has not been registered. You can call the [List staking positions eligible for Babylon Phase-2](https://www.cobo.com/developers/v2/api-references/stakings/list-eligible-staking-positions-for-babylon-phase-2) operation to check the registration status. - The Babylon address has enough asset to pay for the registration fee. - The Babylon address must be a Babylon address in an MPC Wallet in your organization.  The system first checks whether the provided address is eligible for Phase-2. If eligible, it creates a unique registration ID, which can be used to track the status.   The registration is processed asynchronously and may take some time to complete. It is recommended that you regularly call the [Get Babylon Phase-2 registration details](https://www.cobo.com/developers/v2/api-references/stakings/get-babylon-phase-2-registration-details) operation to check the status and handle registration accordingly.  For more information, refer to [Babylon&#39;s official doc](https://github.com/babylonlabs-io/babylon/tree/main/docs). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -92,6 +83,8 @@ public class StakingsApiTest {
     }
 
     /**
+=======
+>>>>>>> Stashed changes
      * Create claim activity
      *
      * This operation creates a claim request.  &lt;Note&gt;Currently, only the Ethereum Beacon protocol supports this operation.&lt;/Note&gt;  For some protocols, you can use the &#x60;fee&#x60; property in the request body to specify the maximum fee you are willing to pay. The transaction will fail if the actual fee exceeds the specified maximum fee.  
@@ -144,34 +137,6 @@ public class StakingsApiTest {
     public void createWithdrawActivityTest() throws ApiException {
         CreateWithdrawActivityRequest createWithdrawActivityRequest = null;
         CreateStakeActivity201Response response = api.createWithdrawActivity(createWithdrawActivityRequest);
-        // TODO: test validations
-    }
-
-    /**
-     * Get Babylon airdrop registration details
-     *
-     * Returns the current status and details of a specific airdrop registration.  The response includes: - Registration status (processing/completed/failed) - Source and destination addresses - Error message if failed 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getBabylonAirdropRegistrationByIdTest() throws ApiException {
-        String registrationId = null;
-        BabylonAirdropRegistration response = api.getBabylonAirdropRegistrationById(registrationId);
-        // TODO: test validations
-    }
-
-    /**
-     * Get post staking registration operation status
-     *
-     * Gets the current status of a post staking registration operation.  The status can be: - Processing: Registration transaction is being processed on-chain - Completed: Registration successfully completed - Failed: Registration failed (check error message for details)  Important notes: - Registration may take several minutes to complete - Status should be polled periodically - Once completed, the staking will be registered for post staking 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getBabylonStakingRegistrationByIdTest() throws ApiException {
-        String registrationId = null;
-        BabylonStakingRegistration response = api.getBabylonStakingRegistrationById(registrationId);
         // TODO: test validations
     }
 
@@ -242,76 +207,6 @@ public class StakingsApiTest {
     public void getStakingPoolByIdTest() throws ApiException {
         String poolId = null;
         PoolDetails response = api.getStakingPoolById(poolId);
-        // TODO: test validations
-    }
-
-    /**
-     * List Babylon airdrop registrations
-     *
-     * Returns a list of airdrop registration records.  The response includes: - Registration details and current status - Transaction information - Pagination support 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listBabylonAirdropRegistrationsTest() throws ApiException {
-        String status = null;
-        String btcAddress = null;
-        Integer limit = null;
-        String before = null;
-        String after = null;
-        ListBabylonAirdropRegistrations200Response response = api.listBabylonAirdropRegistrations(status, btcAddress, limit, before, after);
-        // TODO: test validations
-    }
-
-    /**
-     * List wallets eligible for Babylon airdrop
-     *
-     * Returns a list of wallets that are eligible for the Babylon airdrop.  Use this API to: 1. Check which wallets can post airdrop registration 2. Get estimated airdrop amounts before claiming 3. Monitor available airdrops  The response includes: - Eligibility status and criteria - Estimated airdrop amounts - Claim status and history 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listBabylonEligibleAirdropsTest() throws ApiException {
-        String status = null;
-        Integer limit = null;
-        String before = null;
-        String after = null;
-        ListBabylonEligibleAirdrops200Response response = api.listBabylonEligibleAirdrops(status, limit, before, after);
-        // TODO: test validations
-    }
-
-    /**
-     * List stakings eligible for post staking registration
-     *
-     * Returns a list of staking positions that are eligible for Babylon staking registration.  The response includes: - Staking details and current status - Babylon staking registration eligibility information  Use this API to: 1. Check which staking positions can be registered 2. Get staking details before initiating registration 3. Monitor available positions for post staking registration 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listBabylonEligibleStakingsTest() throws ApiException {
-        String status = null;
-        Integer limit = null;
-        String before = null;
-        String after = null;
-        ListBabylonEligibleStakings200Response response = api.listBabylonEligibleStakings(status, limit, before, after);
-        // TODO: test validations
-    }
-
-    /**
-     * List Babylon phase 2 staking registration requests
-     *
-     * Returns a list of babylon phase 2 staking registration request records.  The response includes: - Registration details and current status - Transaction information - Pagination support 
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void listBabylonStakingRegistrationsTest() throws ApiException {
-        String status = null;
-        String stakingId = null;
-        Integer limit = null;
-        String before = null;
-        String after = null;
-        ListBabylonStakingRegistrations200Response response = api.listBabylonStakingRegistrations(status, stakingId, limit, before, after);
         // TODO: test validations
     }
 
