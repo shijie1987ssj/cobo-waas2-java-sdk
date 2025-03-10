@@ -5895,7 +5895,7 @@ paths:
       description: "This operation initiates a Babylon Phase-2 registration request.\
         \ \n\nBefore calling this operation, please ensure the following:\n- The staking\
         \ position is eligible for the Babylon Phase-2 and has not been registered.\
-        \ You can call the [List staking positions eligible for Babylon Phase-2](https://www.cobo.com/developers/v2/api-references/stakings/list-eligible-staking-positions-for-babylon-phase-2)\
+        \ You can call the [List staking positions eligible for Babylon Phase-2](https://www.cobo.com/developers/v2/api-references/stakings/list-staking-positions-eligible-for-babylon-phase-2)\
         \ operation to check the registration status.\n- The Babylon address has enough\
         \ asset to pay for the registration fee.\n- The Babylon address must be a\
         \ Babylon address in an MPC Wallet in your organization.\n\nThe system first\
@@ -19157,7 +19157,7 @@ components:
         registration_id:
           description: "The registration ID, a unique identifier for tracking the\
             \ Babylon staking registration request. You can use it with the [Get Babylon\
-            \ staking registration details operation](https://www.cobo.com/developers/v2/api-references/stakings/get_babylon_staking_registration_details)\
+            \ staking registration details operation](https://www.cobo.com/developers/v2/api-references/stakings/get-babylon-staking-registration-details)\
             \ to check the registration status."
           example: 0011039d-27fb-49ba-b172-6e0aa80e37ec
           type: string
@@ -19271,7 +19271,7 @@ components:
         registration_id:
           description: "The registration ID, a unique identifier for tracking the\
             \ airdrop registration request. You can check the registration status\
-            \ with the [Get Babylon airdrop registration details](https://www.cobo.com/developers/v2/api-references/stakings/get_babylon_airdrop_registration_details)\
+            \ with the [Get Babylon airdrop registration details](https://www.cobo.com/developers/v2/api-references/stakings/get-babylon-airdrop-registration-details)\
             \ operation."
           example: f47ac10b-58cc-4372-a567-0e02b2c3d479
           type: string
