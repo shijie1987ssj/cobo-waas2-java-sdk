@@ -20,28 +20,12 @@ import com.cobo.waas2.Pair;
 import com.cobo.waas2.ProgressRequestBody;
 import com.cobo.waas2.ProgressResponseBody;
 
+import com.cobo.waas2.model.*;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
 
-import com.cobo.waas2.model.Activity;
-import com.cobo.waas2.model.ActivityStatus;
-import com.cobo.waas2.model.ActivityType;
-import com.cobo.waas2.model.CreateClaimActivityRequest;
-import com.cobo.waas2.model.CreateStakeActivity201Response;
-import com.cobo.waas2.model.CreateStakeActivityRequest;
-import com.cobo.waas2.model.CreateUnstakeActivityRequest;
-import com.cobo.waas2.model.CreateWithdrawActivityRequest;
-import com.cobo.waas2.model.ErrorResponse;
-import com.cobo.waas2.model.EthStakeEstimatedFee;
-import com.cobo.waas2.model.GetStakingEstimationFee201Response;
-import com.cobo.waas2.model.GetStakingEstimationFeeRequest;
-import com.cobo.waas2.model.ListStakingActivities200Response;
-import com.cobo.waas2.model.ListStakingPools200Response;
-import com.cobo.waas2.model.ListStakings200Response;
-import com.cobo.waas2.model.PoolDetails;
-import com.cobo.waas2.model.Stakings;
 import java.util.UUID;
 
 import java.lang.reflect.Type;
