@@ -58,7 +58,15 @@ public enum TransactionSubStatus {
   
   PENDINGAPPROVALSTART("PendingApprovalStart"),
   
+  PENDINGSIGNERAPPROVAL("PendingSignerApproval"),
+  
+  PENDINGSIGNERPROCESSING("PendingSignerProcessing"),
+  
+  REJECTEDBYSIGNER("RejectedBySigner"),
+  
   FAILEDBYSIGNER("FailedBySigner"),
+  
+  FAILEDSIGNERTIMEOUT("FailedSignerTimeout"),
   
   FAILEDBROADCASTING("FailedBroadcasting"),
   

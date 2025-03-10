@@ -22,25 +22,33 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for CreateBabylonAirdropRegistration201Response
+ * Model tests for SwapSummary
  */
-public class CreateBabylonAirdropRegistration201ResponseTest {
-    private final CreateBabylonAirdropRegistration201Response model = new CreateBabylonAirdropRegistration201Response();
+public class SwapSummaryTest {
+    private final SwapSummary model = new SwapSummary();
 
     /**
-     * Model tests for CreateBabylonAirdropRegistration201Response
+     * Model tests for SwapSummary
      */
     @Test
-    public void testCreateBabylonAirdropRegistration201Response() {
-        // TODO: test CreateBabylonAirdropRegistration201Response
+    public void testSwapSummary() {
+        // TODO: test SwapSummary
     }
 
     /**
-     * Test the property 'registrationId'
+     * Test the property 'totalUsdValue'
      */
     @Test
-    public void registrationIdTest() {
-        // TODO: test registrationId
+    public void totalUsdValueTest() {
+        // TODO: test totalUsdValue
+    }
+
+    /**
+     * Test the property 'activityCount'
+     */
+    @Test
+    public void activityCountTest() {
+        // TODO: test activityCount
     }
 
 }

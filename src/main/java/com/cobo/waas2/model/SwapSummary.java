@@ -12,17 +12,13 @@
 package com.cobo.waas2.model;
 
 import java.util.Objects;
-import com.cobo.waas2.model.Pagination;
-import com.cobo.waas2.model.SwapActivity;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,67 +45,59 @@ import java.util.Set;
 import com.cobo.waas2.JSON;
 
 /**
- * ListSwapActivities200Response
+ * SwapSummary
  */
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen", 
     comments = "Generator version: 7.6.0"
 )
-public class ListSwapActivities200Response {
-  public static final String SERIALIZED_NAME_DATA = "data";
-  @SerializedName(SERIALIZED_NAME_DATA)
-  private List<SwapActivity> data = new ArrayList<>();
+public class SwapSummary {
+  public static final String SERIALIZED_NAME_TOTAL_USD_VALUE = "total_usd_value";
+  @SerializedName(SERIALIZED_NAME_TOTAL_USD_VALUE)
+  private String totalUsdValue;
 
-  public static final String SERIALIZED_NAME_PAGINATION = "pagination";
-  @SerializedName(SERIALIZED_NAME_PAGINATION)
-  private Pagination pagination;
+  public static final String SERIALIZED_NAME_ACTIVITY_COUNT = "activity_count";
+  @SerializedName(SERIALIZED_NAME_ACTIVITY_COUNT)
+  private Integer activityCount;
 
-  public ListSwapActivities200Response() {
+  public SwapSummary() {
   }
 
-  public ListSwapActivities200Response data(List<SwapActivity> data) {
-    this.data = data;
-    return this;
-  }
-
-  public ListSwapActivities200Response addDataItem(SwapActivity dataItem) {
-    if (this.data == null) {
-      this.data = new ArrayList<>();
-    }
-    this.data.add(dataItem);
+  public SwapSummary totalUsdValue(String totalUsdValue) {
+    this.totalUsdValue = totalUsdValue;
     return this;
   }
 
    /**
-   * Get data
-   * @return data
+   * The total USD value of the swap activities, represented as a string.
+   * @return totalUsdValue
   **/
-  @javax.annotation.Nullable
-  public List<SwapActivity> getData() {
-    return data;
+  @javax.annotation.Nonnull
+  public String getTotalUsdValue() {
+    return totalUsdValue;
   }
 
-  public void setData(List<SwapActivity> data) {
-    this.data = data;
+  public void setTotalUsdValue(String totalUsdValue) {
+    this.totalUsdValue = totalUsdValue;
   }
 
 
-  public ListSwapActivities200Response pagination(Pagination pagination) {
-    this.pagination = pagination;
+  public SwapSummary activityCount(Integer activityCount) {
+    this.activityCount = activityCount;
     return this;
   }
 
    /**
-   * Get pagination
-   * @return pagination
+   * The total number of swap activities.
+   * @return activityCount
   **/
-  @javax.annotation.Nullable
-  public Pagination getPagination() {
-    return pagination;
+  @javax.annotation.Nonnull
+  public Integer getActivityCount() {
+    return activityCount;
   }
 
-  public void setPagination(Pagination pagination) {
-    this.pagination = pagination;
+  public void setActivityCount(Integer activityCount) {
+    this.activityCount = activityCount;
   }
 
   /**
@@ -125,9 +113,9 @@ public class ListSwapActivities200Response {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the ListSwapActivities200Response instance itself
+   * @return the SwapSummary instance itself
    */
-  public ListSwapActivities200Response putAdditionalProperty(String key, Object value) {
+  public SwapSummary putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -166,23 +154,23 @@ public class ListSwapActivities200Response {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListSwapActivities200Response listSwapActivities200Response = (ListSwapActivities200Response) o;
-    return Objects.equals(this.data, listSwapActivities200Response.data) &&
-        Objects.equals(this.pagination, listSwapActivities200Response.pagination)&&
-        Objects.equals(this.additionalProperties, listSwapActivities200Response.additionalProperties);
+    SwapSummary swapSummary = (SwapSummary) o;
+    return Objects.equals(this.totalUsdValue, swapSummary.totalUsdValue) &&
+        Objects.equals(this.activityCount, swapSummary.activityCount)&&
+        Objects.equals(this.additionalProperties, swapSummary.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(data, pagination, additionalProperties);
+    return Objects.hash(totalUsdValue, activityCount, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListSwapActivities200Response {\n");
-    sb.append("    data: ").append(toIndentedString(data)).append("\n");
-    sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
+    sb.append("class SwapSummary {\n");
+    sb.append("    totalUsdValue: ").append(toIndentedString(totalUsdValue)).append("\n");
+    sb.append("    activityCount: ").append(toIndentedString(activityCount)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -206,43 +194,37 @@ public class ListSwapActivities200Response {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("data");
-    openapiFields.add("pagination");
+    openapiFields.add("total_usd_value");
+    openapiFields.add("activity_count");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("total_usd_value");
+    openapiRequiredFields.add("activity_count");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ListSwapActivities200Response
+  * @throws IOException if the JSON Element is invalid with respect to SwapSummary
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!ListSwapActivities200Response.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ListSwapActivities200Response is not found in the empty JSON string", ListSwapActivities200Response.openapiRequiredFields.toString()));
+        if (!SwapSummary.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in SwapSummary is not found in the empty JSON string", SwapSummary.openapiRequiredFields.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : SwapSummary.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("data") != null && !jsonObj.get("data").isJsonNull()) {
-        JsonArray jsonArraydata = jsonObj.getAsJsonArray("data");
-        if (jsonArraydata != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("data").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `data` to be an array in the JSON string but got `%s`", jsonObj.get("data").toString()));
-          }
-
-          // validate the optional field `data` (array)
-          for (int i = 0; i < jsonArraydata.size(); i++) {
-            SwapActivity.validateJsonElement(jsonArraydata.get(i));
-          };
-        }
-      }
-      // validate the optional field `pagination`
-      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
-        Pagination.validateJsonElement(jsonObj.get("pagination"));
+      if (!jsonObj.get("total_usd_value").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `total_usd_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("total_usd_value").toString()));
       }
   }
 
@@ -250,16 +232,16 @@ public class ListSwapActivities200Response {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ListSwapActivities200Response.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ListSwapActivities200Response' and its subtypes
+       if (!SwapSummary.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'SwapSummary' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ListSwapActivities200Response> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ListSwapActivities200Response.class));
+       final TypeAdapter<SwapSummary> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(SwapSummary.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ListSwapActivities200Response>() {
+       return (TypeAdapter<T>) new TypeAdapter<SwapSummary>() {
            @Override
-           public void write(JsonWriter out, ListSwapActivities200Response value) throws IOException {
+           public void write(JsonWriter out, SwapSummary value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -289,12 +271,12 @@ public class ListSwapActivities200Response {
            }
 
            @Override
-           public ListSwapActivities200Response read(JsonReader in) throws IOException {
+           public SwapSummary read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             ListSwapActivities200Response instance = thisAdapter.fromJsonTree(jsonObj);
+             SwapSummary instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -321,18 +303,18 @@ public class ListSwapActivities200Response {
   }
 
  /**
-  * Create an instance of ListSwapActivities200Response given an JSON string
+  * Create an instance of SwapSummary given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of ListSwapActivities200Response
-  * @throws IOException if the JSON string is invalid with respect to ListSwapActivities200Response
+  * @return An instance of SwapSummary
+  * @throws IOException if the JSON string is invalid with respect to SwapSummary
   */
-  public static ListSwapActivities200Response fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, ListSwapActivities200Response.class);
+  public static SwapSummary fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SwapSummary.class);
   }
 
  /**
-  * Convert an instance of ListSwapActivities200Response to an JSON string
+  * Convert an instance of SwapSummary to an JSON string
   *
   * @return JSON string
   */
