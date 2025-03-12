@@ -194,6 +194,7 @@ docs/ListSupportedCountries200ResponseInner.md
 docs/ListSupportedTokens200Response.md
 docs/ListSwapActivities200Response.md
 docs/ListTokenBalancesForAddress200Response.md
+docs/ListTransactionApprovalDetails200Response.md
 docs/ListTransactions200Response.md
 docs/ListTssRequests200Response.md
 docs/ListUtxos200Response.md
@@ -632,6 +633,7 @@ src/main/java/com/cobo/waas2/model/ListSupportedCountries200ResponseInner.java
 src/main/java/com/cobo/waas2/model/ListSupportedTokens200Response.java
 src/main/java/com/cobo/waas2/model/ListSwapActivities200Response.java
 src/main/java/com/cobo/waas2/model/ListTokenBalancesForAddress200Response.java
+src/main/java/com/cobo/waas2/model/ListTransactionApprovalDetails200Response.java
 src/main/java/com/cobo/waas2/model/ListTransactions200Response.java
 src/main/java/com/cobo/waas2/model/ListTssRequests200Response.java
 src/main/java/com/cobo/waas2/model/ListUtxos200Response.java
@@ -1020,6 +1022,7 @@ src/test/java/com/cobo/waas2/model/ListSupportedCountries200ResponseInnerTest.ja
 src/test/java/com/cobo/waas2/model/ListSupportedTokens200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListSwapActivities200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTokenBalancesForAddress200ResponseTest.java
+src/test/java/com/cobo/waas2/model/ListTransactionApprovalDetails200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTransactions200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListTssRequests200ResponseTest.java
 src/test/java/com/cobo/waas2/model/ListUtxos200ResponseTest.java

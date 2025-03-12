@@ -4321,6 +4321,61 @@ paths:
       - Transactions
       x-accepts:
       - application/json
+  /transactions/approval_details:
+    get:
+      description: |
+        This operation retrieves approval detailed information about multi specified transaction.
+      operationId: list_transaction_approval_details
+      parameters:
+      - description: The transaction ID.
+        example: f47ac10b-58cc-4372-a567-0e02b2c3d479
+        explode: false
+        in: path
+        name: transaction_id
+        required: true
+        schema:
+          format: uuid
+          type: string
+        style: simple
+      - description: "A list of Cobo IDs, separated by comma. A Cobo ID can be used\
+          \ to track a transaction."
+        example: "20231213122855000000000000000000,20231213122955000000000000000000"
+        explode: true
+        in: query
+        name: cobo_ids
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/list_transaction_approval_details_200_response'
+          description: The information about transaction approval detail.
+        "4XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Bad request. Your request contains malformed syntax or invalid
+            parameters.
+        "5XX":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+          description: Internal server error.
+      security:
+      - CoboAuth: []
+      - OAuth2:
+        - transaction.read
+      summary: List transaction approval details
+      tags:
+      - Transactions
+      x-accepts:
+      - application/json
   /oauth/token:
     get:
       description: "<Note>This operation is only applicable to Cobo Portal App developers.\
@@ -9229,6 +9284,12 @@ components:
           schema:
             $ref: '#/components/schemas/TransactionApprovalDetail'
       description: The information about a transaction approval detail.
+    batchGetTransactionApprovalDetailResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/list_transaction_approval_details_200_response'
+      description: The information about transaction approval detail.
     createWebhookEndpointResponse:
       content:
         application/json:
@@ -11518,7 +11579,6 @@ components:
 
         Switch between the tabs to display the properties for different transaction fee models.
       required:
-      - fee_rate
       - fee_type
       - token_id
       title: UTXO (Preset)
@@ -13004,6 +13064,7 @@ components:
     TransactionApprovalDetail:
       description: The approval detail data for transaction.
       example:
+        transaction_id: aff0e1cb-15b2-4e1f-9b9d-a9133715986f
         approver:
           result: Approved
           review_threshold: 1
@@ -13064,7 +13125,23 @@ components:
             message_version: 1.0.1
             pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
           initiator: tom@gmail.com
+        cobo_id: "20231213122855000000000000000000"
+        request_id: web_send_by_user_327_1610444045047
       properties:
+        transaction_id:
+          description: The transaction ID.
+          example: aff0e1cb-15b2-4e1f-9b9d-a9133715986f
+          format: uuid
+          type: string
+        cobo_id:
+          description: "The Cobo ID, which can be used to track a transaction."
+          example: "20231213122855000000000000000000"
+          type: string
+        request_id:
+          description: The request ID that is used to track a transaction request.
+            The request ID is provided by you and must be unique within your organization.
+          example: web_send_by_user_327_1610444045047
+          type: string
         spender:
           $ref: '#/components/schemas/TransactionRoleApprovalDetail'
         approver:
@@ -17488,6 +17565,141 @@ components:
       required:
       - request_id
       - transaction_id
+      type: object
+    list_transaction_approval_details_200_response:
+      example:
+        data:
+        - transaction_id: aff0e1cb-15b2-4e1f-9b9d-a9133715986f
+          approver:
+            result: Approved
+            review_threshold: 1
+            complete_time: complete_time
+            user_details:
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            initiator: tom@gmail.com
+          address_owner:
+            result: Approved
+            review_threshold: 1
+            complete_time: complete_time
+            user_details:
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            initiator: tom@gmail.com
+          spender:
+            result: Approved
+            review_threshold: 1
+            complete_time: complete_time
+            user_details:
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            initiator: tom@gmail.com
+          cobo_id: "20231213122855000000000000000000"
+          request_id: web_send_by_user_327_1610444045047
+        - transaction_id: aff0e1cb-15b2-4e1f-9b9d-a9133715986f
+          approver:
+            result: Approved
+            review_threshold: 1
+            complete_time: complete_time
+            user_details:
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            initiator: tom@gmail.com
+          address_owner:
+            result: Approved
+            review_threshold: 1
+            complete_time: complete_time
+            user_details:
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            initiator: tom@gmail.com
+          spender:
+            result: Approved
+            review_threshold: 1
+            complete_time: complete_time
+            user_details:
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            - result: Approved
+              signature: signature
+              language: en
+              message: message
+              extra_message: extra_message
+              message_version: 1.0.1
+              pubkey: 96db1b3c68c3a3497bffb7e257a3900b0e86575c968a346a6696d1676fa8c5a6431b46c867134bd5fb8a9b5f787fa0c534d7c7664f1e52c432ce64326cc4cc1d
+            initiator: tom@gmail.com
+          cobo_id: "20231213122855000000000000000000"
+          request_id: web_send_by_user_327_1610444045047
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/TransactionApprovalDetail'
+          type: array
       type: object
     get_token_2XX_response:
       example:
