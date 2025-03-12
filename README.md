@@ -258,6 +258,7 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**estimateFee**](docs/TransactionsApi.md#estimateFee) | **POST** /transactions/estimate_fee | Estimate transaction fee
 *TransactionsApi* | [**getTransactionApprovalDetail**](docs/TransactionsApi.md#getTransactionApprovalDetail) | **GET** /transactions/{transaction_id}/approval_detail | Get transaction approval details
 *TransactionsApi* | [**getTransactionById**](docs/TransactionsApi.md#getTransactionById) | **GET** /transactions/{transaction_id} | Get transaction information
+*TransactionsApi* | [**listTransactionApprovalDetails**](docs/TransactionsApi.md#listTransactionApprovalDetails) | **GET** /transactions/approval_details | List transaction approval details
 *TransactionsApi* | [**listTransactions**](docs/TransactionsApi.md#listTransactions) | **GET** /transactions | List all transactions
 *TransactionsApi* | [**resendTransactionById**](docs/TransactionsApi.md#resendTransactionById) | **POST** /transactions/{transaction_id}/resend | Resend transaction
 *TransactionsApi* | [**signAndBroadcastTransactionById**](docs/TransactionsApi.md#signAndBroadcastTransactionById) | **POST** /transactions/{transaction_id}/sign_and_broadcast | Sign and broadcast transaction
@@ -501,6 +502,7 @@ Class | Method | HTTP request | Description
  - [ListSupportedTokens200Response](docs/ListSupportedTokens200Response.md)
  - [ListSwapActivities200Response](docs/ListSwapActivities200Response.md)
  - [ListTokenBalancesForAddress200Response](docs/ListTokenBalancesForAddress200Response.md)
+ - [ListTransactionApprovalDetails200Response](docs/ListTransactionApprovalDetails200Response.md)
  - [ListTransactions200Response](docs/ListTransactions200Response.md)
  - [ListTssRequests200Response](docs/ListTssRequests200Response.md)
  - [ListUtxos200Response](docs/ListUtxos200Response.md)
